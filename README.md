@@ -9,7 +9,7 @@
   <img src="https://img.shields.io/badge/Desktop-KDE%20Plasma-1d99f3.svg" alt="Desktop"/>
   <img src="https://img.shields.io/badge/Kernel-Zen-blueviolet.svg" alt="Kernel"/>
   <img src="https://img.shields.io/badge/Status-Alpha-orange.svg" alt="Status"/>
-  <img src="https://img.shields.io/badge/Version-v0.1.0--alpha-purple.svg" alt="Version"/>
+  <img src="https://img.shields.io/badge/Version-v0.4.0--alpha-purple.svg" alt="Version"/>
 </p>
 
 ---
@@ -188,7 +188,7 @@ What works today:
 - [x] System-wide install — nog at `/usr/local/bin/nog`
 - [x] GrubForge — GRUB manager included and pinned to Tier 2
 - [x] KognogOS logo
-- [ ] nog update — properly exclude Tier 1 via pacman --ignore flags
+- [x] nog update — properly exclude Tier 1 via pacman --ignore flags
 - [ ] nog pin — persist tier changes to tier-pins.toml
 - [ ] Calamares installer — five profiles: Minimal, Desktop, Developer, Gamer, Full
 - [ ] ISO build pipeline
@@ -199,6 +199,13 @@ What works today:
 ---
 
 ## Changelog
+
+### v0.4.0-alpha — April 5, 2026
+**nog update — Tier 1 properly excluded**
+- `nog update` now passes Tier 1 packages to pacman via `--ignore` flags
+- Tier 1 packages are genuinely untouchable during a system upgrade
+- Previously they were listed as held but pacman could still update them
+- Confirmed: system upgraded 14 packages, zero Tier 1 packages touched
 
 ### v0.3.0-alpha — April 4, 2026
 **nog search + system install + GrubForge + Logo**
