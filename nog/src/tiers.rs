@@ -1,5 +1,6 @@
 use serde::Deserialize;
 use std::fs;
+use std::path::Path;
 
 #[derive(Debug, Deserialize)]
 struct TierConfig {
@@ -74,4 +75,61 @@ impl TierManager {
     pub fn tier1_packages(&self) -> Vec<String> {
         self.pins.tier1.packages.clone().unwrap_or_default()
     }
+}
+
+pub fn pin_package(path: &str, package: &str, tier: u8) -> Result<(), String> {
+    let contents = fs::read_to_string(path)
+        .map_err(|e| format!("Could not read {}: {}", path, e))?;
+
+    // Remove the package from all tiers first
+    let mut lines: Vec<String> = contents
+        .lines()
+        .filter(|line| {
+            let trimmed = line.trim();
+            trimmed != format!("\"{}\"", package).as_str()
+                && trimmed != format!("\"{}\",", package).as_str()
+        })
+        .map(|l| l.to_string())
+        .collect();
+
+    // Find the right tier section and add the package
+    // Tier 3 is the default — just removing from other tiers is enough
+    if tier == 3 {
+        let new_contents = lines.join("\n") + "\n";
+        fs::write(path, new_contents)
+            .map_err(|e| format!("Could not write {}: {}", path, e))?;
+        return Ok(());
+    }
+
+    // Find the right tier section and add the package
+    let section = match tier {
+        1 => "[tier1]",
+        2 => "[tier2]",
+        _ => return Err(format!("Invalid tier: {}. Must be 1, 2, or 3.", tier)),
+    };
+
+    // Find the packages = [ line within the correct section
+    let mut in_section = false;
+    let mut inserted = false;
+    for i in 0..lines.len() {
+        if lines[i].trim() == section {
+            in_section = true;
+        }
+        if in_section && lines[i].trim().starts_with("packages") && lines[i].contains('[') {
+            lines.insert(i + 1, format!("    \"{}\",", package));
+            inserted = true;
+            break;
+        }
+    }
+
+    if !inserted {
+        return Err(format!("Could not find packages list for tier {}", tier));
+    }
+
+    // Write back
+    let new_contents = lines.join("\n") + "\n";
+    fs::write(path, new_contents)
+        .map_err(|e| format!("Could not write {}: {}", path, e))?;
+
+    Ok(())
 }

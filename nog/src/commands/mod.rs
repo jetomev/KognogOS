@@ -115,10 +115,20 @@ pub fn search(query: &str) {
 }
 
 pub fn pin(package: &str, tier: u8) {
-    println!(
-        "nog: pinning '{}' to tier {} — edit config/tier-pins.toml to make this permanent.",
-        package, tier
-    );
+    let cfg = load_config();
+    let current = load_tiers().classify(package);
+    println!("nog: pinning '{}' to tier {} (currently {})...", package, tier, current);
+
+    match crate::tiers::pin_package(&cfg.paths.tier_pins, package, tier) {
+        Ok(()) => println!(
+            "nog: '{}' successfully pinned to tier {}. Change saved to {}.",
+            package, tier, cfg.paths.tier_pins
+        ),
+        Err(e) => {
+            eprintln!("nog: failed to pin '{}': {}", package, e);
+            std::process::exit(1);
+        }
+    }
 }
 
 pub fn unlock(package: &str, promote: bool) {
