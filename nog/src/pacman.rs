@@ -25,6 +25,14 @@ pub fn update() -> ExitStatus {
     run(&["-Syu"])
 }
 
+pub fn update_excluding(excluded: &[String]) -> ExitStatus {
+    if excluded.is_empty() {
+        return run(&["-Syu"]);
+    }
+    let ignore_list = excluded.join(",");
+    run(&["-Syu", "--ignore", &ignore_list])
+}
+
 pub fn search(query: &str) -> ExitStatus {
     run(&["-Ss", query])
 }

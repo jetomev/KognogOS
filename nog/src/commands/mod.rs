@@ -62,7 +62,7 @@ pub fn update() {
     }
 
     println!("nog: running update (Tier 1 packages excluded)...\n");
-    let status = pacman::update();
+    let status = pacman::update_excluding(&tier1_pkgs);
     if !status.success() {
         eprintln!("nog: pacman exited with status {}", status);
         std::process::exit(status.code().unwrap_or(1));
