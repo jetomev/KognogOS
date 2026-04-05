@@ -9,7 +9,7 @@
   <img src="https://img.shields.io/badge/Desktop-KDE%20Plasma-1d99f3.svg" alt="Desktop"/>
   <img src="https://img.shields.io/badge/Kernel-Zen-blueviolet.svg" alt="Kernel"/>
   <img src="https://img.shields.io/badge/Status-Alpha-orange.svg" alt="Status"/>
-  <img src="https://img.shields.io/badge/Version-v0.4.0--alpha-purple.svg" alt="Version"/>
+  <img src="https://img.shields.io/badge/Version-v0.5.0--alpha-purple.svg" alt="Version"/>
 </p>
 
 ---
@@ -189,7 +189,7 @@ What works today:
 - [x] GrubForge — GRUB manager included and pinned to Tier 2
 - [x] KognogOS logo
 - [x] nog update — properly exclude Tier 1 via pacman --ignore flags
-- [ ] nog pin — persist tier changes to tier-pins.toml
+- [x] nog pin — persist tier changes to tier-pins.toml
 - [ ] Calamares installer — five profiles: Minimal, Desktop, Developer, Gamer, Full
 - [ ] ISO build pipeline
 - [ ] Custom package repository
@@ -199,6 +199,13 @@ What works today:
 ---
 
 ## Changelog
+
+### v0.5.0-alpha — April 5, 2026
+**nog pin — tier changes persist to tier-pins.toml**
+- `nog pin <package> --tier=<1|2|3>` now writes changes directly to `/etc/nog/tier-pins.toml`
+- Pinning to Tier 1 or 2 adds the package to the correct section
+- Pinning to Tier 3 removes it from Tier 1/2 — Tier 3 is the default, no entry needed
+- Changes survive reboots and are immediately reflected in `nog search` tier annotations
 
 ### v0.4.0-alpha — April 5, 2026
 **nog update — Tier 1 properly excluded**
