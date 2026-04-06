@@ -9,7 +9,7 @@
   <img src="https://img.shields.io/badge/Desktop-KDE%20Plasma-1d99f3.svg" alt="Desktop"/>
   <img src="https://img.shields.io/badge/Kernel-Zen-blueviolet.svg" alt="Kernel"/>
   <img src="https://img.shields.io/badge/Status-Alpha-orange.svg" alt="Status"/>
-  <img src="https://img.shields.io/badge/Version-v0.5.0--alpha-purple.svg" alt="Version"/>
+  <img src="https://img.shields.io/badge/Version-v0.6.0--alpha-purple.svg" alt="Version"/>
 </p>
 
 ---
@@ -153,6 +153,8 @@ KognogOS/
 |-- config/
 |   |-- nog.conf                 # nog system configuration
 |   |-- tier-pins.toml           # Tier 1/2/3 package assignments
+|   |-- dependencies.toml        # Full KognogOS package manifest
+|   |-- sysinfo.py               # Terminal welcome box script
 |-- logo/
 |   |-- logo.png                 # Light background version
 |   |-- logo-transparent.png     # Transparent background version
@@ -169,13 +171,14 @@ KognogOS is in **active early development**. The core package manager is working
 
 What works today:
 - `nog install` — installs packages with full tier enforcement
-- `nog update` — system upgrade with Tier 1 packages held
+- `nog update` — system upgrade with Tier 1 packages genuinely excluded
 - `nog search` — package search with color-coded tier annotations
-- `nog pin` — tier assignment (runtime)
+- `nog pin` — tier assignment persisted to tier-pins.toml
 - `nog unlock` — manual Tier 1 promotion
 - `nog remove` — package removal
 - System-wide install at `/usr/local/bin/nog`
 - GrubForge included and pinned to Tier 2
+- Terminal welcome box with live system info and tier notifications
 
 ---
 
@@ -190,6 +193,7 @@ What works today:
 - [x] KognogOS logo
 - [x] nog update — properly exclude Tier 1 via pacman --ignore flags
 - [x] nog pin — persist tier changes to tier-pins.toml
+- [x] Terminal welcome box with tier notifications
 - [ ] Calamares installer — five profiles: Minimal, Desktop, Developer, Gamer, Full
 - [ ] ISO build pipeline
 - [ ] Custom package repository
@@ -199,6 +203,17 @@ What works today:
 ---
 
 ## Changelog
+
+### v0.6.0-alpha — April 5, 2026
+**Terminal Welcome Box**
+- KognogOS branded terminal welcome box on every new session
+- Shows OS, Kernel, Desktop, CPU, GPU, Uptime and resource bars
+- Live weather via Open-Meteo API
+- Tier notifications — only shown when action is needed:
+  - Tier 1 packages ready for manual sign-off shown in red
+  - Tier 2 packages ready to install shown in green
+- Welcome message with user name
+- Built with Python + Rich, Catppuccin Mocha colors throughout
 
 ### v0.5.0-alpha — April 5, 2026
 **nog pin — tier changes persist to tier-pins.toml**
