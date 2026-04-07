@@ -9,7 +9,7 @@
   <img src="https://img.shields.io/badge/Desktop-KDE%20Plasma-1d99f3.svg" alt="Desktop"/>
   <img src="https://img.shields.io/badge/Kernel-Zen-blueviolet.svg" alt="Kernel"/>
   <img src="https://img.shields.io/badge/Status-Alpha-orange.svg" alt="Status"/>
-  <img src="https://img.shields.io/badge/Version-v0.6.0--alpha-purple.svg" alt="Version"/>
+  <img src="https://img.shields.io/badge/Version-v0.7.1--alpha-purple.svg" alt="Version"/>
 </p>
 
 ---
@@ -63,6 +63,17 @@ Everything else. A minimal 3-day hold applies, then updates flow through automat
 ## nog — The Package Manager
 
 `nog` is KognogOS's custom package manager, written in Rust. It wraps `pacman` with tier-awareness, giving you a familiar interface with intelligent update management underneath.
+
+### Installation
+
+nog is available on the Arch User Repository:
+[https://aur.archlinux.org/packages/nog](https://aur.archlinux.org/packages/nog)
+
+```bash
+yay -S nog
+```
+
+On a fresh KognogOS install, nog comes pre-installed with sensible default tier assignments already configured in `/etc/nog/tier-pins.toml`.
 
 ### Usage
 
@@ -159,6 +170,7 @@ KognogOS/
 |   |-- logo.png                 # Light background version
 |   |-- logo-transparent.png     # Transparent background version
 |   |-- logo-black-bckg.png      # Black background version
+|-- nog.1                        # nog man page
 |-- bootstrap/                   # Future: OS bootstrapper scripts
 |-- docs/                        # Future: documentation
 ```
@@ -194,15 +206,23 @@ What works today:
 - [x] nog update — properly exclude Tier 1 via pacman --ignore flags
 - [x] nog pin — persist tier changes to tier-pins.toml
 - [x] Terminal welcome box with tier notifications
+- [x] nog AUR package
 - [ ] Calamares installer — five profiles: Minimal, Desktop, Developer, Gamer, Full
 - [ ] ISO build pipeline
 - [ ] Custom package repository
-- [ ] nog AUR package
 - [ ] Full independent distribution
 
 ---
 
 ## Changelog
+
+### v0.7.1-alpha — April 7, 2026
+**nog AUR package + man page**
+- `nog` is now available on the AUR — install with `yay -S nog`
+- Man page added — `nog.1` installed to `/usr/share/man/man1/`
+- nog version bumped to 0.6.0 to match project version
+- Version now reads from `CARGO_PKG_VERSION` — no more hardcoded strings
+- PKGBUILD installs binary, config files, license, and man page
 
 ### v0.6.0-alpha — April 5, 2026
 **Terminal Welcome Box**
