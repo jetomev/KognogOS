@@ -9,7 +9,7 @@ use clap::{Parser, Subcommand};
 #[command(
     name = "nog",
     about = "Kognog OS package manager",
-    version = "0.1.0",
+    version = env!("CARGO_PKG_VERSION"),
     long_about = "nog wraps pacman with tier-aware update management for Kognog OS."
 )]
 struct Cli {
