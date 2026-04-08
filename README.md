@@ -141,10 +141,12 @@ GrubForge is also available standalone on the AUR:
 | Display Manager | SDDM |
 | Package Manager | pacman + nog (custom) |
 | nog language | Rust |
-| Shell | Fish |
-| Terminal | Alacritty |
+| Shell | Fish + Tide v6 |
+| Terminal | Alacritty + AlacrittyForge |
+| Font | JetBrainsMono Nerd Font |
 | Theme | Catppuccin Mocha |
 | GRUB Manager | GrubForge |
+| Terminal Config | AlacrittyForge |
 
 ---
 
