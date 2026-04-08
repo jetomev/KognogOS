@@ -1,103 +1,88 @@
-# KognogOS — System Dependencies
-# This file documents all non-standard packages required by KognogOS tooling.
-# Used as reference for the Calamares installer profiles.
-# Install with: nog install <package>
-
-# ── nog package manager ───────────────────────────────────────────────────────
-
-[nog]
-description = "nog — KognogOS tier-aware package manager (runtime)"
-language = "rust"
-packages = [
-    "pacman-contrib",   # checkupdates — used for tier update notifications
-]
-
-[nog_build]
-description = "nog — build from source (developers only, not required for end users)"
-packages = [
-    "rust",             # Rust toolchain via rustup
-    "base-devel",       # build tools
-]
-
-# ── Terminal welcome box (sysinfo.py) ─────────────────────────────────────────
-
-[sysinfo]
-description = "Terminal welcome box — system info + tier notifications"
-language = "python"
-packages = [
-    "python-rich",      # terminal styling and layout
-    "python-psutil",    # CPU, memory, disk stats
-]
-
-# ── Default shell and terminal ────────────────────────────────────────────────
-
-[shell]
-description = "Default shell and terminal emulator"
-packages = [
-    "fish",                       # default shell
-    "alacritty",                  # default terminal emulator
-    "alacrittyforge",             # Alacritty TUI configurator (AUR)
-    "ttf-jetbrains-mono-nerd",    # default terminal font
-    "fzf",                        # fuzzy finder (required by fzf.fish)
-]
-
-[shell_config]
-description = "KognogOS default terminal configuration files"
-files = [
-    "config/alacritty.toml       → ~/.config/alacritty/alacritty.toml",
-    "config/config.fish          → ~/.config/fish/config.fish",
-    "config/fish_greeting.fish   → ~/.config/fish/functions/fish_greeting.fish",
-    "config/sysinfo.py           → ~/.config/fish/sysinfo.py",
-    "config/tide_config.fish     → run once after fisher install to configure prompt",
-]
-
-[fish_plugins]
-description = "Fish shell plugins — installed via fisher"
-manager = "fisher"
-plugins = [
-    "jorgebucaran/fisher",          # Fish plugin manager
-    "ilancosman/tide@v6",           # prompt theme
-    "jorgebucaran/autopair.fish",   # auto-closing brackets
-    "patrickf1/fzf.fish",           # fuzzy finder integration
-    "meaningful-ooo/sponge",        # clean failed commands from history
-    "catppuccin/fish",              # Catppuccin Mocha color theme
-]
-
-# ── System tools ──────────────────────────────────────────────────────────────
-
-[system_tools]
-description = "Pre-installed system utilities"
-packages = [
-    "btop",             # system monitor
-    "grubforge",        # GRUB TUI manager (AUR)
-    "alacrittyforge",   # Alacritty TUI configurator (AUR)
-    "fresh",            # recommended terminal editor (AUR)
-]
-
-# ── Desktop environment ───────────────────────────────────────────────────────
-
-[desktop]
-description = "KDE Plasma desktop stack"
-packages = [
-    "plasma-meta",
-    "plasma-desktop",
-    "sddm",
-    "pipewire",
-    "pipewire-pulse",
-    "wireplumber",
-    "networkmanager",
-    "dolphin",
-    "konsole",
-    "kate",
-    "spectacle",
-    "ark",
-]
-
 # ── Office and productivity ───────────────────────────────────────────────────
-
 [productivity]
 description = "Office suite and productivity apps"
 packages = [
     "onlyoffice-bin",   # office suite (AUR)
     "obsidian",         # note taking (AUR)
-    "thunderbir
+    "thunderbird",      # email client
+    "okular",           # document viewer
+]
+
+# ── Media ─────────────────────────────────────────────────────────────────────
+[media]
+description = "Media players and editors"
+packages = [
+    "vlc",              # video player
+    "elisa",            # music player
+    "gimp",             # image editor
+    "pinta",            # simple image editor
+]
+
+# ── Browser ───────────────────────────────────────────────────────────────────
+[browser]
+description = "Default web browser"
+packages = [
+    "brave-bin",        # default browser (AUR)
+]
+
+# ── Communication ─────────────────────────────────────────────────────────────
+[communication]
+description = "Communication apps"
+packages = [
+    "discord",          # voice and text chat
+    "telegram-desktop", # messaging
+]
+
+# ── Development ───────────────────────────────────────────────────────────────
+[development]
+description = "Developer tools and languages"
+packages = [
+    "base-devel",                 # build tools
+    "rust",                       # Rust toolchain via rustup
+    "python",                     # Python 3
+    "python-pip",                 # Python package manager
+    "visual-studio-code-bin",     # VS Code (AUR)
+    "git",                        # version control
+]
+
+# ── Gaming ────────────────────────────────────────────────────────────────────
+[gaming]
+description = "Gaming stack"
+packages = [
+    "steam",                      # Steam client
+    "lutris",                     # game launcher
+    "heroic-games-launcher-bin",  # Epic/GOG launcher (AUR)
+    "wine",                       # Windows compatibility
+    "proton-ge-custom-bin",       # GE-Proton (AUR)
+    "retroarch",                  # emulation frontend
+    "lib32-mesa",                 # 32-bit graphics
+    "lib32-nvidia-utils",         # Nvidia 32-bit (if Nvidia)
+]
+
+# ── Drivers ───────────────────────────────────────────────────────────────────
+[drivers]
+description = "GPU drivers"
+packages = [
+    "mesa",             # AMD/Intel open source
+    "vulkan-radeon",    # AMD Vulkan
+    "nvidia",           # Nvidia proprietary (Tier 1)
+    "nvidia-utils",     # Nvidia utilities
+]
+
+# ── Wallpapers ────────────────────────────────────────────────────────────────
+[wallpapers]
+description = "KognogOS default wallpapers — used in SDDM, Calamares, and KDE"
+files = [
+    "assets/wallpapers/Kognog OS - Logo Black.png",
+    "assets/wallpapers/Kognog OS - Logo Catpuccin Mocha.png",
+    "assets/wallpapers/Kognog OS - Logo White.png",
+]
+default = "Kognog OS - Logo Catpuccin Mocha.png"
+
+# ── Web shortcuts ─────────────────────────────────────────────────────────────
+[web_shortcuts]
+description = "Web app shortcuts installed as desktop entries"
+shortcuts = [
+    "claude.ai",        # Claude AI assistant
+    "web.whatsapp.com", # WhatsApp Web
+]

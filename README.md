@@ -177,6 +177,11 @@ KognogOS/
 |   |-- logo-transparent.png     # Transparent background version
 |   |-- logo-black-bckg.png      # Black background version
 |-- nog.1                        # nog man page
+|-- assets/
+|   |-- wallpapers/
+|       |-- Kognog OS - Logo Black.png        # Dark wallpaper variant
+|       |-- Kognog OS - Logo Catpuccin Mocha.png  # Catppuccin Mocha wallpaper
+|       |-- Kognog OS - Logo White.png        # Light wallpaper variant
 |-- bootstrap/                   # Future: OS bootstrapper scripts
 |-- docs/                        # Future: documentation
 ```
