@@ -9,7 +9,7 @@
   <img src="https://img.shields.io/badge/Desktop-KDE%20Plasma-1d99f3.svg" alt="Desktop"/>
   <img src="https://img.shields.io/badge/Kernel-Zen-blueviolet.svg" alt="Kernel"/>
   <img src="https://img.shields.io/badge/Status-Alpha-orange.svg" alt="Status"/>
-  <img src="https://img.shields.io/badge/Version-v0.7.1--alpha-purple.svg" alt="Version"/>
+  <img src="https://img.shields.io/badge/Version-v0.8.0--alpha-purple.svg" alt="Version"/>
 </p>
 
 ---
@@ -165,7 +165,11 @@ KognogOS/
 |   |-- nog.conf                 # nog system configuration
 |   |-- tier-pins.toml           # Tier 1/2/3 package assignments
 |   |-- dependencies.toml        # Full KognogOS package manifest
+|   |-- alacritty.toml           # Default Alacritty terminal config
+|   |-- config.fish              # Default fish shell config
+|   |-- fish_greeting.fish       # Terminal welcome box trigger
 |   |-- sysinfo.py               # Terminal welcome box script
+|   |-- tide_config.fish         # Default tide prompt configuration
 |-- logo/
 |   |-- logo.png                 # Light background version
 |   |-- logo-transparent.png     # Transparent background version
@@ -215,6 +219,16 @@ What works today:
 ---
 
 ## Changelog
+
+### v0.8.0-alpha — April 7, 2026
+**Default terminal stack**
+- Alacritty config with Catppuccin Mocha, JetBrainsMono Nerd Font, 150x50 window
+- Fish shell config with cargo path
+- fish_greeting.fish — triggers sysinfo.py on every new terminal session
+- tide_config.fish — applies KognogOS default tide v6 prompt configuration
+- alacritty, fish, alacrittyforge pinned to Tier 2
+- ttf-jetbrains-mono-nerd added to dependencies
+- alacrittyforge added to system tools and dependencies
 
 ### v0.7.1-alpha — April 7, 2026
 **nog AUR package + man page**
