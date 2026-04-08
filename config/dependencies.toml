@@ -34,9 +34,21 @@ packages = [
 [shell]
 description = "Default shell and terminal emulator"
 packages = [
-    "fish",             # default shell
-    "alacritty",        # default terminal emulator
-    "fzf",              # fuzzy finder (required by fzf.fish)
+    "fish",                       # default shell
+    "alacritty",                  # default terminal emulator
+    "alacrittyforge",             # Alacritty TUI configurator (AUR)
+    "ttf-jetbrains-mono-nerd",    # default terminal font
+    "fzf",                        # fuzzy finder (required by fzf.fish)
+]
+
+[shell_config]
+description = "KognogOS default terminal configuration files"
+files = [
+    "config/alacritty.toml       → ~/.config/alacritty/alacritty.toml",
+    "config/config.fish          → ~/.config/fish/config.fish",
+    "config/fish_greeting.fish   → ~/.config/fish/functions/fish_greeting.fish",
+    "config/sysinfo.py           → ~/.config/fish/sysinfo.py",
+    "config/tide_config.fish     → run once after fisher install to configure prompt",
 ]
 
 [fish_plugins]
@@ -58,6 +70,7 @@ description = "Pre-installed system utilities"
 packages = [
     "btop",             # system monitor
     "grubforge",        # GRUB TUI manager (AUR)
+    "alacrittyforge",   # Alacritty TUI configurator (AUR)
     "fresh",            # recommended terminal editor (AUR)
 ]
 

@@ -32,6 +32,9 @@ packages = [
     "konsole",
     "kate",
     "grubforge",
+    "alacritty",
+    "fish",
+    "alacrittyforge",
 ]
 
 [tier3]
