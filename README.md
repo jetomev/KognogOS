@@ -210,6 +210,7 @@ What works today:
 - [x] nog update — properly exclude Tier 1 via pacman --ignore flags
 - [x] nog pin — persist tier changes to tier-pins.toml
 - [x] Terminal welcome box with tier notifications
+- [x] Default terminal stack — Alacritty, Fish, Tide, AlacrittyForge
 - [x] nog AUR package
 - [ ] Calamares installer — five profiles: Minimal, Desktop, Developer, Gamer, Full
 - [ ] ISO build pipeline
