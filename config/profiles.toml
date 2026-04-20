@@ -1,0 +1,207 @@
+# /etc/nog/profiles.toml
+#
+# KognogOS edition definitions. Calamares reads this at install time to
+# drive package selection. Each edition extends [basic] with its own adds.
+#
+# Conditional entries (microcode, hardware-specific drivers) are resolved
+# by the installer based on detected hardware.
+
+# ─────────────────────────────────────────────────────────────────────────
+# BASIC — the shared core every edition inherits
+# ─────────────────────────────────────────────────────────────────────────
+
+[basic]
+description = "Core KognogOS — what every edition includes"
+
+# Kernel + boot
+base = [
+    "linux", "linux-lts",
+    "linux-headers", "linux-lts-headers",   # required for nvidia-open-dkms
+    "linux-firmware",
+    "systemd", "glibc", "base", "base-devel",
+    "mkinitcpio", "grub", "efibootmgr",
+]
+
+# CPU microcode — installer picks one based on detected CPU
+microcode_intel = "intel-ucode"
+microcode_amd = "amd-ucode"
+
+# Display + graphics (unconditional across all editions)
+#   nvidia-open-dkms is Nvidia's recommended module for Turing (RTX 20xx)
+#   and newer. Users on pre-Turing hardware can swap to nvidia-dkms.
+graphics = [
+    "mesa", "vulkan-radeon", "vulkan-intel",
+    "vulkan-icd-loader", "vulkan-mesa-layers",
+    "nvidia-open-dkms", "nvidia-utils", "nvidia-settings",
+    "egl-wayland", "egl-gbm",                # Wayland + KDE Plasma on Nvidia
+    "libva-nvidia-driver",                   # hardware video decode
+]
+
+# KDE Plasma desktop
+desktop = [
+    "plasma-meta", "sddm",
+    "okular",       # universal PDF viewer
+]
+
+# Audio + universal media player
+audio = [
+    "pipewire", "pipewire-pulse", "pipewire-alsa",
+    "wireplumber",
+    "vlc",
+]
+
+# Network + Bluetooth
+network = [
+    "networkmanager", "networkmanager-openvpn",
+    "bluez", "bluez-utils",
+]
+
+# Terminal stack
+terminal = [
+    "alacritty", "fish",
+    "ttf-jetbrains-mono-nerd",
+    "python", "python-pip", "python-rich",   # for sysinfo.py welcome box
+]
+
+# KognogOS in-house suite
+kognog_suite = [
+    "nog", "grubforge", "alacrittyforge",
+    # "nogforge",   # coming soon
+]
+
+# AUR helper
+aur_helper = "yay"
+
+# Browsers — both shipped; user picks at first run
+browsers = ["google-chrome", "brave-bin"]
+
+# Default editor (recommended throughout KognogOS docs)
+editor = "fresh-editor-bin"
+
+# Baseline utilities
+utilities = [
+    "git", "nano", "htop",
+    "curl", "wget", "openssh",
+    "unzip", "p7zip",
+    "pacman-contrib",       # nog requires checkupdates
+    "man-pages", "man-db", "texinfo",
+    "fastfetch",
+]
+
+# Web shortcuts — installed as .desktop entries in the KDE app launcher
+web_shortcuts = ["claude.ai", "web.whatsapp.com"]
+
+# Extra pacman repositories enabled in /etc/pacman.conf
+extra_repos = ["chaotic-aur"]
+
+
+# ─────────────────────────────────────────────────────────────────────────
+# OFFICE — productivity, communication, creative, media consumption
+# ─────────────────────────────────────────────────────────────────────────
+
+[office]
+description = "KognogOS Office — productivity, communication, creative"
+extends = "basic"
+adds = [
+    # Productivity
+    "onlyoffice-bin", "obsidian",
+    "thunderbird",
+    "xournalpp",            # PDF annotation
+
+    # Media consumption (VLC is in Basic)
+    "elisa", "spotify",
+
+    # Creative
+    "gimp", "pinta",
+
+    # Communication
+    "discord", "telegram-desktop",
+
+    # Printing + scanning
+    "cups", "system-config-printer", "skanlite",
+]
+
+
+# ─────────────────────────────────────────────────────────────────────────
+# GAMING — native + Proton + Wine + retro, plus streaming
+# ─────────────────────────────────────────────────────────────────────────
+
+[gaming]
+description = "KognogOS Gaming — native Linux, Proton, Wine, retro emulation"
+extends = "basic"
+adds = [
+    # Launchers + clients
+    "steam", "lutris", "heroic-games-launcher-bin",
+
+    # Wine + Proton
+    "wine", "wine-mono", "wine-gecko", "winetricks",
+    "proton-ge-custom-bin",
+
+    # Retro
+    "retroarch", "retroarch-assets-xmb",
+
+    # 32-bit graphics for Wine / older titles
+    "lib32-mesa", "lib32-vulkan-radeon", "lib32-vulkan-intel",
+    "lib32-vulkan-icd-loader", "lib32-libva-mesa-driver",
+    "lib32-nvidia-utils",
+
+    # Performance tuning + overlays
+    "gamemode", "lib32-gamemode",
+    "mangohud", "lib32-mangohud",
+    "gamescope",
+
+    # Controllers
+    "game-devices-udev",
+
+    # Streaming / recording
+    "obs-studio",
+
+    # Voice chat during play (safe overlap with Office)
+    "discord",
+]
+
+
+# ─────────────────────────────────────────────────────────────────────────
+# DEVELOPMENT — editors, near-universal toolchains, containers, git UX
+# ─────────────────────────────────────────────────────────────────────────
+
+[development]
+description = "KognogOS Development — editors, toolchains, containers, git"
+extends = "basic"
+adds = [
+    # Editors
+    "visual-studio-code-bin", "neovim",
+
+    # Universal toolchains (Python is in Basic)
+    "rustup",               # preferred over `rust` — lets users pick toolchain
+    "nodejs", "npm",
+
+    # Git workflow
+    "github-cli", "lazygit", "git-delta",
+
+    # Containers
+    "docker", "docker-compose",
+
+    # Terminal productivity
+    "tmux",
+    "bat", "eza", "fd", "ripgrep", "fzf", "zoxide",
+    "httpie", "jq",
+
+    # Build tools (base-devel covers make/gcc)
+    "cmake", "meson", "ninja",
+
+    # Debuggers
+    "gdb", "lldb",
+]
+
+
+# ─────────────────────────────────────────────────────────────────────────
+# FULL — everything (Basic + Office + Gaming + Development)
+# ─────────────────────────────────────────────────────────────────────────
+
+[full]
+description = "KognogOS Full — Basic + Office + Gaming + Development"
+extends = "basic"
+includes = ["office", "gaming", "development"]
+# Installer merges the `adds` arrays from each included profile into a
+# deduplicated union. No separate `adds` list needed here.
