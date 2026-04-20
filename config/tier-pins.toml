@@ -27,7 +27,6 @@ packages = [
     "pipewire-pulse",
     "wireplumber",
     "networkmanager",
-    "firefox",
     "dolphin",
     "konsole",
     "kate",
