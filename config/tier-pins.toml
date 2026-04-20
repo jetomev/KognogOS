@@ -1,41 +1,119 @@
+# /etc/nog/tier-pins.toml
+#
+# KognogOS factory tier pins. Every package the distro ships gets an
+# explicit tier assignment, so a fresh install has opinionated protection
+# out of the box. Users can override any pin with `nog pin <pkg> --tier=N`.
+#
+# Hold durations are owned by /etc/nog/nog.conf (since nog v0.8.0 —
+# single source of truth). No `hold_days` field here.
+
+# ─────────────────────────────────────────────────────────────────────────
+# TIER 1 — 30-day hold. Boot-critical, kernel-adjacent, ABI-locked.
+# A bad update here can brick your machine.
+# ─────────────────────────────────────────────────────────────────────────
+
 [tier1]
-hold_days = 0
-manual_signoff = true
+# false (default): Tier 1 auto-updates after the 30-day hold window.
+# true (expert):   Tier 1 stays wholesale held until
+#                  `nog unlock <pkg> --promote` releases it.
+manual_signoff = false
 packages = [
-    "linux",
-    "linux-zen",
-    "linux-lts",
-    "linux-hardened",
-    "systemd",
-    "systemd-libs",
-    "glibc",
-    "grub",
-    "efibootmgr",
-    "mkinitcpio",
+    # Kernels (all common variants — pin is prospective if not installed)
+    "linux", "linux-lts", "linux-zen", "linux-hardened",
+
+    # Kernel headers (paired with kernels for DKMS module rebuild)
+    "linux-headers", "linux-lts-headers",
+    "linux-zen-headers", "linux-hardened-headers",
+
+    # Firmware (wifi, bluetooth, GPU microcode, etc.)
+    "linux-firmware",
+
+    # CPU microcode (boot-critical — installer picks one, pin both)
+    "intel-ucode", "amd-ucode",
+
+    # System backbone
+    "base", "base-devel",
+    "systemd", "systemd-libs", "glibc",
+
+    # Bootloader + initramfs
+    "grub", "efibootmgr", "mkinitcpio",
+
+    # Package manager itself (bad update = can't recover)
     "pacman",
+
+    # Graphics stack — mesa + all Vulkan ICDs published in lockstep
     "mesa",
+    "vulkan-radeon", "vulkan-intel", "vulkan-icd-loader",
+
+    # 32-bit graphics (ABI-locked to 64-bit mesa; Wine breaks on drift)
+    "lib32-mesa",
+    "lib32-vulkan-radeon", "lib32-vulkan-intel",
+    "lib32-vulkan-icd-loader", "lib32-libva-mesa-driver",
+
+    # Nvidia kernel modules — all variants; only the installed one is
+    # effective, the rest are prospective pins
+    "nvidia", "nvidia-lts", "nvidia-zen",
+    "nvidia-dkms",
+    "nvidia-open", "nvidia-open-lts", "nvidia-open-dkms",
+
+    # Nvidia userspace (ABI-locked to the kernel module version)
+    "nvidia-utils", "lib32-nvidia-utils",
 ]
+
+# ─────────────────────────────────────────────────────────────────────────
+# TIER 2 — 15-day hold. Desktop environment, system services, daily workflow.
+# A bad update here breaks your desktop but not your boot.
+# ─────────────────────────────────────────────────────────────────────────
 
 [tier2]
-hold_days = 10
 manual_signoff = false
 packages = [
-    "plasma-meta",
-    "plasma-desktop",
-    "sddm",
-    "pipewire",
-    "pipewire-pulse",
-    "wireplumber",
-    "networkmanager",
-    "dolphin",
-    "konsole",
-    "kate",
-    "grubforge",
-    "alacritty",
-    "fish",
-    "alacrittyforge",
+    # KDE Plasma desktop
+    "plasma-meta", "plasma-desktop", "sddm",
+    "dolphin", "konsole", "kate",
+    "okular",                           # universal PDF viewer, daily use
+
+    # Audio stack
+    "pipewire", "pipewire-pulse", "pipewire-alsa", "wireplumber",
+
+    # Network + bluetooth
+    "networkmanager", "networkmanager-openvpn",
+    "bluez", "bluez-utils",
+
+    # System scripting (many Arch build scripts + sysinfo.py depend on it)
+    "python", "python-pip",
+
+    # Wayland-on-Nvidia compositor glue
+    "egl-wayland", "egl-gbm", "libva-nvidia-driver",
+
+    # Package ecosystem + core workflow
+    "yay",                              # AUR helper
+    "pacman-contrib",                   # checkupdates (nog dependency)
+
+    # KognogOS Forge suite
+    "nog", "grubforge", "alacrittyforge",
+
+    # Default terminal stack
+    "alacritty", "fish",
+
+    # Default editor (early software, but our recommended daily driver —
+    # Tier 2 treats it like a mature default and filters out bad releases)
+    "fresh-editor-bin",
+
+    # System services users rely on daily
+    "cups",                             # print server
+    "docker", "docker-compose",         # container runtime
 ]
 
+# ─────────────────────────────────────────────────────────────────────────
+# TIER 3 — 7-day hold. Everything not listed above.
+# Fast-track. User-facing apps, media, games, dev tools, CLI utilities,
+# browsers, fonts, documentation. Security-critical software (openssh,
+# curl, etc.) intentionally lives here so security patches flow quickly.
+# ─────────────────────────────────────────────────────────────────────────
+
 [tier3]
-hold_days = 3
 manual_signoff = false
+# No package list — Tier 3 is the implicit default for anything not
+# listed in [tier1] or [tier2]. `nog pin <pkg> --tier=3` removes the
+# package from any explicit pin above rather than creating an entry.
