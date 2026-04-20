@@ -196,7 +196,7 @@ Clean repositioning release. No new distro-level capability ships, but every pie
 **New configuration surface:**
 - 📋 `config/profiles.toml` — canonical edition-definition file with five editions (Basic, Office, Gaming, Development, Full). Calamares will read this at install time.
 - 📦 `config/pacman.conf` — was a 0-byte placeholder; now ships with `core` / `extra` / `multilib` / `chaotic-aur` enabled, plus the distro's pacman tweaks (`Color`, `VerbosePkgLists`, `ILoveCandy`, `ParallelDownloads=5`)
-- 🎚 `config/tier-pins.toml` — firefox removed from Tier 2; browsers default to Tier 3
+- 🎚 `config/tier-pins.toml` — **full factory pin coverage**: every package the distro ships now has an explicit Tier 1 or Tier 2 assignment, so a fresh install has opinionated protection out of the box. Tier 1 expanded to cover `linux-firmware`, `base`/`base-devel`, all four kernel headers, CPU microcode, Vulkan ICDs, 32-bit graphics, and all seven Nvidia kernel module variants. Tier 2 expanded to cover `okular`, `bluez`, `python`, `yay`, `pacman-contrib`, `fresh-editor-bin`, `cups`, `docker`, and the Wayland-on-Nvidia glue. Legacy `hold_days` fields removed (since nog v0.8.0 these live in `nog.conf`). `manual_signoff` default flipped to `false` to match nog v0.9.0+ novice-friendly behavior. Browsers moved to Tier 3 (implicit default).
 
 **Positioning:**
 - 📖 README rewritten top-to-bottom around the new product surface
