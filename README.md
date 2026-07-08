@@ -168,16 +168,16 @@ KognogOS is in **active early development**. The package manager (`nog`) and two
 
 ## Roadmap
 
-- [x] Product surface formalized — five editions in `config/profiles.toml`
-- [x] `nog` extracted to its own stable repo + AUR package
-- [x] `pacman.conf` with chaotic-aur shipped as distro default
-- [x] Default terminal stack (Alacritty + Fish + Tide v6 + welcome box)
 - [ ] **KDE Plasma config export** — capture the active Plasma configuration (panels, widgets, shortcuts, theme) into `/etc/skel/` as the distro default
 - [ ] **Calamares installer** — five edition radio buttons; auto-detect CPU microcode + GPU generation; reads `config/profiles.toml` as source of truth
 - [ ] **ISO build pipeline** — archiso-based; unified installer ISO with edition selection
 - [ ] **`nogforge`** — finish the TUI companion for nog
 - [ ] **Custom package repository** — `repo.kognog.org` with staging / testing / stable channels
 - [ ] **First public ISO release**
+- [x] Default terminal stack (Alacritty + Fish + Tide v6 + welcome box)
+- [x] `pacman.conf` with chaotic-aur shipped as distro default
+- [x] `nog` extracted to its own stable repo + AUR package
+- [x] Product surface formalized — five editions in `config/profiles.toml`
 
 ---
 
