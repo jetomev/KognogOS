@@ -195,7 +195,11 @@ def patch_lnf_defaults():
 # Identity markers every shippable skel must carry. Verified after capture
 # so a bad export can never leave the repo silently.
 IDENTITY_CHECKS = [
-    (".config/kdeglobals", "ColorScheme=CatppuccinMochaMauve"),
+    # Plasma 6 inlines the effective color scheme into kdeglobals as
+    # [Colors:*] sections (the name lives in kdedefaults) — assert both.
+    (".config/kdeglobals", "[Colors:View]"),
+    (".config/kdeglobals", "BackgroundNormal=30, 30, 46"),  # Mocha base
+    (".config/kdedefaults/kdeglobals", "ColorScheme=CatppuccinMochaMauve"),
     (".config/kdeglobals", "LookAndFeelPackage=Catppuccin-Mocha-Mauve"),
     (".config/kdeglobals", "Theme=candy-icons"),
     (".local/share/plasma/look-and-feel/Catppuccin-Mocha-Mauve/contents/defaults",
