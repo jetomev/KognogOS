@@ -1,0 +1,7 @@
+[Daemon]
+LockGrace=5400
+Timeout=60
+
+[Greeter][Wallpaper][org.kde.image][General]
+Image=file:///usr/share/wallpapers/kognog/default.png
+PreviewImage=file:///usr/share/wallpapers/kognog/default.png

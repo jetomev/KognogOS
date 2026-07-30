@@ -1,0 +1,14 @@
+MenuBar=Disabled
+
+[Desktop Entry]
+DefaultProfile=tphome.profile
+
+[General]
+ConfigVersion=1
+
+[TabBar]
+CloseTabButton=None
+SearchTabsButton=HideSearchTabsButton
+
+[UiSettings]
+ColorScheme=

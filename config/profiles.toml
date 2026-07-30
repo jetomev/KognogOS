@@ -43,6 +43,13 @@ desktop = [
     "okular",       # universal PDF viewer
 ]
 
+# The KognogOS look — system-wide theme packages (chaotic-aur); the color
+# scheme + config ship via /etc/skel (scripts/export-plasma.py)
+theming = [
+    "candy-icons-git",              # icon theme
+    "catppuccin-cursors-mocha",     # cursor theme
+]
+
 # Audio + universal media player
 audio = [
     "pipewire", "pipewire-pulse", "pipewire-alsa",
