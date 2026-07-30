@@ -121,7 +121,7 @@ ForegroundVisited=203, 166, 247
 [General]
 AccentColor=26,75,100
 BrowserApplication=google-chrome.desktop
-ColorSchemeHash=9d38eb71ded8ff549da26d57d7cbab9164da243a
+ColorSchemeHash=1e791a601596b04821e81de9e9f6f2c50005d730
 DeviceLedsAccentColored=true
 LastUsedCustomAccentColor=26,75,100
 TerminalApplication=alacritty

@@ -192,6 +192,38 @@ def patch_lnf_defaults():
     print(f"  ~ patched LnF defaults (wallpaper + packaged cursor theme)")
 
 
+# Identity markers every shippable skel must carry. Verified after capture
+# so a bad export can never leave the repo silently.
+IDENTITY_CHECKS = [
+    (".config/kdeglobals", "ColorScheme=CatppuccinMochaMauve"),
+    (".config/kdeglobals", "LookAndFeelPackage=Catppuccin-Mocha-Mauve"),
+    (".config/kdeglobals", "Theme=candy-icons"),
+    (".local/share/plasma/look-and-feel/Catppuccin-Mocha-Mauve/contents/defaults",
+     "Image=/usr/share/wallpapers/kognog/default.png"),
+    (".local/share/plasma/look-and-feel/Catppuccin-Mocha-Mauve/metadata.json", None),
+    (".local/share/color-schemes/CatppuccinMochaMauve.colors", None),
+    (".local/share/aurorae/themes/CatppuccinMocha-Modern/metadata.json", None),
+    (".config/plasma-org.kde.plasma.desktop-appletsrc", "launchers="),
+]
+
+
+def verify_skel():
+    failures = []
+    for rel, needle in IDENTITY_CHECKS:
+        path = SKEL / rel
+        if not path.exists():
+            failures.append(f"missing: {rel}")
+        elif needle and needle not in path.read_text(errors="replace"):
+            failures.append(f"{rel}: expected `{needle}`")
+    if failures:
+        print("\n✗ IDENTITY CHECK FAILED — skel is NOT shippable:")
+        for f in failures:
+            print(f"  ✗ {f}")
+        sys.exit(1)
+    print(f"\n✓ identity check passed ({len(IDENTITY_CHECKS)} markers) — "
+          "the KognogOS face is in the skel")
+
+
 def main():
     check = "--check" in sys.argv
     warnings, captured, missing = [], [], []
@@ -245,7 +277,9 @@ def main():
         for w in warnings:
             print(f"  ⚠ {w}")
         sys.exit(2)
-    print("\nNo personal paths survive. skel/ is shippable.")
+    print("\nNo personal paths survive.")
+    if not check:
+        verify_skel()
 
 
 if __name__ == "__main__":
