@@ -102,6 +102,11 @@ REWRITES = [
     # Cursor theme: the system package's name, not the user-local copy's.
     (re.compile(r"^(cursorTheme)=Catppuccin-Mocha-Mauve-Cursors$"),
      lambda m: f"{m.group(1)}=catppuccin-mocha-mauve-cursors"),
+    # Application Launcher icon: the KognogOS tier emblem on every panel.
+    # (distributor-logo-windows was the pre-distro placeholder; either it
+    # or a hand-picked stand-in may appear across the per-screen panels.)
+    (re.compile(r"^icon=(distributor-logo-windows|applications-all)$"),
+     lambda m: "icon=/usr/share/pixmaps/kognogos.png"),
 ]
 
 
@@ -184,12 +189,18 @@ def patch_lnf_defaults():
         "cursorTheme=catppuccin-mocha-mauve-cursors",
     )
     if "[Wallpaper]" not in text:
-        text = text.rstrip() + (
-            "\n\n[Wallpaper]\n"
-            f"Image={DISTRO_WALLPAPER}\n"
-        )
+        # Wallpaper PACKAGE name (like Breeze's `Image=Next`) — Plasma does
+        # not resolve flat file paths here.
+        text = text.rstrip() + "\n\n[Wallpaper]\nImage=KognogSemi\n"
     path.write_text(text)
-    print(f"  ~ patched LnF defaults (wallpaper + packaged cursor theme)")
+    print("  ~ patched LnF defaults (wallpaper package + packaged cursor theme)")
+
+    # Fresh desktops also consult kdeglobals for the default wallpaper theme.
+    kg = SKEL / ".config/kdeglobals"
+    if kg.exists() and "[Wallpaper]" not in kg.read_text():
+        with kg.open("a") as f:
+            f.write("\n[Wallpaper]\ndefaultWallpaperTheme=KognogSemi\n")
+        print("  ~ ensured kdeglobals [Wallpaper] defaultWallpaperTheme=KognogSemi")
 
 
 # Identity markers every shippable skel must carry. Verified after capture
@@ -203,7 +214,10 @@ IDENTITY_CHECKS = [
     (".config/kdeglobals", "LookAndFeelPackage=Catppuccin-Mocha-Mauve"),
     (".config/kdeglobals", "Theme=candy-icons"),
     (".local/share/plasma/look-and-feel/Catppuccin-Mocha-Mauve/contents/defaults",
-     "Image=/usr/share/wallpapers/kognog/default.png"),
+     "Image=KognogSemi"),
+    (".config/kdeglobals", "defaultWallpaperTheme=KognogSemi"),
+    (".config/plasma-org.kde.plasma.desktop-appletsrc",
+     "icon=/usr/share/pixmaps/kognogos.png"),
     (".local/share/plasma/look-and-feel/Catppuccin-Mocha-Mauve/metadata.json", None),
     (".local/share/color-schemes/CatppuccinMochaMauve.colors", None),
     (".local/share/aurorae/themes/CatppuccinMocha-Modern/metadata.json", None),

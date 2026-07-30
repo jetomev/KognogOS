@@ -232,7 +232,7 @@ DialogWidth=810
 
 [Containments][31][Applets][57][Configuration][General]
 favoritesPortedToKAstats=true
-icon=applications-all
+icon=/usr/share/pixmaps/kognogos.png
 systemFavorites=suspend\\,hibernate\\,reboot\\,shutdown
 
 [Containments][31][General]
@@ -396,7 +396,7 @@ DialogWidth=810
 
 [Containments][58][Applets][81][Configuration][General]
 favoritesPortedToKAstats=true
-icon=distributor-logo-windows
+icon=/usr/share/pixmaps/kognogos.png
 systemFavorites=suspend\\,hibernate\\,reboot\\,shutdown
 
 [Containments][58][General]
@@ -437,7 +437,7 @@ DialogWidth=810
 
 [Containments][82][Applets][105][Configuration][General]
 favoritesPortedToKAstats=true
-icon=distributor-logo-windows
+icon=/usr/share/pixmaps/kognogos.png
 systemFavorites=suspend\\,hibernate\\,reboot\\,shutdown
 
 [Containments][82][Applets][83]

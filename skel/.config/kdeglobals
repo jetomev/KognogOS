@@ -160,3 +160,6 @@ activeForeground=205,214,244
 inactiveBackground=17,17,27
 inactiveBlend=166,173,200
 inactiveForeground=166,173,200
+
+[Wallpaper]
+defaultWallpaperTheme=KognogSemi
