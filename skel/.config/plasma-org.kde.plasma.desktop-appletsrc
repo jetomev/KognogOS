@@ -232,7 +232,7 @@ DialogWidth=810
 
 [Containments][31][Applets][57][Configuration][General]
 favoritesPortedToKAstats=true
-icon=start-here-archlinux
+icon=applications-all
 systemFavorites=suspend\\,hibernate\\,reboot\\,shutdown
 
 [Containments][31][General]

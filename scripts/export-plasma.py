@@ -71,6 +71,8 @@ MANIFEST = [
 # (kdeglobals LookAndFeelPackage=) is user-local, so it must travel.
 MANIFEST_DIRS = [
     ".local/share/plasma/look-and-feel/Catppuccin-Mocha-Mauve",
+    # Referenced by the LnF defaults (window decoration) — user-local, 136K
+    ".local/share/aurorae/themes/CatppuccinMocha-Modern",
 ]
 
 # INI sections dropped entirely (name matched case-insensitively).
@@ -97,6 +99,9 @@ REWRITES = [
     (re.compile(r"^(Wallpaper)=.*$"), lambda m: f"{m.group(1)}={DISTRO_WALLPAPER}"),
     # Slideshow mode: point at the distro wallpaper set only.
     (re.compile(r"^(SlidePaths)=.*$"), lambda m: f"{m.group(1)}=/usr/share/wallpapers/kognog/"),
+    # Cursor theme: the system package's name, not the user-local copy's.
+    (re.compile(r"^(cursorTheme)=Catppuccin-Mocha-Mauve-Cursors$"),
+     lambda m: f"{m.group(1)}=catppuccin-mocha-mauve-cursors"),
 ]
 
 
@@ -160,6 +165,33 @@ def sanitize(text, warnings, relpath, dropped_launchers):
     return "\n".join(cleaned).strip() + "\n"
 
 
+def patch_lnf_defaults():
+    """Distro-ize the LookAndFeel package's defaults after copying.
+
+    On a fresh account Plasma cannot match the shipped desktop containment
+    (it is bound to an Activity UUID that does not exist yet), so it builds
+    a new desktop from the ACTIVE LookAndFeel package's `defaults` — which
+    is therefore the authoritative place for the default wallpaper. Also
+    rewrite the cursor theme to the system package's name (the user-local
+    copy is 6.5M and identical content under a different name)."""
+    path = (SKEL / ".local/share/plasma/look-and-feel/"
+            "Catppuccin-Mocha-Mauve/contents/defaults")
+    if not path.exists():
+        return
+    text = path.read_text()
+    text = text.replace(
+        "cursorTheme=Catppuccin-Mocha-Mauve-Cursors",
+        "cursorTheme=catppuccin-mocha-mauve-cursors",
+    )
+    if "[Wallpaper]" not in text:
+        text = text.rstrip() + (
+            "\n\n[Wallpaper]\n"
+            f"Image={DISTRO_WALLPAPER}\n"
+        )
+    path.write_text(text)
+    print(f"  ~ patched LnF defaults (wallpaper + packaged cursor theme)")
+
+
 def main():
     check = "--check" in sys.argv
     warnings, captured, missing = [], [], []
@@ -191,6 +223,9 @@ def main():
         captured.append(rel + "/")
         if not check:
             shutil.copytree(src, SKEL / rel)
+
+    if not check:
+        patch_lnf_defaults()
 
     mode = "CHECK (nothing written)" if check else f"captured into {SKEL}"
     print(f"export-plasma: {len(captured)} entries {mode}")

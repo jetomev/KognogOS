@@ -2,7 +2,7 @@
 ColorScheme=CatppuccinMochaMauve
 
 [kcminputrc][Mouse]
-cursorTheme=Catppuccin-Mocha-Mauve-Cursors
+cursorTheme=catppuccin-mocha-mauve-cursors
 
 [kwinrc][org.kde.kdecoration2]
 ButtonsOnLeft=
@@ -15,3 +15,6 @@ name=default
 
 [KSplash]
 Theme=Catppuccin-Mocha-Mauve-splash
+
+[Wallpaper]
+Image=/usr/share/wallpapers/kognog/default.png
