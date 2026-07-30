@@ -38,7 +38,7 @@ packages = [
 description = "Developer tools and languages"
 packages = [
     "base-devel",                 # build tools
-    "rust",                       # Rust toolchain via rustup
+    "rustup",                     # toolchain manager (conflicts with plain rust)
     "python",                     # Python 3
     "python-pip",                 # Python package manager
     "visual-studio-code-bin",     # VS Code (AUR)
@@ -65,7 +65,7 @@ description = "GPU drivers"
 packages = [
     "mesa",             # AMD/Intel open source
     "vulkan-radeon",    # AMD Vulkan
-    "nvidia",           # Nvidia proprietary (Tier 1)
+    "nvidia-open-dkms", # Nvidia open kernel module (Arch dropped proprietary nvidia)
     "nvidia-utils",     # Nvidia utilities
 ]
 

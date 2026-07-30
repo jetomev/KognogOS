@@ -28,7 +28,7 @@ microcode_amd = "amd-ucode"
 
 # Display + graphics (unconditional across all editions)
 #   nvidia-open-dkms is Nvidia's recommended module for Turing (RTX 20xx)
-#   and newer. Users on pre-Turing hardware can swap to nvidia-dkms.
+#   and newer. Users on pre-Turing hardware can swap to nvidia-580xx-dkms from chaotic-aur (pre-Turing legacy branches live there now).
 graphics = [
     "mesa", "vulkan-radeon", "vulkan-intel",
     "vulkan-icd-loader", "vulkan-mesa-layers",
@@ -82,7 +82,7 @@ editor = "fresh-editor-bin"
 utilities = [
     "git", "nano", "htop",
     "curl", "wget", "openssh",
-    "unzip", "p7zip",
+    "unzip", "7zip",
     "pacman-contrib",       # nog requires checkupdates
     "man-pages", "man-db", "texinfo",
     "fastfetch",
@@ -142,7 +142,7 @@ adds = [
 
     # 32-bit graphics for Wine / older titles
     "lib32-mesa", "lib32-vulkan-radeon", "lib32-vulkan-intel",
-    "lib32-vulkan-icd-loader", "lib32-libva-mesa-driver",
+    "lib32-vulkan-icd-loader",
     "lib32-nvidia-utils",
 
     # Performance tuning + overlays

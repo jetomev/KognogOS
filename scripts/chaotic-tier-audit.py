@@ -71,10 +71,50 @@ def chaotic_packages():
     return [line.split()[1] for line in out.stdout.splitlines() if line.split()]
 
 
+# Kernel package names an exact-version dependency can point at. A package
+# that hard-depends on `<kernel>=<version>` is an out-of-tree kernel module:
+# it version-locks to a Tier 1 kernel, so it must hold in lockstep or the
+# split ignore list aborts the whole transaction (the 2026-07-30 dep-chain
+# audit found dahdi-linux-git and wanpipe doing exactly this).
+KERNEL_NAMES = re.compile(
+    r"^linux(-lts|-zen|-hardened|-rt|-rt-lts)?$"
+)
+
+
+def kernel_module_packages():
+    """Packages in chaotic-aur with an exact-version dep on a kernel."""
+    out = subprocess.run(
+        ["bsdtar", "-xOf", "/var/lib/pacman/sync/chaotic-aur.db"],
+        capture_output=True, text=True, errors="replace",
+    )
+    if out.returncode != 0:
+        print("chaotic-tier-audit: warning — could not read chaotic-aur.db; "
+              "skipping the kernel-module dependency rule", file=sys.stderr)
+        return set()
+    found, name, field = set(), None, None
+    for line in out.stdout.splitlines():
+        line = line.strip()
+        if line.startswith("%") and line.endswith("%"):
+            field = line
+        elif not line:
+            field = None
+        elif field == "%NAME%":
+            name = line
+        elif field == "%DEPENDS%" and "=" in line and name:
+            dep = line.split("=", 1)[0]
+            if KERNEL_NAMES.match(dep):
+                found.add(name)
+    return found
+
+
 def classify(packages):
     """Return {rule: [pkg, ...]} for Tier 1, plus review notes."""
     tier1, notes = {}, []
+    kmods = kernel_module_packages()
     for pkg in packages:
+        if pkg in kmods:
+            tier1.setdefault("kernel-module", []).append(pkg)
+            continue
         if pkg in LINUX_APPS:
             continue
         if pkg.endswith("-headers"):
@@ -121,6 +161,7 @@ def render_block(tier1):
     lines.append("    # pinned here rides Tier 3's 7-day hold). Do not hand-edit this")
     lines.append("    # block — rerun the audit script and commit the diff.")
     rule_titles = {
+        "kernel-module": "Out-of-tree kernel modules (exact-version dep on a Tier 1 kernel)",
         "kernel": "Chaotic kernels (-headers auto-couple)",
         "firmware": "Chaotic firmware variants",
         "mesa-git": "Chaotic mesa builds (lib32 auto-couples)",
@@ -130,7 +171,7 @@ def render_block(tier1):
         "zfs": "ZFS kernel modules + lockstep tools",
         "boot-writer": "Boot-entry writers",
     }
-    for rule, _ in TIER1_PATTERNS:
+    for rule in ["kernel-module"] + [r for r, _ in TIER1_PATTERNS]:
         pkgs = sorted(tier1.get(rule, []))
         if not pkgs:
             continue

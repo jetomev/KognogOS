@@ -182,9 +182,10 @@ KognogOS follows an **annual release cadence, on purpose**. This is a two-person
 
 The road to v1.0 (target: **April 2027**), phased in the same discipline as every Kognog project:
 
-- [ ] **Phase 1 — KDE Plasma config export** — capture the active Plasma configuration (panels, widgets, shortcuts, theme) into `/etc/skel/` as the distro default
-- [ ] **Phase 2 — First bootable ISO** — archiso profile: live Plasma session, branding, terminal stack, nog + Forge preinstalled. No installer yet — the "it boots!" milestone
-- [ ] **Phase 3 — `installforge`** — the Forge-style TUI installer (own repo + AUR): edition picker reading `config/profiles.toml`, guided disk setup, user creation, post-install proprietary fetch with consent
+- [ ] **Phase 1 — KDE Plasma config export** — a reusable capture script (live config → `/etc/skel/`, personal residue stripped by rule). Panel layout: the single bottom bar. The final look (wallpapers, polish pass) is deliberately frozen **late** — just before release, from Balih's wallpapers
+- [ ] **Phase 2 — First bootable ISO** — archiso profile: live Plasma session, branding, terminal stack, nog + Forge preinstalled. No installer yet — the "it boots!" milestone. Includes the **display-manager decision**: SDDM is not locked in — evaluate alternatives (greetd family, Ly) vs. a custom forgekit-inspired SDDM theme
+- [ ] **Phase 3 — `installforge`** — the Forge-style TUI installer (own repo + AUR): edition picker reading `config/profiles.toml`, guided disk setup, user creation. **App-selection flow (decided 2026-07-30):** each edition shows its recommended package list; proprietary apps are marked and de-selectable; de-selecting one offers a curated free/open-source replacement to pick instead (e.g. Chrome → Firefox, VS Code → `code`). The **Development edition** additionally shows a pre-install notice recommending a review of the tier pins against the user's toolchain needs
+- [ ] **Tier reference guide** — a plain-language manual for the tier system: what each tier means, how to read and hand-edit `tier-pins.toml`, `nog pin`/`unlock` recipes, and worked examples (ships in the repo + as a page on the project site)
 - [ ] **Phase 4 — Dogfood + validation** — VM matrix first, then the wipe-and-rebuild method: install a real machine from the ISO alone until a zero-deviation run
 - [ ] **Phase 5 — Release kit** — ISO hosting (SourceForge for the image, GitHub for source — GitHub Releases caps files at 2 GiB), checksums + signature, project site on GitHub Pages
 - [ ] **Phase 6 — v1.0 public release** — GitHub Release → project page → community announcements → DistroWatch submission (their queue takes months; the annual cadence shrugs)
