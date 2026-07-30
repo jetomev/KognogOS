@@ -153,31 +153,53 @@ KognogOS/
 
 ## Current State
 
-KognogOS is in **active early development**. The package manager (`nog`) and two of the four Forge tools (`grubforge`, `alacrittyforge`) are shipping to the AUR. The edition model is defined in `config/profiles.toml`. The installer, custom repository, and ISO pipeline are next.
+KognogOS is in **active early development**, on the road to a **v1.0 public ISO targeted for April 2027** — the project's origin week, two years after the wish that started it ("create an installer of my arch linux setup", 2025-04-19).
 
 **What's solid today:**
-- `nog` v1.0.2 stable on AUR — tier-aware updates, AUR integration, documented privilege model, full dogfood pass
-- `grubforge` shipping on AUR — full TUI for GRUB management
-- `alacrittyforge` shipping — terminal configurator
+- `nog` v1.0.8 stable on AUR — tier-aware updates, AUR integration, lib32/base hold coupling, tabled update reports, CSV run logging, documented privilege model, dogfooded on every release
+- The Forge suite shipping on AUR — `grubforge` (GRUB TUI), `alacrittyforge` (terminal configurator), `bitlaforge` (solo-mining TUI), with `forgekit` as the shared v2 UI library
 - Five-edition product surface formalized in `config/profiles.toml`
 - Default terminal stack: Alacritty + Fish + Tide v6 + KognogOS welcome box
-- Full `pacman.conf` shipped with chaotic-aur enabled
+- Full `pacman.conf` shipped as distro default
 - Wallpaper set: ten wallpapers across Arch + Semi variants
+
+**First release scope (decided 2026-07-30):** KognogOS **Semi** only — the tier-aware semi-rolling flagship — with all five editions selectable at install time. The "Arch" brand variant is reserved for a future year. The installer will be **`installforge`**, a Forge-style TUI (own repo + AUR package, like its siblings) that reads `config/profiles.toml`, and fetches proprietary edition apps (browsers, Spotify, Discord, Steam, …) **post-install with user consent** — they are never redistributed inside the ISO.
+
+---
+
+## Release model — one ISO a year
+
+KognogOS follows an **annual release cadence, on purpose**. This is a two-person project (one human, one AI), and the honest way to run it:
+
+- **Year-round**, the work goes into `nog` and the Forge suite — updates, fixes, new Forge apps. That's where the daily energy lives, and every improvement lands on existing installs immediately through normal updates (this is still a semi-rolling Arch system — the ISO is an installer snapshot, not a feature gate).
+- **Once a year**, the accumulated year of work crystallizes into a new ISO release.
+- **Feedback** has a single door: [GitHub Issues](https://github.com/jetomev/kognog/issues). Distro-level findings batch into the next annual ISO (the same findings-batch discipline used across the Forge suite). The only out-of-band trigger is a critical or security-relevant installer bug, which gets an ISO respin.
+- **Horizon:** this is a 3–5 year project and that's fine. By the time it's "done," the Forge library will be deep and the distro will be genuinely fun.
 
 ---
 
 ## Roadmap
 
-- [ ] **KDE Plasma config export** — capture the active Plasma configuration (panels, widgets, shortcuts, theme) into `/etc/skel/` as the distro default
-- [ ] **Calamares installer** — five edition radio buttons; auto-detect CPU microcode + GPU generation; reads `config/profiles.toml` as source of truth
-- [ ] **ISO build pipeline** — archiso-based; unified installer ISO with edition selection
-- [ ] **`nogforge`** — finish the TUI companion for nog
-- [ ] **Custom package repository** — `repo.kognog.org` with staging / testing / stable channels
-- [ ] **First public ISO release**
-- [x] Default terminal stack (Alacritty + Fish + Tide v6 + welcome box)
-- [x] `pacman.conf` with chaotic-aur shipped as distro default
-- [x] `nog` extracted to its own stable repo + AUR package
+The road to v1.0 (target: **April 2027**), phased in the same discipline as every Kognog project:
+
+- [ ] **Phase 1 — KDE Plasma config export** — capture the active Plasma configuration (panels, widgets, shortcuts, theme) into `/etc/skel/` as the distro default
+- [ ] **Phase 2 — First bootable ISO** — archiso profile: live Plasma session, branding, terminal stack, nog + Forge preinstalled. No installer yet — the "it boots!" milestone
+- [ ] **Phase 3 — `installforge`** — the Forge-style TUI installer (own repo + AUR): edition picker reading `config/profiles.toml`, guided disk setup, user creation, post-install proprietary fetch with consent
+- [ ] **Phase 4 — Dogfood + validation** — VM matrix first, then the wipe-and-rebuild method: install a real machine from the ISO alone until a zero-deviation run
+- [ ] **Phase 5 — Release kit** — ISO hosting (SourceForge for the image, GitHub for source — GitHub Releases caps files at 2 GiB), checksums + signature, project site on GitHub Pages
+- [ ] **Phase 6 — v1.0 public release** — GitHub Release → project page → community announcements → DistroWatch submission (their queue takes months; the annual cadence shrugs)
+
+**Deferred by design (honest scope control):**
+- Calamares GUI installer — v2+, once `installforge` has proven the flow
+- Custom package repository (`repo.kognog.org`) — not needed while official repos + AUR carry everything we ship
+- "Kognog OS Arch" brand variant — a future year's release
+- `nogforge` — continues on the year-round Forge track, ships when ready (not gated to the ISO)
+
+**Done:**
 - [x] Product surface formalized — five editions in `config/profiles.toml`
+- [x] `nog` extracted to its own stable repo + AUR package (v1.0.8 as of 2026-07-29)
+- [x] `pacman.conf` shipped as distro default
+- [x] Default terminal stack (Alacritty + Fish + Tide v6 + welcome box)
 
 ---
 
