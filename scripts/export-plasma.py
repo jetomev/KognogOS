@@ -66,6 +66,13 @@ MANIFEST = [
     ".local/share/color-schemes/CatppuccinMochaMauve.colors",
 ]
 
+# Whole directories copied verbatim (upstream theme content — no personal
+# data inside, no sanitization pass). The active LookAndFeel package
+# (kdeglobals LookAndFeelPackage=) is user-local, so it must travel.
+MANIFEST_DIRS = [
+    ".local/share/plasma/look-and-feel/Catppuccin-Mocha-Mauve",
+]
+
 # INI sections dropped entirely (name matched case-insensitively).
 STRIP_SECTIONS = re.compile(
     r"(recent|history|session:|dirselect|filedialog size|klipper)",
@@ -93,7 +100,27 @@ REWRITES = [
 ]
 
 
-def sanitize(text, warnings, relpath):
+def filter_launchers(line, dropped):
+    """Keep only panel launchers every fresh install can resolve:
+    preferred:// URIs and .desktop entries present in /usr/share/applications.
+    User-local launchers (Chrome web-app shims, Lutris game entries, personal
+    shortcuts) are the user's, not the distro's — dropped and reported."""
+    key, _, value = line.partition("=")
+    kept = []
+    for entry in value.split(","):
+        e = entry.strip()
+        if e.startswith("preferred://"):
+            kept.append(e)
+            continue
+        name = e.removeprefix("applications:")
+        if (Path("/usr/share/applications") / name).exists():
+            kept.append(e)
+        else:
+            dropped.add(name)
+    return f"{key}={','.join(kept)}"
+
+
+def sanitize(text, warnings, relpath, dropped_launchers):
     out, current_section, section_dropped = [], None, False
     for line in text.splitlines():
         stripped = line.strip()
@@ -108,6 +135,9 @@ def sanitize(text, warnings, relpath):
         if section_dropped:
             continue
         if STRIP_KEYS.match(stripped):
+            continue
+        if stripped.startswith("launchers="):
+            out.append(filter_launchers(stripped, dropped_launchers))
             continue
         for rx, sub in REWRITES:
             m = rx.match(stripped)
@@ -133,26 +163,44 @@ def sanitize(text, warnings, relpath):
 def main():
     check = "--check" in sys.argv
     warnings, captured, missing = [], [], []
+    dropped_launchers = set()
 
-    if not check and (SKEL / ".config").exists():
-        shutil.rmtree(SKEL / ".config")
+    if not check:
+        for top in (".config", ".local"):
+            if (SKEL / top).exists():
+                shutil.rmtree(SKEL / top)
 
     for rel in MANIFEST:
         src = HOME / rel
         if not src.exists():
             missing.append(rel)
             continue
-        body = sanitize(src.read_text(errors="replace"), warnings, rel)
+        body = sanitize(src.read_text(errors="replace"), warnings, rel,
+                        dropped_launchers)
         captured.append(rel)
         if not check:
             dst = SKEL / rel
             dst.parent.mkdir(parents=True, exist_ok=True)
             dst.write_text(body)
 
+    for rel in MANIFEST_DIRS:
+        src = HOME / rel
+        if not src.exists():
+            missing.append(rel + "/")
+            continue
+        captured.append(rel + "/")
+        if not check:
+            shutil.copytree(src, SKEL / rel)
+
     mode = "CHECK (nothing written)" if check else f"captured into {SKEL}"
-    print(f"export-plasma: {len(captured)} files {mode}")
+    print(f"export-plasma: {len(captured)} entries {mode}")
     for rel in captured:
         print(f"  + {rel}")
+    if dropped_launchers:
+        print(f"\n{len(dropped_launchers)} personal panel launchers filtered "
+              "(no system-wide .desktop):")
+        for name in sorted(dropped_launchers):
+            print(f"  ✂ {name}")
     if missing:
         print(f"\n{len(missing)} manifest entries not present on this machine (skipped):")
         for rel in missing:

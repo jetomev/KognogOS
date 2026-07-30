@@ -15,7 +15,7 @@ immutability=1
 lastScreen=0
 location=0
 plugin=org.kde.plasma.folder
-wallpaperplugin=org.kde.slideshow
+wallpaperplugin=org.kde.image
 
 [Containments][28][ConfigDialog]
 DialogHeight=1063
@@ -41,7 +41,11 @@ immutability=1
 lastScreen=1
 location=0
 plugin=org.kde.plasma.folder
-wallpaperplugin=org.kde.slideshow
+wallpaperplugin=org.kde.image
+
+[Containments][29][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
 
 [Containments][29][Wallpaper][org.kde.image][General]
 Image=file:///usr/share/wallpapers/kognog/default.png
@@ -60,7 +64,7 @@ immutability=1
 lastScreen=2
 location=0
 plugin=org.kde.plasma.folder
-wallpaperplugin=org.kde.slideshow
+wallpaperplugin=org.kde.image
 
 [Containments][30][ConfigDialog]
 DialogHeight=630
@@ -106,7 +110,7 @@ DialogHeight=630
 DialogWidth=810
 
 [Containments][31][Applets][34][Configuration][General]
-launchers=applications:org.kde.dolphin.desktop,applications:Alacritty.desktop,preferred://browser,applications:onlyoffice-desktopeditors.desktop,applications:chrome-fmpnliohjhemenmnlpbfagaolkdacoja-Default.desktop,applications:obsidian.desktop,applications:io.typora.Typora.desktop,applications:chrome-mjoklplbddabcmpepnokjaffbmgbkkgg-Default.desktop,applications:fresh.desktop,applications:org.kde.spectacle.desktop,applications:com.termius.Termius.desktop,applications:chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop,applications:spotify.desktop,applications:org.kde.kcalc.desktop,applications:steam.desktop,applications:net.lutris.battlenet-1.desktop,applications:net.lutris.Lutris.desktop,applications:World_of_Warcraft_Pi5.desktop
+launchers=applications:org.kde.dolphin.desktop,applications:Alacritty.desktop,preferred://browser,applications:onlyoffice-desktopeditors.desktop,applications:obsidian.desktop,applications:fresh.desktop,applications:org.kde.spectacle.desktop,applications:spotify.desktop,applications:org.kde.kcalc.desktop,applications:steam.desktop,applications:net.lutris.Lutris.desktop
 
 [Containments][31][Applets][35]
 immutability=1
@@ -266,7 +270,7 @@ DialogHeight=630
 DialogWidth=810
 
 [Containments][58][Applets][60][Configuration][General]
-launchers=applications:org.kde.dolphin.desktop,applications:Alacritty.desktop,preferred://browser,applications:onlyoffice-desktopeditors.desktop,applications:chrome-fmpnliohjhemenmnlpbfagaolkdacoja-Default.desktop,applications:obsidian.desktop,applications:io.typora.Typora.desktop,applications:chrome-mjoklplbddabcmpepnokjaffbmgbkkgg-Default.desktop,applications:fresh.desktop,applications:org.kde.spectacle.desktop,applications:com.termius.Termius.desktop,applications:chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop,applications:spotify.desktop,applications:org.kde.kcalc.desktop,applications:steam.desktop,applications:net.lutris.battlenet-1.desktop,applications:net.lutris.Lutris.desktop,applications:World_of_Warcraft_Pi5.desktop
+launchers=applications:org.kde.dolphin.desktop,applications:Alacritty.desktop,preferred://browser,applications:onlyoffice-desktopeditors.desktop,applications:obsidian.desktop,applications:fresh.desktop,applications:org.kde.spectacle.desktop,applications:spotify.desktop,applications:org.kde.kcalc.desktop,applications:steam.desktop,applications:net.lutris.Lutris.desktop
 
 [Containments][58][Applets][61]
 immutability=1
@@ -459,7 +463,7 @@ DialogHeight=630
 DialogWidth=810
 
 [Containments][82][Applets][84][Configuration][General]
-launchers=applications:org.kde.dolphin.desktop,applications:Alacritty.desktop,preferred://browser,applications:onlyoffice-desktopeditors.desktop,applications:chrome-fmpnliohjhemenmnlpbfagaolkdacoja-Default.desktop,applications:obsidian.desktop,applications:io.typora.Typora.desktop,applications:chrome-mjoklplbddabcmpepnokjaffbmgbkkgg-Default.desktop,applications:fresh.desktop,applications:org.kde.spectacle.desktop,applications:com.termius.Termius.desktop,applications:chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop,applications:spotify.desktop,applications:org.kde.kcalc.desktop,applications:steam.desktop,applications:net.lutris.battlenet-1.desktop,applications:net.lutris.Lutris.desktop,applications:World_of_Warcraft_Pi5.desktop
+launchers=applications:org.kde.dolphin.desktop,applications:Alacritty.desktop,preferred://browser,applications:onlyoffice-desktopeditors.desktop,applications:obsidian.desktop,applications:fresh.desktop,applications:org.kde.spectacle.desktop,applications:spotify.desktop,applications:org.kde.kcalc.desktop,applications:steam.desktop,applications:net.lutris.Lutris.desktop
 
 [Containments][82][Applets][85]
 immutability=1
