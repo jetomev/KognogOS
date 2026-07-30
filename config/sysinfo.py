@@ -1,4 +1,4 @@
-import subprocess, json, urllib.request
+import subprocess
 from rich.console import Console
 from rich.text import Text
 
@@ -131,17 +131,6 @@ if tier2_ready:
 
 # Bottom divider
 console.print("─" * 90, style="#313244")
-
-# ── Weather ───────────────────────────────────────────────────────────────────
-try:
-    url = "https://api.open-meteo.com/v1/forecast?latitude=25.77&longitude=-80.19&current_weather=true&temperature_unit=fahrenheit"
-    with urllib.request.urlopen(url, timeout=3) as res:
-        data = json.loads(res.read())
-        temp = data['current_weather']['temperature']
-        wind = data['current_weather']['windspeed']
-        console.print(f"  [#f9e2af]Miami  {temp}°F[/#f9e2af]  [#cdd6f4]💨 {wind} km/h[/#cdd6f4]")
-except:
-    pass
 
 # ── Welcome message ───────────────────────────────────────────────────────────
 welcome = Text()
