@@ -41,7 +41,7 @@ KognogOS ships with a curated in-house **Forge suite** — TUI tools for package
 
 ## Editions
 
-KognogOS ships as five editions, all sharing the same core (KDE Plasma, nog-managed updates, the Forge suite, drivers, default terminal stack) and differing only in the app stack layered on top. Edition definitions live in [`config/profiles.toml`](config/profiles.toml) — the single source of truth the Calamares installer will read.
+KognogOS ships as five editions, all sharing the same core (KDE Plasma, nog-managed updates, the Forge suite, drivers, default terminal stack) and differing only in the app stack layered on top. Edition definitions live in [`config/profiles.toml`](config/profiles.toml) — the single source of truth `installforge` reads at install time.
 
 ### Basic
 The shared core. Boots straight into a KDE Plasma Wayland desktop with the KognogOS terminal welcome box, **Fresh Editor** as the default text editor, both **Google Chrome** and **Brave** ready to go, and `nog` + `grubforge` + `alacrittyforge` installed out of the box.
@@ -83,7 +83,7 @@ KognogOS ships with an in-house suite of TUI tools that replace the "edit a conf
 
 ### nog — Package manager
 Tier-aware pacman wrapper in Rust. Classifies every package, enforces hold windows via pacman's own `--ignore` mechanism, and delegates to `yay`/`paru` for AUR. Runs as your user; escalates only to `sudo pacman` when necessary.
-→ **v1.0.2 stable** · [github.com/jetomev/nog](https://github.com/jetomev/nog) · `yay -S nog`
+→ **v1.0.8 stable** · [github.com/jetomev/nog](https://github.com/jetomev/nog) · `yay -S nog`
 
 ### grubforge — Bootloader manager
 Full TUI for managing GRUB: safely edit `/etc/default/grub`, browse and apply themes, reorder boot entries, detect other operating systems, with timestamped backups before every change.
@@ -129,7 +129,6 @@ A TUI companion for `nog` plus a unified interface across AUR helpers, Flatpak, 
 KognogOS/
 |-- assets/
 |   |-- wallpapers/                # 10 wallpapers across Arch + Semi variants
-|-- bootstrap/                     # Future: installer bootstrap scripts
 |-- config/
 |   |-- pacman.conf                # Shipped pacman.conf (core/extra/multilib/chaotic-aur)
 |   |-- profiles.toml              # Edition definitions (Basic/Office/Gaming/Development/Full)
@@ -182,7 +181,7 @@ KognogOS follows an **annual release cadence, on purpose**. This is a two-person
 
 The road to v1.0 (target: **April 2027**), phased in the same discipline as every Kognog project:
 
-- [ ] **Phase 1 — KDE Plasma config export** — a reusable capture script (live config → `/etc/skel/`, personal residue stripped by rule). Panel layout: the single bottom bar. The final look (wallpapers, polish pass) is deliberately frozen **late** — just before release, from Balih's wallpapers
+- [x] **Phase 1 — KDE Plasma config export** ✅ **DONE 2026-07-30** (validated over 4 kogtest rounds; see below) — a reusable capture script (live config → `/etc/skel/`, personal residue stripped by rule). Panel layout: the single bottom bar. The final look (wallpapers, polish pass) is deliberately frozen **late** — just before release, from Balih's wallpapers
 - [ ] **Phase 2 — First bootable ISO** — archiso profile: live Plasma session, branding, terminal stack, nog + Forge preinstalled. No installer yet — the "it boots!" milestone. Includes the **display-manager decision**: SDDM is not locked in — evaluate alternatives (greetd family, Ly) vs. a custom forgekit-inspired SDDM theme
 - [ ] **Phase 3 — `installforge`** — the Forge-style TUI installer (own repo + AUR): edition picker reading `config/profiles.toml`, guided disk setup, user creation. **App-selection flow (decided 2026-07-30):** each edition shows its recommended package list; proprietary apps are marked and de-selectable; de-selecting one offers a curated free/open-source replacement to pick instead (e.g. Chrome → Firefox, VS Code → `code`). The **Development edition** additionally shows a pre-install notice recommending a review of the tier pins against the user's toolchain needs
 - [ ] **Tier reference guide** — a plain-language manual for the tier system: what each tier means, how to read and hand-edit `tier-pins.toml`, `nog pin`/`unlock` recipes, and worked examples (ships in the repo + as a page on the project site)
