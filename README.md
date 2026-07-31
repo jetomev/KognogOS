@@ -44,7 +44,7 @@ KognogOS ships with a curated in-house **Forge suite** — TUI tools for package
 KognogOS ships as five editions, all sharing the same core (KDE Plasma, nog-managed updates, the Forge suite, drivers, default terminal stack) and differing only in the app stack layered on top. Edition definitions live in [`config/profiles.toml`](config/profiles.toml) — the single source of truth `installforge` reads at install time.
 
 ### Basic
-The shared core. Boots straight into a KDE Plasma Wayland desktop with the KognogOS terminal welcome box, **Fresh Editor** as the default text editor, both **Google Chrome** and **Brave** ready to go, and `nog` + `grubforge` + `alacrittyforge` installed out of the box. Daily-life floor included: Gwenview, Ark, KCalc, Spectacle, full font coverage (Noto + emoji + Liberation), printing and scanning (CUPS + Skanlite), and **ufw enabled by default** (deny incoming).
+The shared core. Boots straight into a KDE Plasma Wayland desktop with the KognogOS terminal welcome box, **Nemo** as the default file manager (Dolphin stays installed), **Fresh Editor** as the default text editor, both **Google Chrome** and **Brave** ready to go, and `nog` + `grubforge` + `alacrittyforge` installed out of the box. Daily-life floor included: Gwenview, Ark, KCalc, Spectacle, full font coverage (Noto + emoji + Liberation), printing and scanning (CUPS + Skanlite), and **ufw enabled by default** (deny incoming).
 
 ### Office
 Basic + **OnlyOffice**, **Obsidian**, **Thunderbird**, **Xournalpp**, **Elisa**, **Spotify**, **GIMP**, **Pinta**, **Kdenlive**, **Discord**, **Telegram**.
@@ -107,6 +107,7 @@ A TUI companion for `nog` plus a unified interface across AUR helpers, Flatpak, 
 | Kernel | Linux (mainline) + Linux-LTS fallback |
 | Microcode | Auto-detected at install time (intel-ucode / amd-ucode) |
 | Desktop | KDE Plasma on Wayland |
+| File Manager | **Nemo** (default) · Dolphin (installed) |
 | Display Manager | SDDM |
 | Audio | PipeWire + WirePlumber |
 | Network | NetworkManager |
@@ -120,6 +121,20 @@ A TUI companion for `nog` plus a unified interface across AUR helpers, Flatpak, 
 | Font | JetBrains Mono Nerd Font |
 | Theme | Catppuccin Mocha |
 | Extra Repos | chaotic-aur |
+| System touches | Balih's `/etc/nanorc` + `pacman.conf` shipped as defaults · sudo `pwfeedback` (asterisks while typing) |
+
+### Proprietary apps & their offered swaps
+
+installforge marks every proprietary app in the edition lists; de-selecting one offers a curated replacement (defined in `config/profiles.toml [proprietary]`):
+
+| Proprietary | Offered swaps |
+|---|---|
+| Google Chrome | Brave (already shipped) · Firefox |
+| Spotify | Elisa (already in Office) · Strawberry |
+| Discord | Vesktop (FOSS client, same service) · Element (Matrix) |
+| Steam | — no equivalent; Lutris + Heroic remain |
+| VS Code (MS build) | VSCodium · `code` (OSS build) |
+| Obsidian | Logseq · Joplin |
 
 ---
 

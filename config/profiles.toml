@@ -43,6 +43,8 @@ graphics = [
 # reason (2026-07-30 app review).
 desktop = [
     "plasma-meta", "sddm",
+    "nemo",         # DEFAULT file manager (Balih, 2026-07-30)
+    # dolphin stays installed via plasma-meta — kept, not default
     "okular",       # universal PDF viewer
     "gwenview",     # image viewer (plasma-meta ships none)
     "ark",          # archive GUI (Dolphin right-click extract)
@@ -123,6 +125,22 @@ web_shortcuts = ["claude.ai", "web.whatsapp.com"]
 
 # Extra pacman repositories enabled in /etc/pacman.conf
 extra_repos = ["chaotic-aur"]
+
+# ─────────────────────────────────────────────────────────────────────────
+# PROPRIETARY apps + their offered FOSS swaps (Balih's installer flow,
+# 2026-07-30): installforge marks these in the app list; de-selecting one
+# offers the alternatives to pick as a replacement. Empty list = no
+# equivalent exists; de-selecting simply removes it.
+# (Hardware driver userspace — nvidia-utils etc. — is exempt from this flow.)
+# ─────────────────────────────────────────────────────────────────────────
+
+[proprietary]
+google-chrome = ["brave-bin", "firefox"]
+spotify = ["elisa", "strawberry"]
+discord = ["vesktop", "element-desktop"]      # vesktop = FOSS client, same service
+steam = []                                     # no equivalent; Lutris + Heroic remain
+visual-studio-code-bin = ["vscodium", "code"]
+obsidian = ["logseq-desktop-bin", "joplin-desktop"]
 
 
 # ─────────────────────────────────────────────────────────────────────────

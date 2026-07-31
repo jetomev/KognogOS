@@ -109,6 +109,13 @@ REWRITES = [
      lambda m: "icon=/usr/share/pixmaps/kognogos.png"),
 ]
 
+# Pinned-launcher substitutions applied inside filter_launchers: the distro
+# default differs from the reference machine here. Nemo is the default file
+# manager (Balih, 2026-07-30); Dolphin stays installed but unpinned.
+LAUNCHER_SWAPS = {
+    "applications:org.kde.dolphin.desktop": "applications:nemo.desktop",
+}
+
 
 def filter_launchers(line, dropped):
     """Keep only panel launchers every fresh install can resolve:
@@ -118,13 +125,19 @@ def filter_launchers(line, dropped):
     key, _, value = line.partition("=")
     kept = []
     for entry in value.split(","):
-        e = entry.strip()
-        if e.startswith("preferred://"):
-            kept.append(e)
+        raw = entry.strip()
+        if raw in LAUNCHER_SWAPS:
+            # Distro-decided substitution: guaranteed by profiles.toml,
+            # exempt from the local-existence check (the reference machine
+            # may not have the package installed).
+            kept.append(LAUNCHER_SWAPS[raw])
             continue
-        name = e.removeprefix("applications:")
+        if raw.startswith("preferred://"):
+            kept.append(raw)
+            continue
+        name = raw.removeprefix("applications:")
         if (Path("/usr/share/applications") / name).exists():
-            kept.append(e)
+            kept.append(raw)
         else:
             dropped.add(name)
     return f"{key}={','.join(kept)}"
@@ -218,6 +231,8 @@ IDENTITY_CHECKS = [
     (".config/kdeglobals", "defaultWallpaperTheme=KognogSemi"),
     (".config/plasma-org.kde.plasma.desktop-appletsrc",
      "icon=/usr/share/pixmaps/kognogos.png"),
+    (".config/plasma-org.kde.plasma.desktop-appletsrc", "applications:nemo.desktop"),
+    (".config/mimeapps.list", "inode/directory=nemo.desktop"),
     (".local/share/plasma/look-and-feel/Catppuccin-Mocha-Mauve/metadata.json", None),
     (".local/share/color-schemes/CatppuccinMochaMauve.colors", None),
     (".local/share/aurorae/themes/CatppuccinMocha-Modern/metadata.json", None),
@@ -240,6 +255,23 @@ def verify_skel():
         sys.exit(1)
     print(f"\n✓ identity check passed ({len(IDENTITY_CHECKS)} markers) — "
           "the KognogOS face is in the skel")
+
+
+def ensure_default_apps():
+    """Distro default-application bindings (not captured — declared).
+
+    Nemo is the default file manager (Balih, 2026-07-30): the mimeapps
+    binding makes every open-folder action route to Nemo while Dolphin
+    stays installed. The reference machine's own mimeapps.list is personal
+    (its handlers reflect installed apps + habits) and is never captured.
+    """
+    path = SKEL / ".config/mimeapps.list"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        "[Default Applications]\n"
+        "inode/directory=nemo.desktop\n"
+    )
+    print("  ~ declared default apps (inode/directory -> nemo)")
 
 
 def main():
@@ -276,6 +308,7 @@ def main():
 
     if not check:
         patch_lnf_defaults()
+        ensure_default_apps()
 
     mode = "CHECK (nothing written)" if check else f"captured into {SKEL}"
     print(f"export-plasma: {len(captured)} entries {mode}")
