@@ -1,7 +1,7 @@
 # /etc/nog/profiles.toml
 #
-# KognogOS edition definitions. Calamares reads this at install time to
-# drive package selection. Each edition extends [basic] with its own adds.
+# KognogOS edition definitions. installforge reads this at install time to
+# drive package selection (online install — packages come from the mirrors). Each edition extends [basic] with its own adds.
 #
 # Conditional entries (microcode, hardware-specific drivers) are resolved
 # by the installer based on detected hardware.
@@ -38,10 +38,34 @@ graphics = [
 ]
 
 # KDE Plasma desktop
+# Panel contract: every app pinned on the default panel must be listed by
+# the edition that ships the panel — kcalc + spectacle live here for that
+# reason (2026-07-30 app review).
 desktop = [
     "plasma-meta", "sddm",
     "okular",       # universal PDF viewer
+    "gwenview",     # image viewer (plasma-meta ships none)
+    "ark",          # archive GUI (Dolphin right-click extract)
+    "kcalc",        # pinned on the default panel
+    "spectacle",    # screenshots; pinned on the default panel
 ]
+
+# Fonts — coverage floor: UI mono + web metrics + unicode + emoji
+# (JetBrains Mono alone renders every emoji as tofu — 2026-07-30 review)
+fonts = [
+    "ttf-jetbrains-mono-nerd",
+    "noto-fonts", "noto-fonts-emoji",
+    "ttf-liberation",       # web font metric compatibility
+]
+
+# Printing + scanning — basic infrastructure, every edition prints
+# (moved from Office, 2026-07-30 review)
+printing = [
+    "cups", "system-config-printer", "skanlite",
+]
+
+# Security — installforge enables ufw with default-deny incoming
+security = ["ufw"]
 
 # The KognogOS look — system-wide theme packages (chaotic-aur); the color
 # scheme + config ship via /etc/skel (scripts/export-plasma.py)
@@ -66,7 +90,6 @@ network = [
 # Terminal stack
 terminal = [
     "alacritty", "fish",
-    "ttf-jetbrains-mono-nerd",
     "python", "python-pip", "python-rich",   # for sysinfo.py welcome box
 ]
 
@@ -120,12 +143,10 @@ adds = [
 
     # Creative
     "gimp", "pinta",
+    "kdenlive",             # video editing (2026-07-30 review)
 
     # Communication
     "discord", "telegram-desktop",
-
-    # Printing + scanning
-    "cups", "system-config-printer", "skanlite",
 ]
 
 
@@ -144,8 +165,12 @@ adds = [
     "wine", "wine-mono", "wine-gecko", "winetricks",
     "proton-ge-custom-bin",
 
-    # Retro
+    # Retro — starter core set (NES/SNES/Genesis/PS1/N64/GBA); more via
+    # RetroArch's in-app downloader
     "retroarch", "retroarch-assets-xmb",
+    "libretro-core-info",
+    "libretro-nestopia", "libretro-snes9x", "libretro-genesis-plus-gx",
+    "libretro-beetle-psx", "libretro-mupen64plus-next", "libretro-mgba",
 
     # 32-bit graphics for Wine / older titles
     "lib32-mesa", "lib32-vulkan-radeon", "lib32-vulkan-intel",
@@ -182,6 +207,8 @@ adds = [
     # Universal toolchains (Python is in Basic)
     "rustup",               # preferred over `rust` — lets users pick toolchain
     "nodejs", "npm",
+    "go",
+    "jdk-openjdk",
 
     # Git workflow
     "github-cli", "lazygit", "git-delta",
@@ -197,7 +224,8 @@ adds = [
     # Build tools (base-devel covers make/gcc)
     "cmake", "meson", "ninja",
 
-    # Debuggers
+    # Compilers + debuggers (base-devel covers gcc; clang completes lldb)
+    "clang",
     "gdb", "lldb",
 ]
 
