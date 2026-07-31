@@ -9,7 +9,7 @@
   <img src="https://img.shields.io/badge/Model-Semi--Rolling-f38ba8.svg" alt="Model"/>
   <img src="https://img.shields.io/badge/Desktop-KDE%20Plasma-1d99f3.svg" alt="Desktop"/>
   <img src="https://img.shields.io/badge/Status-Alpha-orange.svg" alt="Status"/>
-  <img src="https://img.shields.io/badge/Version-v0.8.1--alpha-purple.svg" alt="Version"/>
+  <img src="https://img.shields.io/badge/Version-v0.9.0--beta-purple.svg" alt="Version"/>
 </p>
 
 ---
@@ -199,6 +199,7 @@ The road to v1.0 (target: **April 2027**), phased in the same discipline as ever
 - [x] **Phase 1 — KDE Plasma config export** ✅ **DONE 2026-07-30** (validated over 4 kogtest rounds; see below) — a reusable capture script (live config → `/etc/skel/`, personal residue stripped by rule). Panel layout: the single bottom bar. The final look (wallpapers, polish pass) is deliberately frozen **late** — just before release, from Balih's wallpapers
 - [ ] **Phase 2 — First bootable ISO** — archiso profile: live Plasma session, branding, terminal stack, nog + Forge preinstalled. No installer yet — the "it boots!" milestone. Includes the **display-manager decision**: SDDM is not locked in — evaluate alternatives (greetd family, Ly) vs. a custom forgekit-inspired SDDM theme
 - [ ] **Phase 3 — `installforge`** — the Forge-style TUI installer (own repo + AUR): edition picker reading `config/profiles.toml`, guided disk setup, user creation. **App-selection flow (decided 2026-07-30):** each edition shows its recommended package list; proprietary apps are marked and de-selectable; de-selecting one offers a curated free/open-source replacement to pick instead (e.g. Chrome → Firefox, VS Code → `code`). The **Development edition** additionally shows a pre-install notice recommending a review of the tier pins against the user's toolchain needs
+- [ ] **`kognog-welcome`** — the KognogOS Welcome Center (Qt6/QML, Catppuccin): live-ISO mode fronts **Install** (launches installforge) + docs; installed mode drops Install, adds the "show on startup" toggle. Content: the project & philosophy, a guided nog tour, the Forge Suite, the Tier Reference Guide, GitHub/feedback links, next steps. Replaces KDE's plasma-welcome first-run popup (suppressed via skel). Pairs with Phase 3 — it is installforge's front door
 - [ ] **Tier reference guide** — a plain-language manual for the tier system: what each tier means, how to read and hand-edit `tier-pins.toml`, `nog pin`/`unlock` recipes, and worked examples (ships in the repo + as a page on the project site)
 - [ ] **Phase 4 — Dogfood + validation** — VM matrix first, then the wipe-and-rebuild method: install a real machine from the ISO alone until a zero-deviation run
 - [ ] **Phase 5 — Release kit** — ISO hosting (SourceForge for the image, GitHub for source — GitHub Releases caps files at 2 GiB), checksums + signature, project site on GitHub Pages
@@ -219,6 +220,19 @@ The road to v1.0 (target: **April 2027**), phased in the same discipline as ever
 ---
 
 ## Changelog
+
+### v0.9.0-beta — July 31, 2026
+**The first bootable KognogOS — Phase 1 + Phase 2 land in one 48-hour sprint**
+
+The distro exists. A branded, Full-edition live ISO builds reproducibly and boots to a complete KognogOS desktop.
+
+- 🥾 **Bootable ISO** (`scripts/build-iso.sh`, archiso/releng base): boot menu "KognogOS — Semi-Rolling | Tier-Aware", quiet boot into a custom **Plymouth theme** (Mocha base, the tier emblem, mauve spinner), matching **KSplash** for SDDM→desktop continuity, zstd-squashed (~4 GB)
+- 🖥 **Phase 1 face, validated**: `scripts/export-plasma.py` captures the reference desktop into `/etc/skel` with rule-driven sanitization, launcher filtering, and a 20-marker identity self-check; proven across kogtest rounds and the live session
+- 🧭 **Identity self-heals**: `kognog-release` pacman hook restores `/usr/lib/os-release` after every `filesystem` transaction — fastfetch and KDE About say KognogOS, with the emblem as logo
+- 🗂 **Product surface locked**: five editions curated (75 Basic / +11 Office / +30 Gaming / +27 Dev), online-install ruling, proprietary swap table, Nemo default file manager, Chrome-default/Brave-live two-layer browser policy, the full **Tide terminal suite** shipped
+- 🛡 **Tier system hardened**: chaotic-aur ruled ACTIVE with generated pre-assignments (65 pins incl. the kernel-module dependency rule), official-repo sweep applied (125 T1 / 44 T2), three parallel worker audits (dep-chains 99.7% safe, meta-package gap closed)
+- 🧰 **Local package repo** (`scripts/build-local-repo.sh`): nog + the Forges + Fresh + Proton-GE built from AUR into the ISO's `[kognog-local]` repo
+- 🔎 Lessons burned into scripts: mkarchiso's silent work-dir cache, squashfs-tools 4.7 xz corruption (→ zstd), Plasma wallpaper *packages*, Activity-UUID containments
 
 ### v0.8.1-alpha — 2026-04-20
 **nog spun out; KognogOS repositioned around external nog + in-house Forge suite**
