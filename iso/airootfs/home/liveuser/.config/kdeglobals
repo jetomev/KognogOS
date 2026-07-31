@@ -120,7 +120,7 @@ ForegroundVisited=203, 166, 247
 
 [General]
 AccentColor=26,75,100
-BrowserApplication=google-chrome.desktop
+BrowserApplication=brave-browser.desktop
 ColorSchemeHash=1e791a601596b04821e81de9e9f6f2c50005d730
 DeviceLedsAccentColored=true
 LastUsedCustomAccentColor=26,75,100

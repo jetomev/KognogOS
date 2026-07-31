@@ -9,9 +9,12 @@ decorations = "Full"
 opacity = 0.95
 blur = true
 
+# Floating window that fits ANY display (a 150x50 request overflowed the
+# live session's screen — prompt rendered below the visible area,
+# 2026-07-31 finding). KWin shows the full title bar; user resizes at will.
 [window.dimensions]
-columns = 150
-lines = 50
+columns = 110
+lines = 28
 
 [window.padding]
 x = 15
