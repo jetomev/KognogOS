@@ -99,9 +99,11 @@ REWRITES = [
     (re.compile(r"^(Wallpaper)=.*$"), lambda m: f"{m.group(1)}={DISTRO_WALLPAPER}"),
     # Slideshow mode: point at the distro wallpaper set only.
     (re.compile(r"^(SlidePaths)=.*$"), lambda m: f"{m.group(1)}=/usr/share/wallpapers/kognog/"),
-    # Cursor theme: the system package's name, not the user-local copy's.
+    # Cursor theme: Balih switched to Breeze (2026-07-31, "don't like the
+    # Catppuccin" cursors) — ships with Plasma, no extra package. Any stale
+    # Catppuccin reference in captured layers normalizes to it.
     (re.compile(r"^(cursorTheme)=Catppuccin-Mocha-Mauve-Cursors$"),
-     lambda m: f"{m.group(1)}=catppuccin-mocha-mauve-cursors"),
+     lambda m: f"{m.group(1)}=breeze_cursors"),
     # Application Launcher icon: the KognogOS tier emblem on every panel.
     # (distributor-logo-windows was the pre-distro placeholder; either it
     # or a hand-picked stand-in may appear across the per-screen panels.)
@@ -210,7 +212,7 @@ def patch_lnf_defaults():
     text = path.read_text()
     text = text.replace(
         "cursorTheme=Catppuccin-Mocha-Mauve-Cursors",
-        "cursorTheme=catppuccin-mocha-mauve-cursors",
+        "cursorTheme=breeze_cursors",
     )
     if "[Wallpaper]" not in text:
         # Wallpaper PACKAGE name (like Breeze's `Image=Next`) — Plasma does
@@ -245,6 +247,9 @@ IDENTITY_CHECKS = [
     (".config/plasma-org.kde.plasma.desktop-appletsrc", "applications:nemo.desktop"),
     (".config/mimeapps.list", "inode/directory=nemo.desktop"),
     (".config/fish/functions/fish_greeting.fish", "sysinfo.py"),
+    (".config/fish/conf.d/_tide_init.fish", None),
+    (".config/fish/fish_plugins", "ilancosman/tide"),
+    (".config/mimeapps.list", "x-scheme-handler/https=google-chrome.desktop"),
     (".config/alacritty/alacritty.toml", "program = \"/usr/bin/fish\""),
     (".local/share/plasma/look-and-feel/Catppuccin-Mocha-Mauve/contents/splash/Splash.qml",
      "kognogos-spinner.png"),
@@ -280,15 +285,26 @@ def ensure_terminal_stack():
     'fish installed, not our setup') — the files existed in config/ since
     April but nothing ever shipped them."""
     fish = SKEL / ".config/fish"
-    (fish / "functions").mkdir(parents=True, exist_ok=True)
+    fish.mkdir(parents=True, exist_ok=True)
     (SKEL / ".config/alacritty").mkdir(parents=True, exist_ok=True)
-    shutil.copy(REPO / "config/config.fish", fish / "config.fish")
+    # The prompt suite is the REFERENCE MACHINE's working fisher setup
+    # (tide v6 + autopair + fzf.fish + sponge + catppuccin theme, all MIT/
+    # open) — captured live so the shipped shell IS the developed shell
+    # (Balih, 2026-07-31: "rescue that").
+    src = HOME / ".config/fish"
+    for d in ("functions", "conf.d", "completions", "themes"):
+        if (src / d).exists():
+            shutil.copytree(src / d, fish / d, dirs_exist_ok=True)
+    for f in ("config.fish", "fish_plugins", "fish_variables"):
+        if (src / f).exists():
+            shutil.copy(src / f, fish / f)
+    # (fish_variables<suffix> atomic-write temp files never ship)
+    shutil.copy(REPO / "config/sysinfo.py", fish / "sysinfo.py")
     shutil.copy(REPO / "config/fish_greeting.fish",
                 fish / "functions/fish_greeting.fish")
-    shutil.copy(REPO / "config/sysinfo.py", fish / "sysinfo.py")
     shutil.copy(REPO / "config/alacritty.toml",
                 SKEL / ".config/alacritty/alacritty.toml")
-    print("  ~ staged terminal stack (alacritty + fish + sysinfo greeting)")
+    print("  ~ staged terminal stack (alacritty + live fish/tide suite + sysinfo greeting)")
 
 
 def ensure_splash():
@@ -335,6 +351,12 @@ def ensure_default_apps():
     path.write_text(
         "[Default Applications]\n"
         "inode/directory=nemo.desktop\n"
+        # Chrome is the distro default browser (Balih, 2026-07-31);
+        # build-iso.sh swaps these to brave for the live session only
+        # (Chrome cannot be redistributed inside the ISO).
+        "x-scheme-handler/http=google-chrome.desktop\n"
+        "x-scheme-handler/https=google-chrome.desktop\n"
+        "text/html=google-chrome.desktop\n"
     )
     print("  ~ declared default apps (inode/directory -> nemo)")
 

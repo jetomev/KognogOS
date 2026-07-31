@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Claude
+Exec=xdg-open https://claude.ai
+Icon=internet-web-browser
+Categories=Network;

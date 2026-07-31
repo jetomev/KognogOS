@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=WhatsApp Web
+Exec=xdg-open https://web.whatsapp.com
+Icon=internet-web-browser
+Categories=Network;

@@ -74,7 +74,7 @@ security = ["ufw"]
 # scheme + config ship via /etc/skel (scripts/export-plasma.py)
 theming = [
     "candy-icons-git",              # icon theme
-    "catppuccin-cursors-mocha",     # cursor theme
+    # cursors: breeze_cursors (ships with Plasma) — Balih 2026-07-31
 ]
 
 # Audio + universal media player
@@ -116,6 +116,7 @@ utilities = [
     "git", "nano", "htop",
     "curl", "wget", "openssh",
     "unzip", "7zip",
+    "fzf",                  # fzf.fish prompt plugin needs the binary
     "pacman-contrib",       # nog requires checkupdates
     "man-pages", "man-db", "texinfo",
     "fastfetch",
@@ -237,7 +238,7 @@ adds = [
 
     # Terminal productivity
     "tmux",
-    "bat", "eza", "fd", "ripgrep", "fzf", "zoxide",
+    "bat", "eza", "fd", "ripgrep", "zoxide",   # fzf moved to Basic
     "httpie", "jq",
 
     # Build tools (base-devel covers make/gcc)

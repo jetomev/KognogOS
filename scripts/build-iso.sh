@@ -31,6 +31,13 @@ rm -rf "$AIR/etc/skel" "$AIR/home/liveuser"
 mkdir -p "$AIR/etc" "$AIR/home"
 cp -r "$REPO/skel" "$AIR/etc/skel"
 cp -r "$REPO/skel" "$AIR/home/liveuser"
+# Live session only: Chrome cannot ride the ISO, so the default-browser
+# references swap to Brave (installed systems keep Chrome — installforge
+# fetches it with consent).
+for d in "$AIR/etc/skel" "$AIR/home/liveuser"; do
+    sed -i 's/google-chrome.desktop/brave-browser.desktop/g' \
+        "$d/.config/mimeapps.list" "$d/.config/kdeglobals"
+done
 
 echo "==> staging system configs"
 mkdir -p "$AIR/etc/nog" "$AIR/etc/sudoers.d"
