@@ -44,7 +44,8 @@ graphics = [
 desktop = [
     "plasma-meta", "sddm",
     "nemo",         # DEFAULT file manager (Balih, 2026-07-30)
-    # dolphin stays installed via plasma-meta — kept, not default
+    "dolphin",      # kept, not default (NOT in plasma-meta — explicit)
+    "konsole", "kate",  # KDE staples; also NOT in plasma-meta
     "okular",       # universal PDF viewer
     "gwenview",     # image viewer (plasma-meta ships none)
     "ark",          # archive GUI (Dolphin right-click extract)
