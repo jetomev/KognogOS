@@ -57,6 +57,7 @@ EOF
 cp "$REPO/assets/wallpapers/"*.png "$AIR/usr/share/wallpapers/kognog/"
 cp "$REPO/assets/wallpapers/$DEFAULT_WP" "$AIR/usr/share/wallpapers/kognog/default.png"
 cp "$REPO/assets/icons/kognogos.png" "$AIR/usr/share/pixmaps/kognogos.png"
+cp "$REPO/assets/icons/plymouth-spinner.png" "$AIR/usr/share/pixmaps/kognogos-spinner.png"
 
 echo "==> staging plymouth theme assets"
 PLY="$AIR/usr/share/plymouth/themes/kognog"

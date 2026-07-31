@@ -244,6 +244,10 @@ IDENTITY_CHECKS = [
      "icon=/usr/share/pixmaps/kognogos.png"),
     (".config/plasma-org.kde.plasma.desktop-appletsrc", "applications:nemo.desktop"),
     (".config/mimeapps.list", "inode/directory=nemo.desktop"),
+    (".config/fish/functions/fish_greeting.fish", "sysinfo.py"),
+    (".config/alacritty/alacritty.toml", "program = \"/usr/bin/fish\""),
+    (".local/share/plasma/look-and-feel/Catppuccin-Mocha-Mauve/contents/splash/Splash.qml",
+     "kognogos-spinner.png"),
     (".local/share/plasma/look-and-feel/Catppuccin-Mocha-Mauve/metadata.json", None),
     (".local/share/color-schemes/CatppuccinMochaMauve.colors", None),
     (".local/share/aurorae/themes/CatppuccinMocha-Modern/metadata.json", None),
@@ -266,6 +270,56 @@ def verify_skel():
         sys.exit(1)
     print(f"\n✓ identity check passed ({len(IDENTITY_CHECKS)} markers) — "
           "the KognogOS face is in the skel")
+
+
+def ensure_terminal_stack():
+    """The KognogOS terminal experience, from repo-canonical sources
+    (config/ in the repo, NOT captured from the reference home): Alacritty
+    config, fish config, and the sysinfo.py welcome box the greeting runs.
+    Discovered missing during the first live-ISO test (Balih, 2026-07-30:
+    'fish installed, not our setup') — the files existed in config/ since
+    April but nothing ever shipped them."""
+    fish = SKEL / ".config/fish"
+    (fish / "functions").mkdir(parents=True, exist_ok=True)
+    (SKEL / ".config/alacritty").mkdir(parents=True, exist_ok=True)
+    shutil.copy(REPO / "config/config.fish", fish / "config.fish")
+    shutil.copy(REPO / "config/fish_greeting.fish",
+                fish / "functions/fish_greeting.fish")
+    shutil.copy(REPO / "config/sysinfo.py", fish / "sysinfo.py")
+    shutil.copy(REPO / "config/alacritty.toml",
+                SKEL / ".config/alacritty/alacritty.toml")
+    print("  ~ staged terminal stack (alacritty + fish + sysinfo greeting)")
+
+
+def ensure_splash():
+    """Overwrite the captured LookAndFeel package's splash with the
+    KognogOS design (assets/splash/Splash.qml) — same visual language as
+    the Plymouth theme, so boot and session-load feel continuous."""
+    dst = (SKEL / ".local/share/plasma/look-and-feel/"
+           "Catppuccin-Mocha-Mauve/contents/splash")
+    if dst.parent.exists():
+        dst.mkdir(exist_ok=True)
+        shutil.copy(REPO / "assets/splash/Splash.qml", dst / "Splash.qml")
+        print("  ~ installed KognogOS KSplash into the LnF package")
+
+
+def ensure_web_shortcuts():
+    """profiles.toml web_shortcuts as real launcher entries (they were a
+    spec line no artifact implemented — noticed missing on the live ISO)."""
+    apps = SKEL / ".local/share/applications"
+    apps.mkdir(parents=True, exist_ok=True)
+    for name, url in [("Claude", "https://claude.ai"),
+                      ("WhatsApp Web", "https://web.whatsapp.com")]:
+        slug = name.lower().split()[0]
+        (apps / f"kognog-{slug}.desktop").write_text(
+            "[Desktop Entry]\n"
+            "Type=Application\n"
+            f"Name={name}\n"
+            f"Exec=xdg-open {url}\n"
+            "Icon=internet-web-browser\n"
+            "Categories=Network;\n"
+        )
+    print("  ~ declared web shortcuts (Claude, WhatsApp Web)")
 
 
 def ensure_default_apps():
@@ -320,6 +374,9 @@ def main():
     if not check:
         patch_lnf_defaults()
         ensure_default_apps()
+        ensure_terminal_stack()
+        ensure_splash()
+        ensure_web_shortcuts()
 
     mode = "CHECK (nothing written)" if check else f"captured into {SKEL}"
     print(f"export-plasma: {len(captured)} entries {mode}")

@@ -38,7 +38,8 @@ install -d /usr/share/wallpapers/kognog
 install -m644 "$REPO/assets/wallpapers/"*.png /usr/share/wallpapers/kognog/
 install -m644 "$REPO/assets/wallpapers/$DEFAULT" /usr/share/wallpapers/kognog/default.png
 
-# Launcher icon (the tier emblem)
+# Launcher icon (the tier emblem) + the splash spinner
 install -Dm644 "$REPO/assets/icons/kognogos.png" /usr/share/pixmaps/kognogos.png
+install -Dm644 "$REPO/assets/icons/plymouth-spinner.png" /usr/share/pixmaps/kognogos-spinner.png
 
 echo "installed: KognogSemi wallpaper package, $(ls /usr/share/wallpapers/kognog | wc -l) slideshow wallpapers, launcher emblem"
