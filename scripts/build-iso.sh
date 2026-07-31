@@ -64,7 +64,12 @@ cp "$REPO/assets/icons/kognogos.png"        "$PLY/logo.png"
 cp "$REPO/assets/icons/plymouth-spinner.png" "$PLY/spinner.png"
 
 echo "==> building ISO (sudo mkarchiso)"
+# mkarchiso caches completed steps in the work dir and silently SKIPS them
+# on rerun — a stale work dir means a sub-second "build" that changes
+# nothing (learned live, 2026-07-30). Always start clean.
+sudo rm -rf "$ISO/work"
 mkdir -p "$ISO/work" "$ISO/out"
+sudo rm -f "$ISO/out/"kognogos-*.iso
 sudo mkarchiso -v -w "$ISO/work" -o "$ISO/out" "$ISO"
 echo
 ls -lh "$ISO/out/"

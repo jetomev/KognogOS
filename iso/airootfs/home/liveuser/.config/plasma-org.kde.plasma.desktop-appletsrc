@@ -110,7 +110,7 @@ DialogHeight=630
 DialogWidth=810
 
 [Containments][31][Applets][34][Configuration][General]
-launchers=applications:nemo.desktop,applications:Alacritty.desktop,preferred://browser,applications:onlyoffice-desktopeditors.desktop,applications:obsidian.desktop,applications:fresh.desktop,applications:org.kde.spectacle.desktop,applications:spotify.desktop,applications:org.kde.kcalc.desktop,applications:steam.desktop,applications:net.lutris.Lutris.desktop
+launchers=applications:nemo.desktop,applications:Alacritty.desktop,preferred://browser,applications:onlyoffice-desktopeditors.desktop,applications:obsidian.desktop,applications:fresh.desktop,applications:org.kde.spectacle.desktop,applications:org.kde.kcalc.desktop,applications:steam.desktop,applications:net.lutris.Lutris.desktop
 
 [Containments][31][Applets][35]
 immutability=1
@@ -270,7 +270,7 @@ DialogHeight=630
 DialogWidth=810
 
 [Containments][58][Applets][60][Configuration][General]
-launchers=applications:nemo.desktop,applications:Alacritty.desktop,preferred://browser,applications:onlyoffice-desktopeditors.desktop,applications:obsidian.desktop,applications:fresh.desktop,applications:org.kde.spectacle.desktop,applications:spotify.desktop,applications:org.kde.kcalc.desktop,applications:steam.desktop,applications:net.lutris.Lutris.desktop
+launchers=applications:nemo.desktop,applications:Alacritty.desktop,preferred://browser,applications:onlyoffice-desktopeditors.desktop,applications:obsidian.desktop,applications:fresh.desktop,applications:org.kde.spectacle.desktop,applications:org.kde.kcalc.desktop,applications:steam.desktop,applications:net.lutris.Lutris.desktop
 
 [Containments][58][Applets][61]
 immutability=1
@@ -463,7 +463,7 @@ DialogHeight=630
 DialogWidth=810
 
 [Containments][82][Applets][84][Configuration][General]
-launchers=applications:nemo.desktop,applications:Alacritty.desktop,preferred://browser,applications:onlyoffice-desktopeditors.desktop,applications:obsidian.desktop,applications:fresh.desktop,applications:org.kde.spectacle.desktop,applications:spotify.desktop,applications:org.kde.kcalc.desktop,applications:steam.desktop,applications:net.lutris.Lutris.desktop
+launchers=applications:nemo.desktop,applications:Alacritty.desktop,preferred://browser,applications:onlyoffice-desktopeditors.desktop,applications:obsidian.desktop,applications:fresh.desktop,applications:org.kde.spectacle.desktop,applications:org.kde.kcalc.desktop,applications:steam.desktop,applications:net.lutris.Lutris.desktop
 
 [Containments][82][Applets][85]
 immutability=1

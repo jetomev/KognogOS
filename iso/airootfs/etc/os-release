@@ -1,5 +1,5 @@
 NAME="KognogOS"
-PRETTY_NAME="KognogOS Semi"
+PRETTY_NAME="KognogOS — Semi-Rolling | Tier-Aware"
 ID=kognogos
 ID_LIKE=arch
 BUILD_ID=rolling
