@@ -1,0 +1,15 @@
+# KognogOS identity is self-healing: Arch's filesystem package owns
+# /usr/lib/os-release (and the /etc/os-release symlink into it), so every
+# filesystem upgrade would revert the distro identity to Arch. This hook
+# restores it after any such transaction — including the initial pacstrap
+# during the ISO build.
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = filesystem
+
+[Action]
+Description = Restoring KognogOS os-release...
+When = PostTransaction
+Exec = /bin/sh -c 'cp /usr/share/kognog/os-release /usr/lib/os-release'

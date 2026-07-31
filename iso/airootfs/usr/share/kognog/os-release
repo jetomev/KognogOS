@@ -1,0 +1,10 @@
+NAME="KognogOS"
+PRETTY_NAME="KognogOS — Semi-Rolling | Tier-Aware"
+ID=kognogos
+ID_LIKE=arch
+BUILD_ID=rolling
+ANSI_COLOR="38;2;203;166;247"
+HOME_URL="https://github.com/jetomev/kognog"
+DOCUMENTATION_URL="https://github.com/jetomev/kognog"
+BUG_REPORT_URL="https://github.com/jetomev/kognog/issues"
+LOGO=kognogos

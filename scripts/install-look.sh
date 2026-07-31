@@ -42,4 +42,14 @@ install -m644 "$REPO/assets/wallpapers/$DEFAULT" /usr/share/wallpapers/kognog/de
 install -Dm644 "$REPO/assets/icons/kognogos.png" /usr/share/pixmaps/kognogos.png
 install -Dm644 "$REPO/assets/icons/plymouth-spinner.png" /usr/share/pixmaps/kognogos-spinner.png
 
+# Distro identity: os-release content + the self-healing pacman hook
+# (Arch's filesystem package owns /usr/lib/os-release and would revert the
+# identity on every upgrade; the hook restores it post-transaction).
+install -Dm644 "$REPO/config/os-release" /usr/share/kognog/os-release
+install -Dm644 "$REPO/iso/airootfs/etc/pacman.d/hooks/kognog-os-release.hook" \
+    /etc/pacman.d/hooks/kognog-os-release.hook
+cp /usr/share/kognog/os-release /usr/lib/os-release
+install -Dm644 "$REPO/assets/icons/kognogos.png" \
+    /usr/share/icons/hicolor/256x256/apps/kognogos.png
+
 echo "installed: KognogSemi wallpaper package, $(ls /usr/share/wallpapers/kognog | wc -l) slideshow wallpapers, launcher emblem"

@@ -65,6 +65,8 @@ cp "$REPO/assets/wallpapers/"*.png "$AIR/usr/share/wallpapers/kognog/"
 cp "$REPO/assets/wallpapers/$DEFAULT_WP" "$AIR/usr/share/wallpapers/kognog/default.png"
 cp "$REPO/assets/icons/kognogos.png" "$AIR/usr/share/pixmaps/kognogos.png"
 cp "$REPO/assets/icons/plymouth-spinner.png" "$AIR/usr/share/pixmaps/kognogos-spinner.png"
+install -Dm644 "$REPO/assets/icons/kognogos.png" "$AIR/usr/share/icons/hicolor/256x256/apps/kognogos.png"
+install -Dm644 "$REPO/config/os-release" "$AIR/usr/share/kognog/os-release"
 
 echo "==> staging plymouth theme assets"
 PLY="$AIR/usr/share/plymouth/themes/kognog"
