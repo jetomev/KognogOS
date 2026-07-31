@@ -14,7 +14,7 @@ set -euo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 OUT="$REPO/iso/local-repo"
 WORK="$(mktemp -d /tmp/kognog-localrepo.XXXX)"
-PKGS=(nog grubforge alacrittyforge fresh-editor-bin)
+PKGS=(nog grubforge alacrittyforge fresh-editor-bin proton-ge-custom-bin)
 
 mkdir -p "$OUT"
 for p in "${PKGS[@]}"; do

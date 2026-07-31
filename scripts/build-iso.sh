@@ -58,6 +58,11 @@ cp "$REPO/assets/wallpapers/"*.png "$AIR/usr/share/wallpapers/kognog/"
 cp "$REPO/assets/wallpapers/$DEFAULT_WP" "$AIR/usr/share/wallpapers/kognog/default.png"
 cp "$REPO/assets/icons/kognogos.png" "$AIR/usr/share/pixmaps/kognogos.png"
 
+echo "==> staging plymouth theme assets"
+PLY="$AIR/usr/share/plymouth/themes/kognog"
+cp "$REPO/assets/icons/kognogos.png"        "$PLY/logo.png"
+cp "$REPO/assets/icons/plymouth-spinner.png" "$PLY/spinner.png"
+
 echo "==> building ISO (sudo mkarchiso)"
 mkdir -p "$ISO/work" "$ISO/out"
 sudo mkarchiso -v -w "$ISO/work" -o "$ISO/out" "$ISO"

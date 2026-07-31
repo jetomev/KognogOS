@@ -1,0 +1,165 @@
+[ColorEffects:Disabled]
+ChangeSelectionColor=
+Color=30, 30, 46
+ColorAmount=0.30000000000000004
+ColorEffect=2
+ContrastAmount=0.1
+ContrastEffect=0
+Enable=
+IntensityAmount=-1
+IntensityEffect=0
+
+[ColorEffects:Inactive]
+ChangeSelectionColor=true
+Color=30, 30, 46
+ColorAmount=0.5
+ColorEffect=3
+ContrastAmount=0
+ContrastEffect=0
+Enable=true
+IntensityAmount=0
+IntensityEffect=0
+
+[Colors:Button]
+BackgroundAlternate=32,67,90
+BackgroundNormal=49, 50, 68
+DecorationFocus=26,75,100
+DecorationHover=26,75,100
+ForegroundActive=26,75,100
+ForegroundInactive=166, 173, 200
+ForegroundLink=125,199,249
+ForegroundNegative=243, 139, 168
+ForegroundNeutral=249, 226, 175
+ForegroundNormal=205, 214, 244
+ForegroundPositive=166, 227, 161
+ForegroundVisited=203, 166, 247
+
+[Colors:Complementary]
+BackgroundAlternate=17, 17, 27
+BackgroundNormal=24, 24, 37
+DecorationFocus=26,75,100
+DecorationHover=26,75,100
+ForegroundActive=26,75,100
+ForegroundInactive=166, 173, 200
+ForegroundLink=125,199,249
+ForegroundNegative=243, 139, 168
+ForegroundNeutral=249, 226, 175
+ForegroundNormal=205, 214, 244
+ForegroundPositive=166, 227, 161
+ForegroundVisited=203, 166, 247
+
+[Colors:Header]
+BackgroundAlternate=17, 17, 27
+BackgroundNormal=24, 24, 37
+DecorationFocus=26,75,100
+DecorationHover=26,75,100
+ForegroundActive=26,75,100
+ForegroundInactive=166, 173, 200
+ForegroundLink=125,199,249
+ForegroundNegative=243, 139, 168
+ForegroundNeutral=249, 226, 175
+ForegroundNormal=205, 214, 244
+ForegroundPositive=166, 227, 161
+ForegroundVisited=203, 166, 247
+
+[Colors:Selection]
+BackgroundAlternate=27,61,83
+BackgroundNormal=27,61,83
+DecorationFocus=26,75,100
+DecorationHover=26,75,100
+ForegroundActive=26,75,100
+ForegroundInactive=255,255,255
+ForegroundLink=19,55,73
+ForegroundNegative=243, 139, 168
+ForegroundNeutral=249, 226, 175
+ForegroundNormal=255,255,255
+ForegroundPositive=166, 227, 161
+ForegroundVisited=203, 166, 247
+
+[Colors:Tooltip]
+BackgroundAlternate=27,25,35
+BackgroundNormal=30, 30, 46
+DecorationFocus=26,75,100
+DecorationHover=26,75,100
+ForegroundActive=26,75,100
+ForegroundInactive=166, 173, 200
+ForegroundLink=125,199,249
+ForegroundNegative=243, 139, 168
+ForegroundNeutral=249, 226, 175
+ForegroundNormal=205, 214, 244
+ForegroundPositive=166, 227, 161
+ForegroundVisited=203, 166, 247
+
+[Colors:View]
+BackgroundAlternate=24, 24, 37
+BackgroundNormal=30, 30, 46
+DecorationFocus=26,75,100
+DecorationHover=26,75,100
+ForegroundActive=26,75,100
+ForegroundInactive=166, 173, 200
+ForegroundLink=125,199,249
+ForegroundNegative=243, 139, 168
+ForegroundNeutral=249, 226, 175
+ForegroundNormal=205, 214, 244
+ForegroundPositive=166, 227, 161
+ForegroundVisited=203, 166, 247
+
+[Colors:Window]
+BackgroundAlternate=17, 17, 27
+BackgroundNormal=24, 24, 37
+DecorationFocus=26,75,100
+DecorationHover=26,75,100
+ForegroundActive=26,75,100
+ForegroundInactive=166, 173, 200
+ForegroundLink=125,199,249
+ForegroundNegative=243, 139, 168
+ForegroundNeutral=249, 226, 175
+ForegroundNormal=205, 214, 244
+ForegroundPositive=166, 227, 161
+ForegroundVisited=203, 166, 247
+
+[General]
+AccentColor=26,75,100
+BrowserApplication=google-chrome.desktop
+ColorSchemeHash=1e791a601596b04821e81de9e9f6f2c50005d730
+DeviceLedsAccentColored=true
+LastUsedCustomAccentColor=26,75,100
+TerminalApplication=alacritty
+TerminalService=Alacritty.desktop
+
+[Icons]
+Theme=candy-icons
+
+[KDE]
+LookAndFeelPackage=Catppuccin-Mocha-Mauve
+contrast=4
+frameContrast=0.2
+widgetStyle=Oxygen
+
+[KFileDialog Settings]
+Allow Expansion=false
+Automatically select filename extension=true
+Breadcrumb Navigation=false
+Decoration position=2
+Show Full Path=false
+Show Inline Previews=true
+Show Preview=false
+Show Speedbar=true
+Show hidden files=false
+Sort by=Name
+Sort directories first=true
+Sort hidden files last=false
+Sort reversed=false
+Speedbar Width=140
+View Style=Detail
+
+[WM]
+activeBackground=30,30,46
+activeBlend=205,214,244
+activeForeground=205,214,244
+inactiveBackground=17,17,27
+inactiveBlend=166,173,200
+inactiveForeground=166,173,200
+
+[Wallpaper]
+defaultWallpaperTheme=KognogSemi

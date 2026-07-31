@@ -116,6 +116,15 @@ LAUNCHER_SWAPS = {
     "applications:org.kde.dolphin.desktop": "applications:nemo.desktop",
 }
 
+# Launchers never shipped even if resolvable on the reference machine:
+# apps whose licenses keep them off the ISO (fetched at install instead).
+LAUNCHER_DROPS = {
+    "spotify.desktop",
+    "google-chrome.desktop",
+    "visual-studio-code.desktop",
+    "code.desktop",
+}
+
 
 def filter_launchers(line, dropped):
     """Keep only panel launchers every fresh install can resolve:
@@ -136,7 +145,9 @@ def filter_launchers(line, dropped):
             kept.append(raw)
             continue
         name = raw.removeprefix("applications:")
-        if (Path("/usr/share/applications") / name).exists():
+        if name in LAUNCHER_DROPS:
+            dropped.add(name + " (license-excluded from ISO)")
+        elif (Path("/usr/share/applications") / name).exists():
             kept.append(raw)
         else:
             dropped.add(name)
