@@ -111,12 +111,11 @@ REWRITES = [
      lambda m: "icon=/usr/share/pixmaps/kognogos.png"),
 ]
 
-# Pinned-launcher substitutions applied inside filter_launchers: the distro
-# default differs from the reference machine here. Nemo is the default file
-# manager (Balih, 2026-07-30); Dolphin stays installed but unpinned.
-LAUNCHER_SWAPS = {
-    "applications:org.kde.dolphin.desktop": "applications:nemo.desktop",
-}
+# Pinned-launcher substitutions applied inside filter_launchers, for when the
+# distro default differs from the reference machine. Currently empty: Dolphin
+# is the default file manager again (Balih, 2026-08-01 — Nemo misbehaved under
+# KDE and was dropped; still searching for a keeper).
+LAUNCHER_SWAPS = {}
 
 # Launchers never shipped even if resolvable on the reference machine:
 # apps whose licenses keep them off the ISO (fetched at install instead).
@@ -244,8 +243,9 @@ IDENTITY_CHECKS = [
     (".config/kdeglobals", "defaultWallpaperTheme=KognogSemi"),
     (".config/plasma-org.kde.plasma.desktop-appletsrc",
      "icon=/usr/share/pixmaps/kognogos.png"),
-    (".config/plasma-org.kde.plasma.desktop-appletsrc", "applications:nemo.desktop"),
-    (".config/mimeapps.list", "inode/directory=nemo.desktop"),
+    (".config/plasma-org.kde.plasma.desktop-appletsrc",
+     "applications:org.kde.dolphin.desktop"),
+    (".config/mimeapps.list", "inode/directory=org.kde.dolphin.desktop"),
     (".config/fish/functions/fish_greeting.fish", "sysinfo.py"),
     (".config/fish/conf.d/_tide_init.fish", None),
     (".config/fish/fish_plugins", "ilancosman/tide"),
@@ -350,7 +350,7 @@ def ensure_default_apps():
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(
         "[Default Applications]\n"
-        "inode/directory=nemo.desktop\n"
+        "inode/directory=org.kde.dolphin.desktop\n"
         # Chrome is the distro default browser (Balih, 2026-07-31);
         # build-iso.sh swaps these to brave for the live session only
         # (Chrome cannot be redistributed inside the ISO).
@@ -358,7 +358,7 @@ def ensure_default_apps():
         "x-scheme-handler/https=google-chrome.desktop\n"
         "text/html=google-chrome.desktop\n"
     )
-    print("  ~ declared default apps (inode/directory -> nemo)")
+    print("  ~ declared default apps (inode/directory -> dolphin)")
 
 
 def main():

@@ -43,8 +43,8 @@ graphics = [
 # reason (2026-07-30 app review).
 desktop = [
     "plasma-meta", "sddm",
-    "nemo",         # DEFAULT file manager (Balih, 2026-07-30)
-    "dolphin",      # kept, not default (NOT in plasma-meta — explicit)
+    "dolphin",      # DEFAULT file manager (Balih, 2026-08-01: nemo dropped —
+                    # misbehaved under KDE; NOT in plasma-meta — explicit)
     "konsole", "kate",  # KDE staples; also NOT in plasma-meta
     "okular",       # universal PDF viewer
     "gwenview",     # image viewer (plasma-meta ships none)
