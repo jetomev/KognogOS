@@ -36,10 +36,11 @@ Everything is either **planned in this sprint**, an **explicit accepted risk**, 
 
 ## 2 · Workstreams and schedule
 
-### N0 — Tonight (Aug 4): open the operation
+### N0 — Tonight (Aug 4): open the operation ✅ CLOSED 2026-08-04
 - [x] This document committed; sprint scoped
-- [ ] Desktop loose end: `sudo ufw delete allow from 192.168.1.0/24 to any port 8000 proto tcp` (Balih)
-- [ ] AUR account hygiene (Balih): password rotation, confirm SSH key is dedicated + backed up, recovery email current
+- [x] Desktop loose end: ufw port-8000 LAN rule deleted
+- [x] AUR account hygiene: password rotated, dedicated `~/.ssh/aur` key confirmed (in place since 2026-04-04), account email verified
+- [x] Bonus detour: spectacle GLIBC_2.44 breakage → **new nog bug-class "tier ABI skew"** (T3 ffmpeg/gcc-libs released built against held T1 glibc); fixed by promoting the glibc family (`nog install glibc lib32-glibc` — the promote-family gap reproduced, 2nd live hit); linchpin-heuristic + user-coupling-groups filed as nog candidates (post-sprint scope)
 
 ### Phase A — nog v1.0.9 "Ironhold" security cycle (~5–6 nights, Aug 5–12)
 The core. Scope is **locked** to these five items — no riders except the freebie below.
