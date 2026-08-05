@@ -57,8 +57,13 @@ The core. Scope is **locked** to these five items — no riders except the freeb
   state fails closed. Tests 45→49; round trip field-verified. Bonus: dogfooding spawned
   the **System Lock doctrine feature** (KognogOS issue #1 — /usr/local/bin shims with
   branded message + PreTransaction token hook + root-gated `sudo nog lock`).
-- **A3** · `nog deactivate chaotic-aur` / `activate chaotic-aur`: nog comments the repo
-  section in/out of `pacman.conf` (timestamped backup first) + DB refresh. User never edits.
+- **A3** ✅ **DONE 2026-08-05** · `nog deactivate chaotic-aur` / `activate chaotic-aur` —
+  shipped (nog commit `a417a0e`, issue [#4](https://github.com/jetomev/nog/issues/4) closed):
+  `#nog# `-marker section toggle in pacman.conf (user comments survive; byte-exact restore
+  proven by unit test AND live `diff` against the pre-deactivation backup), timestamped
+  backup → sudo-tee write → sources.toml mirror → `-Sy` refresh. Field-verified: chaotic
+  vanished from the sync list, then returned as the fourth DB. Tests 49→54. **The
+  incident-response toolkit (#2 fence + #3 aur switch + #4 chaotic switch) is complete.**
 - **A4** · Freebie rider (trivial): Held table sorted by days-remaining ascending.
 - **A5** · TEST-MATRIX dogfood on the live desktop, docs, changelog, **tag v1.0.9,
   GitHub Release** (GitHub-before-AUR per standing discipline). AUR `makepkg`/push staged
