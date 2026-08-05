@@ -68,9 +68,16 @@ The core. Scope is **locked** to these five items — no riders except the freeb
   (nog commit `78e6164`, issue [#6](https://github.com/jetomev/nog/issues/6) closed;
   field-verified on a 171-row hold list — the table now visualizes the tier gradient,
   1-day T3 movers on top, 23-day T1 kernels at the bottom; CSV log mirrors the order).
-- **A5** · TEST-MATRIX dogfood on the live desktop, docs, changelog, **tag v1.0.9,
-  GitHub Release** (GitHub-before-AUR per standing discipline). AUR `makepkg`/push staged
-  in `~/Programs/aur-nog-remote/`, **executed the day the freeze lifts**.
+- **A5** ✅ **DONE 2026-08-05** · Release ritual complete: version sync (F-1 caught: in-tree
+  PKGBUILD had been stale at 1.0.7 since v1.0.8), man page + README sweep (privilege-model
+  honesty pass, sources.toml section, roadmap + changelog, AUR-freeze notice under the
+  badges), `testing/` Matrix §19 + Results, audit gates green (54/54 locked, no scaffolding,
+  no path leak, warnings steady at 7), docs commit `85b58e0` + `7913e46`, **tag `v1.0.9`
+  pushed, [GitHub Release live](https://github.com/jetomev/nog/releases/tag/v1.0.9)**.
+  AUR remote **staged locally** (`a91b72c`, checksums from the real tag tarball, ahead-1
+  DO-NOT-PUSH) — fires the day the freeze lifts (checklist steps 9–11).
+
+**🏁 PHASE A COMPLETE — nog v1.0.9 "Ironhold" released, 2026-08-05, in a single evening.**
 
 ### Phase B — signing & hardening (~2–3 nights, Aug 12–14)
 - **B1** · GPG: verify/create Balih's signing key; `git config commit.gpgsign` across
