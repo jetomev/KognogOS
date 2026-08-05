@@ -50,9 +50,13 @@ The core. Scope is **locked** to these five items — no riders except the freeb
   bypass is a unit test; tests 42→45; field-verified live (176 pending, 4 released,
   172 held, 19 fenced, zero unsanctioned upgrades). Cycle issues #2–#6 filed; AUR-freeze
   footer convention started with #2's closing comment.
-- **A2** · `nog deactivate aur` / `nog activate aur`: config-driven master switch
-  (the `[aur] helper = "none"` path already exists — the command flips persisted state,
-  every AUR path refuses while off, state shown in the update banner).
+- **A2** ✅ **DONE 2026-08-05** · `nog deactivate aur` / `nog activate aur` — shipped
+  (nog commit `f1139cc`, issue [#3](https://github.com/jetomev/nog/issues/3) closed):
+  state in new nog-owned `/etc/nog/sources.toml` (Balih's design pick over editing
+  nog.conf), single gate upstream of helper detection (helper-agnostic), corrupted
+  state fails closed. Tests 45→49; round trip field-verified. Bonus: dogfooding spawned
+  the **System Lock doctrine feature** (KognogOS issue #1 — /usr/local/bin shims with
+  branded message + PreTransaction token hook + root-gated `sudo nog lock`).
 - **A3** · `nog deactivate chaotic-aur` / `activate chaotic-aur`: nog comments the repo
   section in/out of `pacman.conf` (timestamped backup first) + DB refresh. User never edits.
 - **A4** · Freebie rider (trivial): Held table sorted by days-remaining ascending.
