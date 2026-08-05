@@ -44,9 +44,12 @@ Everything is either **planned in this sprint**, an **explicit accepted risk**, 
 
 ### Phase A — nog v1.0.9 "Ironhold" security cycle (~5–6 nights, Aug 5–12)
 The core. Scope is **locked** to these five items — no riders except the freebie below.
-- **A1** · Fail-closed AUR holds: if AUR update detection fails or returns empty while
-  previously-held AUR packages exist, prior holds carry into the handoff `--ignore` list
-  (or handoff splits: repo `-Syu` + explicit AUR step). Tests reproduce the 08-01 bypass.
+- **A1** ✅ **DONE 2026-08-05** · Fail-closed AUR holds — shipped as the **foreign fence**
+  (nog commit `a4a6fb4`, issue [#2](https://github.com/jetomev/nog/issues/2) opened+closed):
+  every foreign package is ignored at handoff unless nog cleared it this run. The 08-01
+  bypass is a unit test; tests 42→45; field-verified live (176 pending, 4 released,
+  172 held, 19 fenced, zero unsanctioned upgrades). Cycle issues #2–#6 filed; AUR-freeze
+  footer convention started with #2's closing comment.
 - **A2** · `nog deactivate aur` / `nog activate aur`: config-driven master switch
   (the `[aur] helper = "none"` path already exists — the command flips persisted state,
   every AUR path refuses while off, state shown in the update banner).
