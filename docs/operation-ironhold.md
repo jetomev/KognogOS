@@ -64,7 +64,10 @@ The core. Scope is **locked** to these five items — no riders except the freeb
   backup → sudo-tee write → sources.toml mirror → `-Sy` refresh. Field-verified: chaotic
   vanished from the sync list, then returned as the fourth DB. Tests 49→54. **The
   incident-response toolkit (#2 fence + #3 aur switch + #4 chaotic switch) is complete.**
-- **A4** · Freebie rider (trivial): Held table sorted by days-remaining ascending.
+- **A4** ✅ **DONE 2026-08-05** · Held table sorted by days-remaining ascending — shipped
+  (nog commit `78e6164`, issue [#6](https://github.com/jetomev/nog/issues/6) closed;
+  field-verified on a 171-row hold list — the table now visualizes the tier gradient,
+  1-day T3 movers on top, 23-day T1 kernels at the bottom; CSV log mirrors the order).
 - **A5** · TEST-MATRIX dogfood on the live desktop, docs, changelog, **tag v1.0.9,
   GitHub Release** (GitHub-before-AUR per standing discipline). AUR `makepkg`/push staged
   in `~/Programs/aur-nog-remote/`, **executed the day the freeze lifts**.
