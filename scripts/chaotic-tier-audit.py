@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """chaotic-tier-audit — pre-assign nog tiers to chaotic-aur packages.
 
-KognogOS ships chaotic-aur enabled (Balih's ruling, 2026-07-30): packages
+KognogOS ships chaotic-aur enabled (Javier's ruling, 2026-07-30): packages
 are governed by nog's tier system anyway, so the repo's risk surface is
 managed by *classification*, not exclusion. This script audits the live
 chaotic-aur package list and generates the Tier 1 pre-assignments for the

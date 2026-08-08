@@ -28,7 +28,7 @@ cat > "$PKG/metadata.json" <<'EOF'
         "Id": "KognogSemi",
         "Name": "Kognog OS Semi",
         "License": "GPL-3.0-or-later",
-        "Authors": [{ "Name": "Balih Kognog" }]
+        "Authors": [{ "Name": "Javier (jetomev)" }]
     }
 }
 EOF

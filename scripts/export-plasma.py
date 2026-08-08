@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """export-plasma — capture the live Plasma configuration into skel/.
 
-Phase 1 of the KognogOS v1.0 roadmap: the reference desktop (Balih's
+Phase 1 of the KognogOS v1.0 roadmap: the reference desktop (Javier's
 machine) IS the distro default. This script copies a curated manifest of
 KDE/Plasma config files from the running user's $HOME into the repo's
 skel/ tree (which ships as /etc/skel), stripping personal residue by rule.
@@ -99,7 +99,7 @@ REWRITES = [
     (re.compile(r"^(Wallpaper)=.*$"), lambda m: f"{m.group(1)}={DISTRO_WALLPAPER}"),
     # Slideshow mode: point at the distro wallpaper set only.
     (re.compile(r"^(SlidePaths)=.*$"), lambda m: f"{m.group(1)}=/usr/share/wallpapers/kognog/"),
-    # Cursor theme: Balih switched to Breeze (2026-07-31, "don't like the
+    # Cursor theme: Javier switched to Breeze (2026-07-31, "don't like the
     # Catppuccin" cursors) — ships with Plasma, no extra package. Any stale
     # Catppuccin reference in captured layers normalizes to it.
     (re.compile(r"^(cursorTheme)=Catppuccin-Mocha-Mauve-Cursors$"),
@@ -113,7 +113,7 @@ REWRITES = [
 
 # Pinned-launcher substitutions applied inside filter_launchers, for when the
 # distro default differs from the reference machine. Currently empty: Dolphin
-# is the default file manager again (Balih, 2026-08-01 — Nemo misbehaved under
+# is the default file manager again (Javier, 2026-08-01 — Nemo misbehaved under
 # KDE and was dropped; still searching for a keeper).
 LAUNCHER_SWAPS = {}
 
@@ -281,7 +281,7 @@ def ensure_terminal_stack():
     """The KognogOS terminal experience, from repo-canonical sources
     (config/ in the repo, NOT captured from the reference home): Alacritty
     config, fish config, and the sysinfo.py welcome box the greeting runs.
-    Discovered missing during the first live-ISO test (Balih, 2026-07-30:
+    Discovered missing during the first live-ISO test (Javier, 2026-07-30:
     'fish installed, not our setup') — the files existed in config/ since
     April but nothing ever shipped them."""
     fish = SKEL / ".config/fish"
@@ -290,7 +290,7 @@ def ensure_terminal_stack():
     # The prompt suite is the REFERENCE MACHINE's working fisher setup
     # (tide v6 + autopair + fzf.fish + sponge + catppuccin theme, all MIT/
     # open) — captured live so the shipped shell IS the developed shell
-    # (Balih, 2026-07-31: "rescue that").
+    # (Javier, 2026-07-31: "rescue that").
     src = HOME / ".config/fish"
     for d in ("functions", "conf.d", "completions", "themes"):
         if (src / d).exists():
@@ -341,7 +341,7 @@ def ensure_web_shortcuts():
 def ensure_default_apps():
     """Distro default-application bindings (not captured — declared).
 
-    Nemo is the default file manager (Balih, 2026-07-30): the mimeapps
+    Nemo is the default file manager (Javier, 2026-07-30): the mimeapps
     binding makes every open-folder action route to Nemo while Dolphin
     stays installed. The reference machine's own mimeapps.list is personal
     (its handlers reflect installed apps + habits) and is never captured.
@@ -351,7 +351,7 @@ def ensure_default_apps():
     path.write_text(
         "[Default Applications]\n"
         "inode/directory=org.kde.dolphin.desktop\n"
-        # Chrome is the distro default browser (Balih, 2026-07-31);
+        # Chrome is the distro default browser (Javier, 2026-07-31);
         # build-iso.sh swaps these to brave for the live session only
         # (Chrome cannot be redistributed inside the ISO).
         "x-scheme-handler/http=google-chrome.desktop\n"

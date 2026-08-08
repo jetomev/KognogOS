@@ -43,7 +43,7 @@ graphics = [
 # reason (2026-07-30 app review).
 desktop = [
     "plasma-meta", "sddm",
-    "dolphin",      # DEFAULT file manager (Balih, 2026-08-01: nemo dropped —
+    "dolphin",      # DEFAULT file manager (Javier, 2026-08-01: nemo dropped —
                     # misbehaved under KDE; NOT in plasma-meta — explicit)
     "konsole", "kate",  # KDE staples; also NOT in plasma-meta
     "okular",       # universal PDF viewer
@@ -74,7 +74,7 @@ security = ["ufw"]
 # scheme + config ship via /etc/skel (scripts/export-plasma.py)
 theming = [
     "candy-icons-git",              # icon theme
-    # cursors: breeze_cursors (ships with Plasma) — Balih 2026-07-31
+    # cursors: breeze_cursors (ships with Plasma) — Javier 2026-07-31
 ]
 
 # Audio + universal media player
@@ -129,7 +129,7 @@ web_shortcuts = ["claude.ai", "web.whatsapp.com"]
 extra_repos = ["chaotic-aur"]
 
 # ─────────────────────────────────────────────────────────────────────────
-# PROPRIETARY apps + their offered FOSS swaps (Balih's installer flow,
+# PROPRIETARY apps + their offered FOSS swaps (Javier's installer flow,
 # 2026-07-30): installforge marks these in the app list; de-selecting one
 # offers the alternatives to pick as a replacement. Empty list = no
 # equivalent exists; de-selecting simply removes it.

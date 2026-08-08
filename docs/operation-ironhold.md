@@ -52,7 +52,7 @@ The core. Scope is **locked** to these five items — no riders except the freeb
   footer convention started with #2's closing comment.
 - **A2** ✅ **DONE 2026-08-05** · `nog deactivate aur` / `nog activate aur` — shipped
   (nog commit `f1139cc`, issue [#3](https://github.com/jetomev/nog/issues/3) closed):
-  state in new nog-owned `/etc/nog/sources.toml` (Balih's design pick over editing
+  state in new nog-owned `/etc/nog/sources.toml` (Javier's design pick over editing
   nog.conf), single gate upstream of helper detection (helper-agnostic), corrupted
   state fails closed. Tests 45→49; round trip field-verified. Bonus: dogfooding spawned
   the **System Lock doctrine feature** (KognogOS issue #1 — /usr/local/bin shims with
@@ -80,7 +80,7 @@ The core. Scope is **locked** to these five items — no riders except the freeb
 **🏁 PHASE A COMPLETE — nog v1.0.9 "Ironhold" released, 2026-08-05, in a single evening.**
 
 ### Phase B — signing & hardening (~2–3 nights, Aug 12–14)
-- **B1** · GPG: verify/create Balih's signing key; `git config commit.gpgsign` across
+- **B1** · GPG: verify/create Javier's signing key; `git config commit.gpgsign` across
   nog + grubForge + alacrittyForge + BitlaForge + forgekit + kognog; key uploaded to
   GitHub (Verified badge on all future commits).
 - **B2** · Signed release artifacts starting with nog v1.0.9 (sha256 manifest + `.asc`);
@@ -122,4 +122,4 @@ one night before anything else moves.
 | Co-maintainer on AUR packages | **Deferred — accepted risk** | No trusted candidate today; signing + hygiene mitigate; revisit at Forge v2 |
 | Maintainer-change detector | **nog v2 roadmap** | Right feature, wrong sprint |
 | snap support | **Parked** (standing) | Unchanged |
-| Article canonical home | kognog `docs/` — pending Balih confirmation | Umbrella repo = doctrine home |
+| Article canonical home | kognog `docs/` — pending Javier confirmation | Umbrella repo = doctrine home |

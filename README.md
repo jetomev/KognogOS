@@ -122,7 +122,7 @@ A TUI companion for `nog` plus a unified interface across AUR helpers, Flatpak, 
 | Font | JetBrains Mono Nerd Font |
 | Theme | Catppuccin Mocha |
 | Extra Repos | chaotic-aur |
-| System touches | Balih's `/etc/nanorc` + `pacman.conf` shipped as defaults · sudo `pwfeedback` (asterisks while typing) |
+| System touches | Javier's `/etc/nanorc` + `pacman.conf` shipped as defaults · sudo `pwfeedback` (asterisks while typing) |
 
 ### Proprietary apps & their offered swaps
 
@@ -197,7 +197,7 @@ KognogOS follows an **annual release cadence, on purpose**. This is a two-person
 
 The road to v1.0 (target: **April 2027**), phased in the same discipline as every Kognog project:
 
-- [x] **Phase 1 — KDE Plasma config export** ✅ **DONE 2026-07-30** (validated over 4 kogtest rounds; see below) — a reusable capture script (live config → `/etc/skel/`, personal residue stripped by rule). Panel layout: the single bottom bar. The final look (wallpapers, polish pass) is deliberately frozen **late** — just before release, from Balih's wallpapers
+- [x] **Phase 1 — KDE Plasma config export** ✅ **DONE 2026-07-30** (validated over 4 kogtest rounds; see below) — a reusable capture script (live config → `/etc/skel/`, personal residue stripped by rule). Panel layout: the single bottom bar. The final look (wallpapers, polish pass) is deliberately frozen **late** — just before release, from Javier's wallpapers
 - [ ] **Phase 2 — First bootable ISO** — archiso profile: live Plasma session, branding, terminal stack, nog + Forge preinstalled. No installer yet — the "it boots!" milestone. Includes the **display-manager decision**: SDDM is not locked in — evaluate alternatives (greetd family, Ly) vs. a custom forgekit-inspired SDDM theme
 - [ ] **Phase 3 — `installforge`** — the Forge-style TUI installer (own repo + AUR): edition picker reading `config/profiles.toml`, guided disk setup, user creation. **App-selection flow (decided 2026-07-30):** each edition shows its recommended package list; proprietary apps are marked and de-selectable; de-selecting one offers a curated free/open-source replacement to pick instead (e.g. Chrome → Firefox, VS Code → `code`). The **Development edition** additionally shows a pre-install notice recommending a review of the tier pins against the user's toolchain needs
 - [ ] **`welcomeforge`** — the KognogOS Welcome Center as a **forgekit TUI** (decided 2026-07-31: TUI-first is the brand — and it becomes forgekit's pilot adopter, maturing the kit before installforge builds on it). Launches in Alacritty at session start; live-ISO mode fronts **Install** (hands off to installforge), installed mode drops Install and adds the "show on startup" toggle. Content: the project & philosophy, a guided nog tour, the Forge Suite, the Tier Reference Guide, GitHub/feedback links, next steps — with the emblem rendered as ANSI pixel art. Replaces KDE's plasma-welcome first-run popup (suppressed via skel)

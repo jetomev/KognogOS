@@ -1,5 +1,5 @@
 ## KognogOS sudo defaults
 ## installforge installs this as /etc/sudoers.d/10-kognog (mode 0440)
 
-## Show * feedback while typing the password (Balih, 2026-07-30)
+## Show * feedback while typing the password (Javier, 2026-07-30)
 Defaults pwfeedback
