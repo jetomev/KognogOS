@@ -80,7 +80,8 @@ The core. Scope is **locked** to these five items — no riders except the freeb
 **🏁 PHASE A COMPLETE — nog v1.0.9 "Ironhold" released, 2026-08-05, in a single evening.**
 
 ### Phase B — signing & hardening (~2–3 nights, Aug 12–14)
-- **B1** · GPG: verify/create Javier's signing key; `git config commit.gpgsign` across
+- **B1 ✅ (2026-08-09)** · GPG: verify/create Javier's signing key; `git config commit.gpgsign` across
+  → DONE: no prior key existed; ed25519 key `32E1D2AB9380BFD6BFE3BC1EAC2A3407CC070F9E` cast (expires 2028-08-08 — RENEW ~June 2028), passphrase in the password manager, revocation cert in `~/.gnupg/openpgp-revocs.d/`; `commit.gpgsign` + `tag.gpgSign` set GLOBALLY (covers all repos); public key uploaded to GitHub (`gh gpg-key add`, scope refreshed). This very commit is the first signed one.
   nog + grubForge + alacrittyForge + BitlaForge + forgekit + kognog; key uploaded to
   GitHub (Verified badge on all future commits).
 - **B2** · Signed release artifacts starting with nog v1.0.9 (sha256 manifest + `.asc`);
