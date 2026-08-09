@@ -84,12 +84,31 @@ The core. Scope is **locked** to these five items — no riders except the freeb
   → DONE: no prior key existed; ed25519 key `32E1D2AB9380BFD6BFE3BC1EAC2A3407CC070F9E` cast (expires 2028-08-08 — RENEW ~June 2028), passphrase in the password manager, revocation cert in `~/.gnupg/openpgp-revocs.d/`; `commit.gpgsign` + `tag.gpgSign` set GLOBALLY (covers all repos); public key uploaded to GitHub (`gh gpg-key add`, scope refreshed). This very commit is the first signed one.
   nog + grubForge + alacrittyForge + BitlaForge + forgekit + kognog; key uploaded to
   GitHub (Verified badge on all future commits).
-- **B2** · Signed release artifacts starting with nog v1.0.9 (sha256 manifest + `.asc`);
+- **B2 ✅ (2026-08-09)** · Signed release artifacts starting with nog v1.0.9 (sha256 manifest + `.asc`);
   PKGBUILD updates with `validpgpkeys` prepared locally for all 4 AUR packages —
   staged, pushed when AUR reopens.
-- **B3** · AUR account hardening completed (from N0) + documented.
-- **B4** · Typosquat watch: small script querying AUR RPC for `nog*`, `*forge*` lookalikes,
+- **B3 ✅ (2026-08-04, documented 08-09)** · AUR account hardening completed (from N0): password rotated + new SSH key.
+- **B4 ✅ (2026-08-09)** · Typosquat watch: small script querying AUR RPC for `nog*`, `*forge*` lookalikes,
   weekly systemd timer, ntfy alert on hits. Fails gracefully while AUR is down.
+
+
+**Phase B execution notes (2026-08-09 — completed in ONE evening, 3 nights ahead):**
+- B2: signed tarball + SHA256SUMS + detached `.asc` pairs attached to the current
+  GitHub release of ALL five repos (nog v1.0.9, forgekit v0.2.1, bitlaforge v0.2.1,
+  grubforge v1.0.3, alacrittyforge v0.1.1); key published to keys.openpgp.org.
+  All five AUR PKGBUILDs re-pointed at the signed release assets with
+  `validpgpkeys` and verified end-to-end via `makepkg --verifysource` —
+  committed locally, DO-NOT-PUSH until the AUR reopens. ⚠️ Cache lesson: stale
+  same-named tarballs in the package dir make updpkgsums lie — purge sources
+  before re-summing after a source-URL change.
+- B4: `scripts/aur-typosquat-watch.sh` + user-timer units (in
+  `scripts/systemd-user/`, installed on the desktop, Mondays 09:00): exact
+  `-bin/-git/-opt` lookalike probes (loud, every run) + delta scan against a
+  seeded baseline (47 names) for watch terms; ntfy topic `aur-watch`
+  (delivery tested); silent graceful exit while the AUR is unreachable.
+- 🔑 Key fingerprint: `32E1D2AB9380BFD6BFE3BC1EAC2A3407CC070F9E` — expires
+  2028-08-08, **renew ~June 2028**; passphrase in the password manager;
+  revocation cert in `~/.gnupg/openpgp-revocs.d/`.
 
 ### Phase C — communication: "Where We Stand" article (~2 nights, Aug 16–17)
 - **C1** · One article, written once, linked everywhere: what happened in the AUR,

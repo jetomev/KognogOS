@@ -1,0 +1,6 @@
+[Unit]
+Description=AUR typosquat watch for the Forge family (Ironhold B4)
+
+[Service]
+Type=oneshot
+ExecStart=/home/jetomev/Programs/kognog/scripts/aur-typosquat-watch.sh
