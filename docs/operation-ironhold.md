@@ -110,13 +110,23 @@ The core. Scope is **locked** to these five items — no riders except the freeb
   2028-08-08, **renew ~June 2028**; passphrase in the password manager;
   revocation cert in `~/.gnupg/openpgp-revocs.d/`.
 
-### Phase C — communication: "Where We Stand" article (~2 nights, Aug 16–17)
+### Phase C ✅ (2026-08-09 — a week early) — communication: "Where We Stand" article
 - **C1** · One article, written once, linked everywhere: what happened in the AUR,
   what we verified on our own systems, what we changed (fail-closed holds, kill switch,
   signing), and the KognogOS doctrine — tiered holds + curated pins as the design answer
   to supply-chain risk. Honest tone; no fear-marketing.
 - **C2** · Cross-linking pass: README section in nog, grubForge, alacrittyForge,
   BitlaForge, forgekit, kognog → the article. (Canonical home: this repo's `docs/`.)
+
+
+**Phase C execution notes (2026-08-09):** `docs/where-we-stand.md` written and live
+(canonical home = this repo, per plan): the attack story, our Aug-4 audit verdict,
+the full signing chain with the key fingerprint, a verify-us-don't-trust-us recipe,
+and the AUR-vs-GitHub version table for the freeze period. Security block
+cross-linked in all 6 READMEs (kognog, nog, grubforge, alacrittyforge, bitlaforge,
+forgekit — all pushed, all Verified). The four closed nog Ironhold issues (#2/3/4/6)
+got the article link as a follow-up comment. On AUR reopen: add the dated banner at
+the TOP of the article naming the versions that went live, and refresh the table.
 
 ### Phase D — closure (1 night, Aug 18–19)
 - **D1** · Sweep: all tasks green or explicitly accepted; memories + vault session log.
