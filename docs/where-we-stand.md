@@ -1,0 +1,126 @@
+# Where We Stand — Security and the Forge Family
+
+*Javier (jetomev) & Claude · August 2026 · the canonical copy of this document lives in the [KognogOS repository](https://github.com/jetomev/KognogOS/blob/main/docs/where-we-stand.md)*
+
+> **TL;DR** — Our packages were never compromised. Every release is now GPG-signed,
+> every commit carries a Verified badge, and our AUR packages verify signatures at
+> build time. The AUR's upload freeze means some of our newest versions aren't on
+> the AUR *yet* — this page tells you exactly what's current, how to verify
+> everything yourself, and what we changed so you never have to take our word for it.
+
+---
+
+## What happened on the AUR
+
+Through June–August 2026, the Arch User Repository was hit by a sustained
+supply-chain campaign: attackers filed orphan requests against unmaintained
+packages, adopted them, and pushed malicious updates — obfuscated ELF binaries
+(`validator`, `linter`, `hasher`) smuggled into build paths, plus fresh `-bin`
+typosquats of popular names, backed by a Tor-based second stage. Over a hundred
+packages were affected across the waves. Arch's response escalated from removals
+to **disabling package adoption (July 30)** and finally **freezing all AUR pushes
+(August 1)** — a freeze still in effect as we write, with no announced end date.
+
+This matters to us because the Forge family lives partly on the AUR:
+[nog](https://aur.archlinux.org/packages/nog),
+[grubforge](https://aur.archlinux.org/packages/grubforge),
+[alacrittyforge](https://aur.archlinux.org/packages/alacrittyforge),
+[bitlaforge](https://aur.archlinux.org/packages/bitlaforge), and
+[nogforge](https://aur.archlinux.org/packages/nogforge).
+
+## Our audit — August 4, 2026
+
+We reviewed our own exposure the way we'd want any maintainer to:
+
+- **None of our packages were compromised.** We hold their AUR maintainership;
+  no adoption, no foreign commits, no orphan window.
+- **Our development machine came back clean**: every foreign and third-party-repo
+  package on it was checked against the published compromise lists, and the
+  packages updated during the attack window were verified against their cached
+  build recipes.
+- The audit *did* surface a hardening gap in our own tooling — nog, our
+  tier-aware update manager, treated an unreachable AUR as "nothing to do,"
+  which could silently release version holds during an outage. **That
+  fail-open bug is fixed** (nog v1.0.9 fails closed and gained explicit
+  kill-switches for AUR and third-party repos). We found it because this
+  campaign made us look harder at our own assumptions — the honest way to
+  benefit from someone else's bad week.
+
+## What we changed
+
+**Everything is signed now.**
+
+- Releases on every Forge repository ship a source tarball, a SHA256 manifest,
+  and detached GPG signatures (`.asc`) for both.
+- Every commit and tag from us is GPG-signed — look for the **Verified** badge
+  on GitHub.
+- Our AUR packages (staged, awaiting the freeze lift) pull the **signed release
+  tarball** and carry `validpgpkeys`, so `makepkg` cryptographically verifies
+  the source against our key before a single line builds.
+
+**Our signing key** (published on [keys.openpgp.org](https://keys.openpgp.org)):
+
+```
+Javier (jetomev) <jetomev@gmail.com>
+32E1D2AB 9380BFD6 BFE3BC1E AC2A3407 CC070F9E
+ed25519 · created 2026-08-09 · expires 2028-08-08
+```
+
+**We watch for impersonators.** A weekly sentry queries the AUR for exact
+lookalikes of our package names (`nog-bin`, `bitlaforge-git`, and friends — the
+suffix pattern this campaign used) and for new packages shadowing our names.
+If someone tries to typosquat the Forge family, we'll know within the week and
+say so publicly.
+
+**Account hygiene**: AUR credentials rotated, fresh SSH keys, and our AUR
+account activity is part of the weekly review.
+
+## Verify us — don't trust us
+
+```bash
+# 1. Import the key
+gpg --keyserver keys.openpgp.org --recv-keys 32E1D2AB9380BFD6BFE3BC1EAC2A3407CC070F9E
+
+# 2. Grab any release + its signature (nog shown; same shape everywhere)
+curl -LO https://github.com/jetomev/nog/releases/download/v1.0.9/nog-1.0.9.tar.gz
+curl -LO https://github.com/jetomev/nog/releases/download/v1.0.9/nog-1.0.9.tar.gz.asc
+
+# 3. Verify
+gpg --verify nog-1.0.9.tar.gz.asc nog-1.0.9.tar.gz
+# expect: Good signature from "Javier (jetomev) <jetomev@gmail.com>"
+```
+
+If a "Forge" package ever reaches you without that signature chain, it isn't ours.
+
+## What's current where (while the AUR is frozen)
+
+The freeze blocks *maintainers* from publishing, not users from installing —
+but it does mean the AUR lags our releases:
+
+| Package | AUR has | Latest (GitHub) | Notes |
+|---|---|---|---|
+| nog | v1.0.8 | **v1.0.9** | the fail-closed security release itself |
+| bitlaforge | v0.1.3 | **v0.2.1** | first Forge app on forgekit |
+| grubforge | v1.0.3 | v1.0.3 | current ✓ |
+| alacrittyforge | v0.1.1 | v0.1.1 | current ✓ |
+| python-forgekit | — | **v0.2.1** | new; first AUR submission awaits the thaw |
+
+Until the thaw, the newest versions install from GitHub — each repo's README
+has the from-source path, and every release page carries the signed artifacts
+above. The moment the AUR reopens, the staged updates go out and a dated
+banner at the top of this page will say exactly which versions are live.
+
+## The stance, in one paragraph
+
+The AUR's openness is why it's valuable and why it was attacked. We don't get
+to control the repository — we *do* get to control whether trusting our little
+corner of it requires faith. As of August 2026 it doesn't: signatures you can
+check, badges GitHub checks for you, build-time verification `makepkg` performs
+automatically, and a public paper trail (see
+[Operation Ironhold](operation-ironhold.md)) of what we did and when. That's
+where we stand.
+
+---
+
+*Questions or something that doesn't verify? Open an issue on any of our
+repositories — that's exactly what they're for.*
