@@ -63,8 +63,11 @@ img.paste(logo, (LOGO_X, LOGO_Y), logo)
 # (y=335) and the boot menu at top=40% (y=432). The title has to live in
 # the clear band between the logo (ends y=222) and that countdown, so it
 # is anchored at y=250 — 30px tall, clearing 335 with room to spare.
-# Indented past the logo's left edge on Javier's eye, not a rule.
-TITLE_X, TITLE_Y = 160, 250
+# Horizontally: Javier asked for the C of "Choose" to sit where the "a"
+# of "an" was, which measured 126px right of 160 -> 286. Rounded to 288
+# because that is the theme's own `boot_menu left = 15%` of 1920, so the
+# title now shares an edge with the menu box instead of floating near it.
+TITLE_X, TITLE_Y = 288, 250
 
 big = ImageFont.truetype(FONT.format("Bold"), 30)
 small = ImageFont.truetype(FONT.format("Regular"), 20)
