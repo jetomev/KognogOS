@@ -8,6 +8,8 @@
 #      point here; a flat PNG path does NOT work for fresh desktops)
 #   * all repo wallpapers -> /usr/share/wallpapers/kognog/  (slideshow dir)
 #   * tier emblem        -> /usr/share/pixmaps/kognogos.png (launcher icon)
+#   * Plymouth theme     -> /usr/share/plymouth/themes/kognog/
+#   * Plasma splash      -> /usr/share/plasma/look-and-feel/org.kognogos.splash/
 #
 # skel/ configs reference these stable paths (scripts/export-plasma.py),
 # so run this once on any machine that tests skel before packaging exists.
@@ -52,4 +54,26 @@ cp /usr/share/kognog/os-release /usr/lib/os-release
 install -Dm644 "$REPO/assets/icons/kognogos.png" \
     /usr/share/icons/hicolor/256x256/apps/kognogos.png
 
-echo "installed: KognogSemi wallpaper package, $(ls /usr/share/wallpapers/kognog | wc -l) slideshow wallpapers, launcher emblem"
+# Boot identity — the two screens that bracket login. Both draw from the
+# SAME logo.png/spinner.png so the pre-login and post-login screens read
+# as one system. Deliberately does NOT touch mkinitcpio, the kernel
+# cmdline or GRUB: those are per-machine and belong to installforge
+# (KognogOS issue #2), not to a look installer.
+install -d /usr/share/plymouth/themes/kognog
+install -m644 "$REPO/iso/airootfs/usr/share/plymouth/themes/kognog/"* \
+    /usr/share/plymouth/themes/kognog/
+
+SPLASH=/usr/share/plasma/look-and-feel/org.kognogos.splash
+install -d "$SPLASH/contents/splash/images"
+install -m644 "$REPO/iso/airootfs/usr/share/plasma/look-and-feel/org.kognogos.splash/metadata.json" "$SPLASH/"
+install -m644 "$REPO/iso/airootfs/usr/share/plasma/look-and-feel/org.kognogos.splash/contents/splash/Splash.qml" \
+    "$SPLASH/contents/splash/"
+install -m644 "$REPO/iso/airootfs/usr/share/plasma/look-and-feel/org.kognogos.splash/contents/splash/images/"* \
+    "$SPLASH/contents/splash/images/"
+
+echo "installed: KognogSemi wallpaper package, $(ls /usr/share/wallpapers/kognog | wc -l) slideshow wallpapers, launcher emblem, Plymouth theme, Plasma splash"
+echo
+echo "Boot identity is installed but not yet ACTIVE. Per machine:"
+echo "  plymouth-set-default-theme kognog && mkinitcpio -P"
+echo "  kwriteconfig6 --file ksplashrc --group KSplash --key Theme org.kognogos.splash"
+echo "  (plus 'splash' on the kernel cmdline -- see KognogOS issue #2)"
