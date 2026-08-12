@@ -251,8 +251,7 @@ IDENTITY_CHECKS = [
     (".config/fish/fish_plugins", "ilancosman/tide"),
     (".config/mimeapps.list", "x-scheme-handler/https=google-chrome.desktop"),
     (".config/alacritty/alacritty.toml", "program = \"/usr/bin/fish\""),
-    (".local/share/plasma/look-and-feel/Catppuccin-Mocha-Mauve/contents/splash/Splash.qml",
-     "kognogos-spinner.png"),
+    (".config/kdedefaults/ksplashrc", "org.kognogos.splash"),
     (".local/share/plasma/look-and-feel/Catppuccin-Mocha-Mauve/metadata.json", None),
     (".local/share/color-schemes/CatppuccinMochaMauve.colors", None),
     (".local/share/aurorae/themes/CatppuccinMocha-Modern/metadata.json", None),
@@ -308,15 +307,20 @@ def ensure_terminal_stack():
 
 
 def ensure_splash():
-    """Overwrite the captured LookAndFeel package's splash with the
-    KognogOS design (assets/splash/Splash.qml) — same visual language as
-    the Plymouth theme, so boot and session-load feel continuous."""
-    dst = (SKEL / ".local/share/plasma/look-and-feel/"
-           "Catppuccin-Mocha-Mauve/contents/splash")
-    if dst.parent.exists():
-        dst.mkdir(exist_ok=True)
-        shutil.copy(REPO / "assets/splash/Splash.qml", dst / "Splash.qml")
-        print("  ~ installed KognogOS KSplash into the LnF package")
+    """Point the captured session at the standalone KognogOS splash.
+
+    This used to overwrite the third-party Catppuccin package's own
+    Splash.qml in place. That worked, but it vandalized someone else's
+    package: any theme update reverted it silently, and the result was
+    unselectable in the splash KCM. The splash now lives in its own
+    package (org.kognogos.splash, installed system-wide by
+    install-look.sh and shipped in iso/airootfs), so all skel has to do
+    is name it — and the Catppuccin package travels untouched.
+    """
+    rc = SKEL / ".config/kdedefaults/ksplashrc"
+    rc.parent.mkdir(parents=True, exist_ok=True)
+    rc.write_text("[KSplash]\nEngine=KSplashQML\nTheme=org.kognogos.splash\n")
+    print("  ~ pointed KSplash at org.kognogos.splash")
 
 
 def ensure_web_shortcuts():
