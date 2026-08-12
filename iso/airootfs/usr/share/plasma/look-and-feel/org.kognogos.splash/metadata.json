@@ -1,0 +1,18 @@
+{
+    "KPackageStructure": "Plasma/LookAndFeel",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "jetomev@gmail.com",
+                "Name": "Javier"
+            }
+        ],
+        "Category": "",
+        "Description": "KognogOS boot identity — the tier emblem on Catppuccin Mocha, continuing the Plymouth splash",
+        "Id": "org.kognogos.splash",
+        "License": "GPL-3.0-or-later",
+        "Name": "KognogOS",
+        "Version": "1.0",
+        "Website": "https://github.com/jetomev/kognog"
+    }
+}
