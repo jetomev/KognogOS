@@ -1,0 +1,190 @@
+#!/usr/bin/env python3
+"""
+Refresh the KognogOS pending-update snapshot.
+
+Run by kognog-updates.timer in the user scope. Writes a small JSON file
+that the shell greeting reads instantly, so opening a terminal never
+waits on the network: `checkupdates` syncs a package database, and that
+cost belongs in the background rather than in front of a prompt.
+
+Snapshot: ${XDG_CACHE_HOME:-~/.cache}/kognog/updates.json
+
+    {"generated": 1755109871, "count": 167, "level": "red",
+     "stale": [{"pkg": "linux-zen", "tier": 1, "age": 97}, ...]}
+
+Levels
+    green    nothing pending
+    yellow   updates pending, none overdue
+    red      a Tier 1 or Tier 2 package this machine is RUNNING is more
+             than STALE_FACTOR times its hold window old
+
+Why the age of the INSTALLED build rather than the newest available one:
+for an actively maintained package the newest build is always only days
+old, so that number can never signal drift -- measured on this machine,
+every Tier 1 package's newest build was 1-8 days old while the kernel
+actually booted was 97 days old. What matters is the age of the software
+running here. It is only ever measured for packages that already have an
+update waiting, so a package that is merely stable is never called
+overdue.
+
+Hold windows come from nog.conf instead of being hardcoded, so this can
+never contradict nog's own idea of when a package is due.
+
+Scope: official repositories only, because that is what `checkupdates`
+covers. AUR, Flatpak and Snap are tracked by nog but not here; the
+durable fix is for nog itself to publish this snapshot (roadmap C4,
+`nog status --json`) and for this script to retire into a thin caller.
+
+On failure -- no network, no pacman-contrib -- the previous snapshot is
+left untouched and the exit status is non-zero. A stale but true answer
+beats an empty one, and the greeting reports how old it is.
+
+SPDX-FileCopyrightText: 2026 Javier
+SPDX-License-Identifier: GPL-3.0-or-later
+"""
+
+import datetime
+import json
+import os
+import pathlib
+import subprocess
+import sys
+import time
+
+NOG_CONF = "/etc/nog/nog.conf"
+TIER_PINS = "/etc/nog/tier-pins.toml"
+
+# A package is "overdue" once it is this many times its hold window old.
+# 1.0 would fire the moment a package became eligible, which is normal
+# operation, not drift; 2.0 means it has been ignorable for as long as it
+# was ever held.
+STALE_FACTOR = 2
+
+DEFAULT_HOLDS = {1: 30, 2: 15, 3: 7}
+
+PACMAN_ENV = {"LC_ALL": "C", "PATH": "/usr/bin:/bin"}
+
+
+def cache_dir():
+    base = os.environ.get("XDG_CACHE_HOME") or os.path.expanduser("~/.cache")
+    d = pathlib.Path(base) / "kognog"
+    d.mkdir(parents=True, exist_ok=True)
+    return d
+
+
+def load_tiers():
+    """{package: tier}. Tier 3 is 'everything else' and has no list."""
+    try:
+        import tomllib
+        with open(TIER_PINS, "rb") as fh:
+            pins = tomllib.load(fh)
+    except (OSError, ImportError, ValueError):
+        return {}
+    tiers = {}
+    for t in (1, 2, 3):
+        for pkg in pins.get(f"tier{t}", {}).get("packages", []) or []:
+            tiers[pkg] = t
+    return tiers
+
+
+def load_holds():
+    try:
+        import tomllib
+        with open(NOG_CONF, "rb") as fh:
+            holds = tomllib.load(fh).get("holds", {})
+    except (OSError, ImportError, ValueError):
+        return dict(DEFAULT_HOLDS)
+    return {t: int(holds.get(f"tier{t}_days", DEFAULT_HOLDS[t])) for t in (1, 2, 3)}
+
+
+def pending_updates(db):
+    """Package names with an official-repo update waiting.
+
+    checkupdates exits 2 when there is simply nothing to do, which is a
+    successful answer of "zero", not a failure.
+    """
+    env = dict(os.environ, CHECKUPDATES_DB=str(db))
+    proc = subprocess.run(["checkupdates"], capture_output=True, text=True, env=env)
+    if proc.returncode == 2:
+        return []
+    if proc.returncode != 0:
+        raise RuntimeError(
+            (proc.stderr or proc.stdout or "checkupdates failed").strip())
+    return [line.split()[0] for line in proc.stdout.splitlines() if line.strip()]
+
+
+def installed_build_ages(packages):
+    """{package: age in days of the build currently installed}."""
+    if not packages:
+        return {}
+    proc = subprocess.run(["pacman", "-Qi", *packages],
+                          capture_output=True, text=True, env=PACMAN_ENV)
+    ages, name, now = {}, None, datetime.datetime.now()
+    for line in proc.stdout.splitlines():
+        if line.startswith("Name "):
+            name = line.split(":", 1)[1].strip()
+        elif line.startswith("Build Date") and name:
+            stamp = line.split(":", 1)[1].strip()
+            try:
+                built = datetime.datetime.strptime(stamp, "%a %b %d %H:%M:%S %Y")
+            except ValueError:
+                continue
+            ages[name] = (now - built).days
+    return ages
+
+
+def main():
+    cache = cache_dir()
+    out = cache / "updates.json"
+
+    # checkupdates syncs into its own database; pinning it here keeps the
+    # snapshot out of /tmp and reusable between runs.
+    db = cache / "db"
+    db.mkdir(parents=True, exist_ok=True)
+
+    try:
+        pending = pending_updates(db)
+    except (RuntimeError, FileNotFoundError) as exc:
+        print(f"update-check: {exc}", file=sys.stderr)
+        print(f"update-check: keeping previous snapshot at {out}", file=sys.stderr)
+        return 1
+
+    tiers, holds = load_tiers(), load_holds()
+
+    watched = [p for p in pending if tiers.get(p) in (1, 2)]
+    ages = installed_build_ages(watched)
+
+    stale = []
+    for pkg in watched:
+        tier, age = tiers[pkg], ages.get(pkg)
+        if age is not None and age > holds[tier] * STALE_FACTOR:
+            stale.append({"pkg": pkg, "tier": tier, "age": age})
+    stale.sort(key=lambda s: (-s["age"], s["pkg"]))
+
+    if not pending:
+        level = "green"
+    elif stale:
+        level = "red"
+    else:
+        level = "yellow"
+
+    snapshot = {
+        "generated": int(time.time()),
+        "count": len(pending),
+        "level": level,
+        "stale": stale,
+    }
+
+    # Atomic: the greeting reads this file on every shell launch and must
+    # never catch it half-written.
+    tmp = out.with_suffix(".tmp")
+    tmp.write_text(json.dumps(snapshot, indent=2) + "\n")
+    os.replace(tmp, out)
+
+    worst = f", oldest {stale[0]['pkg']} at {stale[0]['age']}d" if stale else ""
+    print(f"update-check: {len(pending)} pending, {level}{worst} -> {out}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,0 +1,15 @@
+[Unit]
+Description=Refresh the KognogOS pending-update snapshot
+Documentation=https://github.com/jetomev/KognogOS
+# Dormant rather than failing when pacman-contrib is absent -- same rule
+# the nog snap backend follows for a missing snapd. A unit that errors
+# every hour on a machine that simply lacks the tool is noise, not news.
+ConditionPathExists=/usr/bin/checkupdates
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/kognog/update-check
+# This exists so a terminal never waits. It should never be the reason
+# something else does.
+Nice=10
+IOSchedulingClass=idle

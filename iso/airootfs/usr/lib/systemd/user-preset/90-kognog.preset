@@ -1,0 +1,5 @@
+# KognogOS user-scope defaults. A preset is how a distro says "this is on
+# unless the user turns it off" -- every new account gets the update
+# snapshot without anyone running systemctl by hand, and `systemctl --user
+# disable` still wins.
+enable kognog-updates.timer

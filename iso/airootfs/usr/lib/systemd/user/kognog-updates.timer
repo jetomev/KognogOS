@@ -1,0 +1,20 @@
+[Unit]
+Description=Periodic refresh of the KognogOS pending-update snapshot
+Documentation=https://github.com/jetomev/KognogOS
+
+[Timer]
+# User scope, so "startup" is the login that started this systemd --user
+# instance. Two minutes lets the network settle first; if it has not, the
+# run fails harmlessly and the hourly cadence picks it up.
+OnStartupSec=2min
+OnUnitActiveSec=1h
+# Politeness toward the mirrors, small enough not to delay the first
+# answer after login.
+RandomizedDelaySec=1min
+AccuracySec=1min
+# Deliberately no Persistent=: it only applies to OnCalendar= timers, so
+# setting it here would be a no-op that reads like a guarantee. Catch-up
+# is not needed anyway -- OnStartupSec= already fires after every login.
+
+[Install]
+WantedBy=timers.target
