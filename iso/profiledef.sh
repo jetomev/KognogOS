@@ -3,7 +3,7 @@
 
 iso_name="kognogos"
 iso_label="KOGNOG_$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y%m)"
-iso_publisher="KognogOS <https://github.com/jetomev/kognog>"
+iso_publisher="KognogOS <https://github.com/jetomev/KognogOS>"
 iso_application="KognogOS Semi Live/Installer"
 iso_version="$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y.%m.%d)"
 install_dir="arch"
