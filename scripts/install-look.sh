@@ -49,6 +49,9 @@ install -Dm644 "$REPO/assets/icons/plymouth-spinner.png" /usr/share/pixmaps/kogn
 # (Arch's filesystem package owns /usr/lib/os-release and would revert the
 # identity on every upgrade; the hook restores it post-transaction).
 install -Dm644 "$REPO/config/os-release" /usr/share/kognog/os-release
+# Pre-rendered emblem for the shell greeting (scripts/make-emblem-ansi.py).
+# Shipped as text so no image library is imported in front of every prompt.
+install -Dm644 "$REPO/assets/icons/kognogos.ansi" /usr/share/kognog/kognogos.ansi
 install -Dm644 "$REPO/iso/airootfs/etc/pacman.d/hooks/kognog-os-release.hook" \
     /etc/pacman.d/hooks/kognog-os-release.hook
 cp /usr/share/kognog/os-release /usr/lib/os-release
