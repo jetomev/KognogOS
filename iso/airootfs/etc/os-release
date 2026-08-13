@@ -1,10 +1,15 @@
 NAME="KognogOS"
 PRETTY_NAME="KognogOS — Semi-Rolling | Tier-Aware"
+# Tracks the KognogOS git tag. Semi-rolling means BUILD_ID stays "rolling"
+# (packages move continuously) while VERSION marks the release the system
+# was cut from -- bump both this and the tag together.
+VERSION="0.9.0-beta"
+VERSION_ID=0.9.0-beta
 ID=kognogos
 ID_LIKE=arch
 BUILD_ID=rolling
 ANSI_COLOR="38;2;203;166;247"
-HOME_URL="https://github.com/jetomev/kognog"
-DOCUMENTATION_URL="https://github.com/jetomev/kognog"
-BUG_REPORT_URL="https://github.com/jetomev/kognog/issues"
+HOME_URL="https://github.com/jetomev/KognogOS"
+DOCUMENTATION_URL="https://github.com/jetomev/KognogOS"
+BUG_REPORT_URL="https://github.com/jetomev/KognogOS/issues"
 LOGO=kognogos
