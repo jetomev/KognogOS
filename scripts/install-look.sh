@@ -10,6 +10,7 @@
 #   * tier emblem        -> /usr/share/pixmaps/kognogos.png (launcher icon)
 #   * Plymouth theme     -> /usr/share/plymouth/themes/kognog/
 #   * Plasma splash      -> /usr/share/plasma/look-and-feel/org.kognogos.splash/
+#   * SDDM greeter       -> /usr/share/sddm/themes/kognogos/
 #
 # skel/ configs reference these stable paths (scripts/export-plasma.py),
 # so run this once on any machine that tests skel before packaging exists.
@@ -71,9 +72,13 @@ install -m644 "$REPO/iso/airootfs/usr/share/plasma/look-and-feel/org.kognogos.sp
 install -m644 "$REPO/iso/airootfs/usr/share/plasma/look-and-feel/org.kognogos.splash/contents/splash/images/"* \
     "$SPLASH/contents/splash/images/"
 
-echo "installed: KognogSemi wallpaper package, $(ls /usr/share/wallpapers/kognog | wc -l) slideshow wallpapers, launcher emblem, Plymouth theme, Plasma splash"
+# The SDDM greeter. Installed, not activated -- same boundary as above.
+bash "$REPO/scripts/install-greeter.sh"
+
+echo "installed: KognogSemi wallpaper package, $(ls /usr/share/wallpapers/kognog | wc -l) slideshow wallpapers, launcher emblem, Plymouth theme, Plasma splash, SDDM greeter"
 echo
 echo "Boot identity is installed but not yet ACTIVE. Per machine:"
 echo "  plymouth-set-default-theme kognog && mkinitcpio -P"
 echo "  kwriteconfig6 --file ksplashrc --group KSplash --key Theme org.kognogos.splash"
+echo "  bash scripts/install-greeter.sh --activate"
 echo "  (plus 'splash' on the kernel cmdline -- see KognogOS issue #2)"
