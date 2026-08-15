@@ -11,7 +11,7 @@
   <img src="https://img.shields.io/badge/Status-Alpha-orange.svg" alt="Status"/>
   <img src="https://img.shields.io/badge/Version-v0.9.0--beta-purple.svg" alt="Version"/>
 
-> 🛡 **Security:** every release is GPG-signed and every commit GitHub-Verified. Read **[Where We Stand](https://github.com/jetomev/KognogOS/blob/main/docs/where-we-stand.md)** — our response to the 2026 AUR supply-chain attacks, what is current during the AUR freeze, and how to verify us instead of trusting us.
+> 🛡 **Security:** every release is GPG-signed and every commit GitHub-Verified. Read **[Where We Stand](https://github.com/jetomev/KognogOS/blob/main/docs/where-we-stand.md)** — our response to the 2026 AUR supply-chain attacks, what is current, and how to verify us instead of trusting us.
 </p>
 
 ---

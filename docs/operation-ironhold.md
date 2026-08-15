@@ -141,9 +141,30 @@ one night before anything else moves.
 
 ## 3 · External dependencies
 
-- **AUR push freeze (Arch, no ETA):** the only item that can remain open on Aug 20 is
-  *"press send on the staged AUR pushes"* — by design a 15-minute action, safe to do
-  post-Orlando. Our definition of done is **our side complete**.
+- **AUR push freeze (Arch, no ETA):** ✅ **CLOSED 2026-08-14 — the AUR reopened and every
+  staged package shipped**, five days ahead of the Orlando deadline. Live: `nog` v1.2.0,
+  `python-forgekit` v0.3.0 (first new submission), `alacrittyforge` v0.2.0,
+  `bitlaforge` v0.2.1, `grubforge` v1.0.3 (B2 hardening). All five reinstalled from the
+  AUR through nog/yay and verified end to end. The "ready-to-ship" doctrine paid off
+  exactly as designed: the push itself was the 15-minute action it was planned to be.
+
+  Two findings from pressing send, worth keeping:
+
+  1. **Local `makepkg` runs had polluted all five AUR repos.** `pkg/`, `src/` and the
+     downloaded tarballs were committed — including `.BUILDINFO` and `.MTREE`, which
+     describe the local build environment. Nothing published was ever affected, but it
+     sat in the staged commits. **AUR's own hook refused the push** (`the repository
+     must not contain subdirectories`) — and it validates *every commit in the push*,
+     not just the resulting tree, so a cleanup commit on top was not enough. Each
+     repo's unpushed work was rebuilt as one clean commit and a `.gitignore` now blocks
+     the class outright.
+  2. **The key was fine; the agent was missing.** Auth failed with
+     `Permission denied (publickey)` even though the server logged `Server accepts key`
+     — the AUR key is passphrase-protected and no ssh-agent was running. Worth
+     remembering before assuming an account problem.
+
+- Our definition of done was **our side complete**, and it held: nothing external
+  remained once Arch reopened.
 - AUR RPC availability affects B4 testing only; the script degrades gracefully.
 
 ## 4 · Decisions

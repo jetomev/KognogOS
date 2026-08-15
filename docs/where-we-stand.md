@@ -2,11 +2,16 @@
 
 *Javier (jetomev) & Claude · August 2026 · the canonical copy of this document lives in the [KognogOS repository](https://github.com/jetomev/KognogOS/blob/main/docs/where-we-stand.md)*
 
-> **TL;DR** — Our packages were never compromised. Every release is now GPG-signed,
+> **Update — 14 August 2026: the AUR is open again, and every staged package is live.**
+> `nog` **v1.2.0**, `python-forgekit` **v0.3.0** (our first new AUR submission),
+> `alacrittyforge` **v0.2.0**, `bitlaforge` **v0.2.1** and `grubforge` **v1.0.3** all
+> install from the AUR now, each verifying our release signature at build time.
+> Nothing is held back behind the freeze any more, and the table below is current.
+
+> **TL;DR** — Our packages were never compromised. Every release is GPG-signed,
 > every commit carries a Verified badge, and our AUR packages verify signatures at
-> build time. The AUR's upload freeze means some of our newest versions aren't on
-> the AUR *yet* — this page tells you exactly what's current, how to verify
-> everything yourself, and what we changed so you never have to take our word for it.
+> build time. This page tells you exactly what's current, how to verify everything
+> yourself, and what we changed so you never have to take our word for it.
 
 ---
 
@@ -92,23 +97,26 @@ gpg --verify nog-1.0.9.tar.gz.asc nog-1.0.9.tar.gz
 
 If a "Forge" package ever reaches you without that signature chain, it isn't ours.
 
-## What's current where (while the AUR is frozen)
+## What's current where
 
-The freeze blocks *maintainers* from publishing, not users from installing —
-but it does mean the AUR lags our releases:
+Since 14 August 2026 the AUR and GitHub agree — every package is at its
+latest release, and each one verifies our signature during the build:
 
-| Package | AUR has | Latest (GitHub) | Notes |
+| Package | AUR | Latest (GitHub) | Notes |
 |---|---|---|---|
-| nog | v1.0.8 | **v1.0.9** | the fail-closed security release itself |
-| bitlaforge | v0.1.3 | **v0.2.1** | first Forge app on forgekit |
+| nog | v1.2.0 | v1.2.0 | current ✓ — Ironhold hardening, plus Flatpak and Snap as first-class sources |
+| python-forgekit | v0.3.0 | v0.3.0 | current ✓ — new package; the shared Forge TUI shell |
+| alacrittyforge | v0.2.0 | v0.2.0 | current ✓ — rebuilt on forgekit |
+| bitlaforge | v0.2.1 | v0.2.1 | current ✓ — first Forge app on forgekit |
 | grubforge | v1.0.3 | v1.0.3 | current ✓ |
-| alacrittyforge | v0.1.1 | v0.1.1 | current ✓ |
-| python-forgekit | — | **v0.2.1** | new; first AUR submission awaits the thaw |
 
-Until the thaw, the newest versions install from GitHub — each repo's README
-has the from-source path, and every release page carries the signed artifacts
-above. The moment the AUR reopens, the staged updates go out and a dated
-banner at the top of this page will say exactly which versions are live.
+Two things changed in how these are packaged while the freeze was on, and
+both survive it. Every PKGBUILD now takes its source from the **signed
+release asset** rather than an unauthenticated archive tarball, and names
+our key in `validpgpkeys` — so `makepkg` refuses to build if the tarball
+does not carry our signature. And each AUR repository holds packaging
+files only: `PKGBUILD`, `.SRCINFO` and nothing else. You can read every
+one of them end to end in under a minute, which is the point.
 
 ## The stance, in one paragraph
 
