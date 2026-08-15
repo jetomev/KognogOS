@@ -265,7 +265,8 @@ def status_line(snap):
         return (FAINT, "Update status unknown — is kognog-updates.timer enabled?", "")
 
     level, count = snap.get("level"), snap.get("count", 0)
-    stale = snap.get("stale") or []
+    ready = snap.get("ready") or []
+    upcoming = snap.get("next")
 
     if level == "green":
         text = "System and packages are up to date!"
@@ -279,12 +280,26 @@ def status_line(snap):
     # Detail goes on its own line rather than being appended: the headline
     # already runs to ~85 columns, and appending to it wrapped the sentence
     # back to column 0.
+    #
+    # It reports READY Tier 1/2 packages -- ones whose hold window has
+    # elapsed. The raw pending count is context, not the headline: most of
+    # it is Tier 3 riding its own window, and none of it is actionable
+    # until nog says so.
     detail = []
     if count:
-        detail.append(f"{count} pending")
-    if stale:
-        worst = stale[0]
-        detail.append(f"oldest {worst['pkg']} {worst['age']}d (tier {worst['tier']})")
+        # Says "official repos" because that is genuinely all it counts.
+        # nog's own total is higher -- it also sees AUR, Flatpak and Snap
+        # (145 vs 142 on 2026-08-13) -- and an unqualified number here
+        # would read as a contradiction of the tool it is pointing at.
+        detail.append(f"{count} pending in official repos")
+    if ready:
+        worst = ready[0]
+        detail.append(f"{len(ready)} ready in tier 1/2")
+        detail.append(f"oldest {worst['pkg']} {worst['over']}d past its window")
+    elif count:
+        detail.append("none ready in tier 1/2")
+        if upcoming:
+            detail.append(f"next {upcoming['pkg']} in {upcoming['remaining']}d")
     # A snapshot the timer stopped refreshing must not read as fresh news.
     age_h = (time.time() - snap.get("generated", 0)) / 3600
     if age_h > 24:

@@ -9,26 +9,37 @@ cost belongs in the background rather than in front of a prompt.
 
 Snapshot: ${XDG_CACHE_HOME:-~/.cache}/kognog/updates.json
 
-    {"generated": 1755109871, "count": 167, "level": "red",
-     "stale": [{"pkg": "linux-zen", "tier": 1, "age": 97}, ...]}
+    {"generated": 1755109871, "count": 142, "level": "yellow",
+     "ready": [{"pkg": "linux-zen", "tier": 1, "over": 3}],
+     "next": {"pkg": "plasma-desktop", "tier": 2, "remaining": 6}}
 
 Levels
     green    nothing pending
-    yellow   updates pending, none overdue
-    red      a Tier 1 or Tier 2 package this machine is RUNNING is more
-             than STALE_FACTOR times its hold window old
+    yellow   updates pending, but no Tier 1 or Tier 2 package is ready
+    red      a Tier 1 or Tier 2 package is READY -- its hold window has
+             elapsed, so nog will install it on the next run
 
-Why the age of the INSTALLED build rather than the newest available one:
-for an actively maintained package the newest build is always only days
-old, so that number can never signal drift -- measured on this machine,
-every Tier 1 package's newest build was 1-8 days old while the kernel
-actually booted was 97 days old. What matters is the age of the software
-running here. It is only ever measured for packages that already have an
-update waiting, so a package that is merely stable is never called
-overdue.
+What "ready" means, and what it does not
+---------------------------------------
+A tier hold is counted from the moment the UPDATE was published, not from
+the age of what is currently installed. Those are very different numbers
+and only the first one matches nog. Measured on this machine: the running
+kernel was 97 days old, which looks alarming, while the update replacing
+it had been available for 3 days and nog correctly reported "27 days
+remaining". Reporting the installed build's age called that overdue when
+nothing was actionable at all.
 
-Hold windows come from nog.conf instead of being hardcoded, so this can
-never contradict nog's own idea of when a package is due.
+So: only packages whose window has actually elapsed are counted, and only
+in Tier 1 and Tier 2 -- Tier 3 rides its 7-day window without needing to
+be announced.
+
+Elapsed days are rounded UP, because that is what nog does. Truncating
+was uniformly one day short across all fourteen Tier 1/2 packages in the
+2026-08-13 run; rounding up reproduces nog's numbers exactly.
+
+Build dates come from the same synced database `checkupdates` populated,
+never the system one -- the system copy can be days stale, which would
+date an update that is not even in it.
 
 Scope: official repositories only, because that is what `checkupdates`
 covers. AUR, Flatpak and Snap are tracked by nog but not here; the
@@ -45,6 +56,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 import datetime
 import json
+import math
 import os
 import pathlib
 import subprocess
@@ -54,13 +66,8 @@ import time
 NOG_CONF = "/etc/nog/nog.conf"
 TIER_PINS = "/etc/nog/tier-pins.toml"
 
-# A package is "overdue" once it is this many times its hold window old.
-# 1.0 would fire the moment a package became eligible, which is normal
-# operation, not drift; 2.0 means it has been ignorable for as long as it
-# was ever held.
-STALE_FACTOR = 2
-
 DEFAULT_HOLDS = {1: 30, 2: 15, 3: 7}
+WATCHED_TIERS = (1, 2)
 
 PACMAN_ENV = {"LC_ALL": "C", "PATH": "/usr/bin:/bin"}
 
@@ -113,13 +120,13 @@ def pending_updates(db):
     return [line.split()[0] for line in proc.stdout.splitlines() if line.strip()]
 
 
-def installed_build_ages(packages):
-    """{package: age in days of the build currently installed}."""
+def days_available(packages, db):
+    """{package: days since the PENDING version was built}, rounded up."""
     if not packages:
         return {}
-    proc = subprocess.run(["pacman", "-Qi", *packages],
+    proc = subprocess.run(["pacman", "-Si", "--dbpath", str(db), *packages],
                           capture_output=True, text=True, env=PACMAN_ENV)
-    ages, name, now = {}, None, datetime.datetime.now()
+    out, name, now = {}, None, datetime.datetime.now()
     for line in proc.stdout.splitlines():
         if line.startswith("Name "):
             name = line.split(":", 1)[1].strip()
@@ -129,8 +136,9 @@ def installed_build_ages(packages):
                 built = datetime.datetime.strptime(stamp, "%a %b %d %H:%M:%S %Y")
             except ValueError:
                 continue
-            ages[name] = (now - built).days
-    return ages
+            # Ceiling, not truncation -- matches nog exactly.
+            out[name] = math.ceil((now - built).total_seconds() / 86400)
+    return out
 
 
 def main():
@@ -151,19 +159,27 @@ def main():
 
     tiers, holds = load_tiers(), load_holds()
 
-    watched = [p for p in pending if tiers.get(p) in (1, 2)]
-    ages = installed_build_ages(watched)
+    watched = [p for p in pending if tiers.get(p) in WATCHED_TIERS]
+    available = days_available(watched, db)
 
-    stale = []
+    ready, waiting = [], []
     for pkg in watched:
-        tier, age = tiers[pkg], ages.get(pkg)
-        if age is not None and age > holds[tier] * STALE_FACTOR:
-            stale.append({"pkg": pkg, "tier": tier, "age": age})
-    stale.sort(key=lambda s: (-s["age"], s["pkg"]))
+        tier = tiers[pkg]
+        days = available.get(pkg)
+        if days is None:
+            continue
+        remaining = holds[tier] - days
+        if remaining <= 0:
+            ready.append({"pkg": pkg, "tier": tier, "over": -remaining})
+        else:
+            waiting.append({"pkg": pkg, "tier": tier, "remaining": remaining})
+
+    ready.sort(key=lambda r: (-r["over"], r["tier"], r["pkg"]))
+    waiting.sort(key=lambda w: (w["remaining"], w["tier"], w["pkg"]))
 
     if not pending:
         level = "green"
-    elif stale:
+    elif ready:
         level = "red"
     else:
         level = "yellow"
@@ -172,17 +188,18 @@ def main():
         "generated": int(time.time()),
         "count": len(pending),
         "level": level,
-        "stale": stale,
+        "ready": ready,
+        # The nearest Tier 1/2 package still inside its window, so a yellow
+        # greeting can say when it stops being yellow.
+        "next": waiting[0] if waiting else None,
     }
 
-    # Atomic: the greeting reads this file on every shell launch and must
-    # never catch it half-written.
     tmp = out.with_suffix(".tmp")
     tmp.write_text(json.dumps(snapshot, indent=2) + "\n")
     os.replace(tmp, out)
 
-    worst = f", oldest {stale[0]['pkg']} at {stale[0]['age']}d" if stale else ""
-    print(f"update-check: {len(pending)} pending, {level}{worst} -> {out}")
+    note = f"{len(ready)} ready in tier 1/2" if ready else "none ready in tier 1/2"
+    print(f"update-check: {len(pending)} pending, {note}, {level} -> {out}")
     return 0
 
 
