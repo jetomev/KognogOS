@@ -1,6 +1,8 @@
 # Operation Ironhold — AUR-attack response sprint
 
-**Opened:** 2026-08-04 · **Hard deadline:** 2026-08-19 (night) — Orlando travel Aug 20, 4 days away
+**Opened:** 2026-08-04 · **Hard deadline:** 2026-08-19 (night) — Orlando travel Aug 20
+**Status: ✅ CLOSED 2026-08-18**, one night inside the deadline. Every phase landed early;
+the closure sweep is in [Phase D](#phase-d--2026-08-18--one-night-early--closure).
 **Budget:** 1–2 h/night, 5 nights/week ≈ 11–13 sessions ≈ 16–20 h
 **Scope:** everything pending across **nog, the Forge Suite, and KognogOS** in response to the July–August 2026 AUR supply-chain attacks. Goal state: **zero open risk/security/safety items** on our side before travel.
 
@@ -18,16 +20,16 @@ fail open when AUR metadata is unreachable** — the trigger for this sprint.
 
 | # | SWOT item | Solution | Workstream | Status |
 |---|-----------|----------|------------|--------|
-| W1 | AUR holds fail open when AUR is unreachable | Fail-closed holds fix | A1 | planned (v1.0.9) |
-| W2 | No GPG signing (AUR commits, release artifacts) | Sign commits everywhere; signed artifacts + `validpgpkeys` in PKGBUILDs | B1–B2 | planned |
-| W3 | Single AUR account = SPOF for 4 packages | Credential hygiene now; co-maintainer **deferred → accepted risk** (no candidate; revisit at Forge v2) | B3 / decision | planned + decided |
-| W4 | No typosquat monitoring (`nog-bin`, `*forge-bin`…) | Weekly AUR-RPC watch script | B4 | planned |
-| W5 | chaotic-aur auto-builds AUR PKGBUILDs into binaries, no local review | Kill switch (A2–A3) + trust-chain documented in the article; tier-pin audit cadence noted | A2–A3, C1 | planned |
-| T1 | AUR freeze, no ETA — can't ship | "Ready-to-ship" doctrine: everything tagged/staged, AUR push = 15-min action when it reopens | A5, B2 | planned |
-| T2 | Attacker pivot to maintainer credentials | = W2 + W3 hardening | B1–B3 | planned |
-| T3 | chaotic-aur poisoning window | = W5 (kill switch is the incident response) | A2–A3 | planned |
-| T4 | AUR policy aftershocks (new rules, friction) | Monitor aur-general; adapt post-sprint — **no pre-emptive action possible** | watch item | accepted |
-| — | Maintainer-change / adoption detector | Genuine roadmap feature, **not in this sprint** — nog v2 candidate | roadmap | deferred |
+| W1 | AUR holds fail open when AUR is unreachable | Fail-closed holds fix | A1 | ✅ shipped v1.0.9 |
+| W2 | No GPG signing (AUR commits, release artifacts) | Sign commits everywhere; signed artifacts + `validpgpkeys` in PKGBUILDs | B1–B2 | ✅ live on all 5 packages |
+| W3 | Single AUR account = SPOF for 4 packages | Credential hygiene now; co-maintainer **deferred → accepted risk** (no candidate; revisit at Forge v2) | B3 / decision | ✅ hygiene done · risk accepted |
+| W4 | No typosquat monitoring (`nog-bin`, `*forge-bin`…) | Weekly AUR-RPC watch script | B4 | ✅ running weekly |
+| W5 | chaotic-aur auto-builds AUR PKGBUILDs into binaries, no local review | Kill switch (A2–A3) + trust-chain documented in the article; tier-pin audit cadence noted | A2–A3, C1 | ✅ shipped |
+| T1 | AUR freeze, no ETA — can't ship | "Ready-to-ship" doctrine: everything tagged/staged, AUR push = 15-min action when it reopens | A5, B2 | ✅ shipped 08-14 |
+| T2 | Attacker pivot to maintainer credentials | = W2 + W3 hardening | B1–B3 | ✅ mitigated |
+| T3 | chaotic-aur poisoning window | = W5 (kill switch is the incident response) | A2–A3 | ✅ shipped |
+| T4 | AUR policy aftershocks (new rules, friction) | Monitor aur-general; adapt post-sprint — **no pre-emptive action possible** | watch item | accepted — standing |
+| — | Maintainer-change / adoption detector | Genuine roadmap feature, **not in this sprint** — nog v2 candidate | roadmap | deferred → nog v2 |
 
 Everything is either **planned in this sprint**, an **explicit accepted risk**, or a
 **named roadmap deferral**. Nothing floats.
@@ -128,14 +130,64 @@ forgekit — all pushed, all Verified). The four closed nog Ironhold issues (#2/
 got the article link as a follow-up comment. On AUR reopen: add the dated banner at
 the TOP of the article naming the versions that went live, and refresh the table.
 
-### Phase D — closure (1 night, Aug 18–19)
-- **D1** · Sweep: all tasks green or explicitly accepted; memories + vault session log.
-- **D2** · **Orlando checklist:** nothing open in risk/security/safety; nog is manual
-  (nothing auto-updates while away); Pi realm unaffected by this topic (Ubuntu);
-  AUR ship staged and waiting only on Arch.
+### Phase D ✅ (2026-08-18 — one night early) — closure
+- **D1 ✅** · Sweep: every row of §1 verified green or explicitly accepted; the public
+  article corrected; memories and session log updated.
+- **D2 ✅** · **Orlando checklist** cleared — see the table below.
 
-**Slack:** Aug 15 + weekend nights are unscheduled buffer. If A overruns, C compresses to
-one night before anything else moves.
+**Phase D execution notes (2026-08-18):**
+
+**D1 — what the sweep actually checked, not assumed:**
+
+| Check | Method | Result |
+|---|---|---|
+| Signing key live | `gpg --list-keys` | valid, expires 2028-08-08 (**renew ~June 2028**) |
+| Global signing on | `git config --global` | `commit.gpgsign` + `tag.gpgSign` = true |
+| Commits signed | `%G?` on HEAD of all 8 repos | **G** on every one |
+| AUR = GitHub = tag | AUR RPC vs `gh release` vs `git describe` | all 5 packages match |
+| Signed sources live | `validpgpkeys` + `.asc` in each PKGBUILD | present in all 5 |
+| AUR repos clean | `git ls-files` | exactly `PKGBUILD` + `.SRCINFO` + `.gitignore` |
+| Nothing unpushed | `git log origin/master..HEAD` | 0 commits, all 5 |
+| Out-of-date flags | AUR RPC `OutOfDate` | none flagged |
+| Typosquat watch alive | `systemctl --user status` | ran 2026-08-18 06:58 → `clean (48 known names)` |
+
+The sweep found and fixed **four stale claims in `where-we-stand.md`** (commit `57fd525`) —
+the worst being an AUR link to `nogforge`, a package that does not exist. Publishing an
+unclaimed AUR name on our own anti-typosquat page was the sprint's thesis pointed
+backwards. **Decision: do not register the name defensively** — squatting names we are not
+shipping is the behaviour we were responding to; B4's watch covers it if anyone takes it.
+
+Housekeeping in the same pass: **1.5 GB** of `makepkg` leftovers cleared from the six
+`aur-*` directories, and `~/Programs/aur-nog/` — the local smoke-test dir, *not* an orphan,
+it is step 84 of nog's release checklist — re-mirrored from v1.0.5 to the shipping v1.2.0
+so the pre-push smoke test builds what is actually going out.
+
+**D2 — Orlando checklist:**
+
+| Item | Verdict |
+|---|---|
+| Risk/security/safety open from this sprint | **None** |
+| nog is manual — nothing auto-updates while away | ✅ `kognog-updates.timer` runs `update-check` only: it reports, it never installs. No system timer touches packages. |
+| Typosquat watch survives the trip | ✅ `Linger=no` so it will not fire with the desktop off — but `Persistent=yes` catches it up on next login. Proven in the wild this morning: the Monday 09:00 run fired Tuesday 06:58. |
+| Pi realm unaffected | ✅ Ubuntu — outside the AUR topic entirely |
+| AUR ship staged, waiting on Arch | **Superseded** — shipped 2026-08-14, five days early |
+
+**One security item is open, and it is deliberately outside this sprint:**
+grubForge [#18](https://github.com/jetomev/grubforge/issues/18) — the app must be
+launched with `sudo` to save anything, so the whole TUI and every Python dependency runs
+as root to write one file. Reported by an outside user, `marco-gallegos`, on 2026-07-23;
+triaged 2026-08-18 with a public plan and a date: **v1.1.0, polkit privilege model,
+targeting 2026-08-28**. It is a hardening improvement, not a live vulnerability, and it
+post-dates Ironhold's scope (AUR supply chain). Named here so the closure is honest
+rather than tidy.
+
+**🏁 OPERATION IRONHOLD COMPLETE — 2026-08-18, one night inside the deadline.**
+Opened Aug 4 against a hard Aug 19 travel date. Phase A landed in a single evening,
+Phase B three nights early, Phase C a week early, and the one external dependency —
+the AUR freeze — closed five days early. Every SWOT row is shipped, explicitly
+accepted, or named as a roadmap deferral. Nothing floats.
+
+**Slack:** Aug 15 + weekend nights were unscheduled buffer — unused.
 
 ---
 
