@@ -24,14 +24,15 @@ packages, adopted them, and pushed malicious updates — obfuscated ELF binaries
 typosquats of popular names, backed by a Tor-based second stage. Over a hundred
 packages were affected across the waves. Arch's response escalated from removals
 to **disabling package adoption (July 30)** and finally **freezing all AUR pushes
-(August 1)** — a freeze still in effect as we write, with no announced end date.
+(August 1)** — a freeze that held with no announced end date until **August 14**,
+when pushes reopened.
 
 This matters to us because the Forge family lives partly on the AUR:
 [nog](https://aur.archlinux.org/packages/nog),
 [grubforge](https://aur.archlinux.org/packages/grubforge),
 [alacrittyforge](https://aur.archlinux.org/packages/alacrittyforge),
 [bitlaforge](https://aur.archlinux.org/packages/bitlaforge), and
-[nogforge](https://aur.archlinux.org/packages/nogforge).
+[python-forgekit](https://aur.archlinux.org/packages/python-forgekit).
 
 ## Our audit — August 4, 2026
 
@@ -59,9 +60,10 @@ We reviewed our own exposure the way we'd want any maintainer to:
   and detached GPG signatures (`.asc`) for both.
 - Every commit and tag from us is GPG-signed — look for the **Verified** badge
   on GitHub.
-- Our AUR packages (staged, awaiting the freeze lift) pull the **signed release
-  tarball** and carry `validpgpkeys`, so `makepkg` cryptographically verifies
-  the source against our key before a single line builds.
+- All five of our AUR packages pull the **signed release tarball** and carry
+  `validpgpkeys`, so `makepkg` cryptographically verifies the source against our
+  key before a single line builds. This is live — it shipped with the packages on
+  14 August.
 
 **Our signing key** (published on [keys.openpgp.org](https://keys.openpgp.org)):
 
@@ -87,11 +89,11 @@ account activity is part of the weekly review.
 gpg --keyserver keys.openpgp.org --recv-keys 32E1D2AB9380BFD6BFE3BC1EAC2A3407CC070F9E
 
 # 2. Grab any release + its signature (nog shown; same shape everywhere)
-curl -LO https://github.com/jetomev/nog/releases/download/v1.0.9/nog-1.0.9.tar.gz
-curl -LO https://github.com/jetomev/nog/releases/download/v1.0.9/nog-1.0.9.tar.gz.asc
+curl -LO https://github.com/jetomev/nog/releases/download/v1.2.0/nog-1.2.0.tar.gz
+curl -LO https://github.com/jetomev/nog/releases/download/v1.2.0/nog-1.2.0.tar.gz.asc
 
 # 3. Verify
-gpg --verify nog-1.0.9.tar.gz.asc nog-1.0.9.tar.gz
+gpg --verify nog-1.2.0.tar.gz.asc nog-1.2.0.tar.gz
 # expect: Good signature from "Javier (jetomev) <jetomev@gmail.com>"
 ```
 
