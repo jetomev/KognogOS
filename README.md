@@ -10,95 +10,87 @@
   <img src="https://img.shields.io/badge/Desktop-KDE%20Plasma-1d99f3.svg" alt="Desktop"/>
   <img src="https://img.shields.io/badge/Status-Alpha-orange.svg" alt="Status"/>
   <img src="https://img.shields.io/badge/Version-v0.9.0--beta-purple.svg" alt="Version"/>
-
-> 🛡 **Security:** every release is GPG-signed and every commit GitHub-Verified. Read **[Where We Stand](https://github.com/jetomev/KognogOS/blob/main/docs/where-we-stand.md)** — our response to the 2026 AUR supply-chain attacks, what is current, and how to verify us instead of trusting us.
 </p>
+
+> 🛡 **Security** — every release is GPG-signed and every commit is GitHub-Verified. **[Where We Stand](https://github.com/jetomev/KognogOS/blob/main/docs/where-we-stand.md)** explains our response to the 2026 AUR supply-chain attacks, what's current, and how to check us yourself instead of taking our word for it.
 
 ---
 
 ## What is KognogOS?
 
-KognogOS is an **Arch-based, semi-rolling, tier-aware Linux distribution**. It's built on one simple idea: **not all updates are equal**.
+KognogOS is a Linux distribution built on one idea: **not all updates are equal.**
 
-Most rolling-release distributions treat every package the same — when an update is available, it gets installed. Your kernel and core system libraries update automatically alongside a trivial icon theme. One bad kernel sync and your machine doesn't boot.
+Arch Linux is fast and always current. But it treats every package the same. Your kernel updates on the same schedule as an icon theme — and if a kernel update is broken, your machine doesn't boot.
 
-KognogOS solves this with a **three-tier update model** enforced by [`nog`](https://github.com/jetomev/nog), its tier-aware package manager. Tier 1 packages — kernel, bootloader, glibc, systemd, mesa — are held for 30 days after upstream publish, giving the community time to catch regressions. Tier 2 — desktop environment and key applications — are held for 15 days. Tier 3 — everything else — flows through in 7.
+KognogOS sorts every package into one of three tiers and makes the risky ones wait:
 
-The result feels like a rolling release for most of your software, but behaves like a stable distribution for the parts that actually matter.
+| Tier | What's in it | How long it waits |
+|---|---|---|
+| **1** | Kernel, bootloader, glibc, systemd, mesa | **30 days** |
+| **2** | Desktop, key apps, the Forge suite | **15 days** |
+| **3** | Everything else | **7 days** |
 
-KognogOS ships with a curated in-house **Forge suite** — TUI tools for package management, bootloader configuration, and terminal customization — and is available in **five editions** matched to how you actually use a Linux machine: Basic, Office, Gaming, Development, and Full.
+That wait is the whole trick. If an update breaks something, thousands of Arch users hit it first and it gets fixed before it ever reaches you. Your everyday software stays fresh; the parts that can ruin your week don't move until they've been proven.
+
+The rules are enforced by [**nog**](https://github.com/jetomev/nog), our package manager. KognogOS ships with the **Forge suite** — terminal tools for the jobs that normally mean editing config files and hoping — and comes in **five editions**: Basic, Office, Gaming, Development, and Full.
 
 ---
 
 ## Philosophy
 
-- **Stability where it counts** — kernel, bootloader, and core libraries get a 30-day community buffer before they land on your machine
-- **Freshness everywhere else** — Tier 3 packages stay current without ceremony
-- **Safety by default** — `nog` invokes pacman as a subprocess; every transaction goes through pacman's own signature verification
-- **Beautiful by design** — KDE Plasma on Wayland, Catppuccin Mocha throughout, one opinionated terminal stack
-- **Transparent tooling** — the Forge suite is readable source code, no magic
-- **TUI-first culture (locked 2026-07-31)** — every KognogOS system tool is a Forge-suite terminal app built on [forgekit](https://github.com/jetomev/forgekit): the welcome center, the installer, the managers. One design language from first boot to daily driving, converging toward a full **Forge Control Center**. The pixel-art emblem renders natively in the medium
-- **Built to grow** — the architecture is designed to eventually support a fully independent repo and build pipeline
+- **Stable where it counts** — your kernel and core libraries get a 30-day buffer. Everything else stays current.
+- **Safe by default** — nog runs pacman underneath, so every install still passes Arch's own signature checks. We add caution, we don't replace the security model.
+- **Beautiful on purpose** — KDE Plasma on Wayland, Catppuccin Mocha everywhere, one terminal stack chosen and tuned.
+- **Nothing hidden** — the Forge tools are readable source. No magic, no binaries doing things you can't inspect.
+- **Terminal-first** — every KognogOS system tool is a terminal app built on [forgekit](https://github.com/jetomev/forgekit), from the welcome screen to the installer. One look and feel from first boot onward.
+- **Built to grow** — the architecture leaves room for our own repository and build pipeline later.
 
 ---
 
 ## Editions
 
-KognogOS ships as five editions, all sharing the same core (KDE Plasma, nog-managed updates, the Forge suite, drivers, default terminal stack) and differing only in the app stack layered on top. Edition definitions live in [`config/profiles.toml`](config/profiles.toml) — the single source of truth `installforge` reads at install time.
+All five editions share the same core — KDE Plasma, nog, the Forge suite, drivers, and the terminal stack. They differ only in the apps layered on top. The definitions live in [`config/profiles.toml`](config/profiles.toml), which the installer reads directly.
 
-### Basic
-The shared core. Boots straight into a KDE Plasma Wayland desktop with the KognogOS terminal welcome box, **Nemo** as the default file manager (Dolphin stays installed), **Fresh Editor** as the default text editor, both **Google Chrome** and **Brave** ready to go, and `nog` + `grubforge` + `alacrittyforge` installed out of the box. Daily-life floor included: Gwenview, Ark, KCalc, Spectacle, full font coverage (Noto + emoji + Liberation), printing and scanning (CUPS + Skanlite), and **ufw enabled by default** (deny incoming).
+**Basic** — the shared core. Boots into KDE Plasma on Wayland with the KognogOS terminal greeting. **Nemo** is the default file manager (Dolphin stays installed), **Fresh Editor** the default text editor, and both **Chrome** and **Brave** are ready. Includes nog, grubForge, and alacrittyForge, plus the everyday floor: Gwenview, Ark, KCalc, Spectacle, full fonts, printing and scanning, and the firewall on by default.
 
-### Office
-Basic + **OnlyOffice**, **Obsidian**, **Thunderbird**, **Xournalpp**, **Elisa**, **Spotify**, **GIMP**, **Pinta**, **Kdenlive**, **Discord**, **Telegram**.
+**Office** — adds OnlyOffice, Obsidian, Thunderbird, Xournalpp, Elisa, Spotify, GIMP, Pinta, Kdenlive, Discord, Telegram.
 
-### Gaming
-Basic + **Steam**, **Lutris**, **Heroic**, **Wine**, **Proton-GE**, **RetroArch with a starter core set** (NES/SNES/Genesis/PS1/N64/GBA), 32-bit graphics, **Gamescope**, **GameMode**, **MangoHud**, and **OBS Studio** for streaming.
+**Gaming** — adds Steam, Lutris, Heroic, Wine, Proton-GE, RetroArch with starter cores (NES, SNES, Genesis, PS1, N64, GBA), 32-bit graphics, Gamescope, GameMode, MangoHud, and OBS Studio.
 
-### Development
-Basic + **VS Code**, **Neovim**, **rustup**, **Node.js**, **Go**, **OpenJDK**, **Docker**, **Tmux**, a modern CLI toolkit (bat, eza, fd, ripgrep, fzf, zoxide), build tools (cmake, meson, ninja), and both compiler families with their debuggers (gcc/gdb, clang/lldb).
+**Development** — adds VS Code, Neovim, rustup, Node.js, Go, OpenJDK, Docker, Tmux, a modern CLI kit (bat, eza, fd, ripgrep, fzf, zoxide), build tools, and both compiler families with debuggers.
 
-### Full
-Basic + Office + Gaming + Development — everything KognogOS ships.
+**Full** — everything above.
 
 ---
 
-## The Three-Tier Update System
+## How the tiers work
 
-Every package on the system belongs to one of three tiers, enforced by `nog`:
+Every package belongs to a tier, and nog enforces it.
 
-### Tier 1 — 30-Day Hold
-The most critical packages on your system — kernel, bootloader, glibc, systemd, mesa. Updates are held for **30 days** after upstream publish. Once the hold expires, the update flows through `nog update` like any other package. **Expert mode:** set `manual_signoff = true` in `/etc/nog/tier-pins.toml` to require explicit `nog unlock <pkg> --promote` for every Tier 1 upgrade.
+**Tier 1 — 30 days.** Kernel, bootloader, glibc, systemd, mesa. When the hold expires the update installs normally. If you want even more control, set `manual_signoff = true` in `/etc/nog/tier-pins.toml` and every Tier 1 upgrade will need your explicit approval.
 
-### Tier 2 — 15-Day Hold
-Desktop environment and key applications — Plasma, SDDM, PipeWire, NetworkManager, the Forge suite, and more. Held for **15 days**.
+**Tier 2 — 15 days.** Plasma, SDDM, PipeWire, NetworkManager, the Forge suite.
 
-### Tier 3 — 7-Day Hold
-Everything else. A short **7-day** safety buffer, then updates flow through automatically.
+**Tier 3 — 7 days.** Everything else, which is most of your system.
 
-For full details, see [the `nog` documentation](https://github.com/jetomev/nog#the-three-tier-system).
+You can move any package between tiers. Full details in [the nog documentation](https://github.com/jetomev/nog#the-three-tier-system).
+
+**An honest note on what tiers do and don't protect against:** waiting catches *regressions* — updates that shipped broken. It does nothing about a compromised package, because a malicious package is just as malicious 30 days later. That's pacman's signature verification's job, and it still runs on everything.
 
 ---
 
 ## The Forge Suite
 
-KognogOS ships with an in-house suite of TUI tools that replace the "edit a config file and pray" workflow with safe, guided interfaces for common system tasks. All Forge tools are pinned to Tier 2.
+Instead of editing config files by hand and hoping, the Forge tools give you a guided terminal interface with backups and undo. All of them are pinned to Tier 2.
 
-### nog — Package manager
-Tier-aware pacman wrapper in Rust. Classifies every package, enforces hold windows via pacman's own `--ignore` mechanism, and delegates to `yay`/`paru` for AUR. Runs as your user; escalates only to `sudo pacman` when necessary.
-→ **v1.0.8 stable** · [github.com/jetomev/nog](https://github.com/jetomev/nog) · `yay -S nog`
-
-### grubforge — Bootloader manager
-Full TUI for managing GRUB: safely edit `/etc/default/grub`, browse and apply themes, reorder boot entries, detect other operating systems, with timestamped backups before every change.
-→ **Shipping** · [github.com/jetomev/grubforge](https://github.com/jetomev/grubforge) · `yay -S grubforge`
-
-### alacrittyforge — Terminal configurator
-TUI for managing Alacritty's TOML config — font, colors, opacity, keybindings — with live previews and reversible edits.
-→ **Shipping** · [github.com/jetomev/alacrittyforge](https://github.com/jetomev/alacrittyforge)
-
-### nogforge — Unified package TUI *(coming soon)*
-A TUI companion for `nog` plus a unified interface across AUR helpers, Flatpak, and Snap. In active development.
-→ **Upcoming** · [github.com/jetomev/nogforge](https://github.com/jetomev/nogforge)
+| Tool | What it does | Status |
+|---|---|---|
+| [**nog**](https://github.com/jetomev/nog) | Tier-aware package manager, written in Rust. Sorts every package, enforces the hold windows, and hands off to pacman and your AUR helper. | **v1.2.0** · `yay -S nog` |
+| [**grubForge**](https://github.com/jetomev/grubforge) | Edit GRUB safely — boot options, themes, entry order, detecting other operating systems. Backs up before every change. | **Shipping** · `yay -S grubforge` |
+| [**alacrittyForge**](https://github.com/jetomev/alacrittyforge) | Configure the Alacritty terminal — fonts, colours, opacity, keybindings — with live previews. | **Shipping** · `yay -S alacrittyforge` |
+| [**bitlaForge**](https://github.com/jetomev/bitlaforge) | Solo Bitcoin mining, presented honestly as the lottery it is. | **Shipping** · `yay -S bitlaforge` |
+| [**forgekit**](https://github.com/jetomev/forgekit) | The shared foundation every Forge app is built on. | **v0.3.0** · `yay -S python-forgekit` |
+| [**nogForge**](https://github.com/jetomev/nogforge) | One interface across nog, AUR, Flatpak, and Snap. | In development |
 
 ---
 
@@ -108,35 +100,34 @@ A TUI companion for `nog` plus a unified interface across AUR helpers, Flatpak, 
 |-----------|--------|
 | Base | Arch Linux |
 | Kernel | Linux (mainline) + Linux-LTS fallback |
-| Microcode | Auto-detected at install time (intel-ucode / amd-ucode) |
+| Microcode | Detected at install (intel-ucode / amd-ucode) |
 | Desktop | KDE Plasma on Wayland |
 | File Manager | **Nemo** (default) · Dolphin (installed) |
-| Display Manager | SDDM |
+| Login Screen | SDDM, with our own greeter |
 | Audio | PipeWire + WirePlumber |
 | Network | NetworkManager |
 | GPU drivers | Mesa + Vulkan (AMD / Intel) · Nvidia-Open DKMS |
 | Package Manager | pacman + **nog** |
-| Bootloader Manager | **grubforge** |
-| Terminal | **Alacritty** + AlacrittyForge-driven config |
+| Bootloader Manager | **grubForge** |
+| Terminal | **Alacritty**, configured by alacrittyForge |
 | Shell | **Fish** + Tide v6 prompt |
 | Default Editor | **Fresh Editor** |
-| Default Browsers | Google Chrome + Brave (both shipped) |
+| Browsers | Chrome + Brave (both shipped) |
 | Font | JetBrains Mono Nerd Font |
 | Theme | Catppuccin Mocha |
 | Extra Repos | chaotic-aur |
-| System touches | Javier's `/etc/nanorc` + `pacman.conf` shipped as defaults · sudo `pwfeedback` (asterisks while typing) |
 
-### Proprietary apps & their offered swaps
+### Proprietary apps, and what you can swap them for
 
-installforge marks every proprietary app in the edition lists; de-selecting one offers a curated replacement (defined in `config/profiles.toml [proprietary]`):
+The installer marks every proprietary app. Uncheck one and it offers a free replacement instead — defined in `config/profiles.toml`.
 
-| Proprietary | Offered swaps |
+| Proprietary | Offered instead |
 |---|---|
 | Google Chrome | Brave (already shipped) · Firefox |
 | Spotify | Elisa (already in Office) · Strawberry |
-| Discord | Vesktop (FOSS client, same service) · Element (Matrix) |
-| Steam | — no equivalent; Lutris + Heroic remain |
-| VS Code (MS build) | VSCodium · `code` (OSS build) |
+| Discord | Vesktop (open client, same service) · Element (Matrix) |
+| Steam | No equivalent exists; Lutris and Heroic stay |
+| VS Code (Microsoft build) | VSCodium · `code` (open build) |
 | Obsidian | Logseq · Joplin |
 
 ---
@@ -145,133 +136,123 @@ installforge marks every proprietary app in the edition lists; de-selecting one 
 
 ```
 KognogOS/
-|-- assets/
-|   |-- wallpapers/                # 10 wallpapers across Arch + Semi variants
-|-- config/
-|   |-- pacman.conf                # Shipped pacman.conf (core/extra/multilib/chaotic-aur)
-|   |-- profiles.toml              # Edition definitions (Basic/Office/Gaming/Development/Full)
-|   |-- dependencies.toml          # Legacy package manifest (being migrated into profiles.toml)
-|   |-- tier-pins.toml             # Tier 1/2 package assignments shipped as distro default
-|   |-- nog.conf                   # Shipped /etc/nog/nog.conf
-|   |-- alacritty.toml             # Default Alacritty terminal config
-|   |-- config.fish                # Default Fish shell config
-|   |-- tide_config.fish           # Default Tide v6 prompt configuration
-|   |-- fish_greeting.fish         # Terminal welcome-box trigger
-|   |-- sysinfo.py                 # Terminal welcome-box script
-|-- docs/                          # Future: documentation
-|-- installer/                     # Future: Calamares configuration
-|-- logo/                          # KognogOS logo (transparent, light, dark)
-|-- repo/                          # Future: custom package repository
+|-- assets/wallpapers/     # 10 wallpapers, Arch + Semi variants
+|-- config/                # Everything shipped as a system default
+|   |-- profiles.toml      #   the five editions
+|   |-- tier-pins.toml     #   which packages are Tier 1 and Tier 2
+|   |-- nog.conf           #   nog's shipped configuration
+|   |-- pacman.conf        #   core/extra/multilib/chaotic-aur
+|   |-- alacritty.toml, config.fish, tide_config.fish
+|-- docs/                  # Changelog, security article, project records
+|-- iso/                   # archiso profile — the live ISO build tree
+|-- logo/                  # KognogOS emblem
+|-- scripts/               # ISO build, Plasma capture, theming, audits
+|-- skel/                  # New-user home directory defaults
 |-- LICENSE
 |-- README.md
 ```
 
----
-
-## Current State
-
-KognogOS is in **active early development**, on the road to a **v1.0 public ISO targeted for April 2027** — the project's origin week, two years after the wish that started it ("create an installer of my arch linux setup", 2025-04-19).
-
-**What's solid today:**
-- `nog` v1.0.8 stable on AUR — tier-aware updates, AUR integration, lib32/base hold coupling, tabled update reports, CSV run logging, documented privilege model, dogfooded on every release
-- The Forge suite shipping on AUR — `grubforge` (GRUB TUI), `alacrittyforge` (terminal configurator), `bitlaforge` (solo-mining TUI), with `forgekit` as the shared v2 UI library
-- Five-edition product surface formalized in `config/profiles.toml`
-- Default terminal stack: Alacritty + Fish + Tide v6 + the KognogOS greeting (emblem, system table, and a tier-aware update status backed by a systemd user timer)
-- Boot-to-prompt identity: GRUB theme, Plymouth, Plasma splash, SDDM greeter and shell greeting all drawn from the same emblem and palette
-- Full `pacman.conf` shipped as distro default — **chaotic-aur enabled from the start** (decided 2026-07-30): its packages are governed by the tier system like every other repo, with **63 pre-assigned Tier 1 pins** (kernels, mesa/nvidia builds, `glibc-eac`, `pacman-git`, ZFS modules, boot-entry writers) generated by `scripts/chaotic-tier-audit.py` and refreshed each annual release. Everything else in chaotic rides Tier 3's automatic 7-day hold. (Honest scope note: tiers guard against *regressions*; repo-integrity failures remain the job of pacman's signature verification.)
-- Wallpaper set: ten wallpapers across Arch + Semi variants
-
-**First release scope (decided 2026-07-30):** KognogOS **Semi** only — the tier-aware semi-rolling flagship — with all five editions selectable at install time. The "Arch" brand variant is reserved for a future year. The installer will be **`installforge`**, a Forge-style TUI (own repo + AUR package, like its siblings) that reads `config/profiles.toml`, and installs **online** (decided 2026-07-30): all packages come from the mirrors at install time, so the ISO contains no redistributable payload at all and proprietary edition apps (browsers, Spotify, Discord, …) are simply fetched with user consent like everything else — never carried inside the ISO. A network connection is required to install.
+Two directories are planned but empty for now: `installer/` (see [issue #2](https://github.com/jetomev/KognogOS/issues/2)) and a future package repository.
 
 ---
 
-## Release model — one ISO a year
+## Where the project stands
 
-KognogOS follows an **annual release cadence, on purpose**. This is a two-person project (one human, one AI), and the honest way to run it:
+KognogOS is in **early development**, aiming at a **v1.0 public ISO in April 2027** — the project's anniversary week, two years after the wish that started it ("create an installer of my arch linux setup", 19 April 2025).
 
-- **Year-round**, the work goes into `nog` and the Forge suite — updates, fixes, new Forge apps. That's where the daily energy lives, and every improvement lands on existing installs immediately through normal updates (this is still a semi-rolling Arch system — the ISO is an installer snapshot, not a feature gate).
-- **Once a year**, the accumulated year of work crystallizes into a new ISO release.
-- **Feedback** has a single door: [GitHub Issues](https://github.com/jetomev/KognogOS/issues). Distro-level findings batch into the next annual ISO (the same findings-batch discipline used across the Forge suite). The only out-of-band trigger is a critical or security-relevant installer bug, which gets an ISO respin.
-- **Horizon:** this is a 3–5 year project and that's fine. By the time it's "done," the Forge library will be deep and the distro will be genuinely fun.
+**Working today:**
+
+- **nog v1.2.0**, stable on the AUR — tier-aware updates across pacman, the AUR, Flatpak, and Snap
+- **The Forge suite on the AUR** — grubForge, alacrittyForge, bitlaForge, with forgekit as the shared foundation
+- **Five editions** defined in `config/profiles.toml`
+- **The terminal stack** — Alacritty, Fish, Tide v6, and the KognogOS greeting with a tier-aware update status
+- **A branded boot** — GRUB, Plymouth, the Plasma splash, the SDDM greeter and the shell greeting all drawn from one emblem and palette
+- **chaotic-aur enabled from the start**, governed by the tier system like any other repo. It ships with **65 Tier 1 pins** — kernels, mesa and nvidia builds, ZFS modules, boot-entry writers — generated by `scripts/chaotic-tier-audit.py` and refreshed each release. Everything else in chaotic rides Tier 3's 7-day hold.
+
+**The first release** will be KognogOS **Semi** — the tier-aware flagship — with all five editions selectable at install time. The installer is **installforge**, a Forge-style terminal installer that reads `config/profiles.toml`.
+
+It installs **online**: every package comes from the mirrors during installation. That means the ISO carries no redistributable payload at all, and proprietary apps are simply downloaded with your consent like anything else, never shipped inside the image. You'll need a network connection to install.
+
+---
+
+## One ISO a year
+
+KognogOS releases once a year, on purpose. This is a two-person project — one human, one AI — and this is the honest way to run it:
+
+- **All year**, work goes into nog and the Forge suite. Every improvement reaches existing installs immediately through normal updates. This is still a semi-rolling Arch system; the ISO is an installer snapshot, not a feature gate.
+- **Once a year**, that work becomes a new ISO.
+- **Feedback** has one door: [GitHub Issues](https://github.com/jetomev/KognogOS/issues). Findings batch into the next annual ISO. The only exception is a critical installer or security bug, which gets a respin.
+- **The horizon** is three to five years, and that's fine. By the time it's done, the Forge library will be deep and the distro will be genuinely fun.
 
 ---
 
 ## Roadmap
 
-The road to v1.0 (target: **April 2027**), phased in the same discipline as every Kognog project:
+The road to v1.0, targeting **April 2027**.
 
-- [x] **Phase 1 — KDE Plasma config export** ✅ **DONE 2026-07-30** (validated over 4 kogtest rounds; see below) — a reusable capture script (live config → `/etc/skel/`, personal residue stripped by rule). Panel layout: the single bottom bar. The final look (wallpapers, polish pass) is deliberately frozen **late** — just before release, from Javier's wallpapers
-- [ ] **Phase 2 — First bootable ISO** — archiso profile: live Plasma session, branding, terminal stack, nog + Forge preinstalled. No installer yet — the "it boots!" milestone. Includes the **display-manager decision**: SDDM is not locked in — evaluate alternatives (greetd family, Ly) vs. a custom forgekit-inspired SDDM theme
-- [ ] **Phase 3 — `installforge`** — the Forge-style TUI installer (own repo + AUR): edition picker reading `config/profiles.toml`, guided disk setup, user creation. **App-selection flow (decided 2026-07-30):** each edition shows its recommended package list; proprietary apps are marked and de-selectable; de-selecting one offers a curated free/open-source replacement to pick instead (e.g. Chrome → Firefox, VS Code → `code`). The **Development edition** additionally shows a pre-install notice recommending a review of the tier pins against the user's toolchain needs
-- [ ] **`welcomeforge`** — the KognogOS Welcome Center as a **forgekit TUI** (decided 2026-07-31: TUI-first is the brand — and it becomes forgekit's pilot adopter, maturing the kit before installforge builds on it). Launches in Alacritty at session start; live-ISO mode fronts **Install** (hands off to installforge), installed mode drops Install and adds the "show on startup" toggle. Content: the project & philosophy, a guided nog tour, the Forge Suite, the Tier Reference Guide, GitHub/feedback links, next steps — with the emblem rendered as ANSI pixel art. Replaces KDE's plasma-welcome first-run popup (suppressed via skel)
-- [ ] **Tier reference guide** — a plain-language manual for the tier system: what each tier means, how to read and hand-edit `tier-pins.toml`, `nog pin`/`unlock` recipes, and worked examples (ships in the repo + as a page on the project site)
-- [ ] **Phase 4 — Dogfood + validation** — VM matrix first, then the wipe-and-rebuild method: install a real machine from the ISO alone until a zero-deviation run
-- [ ] **Phase 5 — Release kit** — ISO hosting (SourceForge for the image, GitHub for source — GitHub Releases caps files at 2 GiB), checksums + signature, project site on GitHub Pages
-- [ ] **Phase 6 — v1.0 public release** — GitHub Release → project page → community announcements → DistroWatch submission (their queue takes months; the annual cadence shrugs)
+- [x] **Phase 1 — Capture the desktop** ✅ *done 30 July 2026* — a repeatable script that captures a live Plasma configuration into the new-user defaults, stripping personal traces by rule. Validated over four test rounds.
+- [ ] **Phase 2 — First bootable ISO** — a live Plasma session with our branding, terminal stack, and nog plus the Forge suite preinstalled. No installer yet; this is the "it boots!" milestone. Includes deciding on the login screen: SDDM isn't locked in.
+- [ ] **Phase 3 — installforge** — the terminal installer, in its own repo like its siblings. Edition picker, guided disk setup, user creation. Proprietary apps are marked and swappable during selection. The Development edition additionally suggests reviewing the tier pins against your toolchain.
+- [ ] **welcomeforge** — the Welcome Center, and forgekit's pilot app. Opens at session start. On the live ISO it leads with **Install**; once installed it drops that and adds a "show at startup" toggle. Covers the project and its philosophy, a guided nog tour, the Forge suite, the tier guide, and where to give feedback.
+- [ ] **Tier reference guide** — a plain-language manual: what each tier means, how to read and edit `tier-pins.toml`, and worked examples.
+- [ ] **Phase 4 — Testing** — virtual machines first, then the real test: wipe a physical machine and install it from the ISO alone, repeating until a run has zero deviations.
+- [ ] **Phase 5 — Release kit** — ISO hosting, checksums and signatures, and the project site.
+- [ ] **Phase 6 — v1.0** — GitHub release, project page, announcements, and a DistroWatch submission. Their queue takes months; an annual cadence shrugs.
 
-**Deferred by design (honest scope control):**
-- Calamares GUI installer — v2+, once `installforge` has proven the flow
-- Custom package repository (`repo.kognog.org`) — not needed while official repos + AUR carry everything we ship
-- "Kognog OS Arch" brand variant — a future year's release
-- `nogforge` — continues on the year-round Forge track, ships when ready (not gated to the ISO)
+**Deliberately deferred:**
 
-**Done:**
-- [x] Product surface formalized — five editions in `config/profiles.toml`
-- [x] `nog` extracted to its own stable repo + AUR package (v1.0.8 as of 2026-07-29)
-- [x] `pacman.conf` shipped as distro default
-- [x] Default terminal stack (Alacritty + Fish + Tide v6 + welcome box)
+- A graphical installer — after installforge proves the flow
+- Our own package repository — not needed while the official repos and the AUR carry everything
+- The "Arch" brand variant — a future year
+- nogForge — ships when ready, not gated to the ISO
 
 ---
 
 ## Changelog
 
-### Unreleased
-**Boot-to-prompt identity — KognogOS looks like itself from power-on to the shell**
+### Unreleased — Boot-to-prompt identity
 
-The gap this closes: a machine that booted through generic GRUB text, showed a
-third-party splash, and stopped at a stock login theme before finally reaching a
-KognogOS desktop. Every screen between the power button and the first prompt is
-now the distro's own.
+KognogOS now looks like itself from the power button to the shell. Before this, a machine booted through generic GRUB text, showed a third-party splash, and stopped at a stock login screen before finally reaching a KognogOS desktop.
 
-- 🥾 **Boot chain branded end to end** — GRUB theme with a generated background (`scripts/make-grub-background.py`), Plymouth on boot *and* shutdown with nvidia early KMS, and the Plasma splash lifted into its own package `org.kognogos.splash` instead of overwriting a third-party Catppuccin theme in place
-- 🔐 **KognogOS SDDM greeter** (`iso/airootfs/usr/share/sddm/themes/kognogos`) — black field, borderless card, the tier emblem down its left edge, everything reachable by keyboard, and power buttons that go *disabled* rather than vanishing when the daemon reports no capability. Written against plain QtQuick only: a missing QML module in a greeter is a black screen with no way in.
-- 🪪 **`os-release` carries a VERSION**, and three repository URLs that no longer 404
-- ⏱ **`kognog-updates` user timer** — the shell greeting no longer runs `checkupdates` itself. That cost ~1.2s of network on *every terminal launch*, unbounded on a slow mirror. A timer refreshes a JSON snapshot two minutes after login and hourly after; the greeting reads a file.
-- 🚦 **Update status in the greeting** — green / yellow / red, where red means a Tier 1 or Tier 2 package **you are running** is more than twice its hold window old. Deliberately *not* "how new is the newest available build": for a maintained package that is always a few days old, so it can never signal drift. Hold windows are read from `nog.conf` so the greeting cannot contradict nog.
-- 🖼 **Greeting rebuilt** — the emblem as pre-rendered ANSI half-blocks beside a single-column table that degrades gracefully: the emblem steps aside when the table no longer fits, sentences wrap under themselves rather than to the margin, and the URL is never split because a split URL stops being clickable
-- 🎨 **Prompt identity** — Tide does not recognise `ID=kognogos`, falls through to `ID_LIKE=arch`, and wears the Arch logo; a `conf.d` snippet replaces it, set globally so `tide configure` cannot silently revert it
+- 🥾 **The whole boot chain is ours** — a GRUB theme with a generated background, Plymouth on startup *and* shutdown, and the Plasma splash moved into its own package instead of overwriting somebody else's theme in place
+- 🔐 **Our own SDDM login screen** — black field, borderless card, the tier emblem down the left edge, fully keyboard-navigable. Power buttons grey out rather than disappearing when unavailable. Written in plain QtQuick only, because a missing module in a login screen means a black screen with no way in.
+- ⏱ **The greeting got fast** — it used to run an update check on *every* terminal launch, costing about 1.2 seconds of network each time and much more on a slow mirror. A background timer now refreshes a snapshot and the greeting just reads it.
+- 🚦 **Update status in the greeting** — green, yellow, or red, where red means a Tier 1 or Tier 2 package *you are running* is more than twice its hold window old. Deliberately not "how new is the newest build available", because a well-maintained package is always a few days behind and that would never mean anything.
 
-**Bugs found and fixed along the way:**
-- The greeting's tier notifications had **never once fired.** A greedy `sed 's/.*"//'` reduced every package name to a bare comma, so both tier lists were always empty and 167 pending updates produced silence.
-- `apply-grub-polish.sh` **duplicated the entire boot menu** — it wrote its backup *inside* `/etc/grub.d/` with `cp -a`, which preserved the executable bit, and `grub-mkconfig` runs every executable file in that directory, so the backup ran as a second generator
-- CPU usage read 100% — `/proc/stat`'s `[1:5]` is user, nice, system, idle, and idle was being summed into "busy"
-- Memory and disk contradicted `free` and `df` — what `free` calls "used" is `MemTotal - MemAvailable`, and `df` rounds up where `free` rounds to nearest
+**Bugs we found on the way, and what they taught us:**
 
-**Still open:** the lock screen is not ours yet (issue #3 — Plasma 6 moved lock-screen QML into the desktop shell package, so it needs a fork), and `installer/` is still empty (issue #2).
+- The greeting's tier notifications had **never once fired**. A too-greedy text substitution reduced every package name to a bare comma, so both lists were always empty — 167 pending updates produced silence.
+- A polish script **duplicated the entire boot menu**, because it wrote its backup *inside* the GRUB config directory while preserving the executable bit — and GRUB runs every executable file in there. The backup ran as a second menu generator.
+- CPU usage read 100%, because the idle column was being counted as busy.
+- Memory and disk disagreed with `free` and `df` — they measure and round differently than we assumed.
 
-### v0.9.0-beta — July 31, 2026
-**The first bootable KognogOS — Phase 1 + Phase 2 land in one 48-hour sprint**
+**Still open:** the lock screen isn't ours yet ([issue #3](https://github.com/jetomev/KognogOS/issues/3) — Plasma 6 moved it inside the desktop shell package, so it needs a fork), and `installer/` is still empty ([issue #2](https://github.com/jetomev/KognogOS/issues/2)).
 
-The distro exists. A branded, Full-edition live ISO builds reproducibly and boots to a complete KognogOS desktop.
+### v0.9.0-beta — 31 July 2026
 
-- 🥾 **Bootable ISO** (`scripts/build-iso.sh`, archiso/releng base): boot menu "KognogOS — Semi-Rolling | Tier-Aware", quiet boot into a custom **Plymouth theme** (Mocha base, the tier emblem, mauve spinner), matching **KSplash** for SDDM→desktop continuity, zstd-squashed (~4 GB)
-- 🖥 **Phase 1 face, validated**: `scripts/export-plasma.py` captures the reference desktop into `/etc/skel` with rule-driven sanitization, launcher filtering, and a 20-marker identity self-check; proven across kogtest rounds and the live session
-- 🧭 **Identity self-heals**: `kognog-release` pacman hook restores `/usr/lib/os-release` after every `filesystem` transaction — fastfetch and KDE About say KognogOS, with the emblem as logo
-- 🗂 **Product surface locked**: five editions curated (75 Basic / +11 Office / +30 Gaming / +27 Dev), online-install ruling, proprietary swap table, Nemo default file manager, Chrome-default/Brave-live two-layer browser policy, the full **Tide terminal suite** shipped
-- 🛡 **Tier system hardened**: chaotic-aur ruled ACTIVE with generated pre-assignments (65 pins incl. the kernel-module dependency rule), official-repo sweep applied (125 T1 / 44 T2), three parallel worker audits (dep-chains 99.7% safe, meta-package gap closed)
-- 🧰 **Local package repo** (`scripts/build-local-repo.sh`): nog + the Forges + Fresh + Proton-GE built from AUR into the ISO's `[kognog-local]` repo
-- 🔎 Lessons burned into scripts: mkarchiso's silent work-dir cache, squashfs-tools 4.7 xz corruption (→ zstd), Plasma wallpaper *packages*, Activity-UUID containments
+**The first bootable KognogOS.** Phases 1 and 2 landed in one 48-hour sprint. A branded, Full-edition live ISO builds reproducibly and boots to a complete desktop.
 
-*The complete history lives in [docs/CHANGELOG.md](docs/CHANGELOG.md).*
+- 🥾 **A bootable ISO** — boot menu, quiet boot into our Plymouth theme, matching splash for continuity into the desktop, about 4 GB compressed
+- 🖥 **The captured desktop, validated** — rule-driven sanitizing, launcher filtering, and a 20-marker self-check, proven across test rounds
+- 🧭 **The identity heals itself** — a pacman hook restores our system identity after any update that would overwrite it, so the system never quietly reverts to calling itself Arch
+- 🗂 **Product surface locked** — five editions curated, online-install ruling, the proprietary swap table, and the full terminal suite
+- 🛡 **Tier system hardened** — chaotic-aur ruled active with generated pins, an official-repo sweep (125 Tier 1, 44 Tier 2), and three parallel audits of the dependency chains
+- 🔎 **Lessons burned into the scripts** — a silent build cache, a compression bug that corrupted images, and how Plasma actually stores wallpapers
+
+*The full history lives in [docs/CHANGELOG.md](docs/CHANGELOG.md).*
+
+---
 
 ## Related Projects
 
-The KognogOS ecosystem lives across several repositories. All are developed by the same team.
+The KognogOS ecosystem spans several repositories, all built by the same two:
 
-- **[nog](https://github.com/jetomev/nog)** — tier-aware package manager, the engine that makes KognogOS semi-rolling. Stable on the AUR.
-- **[grubforge](https://github.com/jetomev/grubforge)** — GRUB bootloader manager. Stable on the AUR.
-- **[alacrittyforge](https://github.com/jetomev/alacrittyforge)** — Alacritty terminal configurator. Shipping.
-- **[nogforge](https://github.com/jetomev/nogforge)** — unified TUI for nog / AUR helpers / Flatpak / Snap. In development.
+- **[nog](https://github.com/jetomev/nog)** — the tier-aware package manager. The engine that makes KognogOS semi-rolling.
+- **[forgekit](https://github.com/jetomev/forgekit)** — the shared foundation every Forge app builds on.
+- **[grubForge](https://github.com/jetomev/grubforge)** — GRUB bootloader manager.
+- **[alacrittyForge](https://github.com/jetomev/alacrittyforge)** — Alacritty terminal configurator.
+- **[bitlaForge](https://github.com/jetomev/bitlaforge)** — solo Bitcoin mining, honestly framed.
+- **[nogForge](https://github.com/jetomev/nogforge)** — one interface across every package source. In development.
 
 ---
 
@@ -281,20 +262,18 @@ The KognogOS ecosystem lives across several repositories. All are developed by t
 
 **Claude (Anthropic)** — co-developer, architecture, implementation
 
-KognogOS is a collaboration between a human with a clear vision for what a Linux distro should feel like, and an AI that helped design and build the pieces — one `config/profiles.toml` entry at a time.
+KognogOS is a collaboration between a human with a clear idea of what a Linux distribution should feel like, and an AI that helped design and build it — one `config/profiles.toml` entry at a time.
 
 ---
 
 ## License
 
-KognogOS is free software: you can redistribute it and/or modify it under the terms of the **GNU General Public License v3.0** as published by the Free Software Foundation.
-
-See [LICENSE](LICENSE) for the full license text.
+KognogOS is free software, released under the **GNU General Public License v3.0**. See [LICENSE](LICENSE) for the full text.
 
 ---
 
 ## Contributing
 
-KognogOS is in early alpha. Ideas, feedback, and contributions are welcome — open an issue or pull request on GitHub.
+KognogOS is in early alpha. Ideas, feedback, and contributions are welcome — open an issue or a pull request.
 
-If this project resonates with you, consider starring the repository. It helps others find it and motivates continued development.
+If the project resonates with you, a star helps others find it.
