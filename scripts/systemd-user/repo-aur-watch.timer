@@ -1,0 +1,10 @@
+[Unit]
+Description=Weekly repo + AUR watch (Mondays)
+
+[Timer]
+OnCalendar=Mon 08:30
+Persistent=true
+RandomizedDelaySec=15m
+
+[Install]
+WantedBy=timers.target

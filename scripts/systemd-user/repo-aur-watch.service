@@ -1,0 +1,11 @@
+[Unit]
+Description=Weekly repo + AUR watch — is anyone waiting on a reply?
+Documentation=file:///home/jetomev/Programs/kognog/scripts/repo-aur-watch.py
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /home/jetomev/Programs/kognog/scripts/repo-aur-watch.py
+# Exit 2 means "some checks failed" — the script already alerted about it.
+# It is not a unit failure, and must not be hidden as one.
+SuccessExitStatus=0 2
