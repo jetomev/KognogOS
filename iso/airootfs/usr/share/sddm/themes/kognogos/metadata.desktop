@@ -1,14 +1,27 @@
 [SddmGreeterTheme]
 Name=KognogOS
-Description=Black field, mauve login card, the tier emblem down its left edge
+Description=Catppuccin Mocha field, a floating mauve-edged login card, the tier emblem down its left edge
 Author=Javier (jetomev)
 Copyright=(c) 2026, Javier
 License=GPL-3.0-or-later
 Type=sddm-theme
-Version=1.0
+Version=1.1
 Website=https://github.com/jetomev/KognogOS
 Screenshot=preview.png
 MainScript=Main.qml
 ConfigFile=theme.conf
-TranslationsDirectory=translations
 QtVersion=6
+
+# Theme-API is not decoration. Plasma's Login Screen (SDDM) module reads
+# exactly three fields out of this file -- Theme-API, MainScript and
+# Screenshot -- and a theme with no Theme-API line is taken for a legacy
+# Qt5 theme and left out of the list entirely. That is why this theme was
+# installed, active, and still absent from System Settings until
+# 2026-09-21. Verified by reading the strings in kcm_sddm.so, and by the
+# fact that every other installed theme carried Theme-API=2.0 and showed.
+Theme-API=2.0
+Theme-Id=kognogos
+
+# TranslationsDirectory was declared here and the directory did not exist.
+# Removed rather than faked: an empty promise in metadata is the same
+# class of bug as the missing Screenshot.
