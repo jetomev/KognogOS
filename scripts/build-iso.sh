@@ -4,7 +4,6 @@
 #
 # Staging (before every build, so repo sources stay canonical):
 #   skel/                 -> airootfs/etc/skel  AND  airootfs/home/liveuser
-#   config/nog.conf       -> airootfs/etc/nog/
 #   config/tier-pins.toml -> airootfs/etc/nog/
 #   config/pacman.conf    -> airootfs/etc/pacman.conf   (the BOOTED system's;
 #                            the build-time iso/pacman.conf is separate)
@@ -41,7 +40,13 @@ done
 
 echo "==> staging system configs"
 mkdir -p "$AIR/etc/nog" "$AIR/etc/sudoers.d"
-cp "$REPO/config/nog.conf"       "$AIR/etc/nog/nog.conf"
+# NOTE: nog.conf is deliberately NOT staged. The nog package ships its own
+# /etc/nog/nog.conf and every value KognogOS had in its copy was identical
+# to nog's default -- so the file could only ever drift, and it had: a
+# relative tier_pins path that resolved to a nonexistent /etc/config/... ,
+# and tier1_days = 0, which removes the hold from kernel/glibc/systemd
+# entirely and says nothing. tier-pins.toml below IS a real override (239
+# pins against nog's 56) and stays.
 cp "$REPO/config/tier-pins.toml" "$AIR/etc/nog/tier-pins.toml"
 cp "$REPO/config/pacman.conf"    "$AIR/etc/pacman.conf"
 cp "$REPO/config/nanorc"         "$AIR/etc/nanorc"

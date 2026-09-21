@@ -140,7 +140,6 @@ KognogOS/
 |-- config/                # Everything shipped as a system default
 |   |-- profiles.toml      #   the five editions
 |   |-- tier-pins.toml     #   which packages are Tier 1 and Tier 2
-|   |-- nog.conf           #   nog's shipped configuration
 |   |-- pacman.conf        #   core/extra/multilib/chaotic-aur
 |   |-- alacritty.toml, config.fish, tide_config.fish
 |-- docs/                  # Changelog, security article, project records
