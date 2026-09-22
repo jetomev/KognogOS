@@ -1,0 +1,11 @@
+[Unit]
+Description=Weekly project staleness watch — is anything of ours rotting?
+Documentation=file:///home/jetomev/Programs/kognog/scripts/project-staleness-watch.py
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /home/jetomev/Programs/kognog/scripts/project-staleness-watch.py
+# Exit 2 means "some checks failed" — the script has already alerted about it.
+# It is not a unit failure and must not be buried as one.
+SuccessExitStatus=0 2

@@ -1,0 +1,12 @@
+[Unit]
+Description=Weekly project staleness watch (Mondays)
+
+[Timer]
+# 09:10 sits between repo-aur-watch (08:30) and aur-typosquat-watch (09:40),
+# so three pushes do not land on the phone in the same minute.
+OnCalendar=Mon 09:10
+Persistent=true
+RandomizedDelaySec=15m
+
+[Install]
+WantedBy=timers.target
