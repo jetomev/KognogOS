@@ -112,10 +112,11 @@ REWRITES = [
 ]
 
 # Pinned-launcher substitutions applied inside filter_launchers, for when the
-# distro default differs from the reference machine. Currently empty: Dolphin
-# is the default file manager again (Javier, 2026-08-01 — Nemo misbehaved under
-# KDE and was dropped; still searching for a keeper).
-LAUNCHER_SWAPS = {}
+# distro default differs from the reference machine. Dolphin is the default
+# file manager (Javier, 2026-08-01 — Nemo misbehaved under KDE and was
+# dropped); Javier is personally trialing Thunar on this desktop, so any
+# Thunar pin in the captured panel is swapped back to the distro default.
+LAUNCHER_SWAPS = {"applications:thunar.desktop": "applications:org.kde.dolphin.desktop"}
 
 # Launchers never shipped even if resolvable on the reference machine:
 # apps whose licenses keep them off the ISO (fetched at install instead).
@@ -345,10 +346,10 @@ def ensure_web_shortcuts():
 def ensure_default_apps():
     """Distro default-application bindings (not captured — declared).
 
-    Nemo is the default file manager (Javier, 2026-07-30): the mimeapps
-    binding makes every open-folder action route to Nemo while Dolphin
-    stays installed. The reference machine's own mimeapps.list is personal
-    (its handlers reflect installed apps + habits) and is never captured.
+    Dolphin is the default file manager (Javier, 2026-08-01): the mimeapps
+    binding makes every open-folder action route to Dolphin. The reference
+    machine's own mimeapps.list is personal (its handlers reflect installed
+    apps + habits) and is never captured.
     """
     path = SKEL / ".config/mimeapps.list"
     path.parent.mkdir(parents=True, exist_ok=True)
