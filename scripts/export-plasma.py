@@ -119,12 +119,14 @@ REWRITES = [
 LAUNCHER_SWAPS = {"applications:thunar.desktop": "applications:org.kde.dolphin.desktop"}
 
 # Launchers never shipped even if resolvable on the reference machine:
-# apps whose licenses keep them off the ISO (fetched at install instead).
+# apps whose licenses keep them off the ISO (fetched at install instead), or
+# apps that are Javier's personal choice and not a distro standard.
 LAUNCHER_DROPS = {
     "spotify.desktop",
     "google-chrome.desktop",
     "visual-studio-code.desktop",
     "code.desktop",
+    "piavpn.desktop",  # personal VPN choice, not a distro default (Javier, 2026-09-26)
 }
 
 
