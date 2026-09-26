@@ -3,6 +3,10 @@ Id_1=5a08bfe2-ea2a-4454-960f-b056ad70ba64
 Number=1
 Rows=1
 
+[EdgeBarrier]
+CornerBarrier=false
+EdgeBarrier=0
+
 [Effect-overview]
 BorderActivate=9
 
@@ -56,9 +60,14 @@ padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Windows]
+ElectricBorderDelay=0
 ElectricBorderMaximize=false
 ElectricBorderTiling=false
 RollOverDesktops=true
 
 [Xwayland]
 Scale=1
+
+[org.kde.kdecoration2]
+library=org.kde.kwin.aurorae.v2
+theme=__aurorae__svg__CatppuccinMocha-Modern
