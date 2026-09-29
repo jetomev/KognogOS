@@ -25,6 +25,8 @@ ISSUES = [
   iss(7,"outsider","7 they spoke AFTER we closed",     "closed","2026-09-02T00:00:00Z"),
   iss(8,"outsider","8 last word is a bot"),
   iss(9,"outsider","9 PR, outside review comment last", pr=True),
+  iss(11,"javier-tome","11 ours from the work laptop, nobody replied"),
+  iss(12,"outsider","12 outside, the work laptop replied last"),
 ]
 CONV = [
   com(2,"outsider","2026-09-02T00:00:00Z"), com(2,"jetomev","2026-09-03T00:00:00Z"),
@@ -33,6 +35,7 @@ CONV = [
   com(6,"outsider","2026-09-04T00:00:00Z"),
   com(7,"outsider","2026-09-09T00:00:00Z"),
   com(8,"jetomev","2026-09-03T00:00:00Z"), com(8,"dependabot[bot]","2026-09-06T00:00:00Z"),
+  com(12,"outsider","2026-09-02T00:00:00Z"), com(12,"javier-tome","2026-09-03T00:00:00Z"),
 ]
 REV = [ rev(9,"jetomev","2026-09-03T00:00:00Z"), rev(9,"outsider","2026-09-07T00:00:00Z") ]
 CC  = [ {"commit_id":"abc1234deadbeef","user":{"login":"outsider"},
@@ -59,7 +62,7 @@ print()
 print("expected:", expect)
 print("got     :", got)
 if got == expect:
-    print("\n*** PASS — all 10 situations classified correctly ***")
+    print("\n*** PASS — all 12 situations classified correctly ***")
 else:
     print("\n*** FAIL ***")
     print("  missed         :", [x for x in expect if x not in got])

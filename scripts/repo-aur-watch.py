@@ -50,6 +50,10 @@ import urllib.request
 
 ME = "jetomev"
 OWNER = "jetomev"
+# GitHub accounts that are us. javier-tome is the work laptop: it files our
+# own findings, and without this every one of them read as an outsider waiting
+# on a reply (7 false alarms on 2026-09-29). The AUR has only ME.
+US = {ME, "javier-tome"}
 
 # Packages actually published on the AUR. nogforge is NOT here on purpose:
 # it has never been submitted. If that changes, add it.
@@ -219,7 +223,7 @@ def collect_github():
         fold(review, "pull_request_url")
 
         for t in threads.values():
-            if t["last_actor"] == ME or is_bot(t["last_actor"]):
+            if t["last_actor"] in US or is_bot(t["last_actor"]):
                 continue
             # Closing the thread after their last word counts as an answer.
             if t["state"] == "closed" and t["closed_at"] and t["last_at"] \
@@ -237,7 +241,7 @@ def collect_github():
 
         for c in commit_c:
             who = (c.get("user") or {}).get("login", "?")
-            if who == ME or is_bot(who):
+            if who in US or is_bot(who):
                 continue
             waiting.append({
                 "kind": "commit comment",
