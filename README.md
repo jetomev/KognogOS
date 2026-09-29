@@ -192,13 +192,13 @@ The road to v1.0, targeting **April 2027**.
 - [x] **Phase 1 — Capture the desktop** ✅ *done 30 July 2026* — a repeatable script that captures a live Plasma configuration into the new-user defaults, stripping personal traces by rule. Validated over four test rounds.
 - [ ] **Phase 2 — First bootable ISO** — a live Plasma session with our branding, terminal stack, and nog plus the Forge suite preinstalled. No installer yet; this is the "it boots!" milestone. Includes deciding on the login screen: SDDM isn't locked in.
 - [ ] **Phase 3 — installForge** — the terminal installer, in its own repo like its siblings. Edition picker, guided disk setup, user creation. Proprietary apps are marked and swappable during selection. The Development edition additionally suggests reviewing the tier pins against your toolchain.
-  - **Its model: Omarchy's installer.** On 28 September 2026 Javier installed [Omarchy](https://github.com/basecamp/omarchy) 4.0.4 in a VM while starting [hypeForge](https://github.com/jetomev/hypeforge). His verdict: *"I love the Omarchy install, fits our installForge idea."* Worth studying from its [manual](https://github.com/basecamp/omarchy/blob/quattro/manual/02-getting-started.md) and [release notes](https://github.com/basecamp/omarchy/releases/tag/v4.0.0):
+  - **With thanks to Omarchy's installer.** On 28 September 2026 Javier installed [Omarchy](https://github.com/basecamp/omarchy) 4.0.4 in a VM while starting [hypeForge](https://github.com/jetomev/hypeforge). His words: *"I love the Omarchy install, fits our installForge idea."* Ideas we are grateful to learn from, in its [manual](https://github.com/basecamp/omarchy/blob/quattro/manual/02-getting-started.md) and [release notes](https://github.com/basecamp/omarchy/releases/tag/v4.0.0):
     - the choice between taking a whole disk and using free space next to another system, for dual booting
     - disk encryption on by default, with a documented way to skip it
     - a mode that prepares the computer for a new owner and leaves the personal questions for their first boot
     - bootable snapshots you pick from the boot menu
     - installs that take about a minute
-  - **One difference stays on purpose:** Omarchy installs **offline**, from packages bundled on its ISO. installForge installs **online**, as described above.
+  - installForge installs **online**, as described above. We don't compare ourselves with anyone; our picks are simply our picks.
 - [ ] **welcomeforge** — the Welcome Center, and forgekit's pilot app. Opens at session start. On the live ISO it leads with **Install**; once installed it drops that and adds a "show at startup" toggle. Covers the project and its philosophy, a guided nog tour, the Forge suite, the tier guide, and where to give feedback.
 - [ ] **Tier reference guide** — a plain-language manual: what each tier means, how to read and edit `tier-pins.toml`, and worked examples.
 - [ ] **Phase 4 — Testing** — virtual machines first, then the real test: wipe a physical machine and install it from the ISO alone, repeating until a run has zero deviations.
