@@ -1,0 +1,2 @@
+# hypeForge: settings only Hyprland itself reads (D-25).
+export HYPRCURSOR_SIZE=24

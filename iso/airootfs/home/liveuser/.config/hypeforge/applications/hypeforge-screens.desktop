@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Screens
+Comment=Arrange your screens: resolution, refresh rate, scale, rotation (Monique)
+Exec=sh -c 'd="$HOME/.config/hypeforge/machines/$(cat /etc/hostname)"; mkdir -p "$d"; exec uwsm app -- monique --config-dir "$d"'
+Icon=preferences-desktop-display
+Categories=Settings;HardwareSettings;

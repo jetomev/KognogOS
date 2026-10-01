@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# hypeforge-theme-sync: Noctalia runs this after every palette change (its colors_changed
+# hook, D-40). It keeps the rest of the desktop in step with Noctalia:
+#   1. which palette is active? one of hypeForge's five, or any other (Nord, Dracula...)
+#   2. note it in ~/.config/hypeforge/theme, so theme.lua knows which colours to use
+#   3. for our five: make sure the matching KognogOS wallpaper is up (D-36)
+#   4. hyprctl reload: theme.lua repaints borders, title bars, terminal, GTK apps,
+#      Hyprland's own apps and the lock screen
+# Setting a favourite wallpaper whose palette is already active changes no colours, so
+# this hook does not fire again: there is no loop.
+HF="$HOME/.config/hypeforge"
+W=/usr/share/wallpapers/kognog
+read -r _source name < <(noctalia msg color-scheme-get)
+case "$name" in
+    hypeForge-Mocha) id=mocha; pic="Catpuccin Mocha" ;;
+    hypeForge-Black) id=black; pic=Black ;;
+    hypeForge-Green) id=green; pic=Green ;;
+    hypeForge-Gray)  id=gray;  pic=Gray ;;
+    hypeForge-White) id=white; pic=White ;;
+    *)               id=noctalia; pic= ;;
+esac
+echo "$id" > "$HF/theme"
+if [[ -n $pic ]]; then
+    want="$W/Kognog OS Semi - Logo $pic.png"
+    [[ "$(noctalia msg wallpaper-get)" == "$want" ]] || noctalia msg wallpaper-set "$want"
+fi
+hyprctl reload >/dev/null

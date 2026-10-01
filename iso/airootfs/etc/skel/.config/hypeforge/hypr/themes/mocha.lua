@@ -1,0 +1,27 @@
+-- hypeForge theme: Catppuccin Mocha. Generated from prototype/themes/preview.html (D-36); edit there.
+return {
+    name = "Catppuccin Mocha",
+    wallpaper = "#1e1e2e",
+    kind = "dark",
+    c = {
+        bar = "#181825",
+        barText = "#cdd6f4",
+        accent = "#cba6f7",
+        border = "#cba6f7",
+        inactive = "#45475a",
+        titlebar = "#181825",
+        window = "#1e1e2e",
+        text = "#cdd6f4",
+        subtext = "#a6adc8",
+        selection = "#45475a",
+        green = "#a6e3a1",
+        red = "#f38ba8",
+        btnIcon = "#1e1e2e",
+        a1 = "#f38ba8",
+        a2 = "#a6e3a1",
+        a3 = "#f9e2af",
+        a4 = "#89b4fa",
+        a5 = "#f5c2e7",
+        a6 = "#94e2d5",
+    },
+}

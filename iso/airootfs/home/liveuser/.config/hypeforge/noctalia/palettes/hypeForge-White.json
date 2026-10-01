@@ -1,0 +1,52 @@
+{
+  "dark": {
+    "mPrimary": "#1a1a1a",
+    "mOnPrimary": "#ffffff",
+    "mSecondary": "#3a3a3a",
+    "mOnSecondary": "#ffffff",
+    "mTertiary": "#1d4fc4",
+    "mOnTertiary": "#ffffff",
+    "mError": "#d20f39",
+    "mOnError": "#ffffff",
+    "mSurface": "#ececec",
+    "mOnSurface": "#1c1c1c",
+    "mSurfaceVariant": "#c8c8c8",
+    "mOnSurfaceVariant": "#555555",
+    "mOutline": "#bdbdbd",
+    "mShadow": "#8a8a8a",
+    "mHover": "#c8c8c8",
+    "mOnHover": "#1c1c1c",
+    "terminal": {
+      "background": "#ececec", "foreground": "#1c1c1c",
+      "cursor": "#1a1a1a", "cursorText": "#ececec",
+      "selectionBg": "#c8c8c8", "selectionFg": "#1c1c1c",
+      "normal": { "black": "#5c5f77", "red": "#d20f39", "green": "#2f7d1f", "yellow": "#a86a00", "blue": "#1e66f5", "magenta": "#b3389f", "cyan": "#147f86", "white": "#9ca0b0" },
+      "bright": { "black": "#6c6f85", "red": "#d20f39", "green": "#2f7d1f", "yellow": "#a86a00", "blue": "#1e66f5", "magenta": "#b3389f", "cyan": "#147f86", "white": "#bcc0cc" }
+    }
+  },
+  "light": {
+    "mPrimary": "#1a1a1a",
+    "mOnPrimary": "#ffffff",
+    "mSecondary": "#3a3a3a",
+    "mOnSecondary": "#ffffff",
+    "mTertiary": "#1d4fc4",
+    "mOnTertiary": "#ffffff",
+    "mError": "#d20f39",
+    "mOnError": "#ffffff",
+    "mSurface": "#ececec",
+    "mOnSurface": "#1c1c1c",
+    "mSurfaceVariant": "#c8c8c8",
+    "mOnSurfaceVariant": "#555555",
+    "mOutline": "#bdbdbd",
+    "mShadow": "#8a8a8a",
+    "mHover": "#c8c8c8",
+    "mOnHover": "#1c1c1c",
+    "terminal": {
+      "background": "#ececec", "foreground": "#1c1c1c",
+      "cursor": "#1a1a1a", "cursorText": "#ececec",
+      "selectionBg": "#c8c8c8", "selectionFg": "#1c1c1c",
+      "normal": { "black": "#5c5f77", "red": "#d20f39", "green": "#2f7d1f", "yellow": "#a86a00", "blue": "#1e66f5", "magenta": "#b3389f", "cyan": "#147f86", "white": "#9ca0b0" },
+      "bright": { "black": "#6c6f85", "red": "#d20f39", "green": "#2f7d1f", "yellow": "#a86a00", "blue": "#1e66f5", "magenta": "#b3389f", "cyan": "#147f86", "white": "#bcc0cc" }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# hypeforge-keys: every hypeForge keyboard shortcut, listed in the launcher (F-9).
+# Read live from Hyprland, so the list can never drift from the real keys:
+# every key in hyprland.lua carries a description, and only those are shown.
+# The idea of a searchable shortcut list comes from Omarchy, with thanks.
+hyprctl binds -j | jq -r '
+  def mods: [ (if . % 128 >= 64 then "Win" else empty end),
+              (if . % 8   >= 4  then "Ctrl" else empty end),
+              (if . % 16  >= 8  then "Alt" else empty end),
+              (if . % 2   >= 1  then "Shift" else empty end) ];
+  .[] | select(.has_description) |
+  (if .key == "SUPER_L" then "Win (tap alone)"
+   else ((.modmask | mods) + [ .key | ascii_upcase ] | join(" + ")) end) as $k |
+  "\($k)\t\(.description)"' |
+  sort -u | column -t -s $'\t' |
+  walker --dmenu --placeholder "Keyboard shortcuts" >/dev/null

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# hypeforge-theme-next: Win + Alt + T, the next KognogOS theme (D-36, D-40).
+# Setting a theme's wallpaper (a Noctalia favourite) also sets its palette and light/dark;
+# Noctalia's hook (hypeforge-theme-sync) then brings the rest of the desktop along.
+W=/usr/share/wallpapers/kognog
+order=(mocha black green gray white)
+declare -A pic=([mocha]="Catpuccin Mocha" [black]=Black [green]=Green [gray]=Gray [white]=White)
+cur=$(cat "$HOME/.config/hypeforge/theme" 2>/dev/null)
+next=${order[0]}
+for i in "${!order[@]}"; do
+    [[ ${order[$i]} == "$cur" ]] && next=${order[$(( (i + 1) % ${#order[@]} ))]}
+done
+noctalia msg wallpaper-set "$W/Kognog OS Semi - Logo ${pic[$next]}.png"

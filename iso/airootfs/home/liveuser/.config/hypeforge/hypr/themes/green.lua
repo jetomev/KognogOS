@@ -1,0 +1,27 @@
+-- hypeForge theme: Green. Generated from prototype/themes/preview.html (D-36); edit there.
+return {
+    name = "Green",
+    wallpaper = "#014b27",
+    kind = "light",
+    c = {
+        bar = "#cfe8d7",
+        barText = "#123b28",
+        accent = "#1f6e45",
+        border = "#2e8b57",
+        inactive = "#b3d4bf",
+        titlebar = "#d9eee0",
+        window = "#eef7f1",
+        text = "#143d2a",
+        subtext = "#3d6650",
+        selection = "#c6e3d0",
+        green = "#2b7a1c",
+        red = "#c42440",
+        btnIcon = "#ffffff",
+        a1 = "#d20f39",
+        a2 = "#40a02b",
+        a3 = "#8f5500",
+        a4 = "#1d4fc4",
+        a5 = "#ea76cb",
+        a6 = "#179299",
+    },
+}

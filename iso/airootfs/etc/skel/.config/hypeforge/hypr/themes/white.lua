@@ -1,0 +1,27 @@
+-- hypeForge theme: White. Generated from prototype/themes/preview.html (D-36); edit there.
+return {
+    name = "White",
+    wallpaper = "#ffffff",
+    kind = "light",
+    c = {
+        bar = "#999999",
+        barText = "#111111",
+        accent = "#1a1a1a",
+        border = "#3a3a3a",
+        inactive = "#bdbdbd",
+        titlebar = "#d2d2d2",
+        window = "#ececec",
+        text = "#1c1c1c",
+        subtext = "#555555",
+        selection = "#c8c8c8",
+        green = "#2b7a1c",
+        red = "#d20f39",
+        btnIcon = "#ffffff",
+        a1 = "#d20f39",
+        a2 = "#40a02b",
+        a3 = "#8f5500",
+        a4 = "#1d4fc4",
+        a5 = "#ea76cb",
+        a6 = "#179299",
+    },
+}

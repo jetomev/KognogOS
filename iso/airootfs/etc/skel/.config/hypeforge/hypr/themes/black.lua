@@ -1,0 +1,27 @@
+-- hypeForge theme: Black. Generated from prototype/themes/preview.html (D-36); edit there.
+return {
+    name = "Black",
+    wallpaper = "#000000",
+    kind = "dark",
+    c = {
+        bar = "#0a0a0a",
+        barText = "#d4d4d4",
+        accent = "#a3a3a3",
+        border = "#a3a3a3",
+        inactive = "#262626",
+        titlebar = "#050505",
+        window = "#0f0f0f",
+        text = "#e4e4e4",
+        subtext = "#9a9a9a",
+        selection = "#2a2a2a",
+        green = "#a6e3a1",
+        red = "#f38ba8",
+        btnIcon = "#0a0a0a",
+        a1 = "#f38ba8",
+        a2 = "#a6e3a1",
+        a3 = "#f9e2af",
+        a4 = "#89b4fa",
+        a5 = "#f5c2e7",
+        a6 = "#94e2d5",
+    },
+}

@@ -1,0 +1,3 @@
+[Desktop Entry]
+# hypeForge switches this autostart entry off (D-25). Printers are managed from system-config-printer (D-26).
+Hidden=true

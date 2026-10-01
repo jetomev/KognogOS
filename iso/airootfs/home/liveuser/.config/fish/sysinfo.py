@@ -424,6 +424,13 @@ def main():
     welcome.append("Welcome ", style=GREEN)
     welcome.append(getpass.getuser(), style=f"bold {PINK}")
     welcome.append(", let's rock this session! 🧙\n", style=GREEN)
+    # Live disc only (hypeForge F-17): say the live password, and how to install.
+    if getpass.getuser() == "liveuser":
+        welcome.append(f"{pad}Live session: the password is ", style=FAINT)
+        welcome.append("live", style=f"bold {PINK}")
+        welcome.append(" · install with ", style=FAINT)
+        welcome.append("sudo kognog-install /dev/<disk>", style=f"bold {PINK}")
+        welcome.append("\n")
     console.print(welcome)
 
 

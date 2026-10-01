@@ -239,6 +239,10 @@ qt6-wayland
 qt5-wayland
 superfile
 krusader
+thunar
+thunar-volman
+thunar-archive-plugin
+tumbler
 udiskie
 gvfs
 kwallet

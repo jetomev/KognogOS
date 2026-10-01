@@ -1,5 +1,5 @@
 [Default Applications]
-inode/directory=org.kde.krusader.desktop
+inode/directory=thunar.desktop
 x-scheme-handler/http=google-chrome.desktop
 x-scheme-handler/https=google-chrome.desktop
 text/html=google-chrome.desktop

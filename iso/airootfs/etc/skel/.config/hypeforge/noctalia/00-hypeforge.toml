@@ -1,0 +1,77 @@
+# hypeForge defaults for Noctalia, the desktop shell (D-40). Noctalia reads every *.toml in
+# ~/.config/noctalia (a link into hypeForge's folder); changes made in Noctalia's Settings
+# window go to ~/.local/state/noctalia/settings.toml, which loads last and always wins.
+# Setting names checked against Noctalia 5.2.0 (docs/research/2026-09-30-noctalia-integration.md).
+
+[shell]
+telemetry_enabled    = false   # the "Anonymous Startup Ping": off
+setup_wizard_enabled = false   # no welcome window: hypeForge has set things up already
+polkit_agent         = false   # hyprpolkitagent, Hyprland's own, stays the password pop-up
+launch_apps_as_systemd_services = true   # restarting Noctalia never closes your apps (uwsm)
+app_icon_colorize    = true    # every app icon tinted to the theme (Javier: "looks cool")
+
+[theme]
+mode           = "dark"
+source         = "custom"
+custom_palette = "hypeForge-Mocha"
+
+[theme.templates]
+enable_builtin_templates = false   # theme.lua colours borders, title bars, the terminal and GTK
+
+# Gives theme.lua the colours of any palette, so Noctalia's own themes colour the whole desktop.
+[theme.templates.user.hypeforge_colours]
+input_path  = "$XDG_CONFIG_HOME/hypeforge/noctalia/templates/colours.lua"
+output_path = "$XDG_CONFIG_HOME/hypeforge/hypr/noctalia-colours.lua"
+
+[hooks]
+colors_changed = "bash ~/.config/hypeforge/bin/hypeforge-theme-sync"
+
+[wallpaper]
+directory = "/usr/share/wallpapers/kognog"
+fill_mode = "crop"
+
+[wallpaper.default]
+path = "/usr/share/wallpapers/kognog/Kognog OS Semi - Logo Catpuccin Mocha.png"
+
+# The five KognogOS themes: picking one of these wallpapers also picks its theme (D-36).
+[[wallpaper.favorite]]
+path = "/usr/share/wallpapers/kognog/Kognog OS Semi - Logo Catpuccin Mocha.png"
+theme_mode = "dark"
+palette_source = "custom"
+custom_palette = "hypeForge-Mocha"
+
+[[wallpaper.favorite]]
+path = "/usr/share/wallpapers/kognog/Kognog OS Semi - Logo Black.png"
+theme_mode = "dark"
+palette_source = "custom"
+custom_palette = "hypeForge-Black"
+
+[[wallpaper.favorite]]
+path = "/usr/share/wallpapers/kognog/Kognog OS Semi - Logo Green.png"
+theme_mode = "light"
+palette_source = "custom"
+custom_palette = "hypeForge-Green"
+
+[[wallpaper.favorite]]
+path = "/usr/share/wallpapers/kognog/Kognog OS Semi - Logo Gray.png"
+theme_mode = "dark"
+palette_source = "custom"
+custom_palette = "hypeForge-Gray"
+
+[[wallpaper.favorite]]
+path = "/usr/share/wallpapers/kognog/Kognog OS Semi - Logo White.png"
+theme_mode = "light"
+palette_source = "custom"
+custom_palette = "hypeForge-White"
+
+[bar.default]
+start  = ["launcher", "workspaces", "taskbar"]   # taskbar: open apps' icons, click to switch
+center = ["clock"]
+end    = ["media", "tray", "notifications", "clipboard", "network", "bluetooth",
+          "volume", "brightness", "battery", "control-center", "session"]
+
+[widget.taskbar]
+show_window_title = false
+
+[lockscreen]
+enabled = false   # hyprlock stays the lock screen (Javier, 2026-09-30); hypridle locks on idle

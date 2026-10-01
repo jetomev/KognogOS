@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Keyboard shortcuts
+Comment=Every hypeForge keyboard shortcut (Win + F1)
+Exec=sh -c "bash $HOME/.config/hypeforge/bin/hypeforge-keys"
+Icon=preferences-desktop-keyboard-shortcuts
+Categories=Settings;Utility;

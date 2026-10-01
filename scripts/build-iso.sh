@@ -56,7 +56,10 @@ done
 # keep both. The live password stays "live"
 # (airootfs/etc/shadow) for sudo prompts and the like; the welcome message says so.
 LIVE_HF="$AIR/home/liveuser/.config/hypeforge"
-rm -f "$AIR/home/liveuser/.config/systemd/user/graphical-session.target.wants/hypeforge-hypridle.service"
+# Remove the unit itself, not only its start link: Arch's user preset policy enables any
+# unit it finds at the first login, so a leftover unit file came back on (build 3).
+rm -f "$AIR/home/liveuser/.config/systemd/user/graphical-session.target.wants/hypeforge-hypridle.service" \
+      "$AIR/home/liveuser/.config/systemd/user/hypeforge-hypridle.service"
 install -Dm644 /dev/stdin "$LIVE_HF/machines/kognog-live/machine.lua" <<'LUA'
 -- The KognogOS live disc only (F-17): no lock screen. Written by build-iso.sh.
 pcall(hl.unbind, "SUPER + L")
@@ -114,7 +117,21 @@ echo "==> building ISO (sudo mkarchiso)"
 # mkarchiso caches completed steps in the work dir and silently SKIPS them
 # on rerun — a stale work dir means a sub-second "build" that changes
 # nothing (learned live, 2026-07-30). Always start clean.
-sudo rm -rf "$ISO/work"
+# SAFETY (2026-09-30): a previous build had left /sys and the firmware's efivars attached
+# inside work/. `rm -rf` walked into them and deleted this computer's UEFI boot entries
+# (they had to be recreated with efibootmgr). So: detach anything attached under work/,
+# refuse to go on if something is still attached, and never let rm cross into another
+# filesystem (--one-file-system).
+if findmnt -rno TARGET | grep -q "^$ISO/work/"; then
+    echo "==> detaching filesystems left attached under $ISO/work"
+    findmnt -rno TARGET | grep "^$ISO/work/" | sort -r | xargs -r -d '\n' sudo umount -R
+fi
+if findmnt -rno TARGET | grep -q "^$ISO/work/"; then
+    echo "!! something is still attached under $ISO/work; not deleting anything:" >&2
+    findmnt -rno TARGET | grep "^$ISO/work/" >&2
+    exit 1
+fi
+sudo rm -rf --one-file-system "$ISO/work"
 mkdir -p "$ISO/work" "$ISO/out"
 sudo rm -f "$ISO/out/"kognogos-*.iso
 sudo mkarchiso -v -w "$ISO/work" -o "$ISO/out" "$ISO"

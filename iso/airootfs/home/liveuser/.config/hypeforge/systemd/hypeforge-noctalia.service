@@ -1,0 +1,16 @@
+# hypeForge background helper (D-25). Noctalia ships no unit of its own; running it under
+# the user service manager lets it start each app as its own service (D-40).
+[Unit]
+Description=hypeForge: Noctalia, the desktop shell (bar, launcher, notifications, wallpaper; D-40)
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/noctalia
+Restart=on-failure
+RestartSec=2
+Slice=background-graphical.slice
+
+[Install]
+WantedBy=graphical-session.target

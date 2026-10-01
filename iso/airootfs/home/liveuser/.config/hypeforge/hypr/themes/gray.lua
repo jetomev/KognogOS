@@ -1,0 +1,27 @@
+-- hypeForge theme: Gray. Generated from prototype/themes/preview.html (D-36); edit there.
+return {
+    name = "Gray",
+    wallpaper = "#a6a6a6",
+    kind = "dark",
+    c = {
+        bar = "#2a2a2a",
+        barText = "#e3e3e3",
+        accent = "#d0d0d0",
+        border = "#bdbdbd",
+        inactive = "#4d4d4d",
+        titlebar = "#262626",
+        window = "#303030",
+        text = "#ececec",
+        subtext = "#b3b3b3",
+        selection = "#4a4a4a",
+        green = "#a6e3a1",
+        red = "#f38ba8",
+        btnIcon = "#262626",
+        a1 = "#f38ba8",
+        a2 = "#a6e3a1",
+        a3 = "#f9e2af",
+        a4 = "#89b4fa",
+        a5 = "#f5c2e7",
+        a6 = "#94e2d5",
+    },
+}

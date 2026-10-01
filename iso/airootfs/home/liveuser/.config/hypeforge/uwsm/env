@@ -1,0 +1,11 @@
+# hypeForge session environment, read by uwsm at login (D-25).
+# Toolkit and theme settings for every app in the session.
+export XCURSOR_THEME=breeze_cursors
+export XCURSOR_SIZE=24
+export QT_QPA_PLATFORM="wayland;xcb"
+export QT_QPA_PLATFORMTHEME=gtk3
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export GDK_BACKEND="wayland,x11,*"
+export SDL_VIDEODRIVER="wayland,x11"
+export MOZ_ENABLE_WAYLAND=1
+export ELECTRON_OZONE_PLATFORM_HINT=auto

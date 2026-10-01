@@ -1,0 +1,15 @@
+# hypeForge background helper (D-25: helpers run as user services under uwsm).
+[Unit]
+Description=hypeForge: lock when idle (hypridle)
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/hypridle
+Restart=on-failure
+RestartSec=2
+Slice=background-graphical.slice
+
+[Install]
+WantedBy=graphical-session.target
