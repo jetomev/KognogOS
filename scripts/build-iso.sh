@@ -34,9 +34,33 @@ cp -r "$REPO/skel" "$AIR/home/liveuser"
 # references swap to Brave (installed systems keep Chrome — installforge
 # fetches it with consent).
 for d in "$AIR/etc/skel" "$AIR/home/liveuser"; do
-    sed -i 's/google-chrome.desktop/brave-browser.desktop/g' \
-        "$d/.config/mimeapps.list" "$d/.config/kdeglobals"
+    sed -i 's/google-chrome.desktop/brave-browser.desktop/g' "$d/.config/mimeapps.list"
 done
+
+# The desktop is hypeForge (2026-09-30, hypeForge edition: no Plasma). Its own
+# script puts the portable folder, helpers and theme files into each home.
+HYPEFORGE="${HYPEFORGE:-$HOME/Programs/hypeforge}"
+[[ -x "$HYPEFORGE/scripts/desktop/install-into.sh" ]] || {
+    echo "!! hypeForge not found at $HYPEFORGE (set HYPEFORGE=...)" >&2
+    exit 1
+}
+echo "==> staging the hypeForge desktop ($(git -C "$HYPEFORGE" rev-parse --short HEAD))"
+for d in "$AIR/etc/skel" "$AIR/home/liveuser"; do
+    bash "$HYPEFORGE/scripts/desktop/install-into.sh" "$d"
+done
+# LIVE SESSION ONLY (F-17): no lock screen at all. Javier: "the live disk should not
+# have lock screen usable or active". Both ways in are closed for the live user: the idle
+# lock (hypridle not started) and Win + L (unbound in the live computer's own settings
+# file, machines/kognog-live/, D-28). Noctalia's session menu has no Lock button, because
+# hypeForge switches Noctalia's own lock screen off (hyprlock stays). Installed systems
+# keep both. The live password stays "live"
+# (airootfs/etc/shadow) for sudo prompts and the like; the welcome message says so.
+LIVE_HF="$AIR/home/liveuser/.config/hypeforge"
+rm -f "$AIR/home/liveuser/.config/systemd/user/graphical-session.target.wants/hypeforge-hypridle.service"
+install -Dm644 /dev/stdin "$LIVE_HF/machines/kognog-live/machine.lua" <<'LUA'
+-- The KognogOS live disc only (F-17): no lock screen. Written by build-iso.sh.
+pcall(hl.unbind, "SUPER + L")
+LUA
 
 echo "==> staging system configs"
 mkdir -p "$AIR/etc/nog" "$AIR/etc/sudoers.d"
@@ -72,6 +96,14 @@ cp "$REPO/assets/icons/kognogos.png" "$AIR/usr/share/pixmaps/kognogos.png"
 cp "$REPO/assets/icons/plymouth-spinner.png" "$AIR/usr/share/pixmaps/kognogos-spinner.png"
 install -Dm644 "$REPO/assets/icons/kognogos.png" "$AIR/usr/share/icons/hicolor/256x256/apps/kognogos.png"
 install -Dm644 "$REPO/config/os-release" "$AIR/usr/share/kognog/os-release"
+
+echo "==> staging the GRUB theme (the installer puts it in /boot/grub/themes)"
+rm -rf "$AIR/usr/share/kognog/grub-theme"
+install -d "$AIR/usr/share/kognog/grub-theme"
+cp -r "$REPO/assets/grub-theme/kognogos" "$AIR/usr/share/kognog/grub-theme/"
+
+echo "==> staging the installer"
+install -Dm755 "$REPO/installer/tui/kognog-install.sh" "$AIR/usr/local/bin/kognog-install"
 
 echo "==> staging plymouth theme assets"
 PLY="$AIR/usr/share/plymouth/themes/kognog"

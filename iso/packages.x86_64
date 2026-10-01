@@ -130,27 +130,15 @@ xl2tpd
 zsh
 
 # ── KognogOS live desktop ────────────────────────────────────────────────
-plasma-meta
-sddm
-nemo
-dolphin
-konsole
-kate
-okular
-gwenview
-ark
-kcalc
 ttf-jetbrains-mono-nerd
 noto-fonts
 noto-fonts-emoji
 ttf-liberation
 candy-icons-git
-catppuccin-cursors-mocha
 pipewire
 pipewire-pulse
 pipewire-alsa
 wireplumber
-vlc
 networkmanager
 alacritty
 fish
@@ -176,7 +164,6 @@ xournalpp
 gimp
 pinta
 kdenlive
-elisa
 thunderbird
 discord
 telegram-desktop
@@ -224,3 +211,51 @@ zoxide
 httpie
 jq
 plymouth
+
+# ── hypeForge desktop (2026-09-30, Javier: "only our hypeForge or terminal. Nothing else.")
+# Plasma is gone from this edition. Every pick below is from hypeForge's recipe
+# (github.com/jetomev/hypeforge, docs/RECIPE.md + docs/DECISIONS.md D-14..D-36).
+hyprland
+noctalia
+uwsm
+xdg-desktop-portal-hyprland
+xdg-desktop-portal-gtk
+hyprpolkitagent
+hyprlock
+hypridle
+hyprsunset
+hyprpicker
+hyprland-plugin-hyprbars
+sddm
+grim
+slurp
+satty
+wl-clipboard
+playerctl
+gpu-screen-recorder
+adw-gtk-theme
+breeze-cursors
+qt6-wayland
+qt5-wayland
+superfile
+krusader
+udiskie
+gvfs
+kwallet
+kwallet-pam
+imv
+zathura
+zathura-pdf-mupdf
+mpv
+mpv-mpris
+cliamp
+bluez
+bluez-utils
+btop
+nvtop
+ddcutil
+system-config-printer
+xdg-user-dirs
+lua
+# Noctalia, the desktop shell (hypeForge D-40): bar, launcher, notifications, wallpaper, OSD,
+monique

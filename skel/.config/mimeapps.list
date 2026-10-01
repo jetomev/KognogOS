@@ -1,5 +1,15 @@
 [Default Applications]
-inode/directory=org.kde.dolphin.desktop
+inode/directory=org.kde.krusader.desktop
 x-scheme-handler/http=google-chrome.desktop
 x-scheme-handler/https=google-chrome.desktop
 text/html=google-chrome.desktop
+application/pdf=org.pwmt.zathura.desktop
+image/png=imv.desktop
+image/jpeg=imv.desktop
+image/webp=imv.desktop
+image/gif=imv.desktop
+video/mp4=mpv.desktop
+video/x-matroska=mpv.desktop
+video/webm=mpv.desktop
+audio/mpeg=mpv.desktop
+audio/flac=mpv.desktop
