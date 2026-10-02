@@ -76,7 +76,7 @@ byte after we sign it, the check fails.
   in the recipe. Your machine checks the signature **before it builds anything**.
   If the check fails, the build stops.
 
-**Our signing key** (published on [keys.openpgp.org](https://keys.openpgp.org)):
+**Our signing key** (published with our GitHub account, at [github.com/jetomev.gpg](https://github.com/jetomev.gpg) — the same key that marks our commits "Verified"):
 
 ```
 Javier (jetomev) <jetomev@gmail.com>
@@ -98,8 +98,10 @@ Three commands. The first fetches our public key, the second downloads a release
 and its signature, the third checks one against the other.
 
 ```bash
-# 1. Import the key
-gpg --keyserver keys.openpgp.org --recv-keys 32E1D2AB9380BFD6BFE3BC1EAC2A3407CC070F9E
+# 1. Import the key, from our GitHub account
+curl -s https://github.com/jetomev.gpg | gpg --import
+# check the fingerprint matches the one above:
+gpg --fingerprint 32E1D2AB9380BFD6BFE3BC1EAC2A3407CC070F9E
 
 # 2. Download any release and its signature (nog shown; every repo works the same)
 curl -LO https://github.com/jetomev/nog/releases/download/v1.2.0/nog-1.2.0.tar.gz
