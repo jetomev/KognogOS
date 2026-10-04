@@ -57,7 +57,7 @@ The core. Scope is **locked** to these five items — no riders except the freeb
   state in new nog-owned `/etc/nog/sources.toml` (Javier's design pick over editing
   nog.conf), single gate upstream of helper detection (helper-agnostic), corrupted
   state fails closed. Tests 45→49; round trip field-verified. Bonus: dogfooding spawned
-  the **System Lock doctrine feature** (KognogOS issue #1 — /usr/local/bin shims with
+  the **System Lock doctrine feature** (KognogOS issue #10 — /usr/local/bin shims with
   branded message + PreTransaction token hook + root-gated `sudo nog lock`).
 - **A3** ✅ **DONE 2026-08-05** · `nog deactivate chaotic-aur` / `activate chaotic-aur` —
   shipped (nog commit `a417a0e`, issue [#4](https://github.com/jetomev/nog/issues/4) closed):
