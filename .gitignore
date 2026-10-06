@@ -1,3 +1,5 @@
 nog/target/
 .DS_Store
 __pycache__/
+logs/
+iso/chroot/

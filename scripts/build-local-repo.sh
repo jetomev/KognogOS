@@ -15,12 +15,42 @@ REPO="$(cd "$(dirname "$0")/.." && pwd)"
 OUT="$REPO/iso/local-repo"
 WORK="$(mktemp -d /tmp/kognog-localrepo.XXXX)"
 PKGS=(python-forgekit nog grubforge alacrittyforge fresh-editor-bin proton-ge-custom-bin)
+# Ready-made programs, only repackaged: built WITHOUT installing their runtime
+# dependencies on this computer (makepkg -d). Empty for now; the mechanism stays.
+NODEPS_PKGS=()
+# Built in a clean chroot (devtools), never on this computer: for packages whose build
+# needs things we do not want installed here. Empty for now (the Hyprland disc used it
+# for hyprland-plugins, cliamp, monique); fill it for the Sway disc.
+CHROOT_PKGS=()
+CHROOT="$REPO/iso/chroot"
 
 mkdir -p "$OUT"
+# Start from an empty repo, so an old version can never ride along next to a new one.
+rm -f "$OUT"/*.pkg.tar.zst
 for p in "${PKGS[@]}"; do
     echo "==> $p"
     git clone --depth 1 "https://aur.archlinux.org/$p.git" "$WORK/$p"
     ( cd "$WORK/$p" && makepkg -s --noconfirm --clean )
+    cp "$WORK/$p/"*.pkg.tar.zst "$OUT/"
+done
+
+for p in "${NODEPS_PKGS[@]}"; do
+    echo "==> $p (repackaged, nothing installed here)"
+    git clone --depth 1 "https://aur.archlinux.org/$p.git" "$WORK/$p"
+    ( cd "$WORK/$p" && makepkg -d --noconfirm --clean )
+    cp "$WORK/$p/"*.pkg.tar.zst "$OUT/"
+done
+
+for p in "${CHROOT_PKGS[@]}"; do
+    echo "==> $p (clean chroot)"
+    command -v mkarchroot >/dev/null || { echo "!! devtools missing: nog install devtools" >&2; exit 1; }
+    # mkarchroot needs the parent folder to exist, or it cannot resolve the path
+    # and stops with "Please specify a working directory" (2026-09-30).
+    mkdir -p "$CHROOT"
+    [[ -d "$CHROOT/root" ]] || sudo mkarchroot "$CHROOT/root" base-devel
+    sudo arch-nspawn "$CHROOT/root" pacman -Syu --noconfirm
+    git clone --depth 1 "https://aur.archlinux.org/$p.git" "$WORK/$p"
+    ( cd "$WORK/$p" && makechrootpkg -c -r "$CHROOT" )
     cp "$WORK/$p/"*.pkg.tar.zst "$OUT/"
 done
 
