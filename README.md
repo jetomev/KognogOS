@@ -94,7 +94,7 @@ Instead of editing config files by hand and hoping, the Forge tools give you a g
 | [**bitlaForge**](https://github.com/jetomev/bitlaforge) | Solo Bitcoin mining, presented honestly as the lottery it is. | **Shipping** · `yay -S bitlaforge` |
 | [**nogForge**](https://github.com/jetomev/nogforge) | Install, update and remove apps through nog, in a window, with the password asked inside the app. Flatpak and Snap next. | **v1.1.1** · `yay -S nogforge` |
 | [**hypeForge**](https://github.com/jetomev/forge-suite/tree/main/hypeforge) | The KognogOS desktop on Sway: the menu bar, launcher, workspaces, lock screen, every piece a small applet. | Being built, lived in daily |
-| [**displayForge**](https://github.com/jetomev/forge-suite/tree/main/displayforge) | Screen settings: arrange, resolution, refresh rate, size, rotation, brightness — with a countdown that undoes a bad change. | **v1.0.0** · in the Forge Suite |
+| [**displayForge**](https://github.com/jetomev/forge-suite/tree/main/displayforge) | Screen settings: arrange, resolution, refresh rate, size, rotation, brightness — with a countdown that undoes a bad change. Sway only. | **v1.0.0** · in the Forge Suite |
 | [**forgekit**](https://github.com/jetomev/forge-suite/tree/main/forgekit) | The shared foundation every Forge app is built on. | **v0.6.0** · `yay -S python-forgekit` |
 
 ---
