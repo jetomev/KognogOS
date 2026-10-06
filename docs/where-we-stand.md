@@ -8,6 +8,12 @@
 > what happened, what we changed, and how to check all of it yourself instead of
 > taking our word for it.
 
+> **Checked again — 6 October 2026:** all six packages are current on the AUR, match their
+> latest GitHub release, and every build recipe still takes the signed release and names our
+> key (the table below). forgekit now lives in the
+> [Forge Suite repository](https://github.com/jetomev/forge-suite/tree/main/forgekit); its old
+> repository is archived and keeps its signed releases, which the AUR package uses.
+
 > **Update — 14 August 2026:** the AUR reopened and every package we had waiting is
 > live. `nog` **v1.2.0**, `python-forgekit` **v0.3.0** (our first new submission),
 > `alacrittyforge` **v0.2.0**, `bitlaforge` **v0.2.1** and `grubforge` **v1.0.3**
@@ -114,16 +120,21 @@ If a "Forge" package ever reaches you without that signature, it isn't ours.
 
 ## What's current, where
 
-Since 14 August 2026 the AUR and GitHub agree. Every package is at its latest
-release, and each verifies our signature during the build.
+Checked on **6 October 2026**: the AUR and GitHub agree, every package is at its latest
+release, and each AUR recipe names our key (`validpgpkeys`) and fetches the signed release
+with its `.asc` signature, so the build verifies us before it starts.
 
 | Package | AUR | Latest (GitHub) | |
 |---|---|---|---|
-| nog | v1.2.0 | v1.2.0 | current ✓ — security hardening, plus Flatpak and Snap support |
-| python-forgekit | v0.3.0 | v0.3.0 | current ✓ — new package; the shared Forge foundation |
-| alacrittyforge | v0.2.0 | v0.2.0 | current ✓ — rebuilt on forgekit |
-| bitlaforge | v0.2.1 | v0.2.1 | current ✓ — first Forge app on forgekit |
-| grubforge | v1.0.3 | v1.0.3 | current ✓ |
+| nog | v1.8.0 | v1.8.0 | current ✓ |
+| grubforge | v2.1.0 | v2.1.0 | current ✓ |
+| alacrittyforge | v1.0.0 | v1.0.0 | current ✓ |
+| bitlaforge | v1.0.0 | v1.0.0 | current ✓ |
+| nogforge | v1.1.1 | v1.1.1 | current ✓ — packages through nog, in a window |
+| python-forgekit | v0.6.0 | v0.6.0 | current ✓ — the shared Forge foundation (now in the Forge Suite) |
+
+*This table is a snapshot: check it yourself with the commands above. If it is ever
+older than the packages, the packages are right and this page is late.*
 
 Two packaging changes came out of this and are staying. Every build recipe now
 takes its source from the **signed release** rather than an unsigned archive, and
