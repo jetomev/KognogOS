@@ -148,7 +148,9 @@ KognogOS/
 |   |-- tier-pins.toml     #   which packages are Tier 1 and Tier 2
 |   |-- pacman.conf        #   core/extra/multilib/chaotic-aur
 |   |-- alacritty.toml, config.fish, tide_config.fish
+|-- assets/grub-theme/     # the KognogOS GRUB theme
 |-- docs/                  # Changelog, security article, project records
+|-- installer/tui/         # the first terminal installer (issue #2)
 |-- iso/                   # archiso profile — the live ISO build tree
 |-- logo/                  # KognogOS emblem
 |-- scripts/               # ISO build, desktop capture (Plasma era †), theming, audits
@@ -157,7 +159,7 @@ KognogOS/
 |-- README.md
 ```
 
-Two directories are planned but empty for now: `installer/` (see [issue #2](https://github.com/jetomev/KognogOS/issues/2)) and a future package repository.
+`installer/` holds the first terminal installer (`installer/tui/kognog-install.sh`, [issue #2](https://github.com/jetomev/KognogOS/issues/2)), the starting point for installForge. A package repository of our own is planned for later.
 
 ---
 
@@ -199,7 +201,7 @@ The road to v1.0, targeting **April 2027**.
 - [x] **Phase 1 — Capture the desktop** ✅ *done 30 July 2026* — a repeatable script that captures a live Plasma configuration into the new-user defaults, stripping personal traces by rule. Validated over four test rounds.
 - [x] **Phase 2 — First bootable ISO** ✅ *v0.9.0-beta, 31 July 2026* — a live Plasma session with our branding, terminal stack, and nog plus the Forge suite preinstalled.
 - [ ] **Phase 2b — the hypeForge ISO** — the same, with hypeForge on Sway as the only desktop (D-56): the desktop is being finished on the test machine first, then the disc recipe is rebuilt around it. Includes choosing the login screen for Sway.
-- [ ] **Phase 3 — installForge** — the terminal installer, in its own repo like its siblings. Edition picker, guided disk setup, user creation. Proprietary apps are marked and swappable during selection. The Development edition additionally suggests reviewing the tier pins against your toolchain.
+- [ ] **Phase 3 — installForge** — the terminal installer, a section of the [Forge Suite](https://github.com/jetomev/forge-suite) like every new Forge app; its first draft is `installer/tui/kognog-install.sh`. Edition picker, guided disk setup, user creation. Proprietary apps are marked and swappable during selection. The Development edition additionally suggests reviewing the tier pins against your toolchain.
   - **With thanks to Omarchy's installer.** On 28 September 2026 Javier installed [Omarchy](https://github.com/basecamp/omarchy) 4.0.4 in a VM while starting [hypeForge](https://github.com/jetomev/forge-suite/tree/main/hypeforge). His words: *"I love the Omarchy install, fits our installForge idea."* Ideas we are grateful to learn from, in its [manual](https://github.com/basecamp/omarchy/blob/quattro/manual/02-getting-started.md) and [release notes](https://github.com/basecamp/omarchy/releases/tag/v4.0.0):
     - the choice between taking a whole disk and using free space next to another system, for dual booting
     - disk encryption on by default, with a documented way to skip it
@@ -207,11 +209,20 @@ The road to v1.0, targeting **April 2027**.
     - bootable snapshots you pick from the boot menu
     - installs that take about a minute
   - installForge installs **online**, as described above. We don't compare ourselves with anyone; our picks are simply our picks.
-- [ ] **welcomeforge** — the Welcome Center, and forgekit's pilot app. Opens at session start. On the live ISO it leads with **Install**; once installed it drops that and adds a "show at startup" toggle. Covers the project and its philosophy, a guided nog tour, the Forge suite, the tier guide, and where to give feedback.
+- [ ] **welcomeForge** — the Welcome Center. Opens at session start. On the live ISO it leads with **Install**; once installed it drops that and adds a "show at startup" toggle. Covers the project and its philosophy, a guided nog tour, the Forge suite, the tier guide, and where to give feedback.
 - [ ] **Tier reference guide** — a plain-language manual: what each tier means, how to read and edit `tier-pins.toml`, and worked examples.
 - [ ] **Phase 4 — Testing** — virtual machines first, then the real test: wipe a physical machine and install it from the ISO alone, repeating until a run has zero deviations.
 - [ ] **Phase 5 — Release kit** — ISO hosting, checksums and signatures, and the project site.
 - [ ] **Phase 6 — v1.0** — GitHub release, project page, announcements, and a DistroWatch submission. Their queue takes months; an annual cadence shrugs.
+
+**Coming to the Forge Suite** (the full list, also on [kognogos.org](https://kognogos.org/#forge)) — one Forge app for every setting of the desktop, all opened from **hypeForge Settings**, the control centre. Most names are still to come:
+
+| Group | Apps |
+|---|---|
+| Installing and first boot | **installForge** (first draft here) · **welcomeForge** |
+| The desktop | **hypeForge Settings** · a **password helper** (for apps and for nog) · **Sound** · **Network** · **Bluetooth** · a **Theme manager** · **Notifications** · **Workspaces and windows** (workspaces, window placement, the launcher, window rules — for one screen or six) · **Lock and idle** · **Default and startup apps** · **USB drives** · a **Calculator** |
+| Later | **fileForge** (our own file manager, full mouse support) · **cloneForge** (moving a system to a new drive) · **greetForge** (the shell greeting) · **promptForge** (the prompt) |
+| Done | **displayForge** 1.0 (screens) · **nogForge** · **grubForge** · **alacrittyForge** · **bitlaForge** · **forgekit** |
 
 **Deliberately deferred:**
 
@@ -240,7 +251,7 @@ KognogOS now looks like itself from the power button to the shell. Before this, 
 - CPU usage read 100%, because the idle column was being counted as busy.
 - Memory and disk disagreed with `free` and `df` — they measure and round differently than we assumed.
 
-**Still open:** `installer/` is still empty on this branch ([issue #2](https://github.com/jetomev/KognogOS/issues/2)). The Plasma lock screen question ([issue #3](https://github.com/jetomev/KognogOS/issues/3)) closed with the move to hypeForge, whose lock screen is already ours.
+**Still open:** the installer is a first draft ([issue #2](https://github.com/jetomev/KognogOS/issues/2)), written for the first hypeForge disc; its login step waits on the Sway login screen. The Plasma lock screen question ([issue #3](https://github.com/jetomev/KognogOS/issues/3)) closed with the move to hypeForge, whose lock screen is already ours.
 
 ### v0.9.0-beta — 31 July 2026
 
