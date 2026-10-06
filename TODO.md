@@ -15,7 +15,7 @@
 - [ ] **The editions' app lists, the login screen for Sway, a graphical file manager** — redo for hypeForge (README †)
 - [ ] **Fonts on the disc** (Javier, "very important"): every font hypeForge needs is listed in [hypeForge docs/FONTS.md](https://github.com/jetomev/forge-suite/blob/main/hypeforge/docs/FONTS.md). Added `ttf-nerd-fonts-symbols` (the bar's icons) to `iso/packages.x86_64` on 2026-10-05; proven on the next disc build
 - [ ] `iso/packages.x86_64` lists `nano` and `tmux` twice (harmless; found 2026-10-05) — remove the repeats
-- [ ] **The disc for the Sway path:** build it on main around Sway + hypeForge as hypeForge's pieces settle (the Hyprland recipe is in the archive tag; `build-iso.sh` still stages the Plasma desktop)
+- [ ] **The disc for the Sway path (#13):** build it on main around Sway + hypeForge as hypeForge's pieces settle (the Hyprland recipe is in the archive tag; `build-iso.sh` still stages the Plasma desktop). The issue carries the four things only a build can close: the fonts proven, the `build-iso.sh` path, the nano/tmux repeats, #11
 
 - [ ] `scripts/build-iso.sh` looks for hypeForge at `~/Programs/hypeforge` (line 42): now `~/Programs/forge-suite/hypeforge` (a shortcut keeps the old path working on the test desktop) — update it with the Sway rebuild of the disc
 
