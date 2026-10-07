@@ -88,15 +88,15 @@ Instead of editing config files by hand and hoping, the Forge tools give you a g
 
 | Tool | What it does | Status |
 |---|---|---|
-| [**nog**](https://github.com/jetomev/nog) | Tier-aware package manager, written in Rust. Sorts every package, enforces the hold windows, and hands off to pacman and your AUR helper. | **v1.8.0** · `yay -S nog` |
-| [**grubForge**](https://github.com/jetomev/grubforge) | Edit GRUB safely — boot options, themes, entry order, detecting other operating systems. Backs up before every change. | **Shipping** · `yay -S grubforge` |
-| [**alacrittyForge**](https://github.com/jetomev/alacrittyforge) | Configure the Alacritty terminal — fonts, colours, opacity, keybindings — with live previews. | **Shipping** · `yay -S alacrittyforge` |
-| [**bitlaForge**](https://github.com/jetomev/bitlaforge) | Solo Bitcoin mining, presented honestly as the lottery it is. | **Shipping** · `yay -S bitlaforge` |
-| [**nogForge**](https://github.com/jetomev/nogforge) | Install, update and remove apps through nog, in a window, with the password asked inside the app. Flatpak and Snap next. | **v1.1.1** · `yay -S nogforge` |
+| [**nog**](https://github.com/jetomev/nog) | Tier-aware package manager, written in Rust. Sorts every package, enforces the hold windows, and hands off to pacman and your AUR helper. | ![nog on the AUR](https://img.shields.io/aur/version/nog?label=AUR&style=flat-square&labelColor=313244&color=a6e3a1) · `yay -S nog` |
+| [**grubForge**](https://github.com/jetomev/grubforge) | Edit GRUB safely — boot options, themes, entry order, detecting other operating systems. Backs up before every change. | ![grubForge on the AUR](https://img.shields.io/aur/version/grubforge?label=AUR&style=flat-square&labelColor=313244&color=a6e3a1) · `yay -S grubforge` |
+| [**alacrittyForge**](https://github.com/jetomev/alacrittyforge) | Configure the Alacritty terminal — fonts, colours, opacity, keybindings — with live previews. | ![alacrittyForge on the AUR](https://img.shields.io/aur/version/alacrittyforge?label=AUR&style=flat-square&labelColor=313244&color=a6e3a1) · `yay -S alacrittyforge` |
+| [**bitlaForge**](https://github.com/jetomev/bitlaforge) | Solo Bitcoin mining, presented honestly as the lottery it is. | ![bitlaForge on the AUR](https://img.shields.io/aur/version/bitlaforge?label=AUR&style=flat-square&labelColor=313244&color=a6e3a1) · `yay -S bitlaforge` |
+| [**nogForge**](https://github.com/jetomev/nogforge) | Install, update and remove apps through nog, in a window, with the password asked inside the app. Flatpak and Snap next. | ![nogForge on the AUR](https://img.shields.io/aur/version/nogforge?label=AUR&style=flat-square&labelColor=313244&color=a6e3a1) · `yay -S nogforge` |
 | [**hypeForge**](https://github.com/jetomev/forge-suite/tree/main/hypeforge) | The KognogOS desktop on Sway: the menu bar, launcher, workspaces, lock screen, every piece a small applet. | Being built, lived in daily |
-| [**sudoForge**](https://github.com/jetomev/forge-suite/tree/main/sudoforge) | One password box for every admin request on Sway: apps and `sudo`, saying who is asking and what for. | **v1.0.0** · `yay -S sudoforge` |
-| [**displayForge**](https://github.com/jetomev/forge-suite/tree/main/displayforge) | Screen settings: arrange, resolution, refresh rate, size, rotation, brightness — with a countdown that undoes a bad change. Sway only. | **v1.0.1** · in the Forge Suite |
-| [**forgekit**](https://github.com/jetomev/forge-suite/tree/main/forgekit) | The shared foundation every Forge app is built on. | **v0.8.0** · `yay -S python-forgekit` |
+| [**sudoForge**](https://github.com/jetomev/forge-suite/tree/main/sudoforge) | One password box for every admin request on Sway: apps and `sudo`, saying who is asking and what for. | ![sudoForge on the AUR](https://img.shields.io/aur/version/sudoforge?label=AUR&style=flat-square&labelColor=313244&color=a6e3a1) · `yay -S sudoforge` |
+| [**displayForge**](https://github.com/jetomev/forge-suite/tree/main/displayforge) | Screen settings: arrange, resolution, refresh rate, size, rotation, brightness — with a countdown that undoes a bad change. Sway only. | ![displayForge release](https://img.shields.io/github/v/release/jetomev/forge-suite?filter=displayforge-*&label=release&style=flat-square&labelColor=313244&color=a6e3a1) · in the Forge Suite |
+| [**forgekit**](https://github.com/jetomev/forge-suite/tree/main/forgekit) | The shared foundation every Forge app is built on. | ![forgekit on the AUR](https://img.shields.io/aur/version/python-forgekit?label=AUR&style=flat-square&labelColor=313244&color=a6e3a1) · `yay -S python-forgekit` |
 
 ---
 
