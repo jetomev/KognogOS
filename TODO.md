@@ -14,6 +14,8 @@
 - [x] **The `hypeforge-edition` branch (Javier, 2026-10-06: "Save the installer and delete the branch")**: installer, GRUB theme, the build safety fix (efivars), the clean-chroot mechanism, the live welcome line and the ignore rules moved to main (`c8aff19`); the Hyprland disc kept as tag `archive/hypeforge-edition-hyprland`; branch deleted here and on GitHub
 - [ ] **The editions' app lists, the login screen for Sway, a graphical file manager** — redo for hypeForge (README †)
 - [ ] **Fonts on the disc** (Javier, "very important"): every font hypeForge needs is listed in [hypeForge docs/FONTS.md](https://github.com/jetomev/forge-suite/blob/main/hypeforge/docs/FONTS.md). Added `ttf-nerd-fonts-symbols` (the bar's icons) to `iso/packages.x86_64` on 2026-10-05; proven on the next disc build
+- [x] README: **sudoForge 1.0.0** in the Forge Suite table, the tech stack (Passwords), the AUR line and Done; forgekit 0.6.0 → **0.8.0** (it was two versions behind) (2026-10-06)
+- [ ] **sudoForge on the disc** (released 2026-10-06, AUR `sudoforge`): the Sway path needs it (no admin pop-up or `sudo -A` window otherwise); add to `iso/packages.x86_64` with the Sway rebuild (#13), and run `sudoforge setup` at first boot (welcomeForge)
 - [ ] `iso/packages.x86_64` lists `nano` and `tmux` twice (harmless; found 2026-10-05) — remove the repeats
 - [ ] **The disc for the Sway path (#13):** build it on main around Sway + hypeForge as hypeForge's pieces settle (the Hyprland recipe is in the archive tag; `build-iso.sh` still stages the Plasma desktop). The issue carries the four things only a build can close: the fonts proven, the `build-iso.sh` path, the nano/tmux repeats, #11
 

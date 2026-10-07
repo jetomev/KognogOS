@@ -94,8 +94,9 @@ Instead of editing config files by hand and hoping, the Forge tools give you a g
 | [**bitlaForge**](https://github.com/jetomev/bitlaforge) | Solo Bitcoin mining, presented honestly as the lottery it is. | **Shipping** · `yay -S bitlaforge` |
 | [**nogForge**](https://github.com/jetomev/nogforge) | Install, update and remove apps through nog, in a window, with the password asked inside the app. Flatpak and Snap next. | **v1.1.1** · `yay -S nogforge` |
 | [**hypeForge**](https://github.com/jetomev/forge-suite/tree/main/hypeforge) | The KognogOS desktop on Sway: the menu bar, launcher, workspaces, lock screen, every piece a small applet. | Being built, lived in daily |
+| [**sudoForge**](https://github.com/jetomev/forge-suite/tree/main/sudoforge) | One password box for every admin request on Sway: apps and `sudo`, saying who is asking and what for. | **v1.0.0** · `yay -S sudoforge` |
 | [**displayForge**](https://github.com/jetomev/forge-suite/tree/main/displayforge) | Screen settings: arrange, resolution, refresh rate, size, rotation, brightness — with a countdown that undoes a bad change. Sway only. | **v1.0.1** · in the Forge Suite |
-| [**forgekit**](https://github.com/jetomev/forge-suite/tree/main/forgekit) | The shared foundation every Forge app is built on. | **v0.6.0** · `yay -S python-forgekit` |
+| [**forgekit**](https://github.com/jetomev/forge-suite/tree/main/forgekit) | The shared foundation every Forge app is built on. | **v0.8.0** · `yay -S python-forgekit` |
 
 ---
 
@@ -115,6 +116,7 @@ Instead of editing config files by hand and hoping, the Forge tools give you a g
 | Package Manager | pacman + **nog** |
 | Bootloader Manager | **grubForge** |
 | Screens | **displayForge** |
+| Passwords (admin pop-up, sudo) | **sudoForge** |
 | Terminal | **Alacritty**, configured by alacrittyForge |
 | Shell | **Fish** + Tide v6 prompt |
 | Default Editor | **Fresh Editor** |
@@ -170,7 +172,7 @@ KognogOS is in **early development**, aiming at a **v1.0 public ISO in April 202
 **Working today:**
 
 - **nog v1.8.0**, stable on the AUR — tier-aware updates across pacman, the AUR, Flatpak, and Snap
-- **The Forge Suite** — grubForge, alacrittyForge, bitlaForge and nogForge on the AUR, with forgekit as the shared foundation; displayForge 1.0 in the [Forge Suite repository](https://github.com/jetomev/forge-suite)
+- **The Forge Suite** — grubForge, alacrittyForge, bitlaForge, nogForge and sudoForge on the AUR, with forgekit as the shared foundation; displayForge 1.0 in the [Forge Suite repository](https://github.com/jetomev/forge-suite)
 - **hypeForge**, the desktop on Sway, used every day on the test desktop
 - **Five editions** defined in `config/profiles.toml`
 - **The terminal stack** — Alacritty, Fish, Tide v6, and the KognogOS greeting with a tier-aware update status
@@ -220,9 +222,9 @@ The road to v1.0, targeting **April 2027**.
 | Group | Apps |
 |---|---|
 | Installing and first boot | **installForge** (first draft here) · **welcomeForge** |
-| The desktop | **hypeForge Settings** · a **password helper** (for apps and for nog) · **Sound** · **Network** · **Bluetooth** · a **Theme manager** · **Notifications** · **Workspaces and windows** (workspaces, window placement, the launcher, window rules — for one screen or six) · **Lock and idle** · **Default and startup apps** · **USB drives** · a **Calculator** |
+| The desktop | **hypeForge Settings** · **Sound** · **Network** · **Bluetooth** · a **Theme manager** · **Notifications** · **Workspaces and windows** (workspaces, window placement, the launcher, window rules — for one screen or six) · **Lock and idle** · **Default and startup apps** · **USB drives** · a **Calculator** |
 | Later | **fileForge** (our own file manager, full mouse support) · **cloneForge** (moving a system to a new drive) · **greetForge** (the shell greeting) · **promptForge** (the prompt) |
-| Done | **displayForge** 1.0 (screens) · **nogForge** · **grubForge** · **alacrittyForge** · **bitlaForge** · **forgekit** |
+| Done | **sudoForge** 1.0 (passwords) · **displayForge** 1.0 (screens) · **nogForge** · **grubForge** · **alacrittyForge** · **bitlaForge** · **forgekit** |
 
 **Deliberately deferred:**
 
