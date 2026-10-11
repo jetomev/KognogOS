@@ -45,16 +45,20 @@ from rich.text import Text
 console = Console()
 
 # ── palette ───────────────────────────────────────────────────────────────────
-LABEL   = "#89b4fa"
-VALUE   = "#cdd6f4"
-MUTED   = "#a6adc8"
-FAINT   = "#585b70"
-TRACK   = "#313244"
-GREEN   = "#a6e3a1"
-YELLOW  = "#f9e2af"
-RED     = "#f38ba8"
-PINK    = "#f5c2e7"
-WHITE   = "#ffffff"
+# The terminal's own colours, by name — never fixed hex values — so the greeting follows the
+# theme in use: Catppuccin Mocha's hex values were unreadable on hypeForge's light themes
+# (Javier, 2026-10-10, Mac OS 9 in Light Gray). On KognogOS Mocha the names resolve to the same
+# Mocha colours as before; values now use the terminal's text colour.
+LABEL   = "blue"
+VALUE   = "default"
+MUTED   = "default"
+FAINT   = "bright_black"
+TRACK   = "bright_black"
+GREEN   = "green"
+YELLOW  = "yellow"
+RED     = "red"
+PINK    = "magenta"
+WHITE   = "default"
 
 # ── geometry ──────────────────────────────────────────────────────────────────
 # The emblem panel is 16 cells wide because a square logo drawn in half

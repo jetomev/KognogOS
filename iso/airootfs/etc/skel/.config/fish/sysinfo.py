@@ -45,16 +45,20 @@ from rich.text import Text
 console = Console()
 
 # ── palette ───────────────────────────────────────────────────────────────────
-LABEL   = "#89b4fa"
-VALUE   = "#cdd6f4"
-MUTED   = "#a6adc8"
-FAINT   = "#585b70"
-TRACK   = "#313244"
-GREEN   = "#a6e3a1"
-YELLOW  = "#f9e2af"
-RED     = "#f38ba8"
-PINK    = "#f5c2e7"
-WHITE   = "#ffffff"
+# The terminal's own colours, by name — never fixed hex values — so the greeting follows the
+# theme in use: Catppuccin Mocha's hex values were unreadable on hypeForge's light themes
+# (Javier, 2026-10-10, Mac OS 9 in Light Gray). On KognogOS Mocha the names resolve to the same
+# Mocha colours as before; values now use the terminal's text colour.
+LABEL   = "blue"
+VALUE   = "default"
+MUTED   = "default"
+FAINT   = "bright_black"
+TRACK   = "bright_black"
+GREEN   = "green"
+YELLOW  = "yellow"
+RED     = "red"
+PINK    = "magenta"
+WHITE   = "default"
 
 # ── geometry ──────────────────────────────────────────────────────────────────
 # The emblem panel is 16 cells wide because a square logo drawn in half
@@ -424,6 +428,13 @@ def main():
     welcome.append("Welcome ", style=GREEN)
     welcome.append(getpass.getuser(), style=f"bold {PINK}")
     welcome.append(", let's rock this session! 🧙\n", style=GREEN)
+    # Live disc only (hypeForge F-17): say the live password, and how to install.
+    if getpass.getuser() == "liveuser":
+        welcome.append(f"{pad}Live session: the password is ", style=FAINT)
+        welcome.append("live", style=f"bold {PINK}")
+        welcome.append(" · install with ", style=FAINT)
+        welcome.append("sudo kognog-install /dev/<disk>", style=f"bold {PINK}")
+        welcome.append("\n")
     console.print(welcome)
 
 
