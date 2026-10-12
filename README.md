@@ -95,7 +95,9 @@ Instead of editing config files by hand and hoping, the Forge tools give you a g
 | [**nogForge**](https://github.com/jetomev/nogforge) | Install, update and remove apps through nog, in a window, with the password asked inside the app. Flatpak and Snap next. | ![nogForge on the AUR](https://img.shields.io/aur/version/nogforge?label=AUR&style=flat-square&labelColor=313244&color=a6e3a1) · `yay -S nogforge` |
 | [**hypeForge**](https://github.com/jetomev/forge-suite/tree/main/hypeforge) | The KognogOS desktop on Sway: the menu bar, launcher, workspaces, lock screen, every piece a small applet. | Being built, lived in daily |
 | [**sudoForge**](https://github.com/jetomev/forge-suite/tree/main/sudoforge) | One password box for every admin request on Sway: apps and `sudo`, saying who is asking and what for. | ![sudoForge on the AUR](https://img.shields.io/aur/version/sudoforge?label=AUR&style=flat-square&labelColor=313244&color=a6e3a1) · `yay -S sudoforge` |
-| [**displayForge**](https://github.com/jetomev/forge-suite/tree/main/displayforge) | Screen settings: arrange, resolution, refresh rate, size, rotation, brightness — with a countdown that undoes a bad change. Sway only. | ![displayForge release](https://img.shields.io/github/v/release/jetomev/forge-suite?filter=displayforge-*&label=release&style=flat-square&labelColor=313244&color=a6e3a1) · in the Forge Suite |
+| [**displayForge**](https://github.com/jetomev/forge-suite/tree/main/displayforge) | Screen settings: arrange, resolution, refresh rate, size, rotation, brightness — with a countdown that undoes a bad change. Sway only. | ![displayForge on the AUR](https://img.shields.io/aur/version/displayforge?label=AUR&style=flat-square&labelColor=313244&color=a6e3a1) · `yay -S displayforge` |
+| [**workspaceForge**](https://github.com/jetomev/forge-suite/tree/main/workspaceforge) | Your workspaces and which apps open on each, for one screen or six. Sway only. | ![workspaceForge on the AUR](https://img.shields.io/aur/version/workspaceforge?label=AUR&style=flat-square&labelColor=313244&color=a6e3a1) · `yay -S workspaceforge` |
+| [**nightForge**](https://github.com/jetomev/forge-suite/tree/main/nightforge) | Warmer screens in the evening: by the sun or fixed times, with its own tray icon. | ![nightForge on the AUR](https://img.shields.io/aur/version/nightforge?label=AUR&style=flat-square&labelColor=313244&color=a6e3a1) · `yay -S nightforge` |
 | [**forgekit**](https://github.com/jetomev/forge-suite/tree/main/forgekit) | The shared foundation every Forge app is built on. | ![forgekit on the AUR](https://img.shields.io/aur/version/python-forgekit?label=AUR&style=flat-square&labelColor=313244&color=a6e3a1) · `yay -S python-forgekit` |
 
 ---
@@ -172,7 +174,7 @@ KognogOS is in **early development**, aiming at a **v1.0 public ISO in April 202
 **Working today:**
 
 - **nog v1.8.0**, stable on the AUR — tier-aware updates across pacman, the AUR, Flatpak, and Snap
-- **The Forge Suite** — grubForge, alacrittyForge, bitlaForge, nogForge and sudoForge on the AUR, with forgekit as the shared foundation; displayForge 1.0 in the [Forge Suite repository](https://github.com/jetomev/forge-suite)
+- **The Forge Suite** — grubForge, alacrittyForge, bitlaForge, nogForge, sudoForge, displayForge, workspaceForge and nightForge on the AUR, with forgekit as the shared foundation. What each one needs to build and run is measured from its code and written in its `docs/PACKAGING.md` (the [dependency audit](https://github.com/jetomev/forge-suite/issues/91), 2026-10-11)
 - **hypeForge**, the desktop on Sway, used every day on the test desktop
 - **Five editions** defined in `config/profiles.toml`
 - **The terminal stack** — Alacritty, Fish, Tide v6, and the KognogOS greeting with a tier-aware update status
@@ -224,14 +226,14 @@ The road to v1.0, targeting **April 2027**.
 | Installing and first boot | **installForge** (first draft here) · **welcomeForge** |
 | The desktop | **hypeForge Settings** · **Sound** · **Network** · **Bluetooth** · a **Theme manager** · **Notifications** · **Workspaces and windows** (workspaces, window placement, the launcher, window rules — for one screen or six) · **Lock and idle** · **Default and startup apps** · **USB drives** · a **Calculator** |
 | Later | **fileForge** (our own file manager, full mouse support) · **cloneForge** (moving a system to a new drive) · **greetForge** (the shell greeting) · **promptForge** (the prompt) |
-| Done | **sudoForge** 1.0 (passwords) · **displayForge** 1.0 (screens) · **nogForge** · **grubForge** · **alacrittyForge** · **bitlaForge** · **forgekit** |
+| Done | **sudoForge** 1.0 (passwords) · **displayForge** 1.1 (screens) · **workspaceForge** 1.0 (workspaces) · **nightForge** 1.0 (night light) · **nogForge** · **grubForge** · **alacrittyForge** · **bitlaForge** · **forgekit** |
 
 **Deliberately deferred:**
 
 - A graphical installer — after installForge proves the flow
 - Our own package repository — not needed while the official repos and the AUR carry everything
 - The "Arch" brand variant — a future year
-- ~~nogForge~~ — shipped (v1.1.1)
+- ~~nogForge~~ — shipped (now v1.4.0)
 
 ---
 
@@ -275,7 +277,7 @@ KognogOS now looks like itself from the power button to the shell. Before this, 
 The KognogOS ecosystem spans several repositories, all built by the same two:
 
 - **[nog](https://github.com/jetomev/nog)** — the tier-aware package manager. The engine that makes KognogOS semi-rolling.
-- **[Forge Suite](https://github.com/jetomev/forge-suite)** — the Forge apps in one repository: **hypeForge** (the desktop), **displayForge** (screens) and **forgekit** (the shared foundation), with more moving in.
+- **[Forge Suite](https://github.com/jetomev/forge-suite)** — the Forge apps in one repository: **hypeForge** (the desktop), **sudoForge** (passwords), **displayForge** (screens), **workspaceForge** (workspaces), **nightForge** (night light) and **forgekit** (the shared foundation), with more moving in.
 - **[grubForge](https://github.com/jetomev/grubforge)** — GRUB bootloader manager.
 - **[alacrittyForge](https://github.com/jetomev/alacrittyforge)** — Alacritty terminal configurator.
 - **[bitlaForge](https://github.com/jetomev/bitlaforge)** — solo Bitcoin mining, honestly framed.
