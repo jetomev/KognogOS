@@ -8,6 +8,221 @@ In short: v1.0 ships the **Rice, Windows 11, KDE and Classic** styles with a **s
 
 **Beyond the year — v2.0 (Javier):** *KognogOS + AI (Claude) full integration. Claude alive while the OS is on, with a tray chat bubble available for one to request directly there anything. We will create Claude commands to manipulate and control the OS, and even develop new functionalities, or make changes to it.*
 
+## The road to launch
+
+*The v1.0 items in the order their dependencies set (Javier asked for it on 2026-10-21: "in a logic, crescent order from where we are until we launch"). The months are a first estimate; DecadeDrop's November launch shares the time.*
+
+### 00 · Settle what shapes everything — late Oct 2026
+
+*Decisions that change what we build next. Cheap now, expensive later — a name change or an edition dropped after the disc exists costs weeks.*
+
+1. Which editions ship in 1.0: Basic, Work and Full? Is Work the old Office? Does Full leave out gaming and developer apps?
+2. One and two screens work in 1.0 (the one-to-six setup stays 1.x)
+3. Laptops: 1.0 runs on them (Wi-Fi, touchpad, brightness); 1.x makes them nice (battery, lid, sleep)
+4. This desktop runs nog's stock tier list, not KognogOS's. On purpose?
+5. Which AUR helper the disc ships (yay or paru)
+6. Flatpak and Flathub ready out of the box
+7. Is bitlaForge on the disc at all?
+8. Is 'KognogOS' free to use as a name?
+9. A place for people to talk (Discord, Matrix, forum)
+
+### 01 · Clean house — Oct – Nov 2026
+
+*Everything already built gets pushed, tested and released, so the rest builds on solid ground.*
+
+1. Push the 9 waiting commits, issues F-79 to F-81, the Vault entry
+2. The KognogOS project kit: CLAUDE.md for how it's built, tested, shipped
+3. Write the per-app release recipe down
+4. nogForge: the old commit with the book persona's name
+5. Your pending test runs: grubForge 2.2, alacrittyForge 1.1, bitlaForge 1.1, nogForge 1.4
+6. grubForge: fixes that touch Arch (#17, #19, #20, #22)
+7. Desktop entries in every Forge app's package
+8. Move alacrittyForge, bitlaForge, nogForge, grubForge into forge-suite
+
+### 02 · nog and nogForge, finished — Nov 2026
+
+*The installer and the welcome app drive nog without a person; nog has to be done first.*
+
+1. nog update --yes (unattended updates)
+2. nog install --yes for repository packages through the AUR helper
+3. nog remove warns before taking an optional dependency; nog keep
+4. nog: confirm the missing 'continue?' prompt of 1 Oct is gone
+5. nog: the AUR helper's questions racing its table
+6. nog: the 'last update' record per user or per system
+7. nog: the rare library mismatch (priority 4)
+8. nog: small follow-ups (search shows 30, info on Flatpak, reinstall, lock by version)
+9. nog: the AUR description wording
+10. nog: watch the first real update that installs something
+11. nogForge: unticking with the mouse jumps the list to the top
+12. nogForge: Tick all / Untick all
+13. nogForge: update one package by itself
+14. nogForge: Update and Uninstall buttons on each installed app
+
+### 03 · Our Sway, packaged — Nov 2026
+
+*The disc can't build Sway in a home folder. A package, held back until our patches fit each new Sway.*
+
+1. Our Sway build as a KognogOS package
+2. Hold Sway updates until our patches fit the new version
+3. Offer our patches to Sway upstream
+
+### 04 · The desktop, finished — Nov – Dec 2026
+
+*The base every style and app sits on: the bar never vanishes, one or two screens work, pop-ups follow the standard.*
+
+1. The bar guard: the bar comes back by itself if it ever disappears
+2. One title row on every pop-up
+3. Three widths only: narrow, medium, wide
+4. The hover tip stops covering an open pop-up
+5. The notification cards on the pop-up standard
+6. Night light hides its own tray icon where the bar already shows the moon
+7. displayForge: tested with one and two screens
+8. displayForge: 80 / 90 % sizes on real apps
+9. displayForge: tested on a plain text console
+10. displayForge: the 'not tried yet' text during the countdown
+11. workspaceForge: tested with one or two screens, and on a text console
+
+### 05 · The four styles and their colours — Dec 2026
+
+*Rice, Windows 11, KDE and Classic, each reviewed piece by piece; then the colour themes that make the cut; then themeForge 1.0.*
+
+1. The Rice ships in 1.0 (KognogOS's default look)
+2. Windows 11 style ships in 1.0
+3. KDE style ships in 1.0
+4. Classic style ships in 1.0
+5. Full review of each style that ships: bar, launcher, tray, every pop-up
+6. Ship fewer colour themes in 1.0 and add the rest during the year
+7. themeForge 1.0 released (GitHub + AUR)
+
+### 06 · Passwords — Dec 2026 – Jan 2027
+
+*walletForge has to replace KDE's wallet before the disc ships without KDE; sudoForge gets its compact box and its GPG prompt.*
+
+1. walletForge: research what the saved-logins standard needs
+2. walletForge: the store and its encryption
+3. walletForge: copy the entries over from KDE's wallet
+4. walletForge: the service, unlocked at login
+5. walletForge: the Passwords page in Settings
+6. sudoForge: a compact password box
+7. sudoForge: our own GPG passphrase prompt
+8. sudoForge: fold the session agent back into forgekit
+
+### 07 · The Settings apps — Jan 2027
+
+*The Mint-sized set, in the order you set on 10-07: sound, network, Bluetooth first.*
+
+1. Sound app (outputs, inputs, each app's volume)
+2. Network & Wi-Fi app
+3. Bluetooth app
+4. Default apps: defaultappsForge 1.0 after your run
+5. Power & Lock (idle, sleep, lock screen)
+6. Keyboard (layout, repeat, the key chart)
+7. Mouse & Touchpad
+8. Time & Language
+9. Users
+10. About this computer
+
+### 08 · First boot — Jan – Feb 2027
+
+*What someone sees the first time: the greeting, the prompt, the Welcome Center, the tier guide, the help pages, now that the desktop has settled.*
+
+1. A shell prompt that looks right on a plain text console
+2. The KognogOS greeting as its own packaged app
+3. greetForge: a text-console version of the greeting
+4. The tier guide: a plain-language manual of what each tier means
+5. welcomeForge: the Welcome Center
+6. welcomeForge: a guided nog tour
+7. welcomeForge: where to give feedback
+8. Help & Keys pages current for 1.0
+
+### 09 · The disc's foundations — Feb 2027
+
+*The ISO recipe rebuilt for Sway: what goes on it, the known install bugs, the editions, the login screen, a live session that starts on any graphics card.*
+
+1. build-iso.sh: stop staging Plasma, point at forge-suite/hypeforge
+2. The disc's package list = what hypeForge and the Forge apps need
+3. Prove every font hypeForge needs is on the disc
+4. Remove the repeated nano and tmux lines
+5. sudoForge on the disc, set up at first boot
+6. Brightness keys: brightnessctl on the disc, or bind them to displayForge
+7. The login's pam_kwallet_init is missing on the disc
+8. nogForge on the disc
+9. Boot identity required in the installed system, not just the live disc
+10. Fresh install lacks fakeroot and nog's signing key
+11. AUR builds work on an installed system (base-devel)
+12. The os-release hook errors inside every clean chroot
+13. Basic edition: the app list redone without KDE apps
+14. Office edition: the app list redone
+15. Gaming edition: the app list redone
+16. Development edition: the app list redone
+17. Full edition: everything above
+18. Chrome, Claude Desktop and Claude Terminal pre-selected; Brave no longer the default
+19. Proprietary apps marked in the installer, with a free swap
+20. Pick and theme the login screen for Sway
+21. The live disc starts Sway on any graphics card (VM, NVIDIA, AMD, Intel)
+
+### 10 · installForge — Feb – Mar 2027
+
+*The installer, step by step in the order a person meets them, then the advanced parts.*
+
+1. installForge: the terminal installer as a Forge Suite section
+2. installForge: keyboard layout, language and time zone steps
+3. installForge: Wi-Fi setup inside the installer
+4. installForge: guided disk setup (whole disk, or free space next to Windows)
+5. installForge: user creation
+6. installForge: the edition picker
+7. installForge: pick the graphics driver (NVIDIA, AMD, Intel) by itself
+8. installForge: bootable snapshots from the boot menu
+9. installForge: 'prepare for a new owner' mode
+10. System Lock: only nog may drive package changes (managed mode)
+11. Rebuild the disc around Sway + hypeForge
+
+### 11 · Testing — Mar 2027
+
+*A VM until zero problems, then the real thing: the NVMe in this PC, then a laptop.*
+
+1. Good behaviour inside a VM (guest tools, screen size)
+2. Install the disc in a VM until a run has zero problems
+3. Our Sway's login fallback on a fresh install
+4. Screen sharing in Chrome and Discord out of the box
+5. Firewall on by default, checked on the installed system
+6. A test pass per edition
+7. Wipe a real machine and install from the disc alone, until zero problems
+8. Test on a laptop (Intel or AMD graphics, battery, Wi-Fi)
+
+### 12 · The release kit — late Mar – early Apr 2027
+
+*Everything a stranger needs before they download: the legal and privacy lines, the site, the guide, the ISO's home and signature.*
+
+1. A licence check of everything the disc installs
+2. A privacy line: what KognogOS does and doesn't send anywhere
+3. Issue templates on GitHub for feedback
+4. Check what kognogos.org shows people who aren't signed in
+5. Screenshots and a banner of 1.0 for the site and the README
+6. A getting-started guide on the site
+7. Where the ISO is downloaded from (hosting)
+8. Checksums and a signature for the ISO
+9. kognogos.org: a download page and the release notes
+
+### 13 · Launch — the week of 19 April 2027
+
+*Two years after the wish that started it.*
+
+1. The KognogOS 1.0 GitHub Release
+2. Announcements
+3. DistroWatch submission
+
+### Still open, off the road until decided
+
+- Ship fewer editions in 1.0 (say Basic + Full) and add the rest during the year
+- grubForge: over ssh the password policy refuses. Keep it?
+- Languages other than English in our apps
+- Typing Chinese, Japanese or Korean (input methods)
+- A screen reader
+- Snapshots before every update, with a way back
+- A backup app for people's own files
+- Hibernate
+
 ## v1.0 (127)
 
 ### The disc and the installer
