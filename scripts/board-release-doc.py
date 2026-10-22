@@ -37,7 +37,7 @@ def main() -> int:
     done = sum(1 for i in on_road if items[i].get("done"))
     out = ["# KognogOS 1.0 — the cut and the road", "",
            f"*Written from the board's snapshot of {st['taken']} by `scripts/board-release-doc.py` — do not edit by hand. "
-           f"The live board: [KognogOS 1.0 Cut]({st['board']}). Javier judged every pending item there (2026-10-21) "
+           f"The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) "
            "and ordered the road (2026-10-21/22).*", "",
            f"**{count['1.0']} ship in v1.0 · {count['1.x']} come during the first year (1.x) · {count['drop']} dropped · "
            f"{count['?'] + undecided} still open. The road: {done} of {len(on_road)} steps done.**", "",

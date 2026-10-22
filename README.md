@@ -34,7 +34,7 @@ KognogOS sorts every package into one of three tiers and makes the risky ones wa
 
 That wait is the whole trick. If an update breaks something, thousands of Arch users hit it first and it gets fixed before it ever reaches you. Your everyday software stays fresh; the parts that can ruin your week don't move until they've been proven.
 
-The rules are enforced by [**nog**](https://github.com/jetomev/nog), our package manager. KognogOS is **nog plus the [Forge Suite](https://github.com/jetomev/forge-suite)** — terminal apps for the jobs that normally mean editing config files and hoping, and for the desktop itself — and comes in **five editions**: Basic, Office, Gaming, Development, and Full.
+The rules are enforced by [**nog**](https://github.com/jetomev/nog), our package manager. KognogOS is **nog plus the [Forge Suite](https://github.com/jetomev/forge-suite)** — terminal apps for the jobs that normally mean editing config files and hoping, and for the desktop itself — and comes in **editions**: **Basic** and **Work** in v1.0, with Gaming, Development and Full joining during the first year.
 
 ---
 
@@ -52,17 +52,19 @@ The rules are enforced by [**nog**](https://github.com/jetomev/nog), our package
 
 ## Editions
 
-All five editions share the same core — the hypeForge desktop, nog, the Forge Suite, drivers, and the terminal stack. They differ only in the apps layered on top. The definitions live in [`config/profiles.toml`](config/profiles.toml), which the installer reads directly.
+**v1.0 ships Basic and Work** (Work is the former Office); Gaming, Development and Full follow during 2027 — decided in [the 1.0 cut](docs/RELEASE-1.0.md).
+
+Every edition shares the same core — the hypeForge desktop, nog, the Forge Suite, drivers, and the terminal stack. They differ only in the apps layered on top. The definitions live in [`config/profiles.toml`](config/profiles.toml), which the installer reads directly.
 
 **Basic** — the shared core. Boots into hypeForge on Sway with the KognogOS terminal greeting. **†** *The app lists below date from the Plasma build; KDE apps are being replaced by terminal-first ones (galculator for KCalc, the hypeForge screenshot tool for Spectacle…) and each list will be redone.* **Nemo** is the default file manager (Dolphin stays installed), **Fresh Editor** the default text editor, and both **Chrome** and **Brave** are ready. Includes nog, grubForge, and alacrittyForge, plus the everyday floor: Gwenview, Ark, KCalc, Spectacle, full fonts, printing and scanning, and the firewall on by default.
 
-**Office** — adds OnlyOffice, Obsidian, Thunderbird, Xournalpp, Elisa, Spotify, GIMP, Pinta, Kdenlive, Discord, Telegram.
+**Work** *(the former Office)* — adds OnlyOffice, Obsidian, Thunderbird, Xournalpp, Elisa, Spotify, GIMP, Pinta, Kdenlive, Discord, Telegram.
 
-**Gaming** — adds Steam, Lutris, Heroic, Wine, Proton-GE, RetroArch with starter cores (NES, SNES, Genesis, PS1, N64, GBA), 32-bit graphics, Gamescope, GameMode, MangoHud, and OBS Studio.
+**Gaming** *(during the first year)* — adds Steam, Lutris, Heroic, Wine, Proton-GE, RetroArch with starter cores (NES, SNES, Genesis, PS1, N64, GBA), 32-bit graphics, Gamescope, GameMode, MangoHud, and OBS Studio.
 
-**Development** — adds VS Code, Neovim, rustup, Node.js, Go, OpenJDK, Docker, Tmux, a modern CLI kit (bat, eza, fd, ripgrep, fzf, zoxide), build tools, and both compiler families with debuggers.
+**Development** *(during the first year)* — adds VS Code, Neovim, rustup, Node.js, Go, OpenJDK, Docker, Tmux, a modern CLI kit (bat, eza, fd, ripgrep, fzf, zoxide), build tools, and both compiler families with debuggers.
 
-**Full** — everything above.
+**Full** *(during the first year)* — everything above.
 
 ---
 
@@ -148,7 +150,7 @@ The installer marks every proprietary app. Uncheck one and it offers a free repl
 KognogOS/
 |-- assets/wallpapers/     # 10 wallpapers, Arch + Semi variants
 |-- config/                # Everything shipped as a system default
-|   |-- profiles.toml      #   the five editions
+|   |-- profiles.toml      #   the editions
 |   |-- tier-pins.toml     #   which packages are Tier 1 and Tier 2
 |   |-- pacman.conf        #   core/extra/multilib/chaotic-aur
 |   |-- alacritty.toml, config.fish, tide_config.fish
@@ -173,15 +175,15 @@ KognogOS is in **early development**, aiming at a **v1.0 public ISO in April 202
 
 **Working today:**
 
-- **nog v1.8.0**, stable on the AUR — tier-aware updates across pacman, the AUR, Flatpak, and Snap
+- **nog v2.0.0**, stable on the AUR — tier-aware updates across pacman, the AUR, Flatpak, and Snap
 - **The Forge Suite** — grubForge, alacrittyForge, bitlaForge, nogForge, sudoForge, displayForge, workspaceForge and nightForge on the AUR, with forgekit as the shared foundation. What each one needs to build and run is measured from its code and written in its `docs/PACKAGING.md` (the [dependency audit](https://github.com/jetomev/forge-suite/issues/91), 2026-10-11)
 - **hypeForge**, the desktop on Sway, used every day on the test desktop
-- **Five editions** defined in `config/profiles.toml`
+- **The editions** defined in `config/profiles.toml` — Basic and Work ship in v1.0
 - **The terminal stack** — Alacritty, Fish, Tide v6, and the KognogOS greeting with a tier-aware update status
 - **A branded boot** — GRUB, Plymouth and the shell greeting drawn from one emblem and palette (the Plasma splash and SDDM greeter **†** belong to the Plasma build)
 - **chaotic-aur enabled from the start**, governed by the tier system like any other repo. It ships with **65 Tier 1 pins** — kernels, mesa and nvidia builds, ZFS modules, boot-entry writers — generated by `scripts/chaotic-tier-audit.py` and refreshed each release. Everything else in chaotic rides Tier 3's 7-day hold.
 
-**The first release** will be KognogOS **Semi** — the tier-aware flagship — with all five editions selectable at install time. The installer is **installForge**, a Forge-style terminal installer that reads `config/profiles.toml`.
+**The first release** will be KognogOS **Semi** — the tier-aware flagship — with the **Basic** and **Work** editions selectable at install time (Gaming, Development and Full come during the year). The installer is **installForge**, a Forge-style terminal installer that reads `config/profiles.toml`.
 
 It installs **online**: every package comes from the mirrors during installation. That means the ISO carries no redistributable payload at all, and proprietary apps are simply downloaded with your consent like anything else, never shipped inside the image. You'll need a network connection to install.
 
@@ -200,7 +202,9 @@ KognogOS releases once a year, on purpose. This is a two-person project — one 
 
 ## Roadmap
 
-The road to v1.0, targeting **April 2027**.
+The road to v1.0, targeting **the week of 19 April 2027**. **The plan, every step in order:** [docs/RELEASE-1.0.md](docs/RELEASE-1.0.md) — every pending item across KognogOS, nog and the Forge Suite was judged one by one on 2026-10-21 (v1.0, during the first year, or dropped) and laid out as fourteen stages to launch. The phases below are the big picture.
+
+**Beyond the year — v2.0:** KognogOS with Claude built in — an AI that lives in the system while it runs, a chat bubble in the tray, and commands to control the OS and even build new features for it.
 
 - [x] **Phase 1 — Capture the desktop** ✅ *done 30 July 2026* — a repeatable script that captures a live Plasma configuration into the new-user defaults, stripping personal traces by rule. Validated over four test rounds.
 - [x] **Phase 2 — First bootable ISO** ✅ *v0.9.0-beta, 31 July 2026* — a live Plasma session with our branding, terminal stack, and nog plus the Forge suite preinstalled.
@@ -238,6 +242,15 @@ The road to v1.0, targeting **April 2027**.
 ---
 
 ## Changelog
+
+### Unreleased — The 1.0 cut and the road to launch (October 2026)
+
+Every pending item across KognogOS, nog and the Forge Suite — 207 of them from every project's to-do list and open issues, plus 40 gaps nobody had written down — was judged one at a time: **in v1.0**, **during the first year**, or **dropped**. Then the v1.0 items were put in the order their dependencies set: fourteen stages, from the decisions that shape everything to launch week. The result is [docs/RELEASE-1.0.md](docs/RELEASE-1.0.md), regenerated from the planning board every time it changes, so it can't drift.
+
+- 📦 **v1.0 ships two editions**, Basic and Work (the former Office); Gaming, Development and Full come during 2027
+- 🎨 **Four desktop styles in v1.0** — the Rice (the default), Windows 11, KDE and Classic; the two Mac styles and COSMIC come during the year
+- 🛡 **The test desktop now runs KognogOS's own tier list** (125 Tier 1 and 44 Tier 2 pins) instead of nog's small default, so we test what we ship
+- 🧰 **Decided:** yay as the AUR helper, Flatpak and Flathub ready out of the box, GitHub as the one place for feedback for now
 
 ### Unreleased — Boot-to-prompt identity
 

@@ -1,6 +1,6 @@
 # KognogOS 1.0 — the cut and the road
 
-*Written from the board's snapshot of 2026-10-22 15:40 by `scripts/board-release-doc.py` — do not edit by hand. The live board: [KognogOS 1.0 Cut](https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G). Javier judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
+*Written from the board's snapshot of 2026-10-22 15:40 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
 **131 ship in v1.0 · 77 come during the first year (1.x) · 5 dropped · 0 still open. The road: 7 of 129 steps done.**
 
