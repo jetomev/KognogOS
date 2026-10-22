@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-22 14:46",
+ "taken": "2026-10-22 15:29",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -188,6 +188,7 @@
      "disc-024",
      "disc-026",
      "disc-023",
+     "inst-01",
      "disc-028",
      "disc-031",
      "disc-030",
@@ -266,8 +267,10 @@
    "source": "new",
    "suggest": "?",
    "pick": "1.0",
-   "note": "",
+   "note": "Yes, in the installer's Forge Suite section, not pre-selected: there for anyone who wants to try it (Javier, 10-22).",
    "new": true,
+   "done": true,
+   "doneAt": "2026-10-22T16:00:00Z",
    "order": 156
   },
   "apps-157": {
@@ -1235,6 +1238,17 @@
    "new": true,
    "order": 207
   },
+  "inst-01": {
+   "area": "disc",
+   "title": "installForge: a Forge Suite section of optional apps (bitlaForge offered, not pre-selected)",
+   "detail": "People who want to try an app tick it.",
+   "source": "your answer, 10-22",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "",
+   "new": true,
+   "order": 23.5
+  },
   "kde-174": {
    "area": "kde",
    "title": "List every KDE piece still in use on the Sway desktop",
@@ -1682,8 +1696,10 @@
    "source": "new",
    "suggest": "1.0",
    "pick": "1.0",
-   "note": "",
+   "note": "yay (Javier, 10-22).",
    "new": true,
+   "done": true,
+   "doneAt": "2026-10-22T16:00:00Z",
    "order": 152
   },
   "pkg-153": {
@@ -1693,8 +1709,10 @@
    "source": "new",
    "suggest": "?",
    "pick": "1.0",
-   "note": "",
+   "note": "Yes: Flatpak and Flathub ready out of the box (Javier, 10-22).",
    "new": true,
+   "done": true,
+   "doneAt": "2026-10-22T16:00:00Z",
    "order": 153
   },
   "pkg-154": {
@@ -1891,8 +1909,10 @@
    "source": "new",
    "suggest": "?",
    "pick": "1.0",
-   "note": "GitHub only... for now",
+   "note": "Javier, 10-22: (1) now, GitHub only; (2) then a forum in GitHub with Q&A, topics and rooms; (3) a Discord much later, if people ask.",
    "new": true,
+   "done": true,
+   "doneAt": "2026-10-22T16:00:00Z",
    "order": 186
   },
   "rel-187": {
@@ -1949,6 +1969,28 @@
    "note": "",
    "new": false,
    "order": 191
+  },
+  "rel-301": {
+   "area": "rel",
+   "title": "A forum in GitHub (Discussions): Q&A, common topics, rooms, GitHub activity gathered",
+   "detail": "Step 2 of the community, after GitHub alone.",
+   "source": "your answer, 10-22",
+   "suggest": "1.x",
+   "pick": "1.x",
+   "note": "",
+   "new": true,
+   "order": 186.1
+  },
+  "rel-302": {
+   "area": "rel",
+   "title": "A Discord, if people ask for it",
+   "detail": "Step 3 of the community, much later.",
+   "source": "your answer, 10-22",
+   "suggest": "1.x",
+   "pick": "1.x",
+   "note": "",
+   "new": true,
+   "order": 186.2
   },
   "sec-123": {
    "area": "sec",
