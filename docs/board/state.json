@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-22 15:29",
+ "taken": "2026-10-22 15:40",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -1113,8 +1113,10 @@
    "source": "hypeForge open question",
    "suggest": "?",
    "pick": "1.0",
-   "note": "",
+   "note": "Javier, 10-22: switch this desktop to KognogOS's list. Done: backup /etc/nog/tier-pins.toml.bak-20261022, KognogOS's list copied in (sudoForge box). Proven: linux-firmware and bash 3→1, bluez 3→2. The disc already ships this list (build-iso.sh). nog's own AUR default stays generic unless you decide otherwise.",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-22T19:40:00Z",
    "order": 35
   },
   "disc-036": {
@@ -1898,7 +1900,7 @@
    "source": "new",
    "suggest": "?",
    "pick": "1.0",
-   "note": "",
+   "note": "Plan agreed 10-22, to do Friday 23 Oct afternoon: (1) your $25 Florida Bar consult on KOGNOGOS vs IBM COGNOS (ask: owner Kognog Labs LLC? does a free download count as use in commerce?); (2) KognogOS™ and one spelling everywhere; (3) a USPTO search for HYPEFORGE; (4) file KOGNOGOS, Class 9, word mark, after the consult.",
    "new": true,
    "order": 185
   },

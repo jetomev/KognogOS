@@ -1,8 +1,8 @@
 # KognogOS 1.0 — the cut and the road
 
-*Written from the board's snapshot of 2026-10-22 15:29 by `scripts/board-release-doc.py` — do not edit by hand. The live board: [KognogOS 1.0 Cut](https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G). Javier judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
+*Written from the board's snapshot of 2026-10-22 15:40 by `scripts/board-release-doc.py` — do not edit by hand. The live board: [KognogOS 1.0 Cut](https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G). Javier judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
-**131 ship in v1.0 · 77 come during the first year (1.x) · 5 dropped · 0 still open. The road: 6 of 129 steps done.**
+**131 ship in v1.0 · 77 come during the first year (1.x) · 5 dropped · 0 still open. The road: 7 of 129 steps done.**
 
 v1.0 ships the **Basic** and **Work** editions with the **Rice, Windows 11, KDE and Classic** styles and a smaller set of colour themes. The Mac styles, COSMIC, and the Full, Gaming and Development editions come during the year.
 
@@ -10,17 +10,17 @@ v1.0 ships the **Basic** and **Work** editions with the **Rice, Windows 11, KDE 
 
 ## The road to launch
 
-### 00 · Settle what shapes everything — late Oct 2026 (6/8 done)
+### 00 · Settle what shapes everything — late Oct 2026 (7/8 done)
 
 *Decisions that change what we build next. Cheap now, expensive later — a name change or an edition dropped after the disc exists costs weeks.*
 
 1. ✅ Which editions ship in 1.0: Basic, Work and Full? Is Work the old Office? Does Full leave out gaming and developer apps? (your note, 10-21) — *Your note says no developer, no gaming in 1.0; the Gaming and Development lists are marked v1.0.* **Javier:** Answered 10-22: Basic + Work only. Work = the old Office. Full, Gaming and Development come during the year.
 2. ✅ One and two screens work in 1.0 (the one-to-six setup stays 1.x) (the cut, 10-21) — *Most people have one screen, a VM has one; today's settings assume this desk's three.* **Javier:** Javier, 10-22: it works. Checked the same day on a hidden one-screen Sway with the shipped settings (they name this desk's DP-3/DP-2/DP-1): switching workspaces worked, the applet stayed up.
-3. This desktop runs nog's stock tier list, not KognogOS's. On purpose? (hypeForge open question) — *Open question since 09-28.*
+3. ✅ This desktop runs nog's stock tier list, not KognogOS's. On purpose? (hypeForge open question) — *Open question since 09-28.* **Javier:** Javier, 10-22: switch this desktop to KognogOS's list. Done: backup /etc/nog/tier-pins.toml.bak-20261022, KognogOS's list copied in (sudoForge box). Proven: linux-firmware and bash 3→1, bluez 3→2. The disc already ships this list (build-iso.sh). nog's own AUR default stays generic unless you decide otherwise.
 4. ✅ Which AUR helper the disc ships (yay or paru) (new) — *Not decided anywhere.* **Javier:** yay (Javier, 10-22).
 5. ✅ Flatpak and Flathub ready out of the box (new) — *nog manages Flatpak since 2.0.* **Javier:** Yes: Flatpak and Flathub ready out of the box (Javier, 10-22).
 6. ✅ Is bitlaForge on the disc at all? (new) — *A mining app is an odd default.* **Javier:** Yes, in the installer's Forge Suite section, not pre-selected: there for anyone who wants to try it (Javier, 10-22).
-7. Is 'KognogOS' free to use as a name? (new) — *A trademark search before the public launch.*
+7. Is 'KognogOS' free to use as a name? (new) — *A trademark search before the public launch.* **Javier:** Plan agreed 10-22, to do Friday 23 Oct afternoon: (1) your $25 Florida Bar consult on KOGNOGOS vs IBM COGNOS (ask: owner Kognog Labs LLC? does a free download count as use in commerce?); (2) KognogOS™ and one spelling everywhere; (3) a USPTO search for HYPEFORGE; (4) file KOGNOGOS, Class 9, word mark, after the consult.
 8. ✅ A place for people to talk (Discord, Matrix, forum) (new) — *Or GitHub only.* **Javier:** Javier, 10-22: (1) now, GitHub only; (2) then a forum in GitHub with Q&A, topics and rooms; (3) a Discord much later, if people ask.
 
 ### 01 · Clean house — Oct – Nov 2026 (0/8 done)
