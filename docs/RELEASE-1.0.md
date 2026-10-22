@@ -1,8 +1,8 @@
 # KognogOS 1.0 — the cut and the road
 
-*Written from the board's snapshot of 2026-10-22 15:40 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
+*Written from the board's snapshot of 2026-10-22 15:46 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
-**131 ship in v1.0 · 77 come during the first year (1.x) · 5 dropped · 0 still open. The road: 7 of 129 steps done.**
+**131 ship in v1.0 · 77 come during the first year (1.x) · 5 dropped · 0 still open. The road: 8 of 129 steps done.**
 
 v1.0 ships the **Basic** and **Work** editions with the **Rice, Windows 11, KDE and Classic** styles and a smaller set of colour themes. The Mac styles, COSMIC, and the Full, Gaming and Development editions come during the year.
 
@@ -23,11 +23,11 @@ v1.0 ships the **Basic** and **Work** editions with the **Rice, Windows 11, KDE 
 7. Is 'KognogOS' free to use as a name? (new) — *A trademark search before the public launch.* **Javier:** Plan agreed 10-22, to do Friday 23 Oct afternoon: (1) your $25 Florida Bar consult on KOGNOGOS vs IBM COGNOS (ask: owner Kognog Labs LLC? does a free download count as use in commerce?); (2) KognogOS™ and one spelling everywhere; (3) a USPTO search for HYPEFORGE; (4) file KOGNOGOS, Class 9, word mark, after the consult.
 8. ✅ A place for people to talk (Discord, Matrix, forum) (new) — *Or GitHub only.* **Javier:** Javier, 10-22: (1) now, GitHub only; (2) then a forum in GitHub with Q&A, topics and rooms; (3) a Discord much later, if people ask.
 
-### 01 · Clean house — Oct – Nov 2026 (0/8 done)
+### 01 · Clean house — Oct – Nov 2026 (1/8 done)
 
 *Everything already built gets pushed, tested and released, so the rest builds on solid ground.*
 
-1. Push the 9 waiting commits, issues F-79 to F-81, the Vault entry (forge-suite TODO) — *With the next phase.*
+1. ✅ Push the 9 waiting commits, issues F-79 to F-81, the Vault entry (forge-suite TODO) — *With the next phase.* **Javier:** Done 10-22 (Javier: "Push, Update, Document, make publish"): forge-suite and KognogOS pushed; issues #108–#110 opened and closed; READMEs current; Vault: hypeForge (85), Kognog OS Day 10, Forge Suite (9), the nog note; kognogos.org updated with a server backup.
 2. The KognogOS project kit: CLAUDE.md for how it's built, tested, shipped (KognogOS TODO) — *The only project still missing it.* **Javier:** What is pending for Kognog for v2.0 is KognogOS + AI (Claude) full integration. Claude alive while the OS is on, with a tray chat bubble available for one to request directly there anything. We will create Claude commands to manipulate and control the OS, and even develop new functionalities, or make changes to it.
 3. Write the per-app release recipe down (forge-suite TODO) — *Proven, not documented.*
 4. nogForge: the old commit with the book persona's name (nogForge TODO) — *History rewrite: your call.* **Javier:** fix

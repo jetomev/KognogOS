@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-22 15:40",
+ "taken": "2026-10-22 15:46",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -1957,8 +1957,10 @@
    "source": "forge-suite TODO",
    "suggest": "1.0",
    "pick": "1.0",
-   "note": "",
+   "note": "Done 10-22 (Javier: \"Push, Update, Document, make publish\"): forge-suite and KognogOS pushed; issues #108–#110 opened and closed; READMEs current; Vault: hypeForge (85), Kognog OS Day 10, Forge Suite (9), the nog note; kognogos.org updated with a server backup.",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-22T19:50:00Z",
    "order": 190
   },
   "rel-191": {
