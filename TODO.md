@@ -4,6 +4,8 @@
 
 **KognogOS = nog + the Forge Suite** (2026-10-05, D-60): the Forge apps now live in one repository, [jetomev/forge-suite](https://github.com/jetomev/forge-suite), with hypeForge as its first section.
 
+**The 1.0 cut (Javier, 2026-10-21):** every pending item across KognogOS, the Forge Suite and nog judged one by one — **127 ship in v1.0, 67 come during the first year (1.x), 5 dropped, 8 still open**. The list, by area: [docs/RELEASE-1.0.md](docs/RELEASE-1.0.md) (snapshot of the live board). v1.0 styles: Rice, Windows 11, KDE, Classic; the Mac styles and COSMIC in 1.x. **v2.0:** Claude built into the OS.
+
 **The direction (2026-10-05, hypeForge D-56):** KognogOS will ship with **Sway only, through hypeForge** — no KDE. The order from here: finish the hypeForge Sway setup → the pending Forge Suite apps → the first KognogOS release.
 
 ---
