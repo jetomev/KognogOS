@@ -36,7 +36,8 @@ def main() -> int:
     on_road = [i for s in road["stages"] for i in s["items"]]
     done = sum(1 for i in on_road if items.get(i, {}).get("done"))
     print(f"board-snapshot: {len(items)} items, {len(on_road)} on the road, {done} done → {STATE.relative_to(HERE)}")
-    return 0
+    import subprocess   # the release document follows the snapshot, always
+    return subprocess.run([sys.executable, str(HERE / "scripts/board-release-doc.py")]).returncode
 
 
 if __name__ == "__main__":

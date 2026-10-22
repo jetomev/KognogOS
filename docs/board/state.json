@@ -1,17 +1,8 @@
 {
- "taken": "2026-10-22 13:25",
+ "taken": "2026-10-22 14:23",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
-  "open": [
-   "disc-018",
-   "apps-160",
-   "gaps-200",
-   "gaps-201",
-   "gaps-202",
-   "gaps-203",
-   "gaps-204",
-   "gaps-207"
-  ],
+  "open": [],
   "stages": [
    {
     "items": [
@@ -137,6 +128,7 @@
      "set-092",
      "set-093",
      "set-094",
+     "gaps-201",
      "set-095",
      "set-096",
      "set-102",
@@ -179,9 +171,6 @@
      "disc-012",
      "disc-013",
      "disc-014",
-     "disc-015",
-     "disc-016",
-     "disc-017",
      "disc-019",
      "disc-020",
      "disc-021",
@@ -256,7 +245,7 @@
     "why": "Two years after the wish that started it."
    }
   ],
-  "updated": "2026-10-21"
+  "updated": "2026-10-22"
  },
  "items": {
   "apps-155": {
@@ -320,9 +309,11 @@
    "detail": "",
    "source": "grubForge TODO",
    "suggest": "?",
-   "pick": "?",
-   "note": "",
+   "pick": "1.0",
+   "note": "Keep it (Javier, 10-22). Nothing to change.",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-22T14:00:00Z",
    "order": 160
   },
   "apps-161": {
@@ -529,9 +520,11 @@
    "detail": "Your note says no developer, no gaming in 1.0; the Gaming and Development lists are marked v1.0.",
    "source": "your note, 10-21",
    "suggest": "1.0",
-   "pick": null,
-   "note": "",
+   "pick": "1.0",
+   "note": "Answered 10-22: Basic + Work only. Work = the old Office. Full, Gaming and Development come during the year.",
    "new": true,
+   "done": true,
+   "doneAt": "2026-10-22T14:00:00Z",
    "order": 0.5
   },
   "dec-02": {
@@ -877,12 +870,12 @@
   },
   "disc-014": {
    "area": "disc",
-   "title": "Office edition: the app list redone",
+   "title": "Work edition (the old Office): the app list redone",
    "detail": "OnlyOffice, Obsidian, Thunderbird… minus the KDE pieces.",
    "source": "KognogOS README",
    "suggest": "1.0",
    "pick": "1.0",
-   "note": "",
+   "note": "Renamed Work (Javier, 10-22).",
    "new": false,
    "order": 14
   },
@@ -892,8 +885,8 @@
    "detail": "Steam, Lutris, Heroic, Proton-GE, RetroArch… checked on Sway.",
    "source": "KognogOS README",
    "suggest": "1.0",
-   "pick": "1.0",
-   "note": "",
+   "pick": "1.x",
+   "note": "Not in 1.0: only Basic + Work ship (Javier, 10-22).",
    "new": false,
    "order": 15
   },
@@ -903,8 +896,8 @@
    "detail": "VS Code, Neovim, toolchains, Docker…",
    "source": "KognogOS README",
    "suggest": "1.0",
-   "pick": "1.0",
-   "note": "",
+   "pick": "1.x",
+   "note": "Not in 1.0: only Basic + Work ship (Javier, 10-22).",
    "new": false,
    "order": 16
   },
@@ -914,8 +907,8 @@
    "detail": "Follows from the four lists.",
    "source": "KognogOS README",
    "suggest": "1.0",
-   "pick": "1.0",
-   "note": "",
+   "pick": "1.x",
+   "note": "Not in 1.0: only Basic + Work ship (Javier, 10-22).",
    "new": false,
    "order": 17
   },
@@ -925,9 +918,11 @@
    "detail": "Five editions means five things to test on every disc.",
    "source": "new",
    "suggest": "?",
-   "pick": "?",
-   "note": "Actually, v1.0 may ship basic, work, full (no developer, no gaming)",
+   "pick": "1.0",
+   "note": "Javier, 10-22: 1.0 ships Basic and Work.",
    "new": true,
+   "done": true,
+   "doneAt": "2026-10-22T14:00:00Z",
    "order": 18
   },
   "disc-019": {
@@ -1156,8 +1151,8 @@
    "detail": "Every Forge app is English only.",
    "source": "new",
    "suggest": "1.x",
-   "pick": "?",
-   "note": "",
+   "pick": "1.x",
+   "note": "Later (Javier, 10-22).",
    "new": true,
    "order": 200
   },
@@ -1167,8 +1162,8 @@
    "detail": "",
    "source": "new",
    "suggest": "1.x",
-   "pick": "?",
-   "note": "",
+   "pick": "1.0",
+   "note": "Yes, typing in 1.0; the OS in other languages comes later (Javier, 10-22).",
    "new": true,
    "order": 201
   },
@@ -1178,8 +1173,8 @@
    "detail": "",
    "source": "new",
    "suggest": "1.x",
-   "pick": "?",
-   "note": "",
+   "pick": "1.x",
+   "note": "Later (Javier, 10-22). A screen reader reads the screen aloud for people who can't see it.",
    "new": true,
    "order": 202
   },
@@ -1189,8 +1184,8 @@
    "detail": "",
    "source": "new",
    "suggest": "?",
-   "pick": "?",
-   "note": "",
+   "pick": "1.x",
+   "note": "Later (Javier, 10-22).",
    "new": true,
    "order": 203
   },
@@ -1200,8 +1195,8 @@
    "detail": "",
    "source": "new",
    "suggest": "1.x",
-   "pick": "?",
-   "note": "",
+   "pick": "1.x",
+   "note": "Later (Javier, 10-22).",
    "new": true,
    "order": 204
   },
@@ -1233,8 +1228,8 @@
    "detail": "Sleep yes; hibernate is fragile on NVIDIA.",
    "source": "new",
    "suggest": "drop",
-   "pick": "?",
-   "note": "",
+   "pick": "1.x",
+   "note": "Later (Javier, 10-22).",
    "new": true,
    "order": 207
   },
