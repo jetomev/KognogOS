@@ -248,7 +248,7 @@ The road to v1.0, targeting **the week of 19 April 2027**. **The plan, every ste
 Every pending item across KognogOS, nog and the Forge Suite — 207 of them from every project's to-do list and open issues, plus 40 gaps nobody had written down — was judged one at a time: **in v1.0**, **during the first year**, or **dropped**. Then the v1.0 items were put in the order their dependencies set: fourteen stages, from the decisions that shape everything to launch week. The result is [docs/RELEASE-1.0.md](docs/RELEASE-1.0.md), regenerated from the planning board every time it changes, so it can't drift.
 
 - 📦 **v1.0 ships two editions**, Basic and Work (the former Office); Gaming, Development and Full come during 2027
-- 🎨 **Four desktop styles in v1.0** — the Rice (the default), Windows 11, KDE and Classic; the two Mac styles and COSMIC come during the year
+- 🎨 **Four desktop looks in v1.0** — the floating-island bar (the KognogOS default), the taskbar with Start, the floating panel with a pager, and the plain classic look; the two menu-bar looks and the top panel with a dock come during the year
 - 🛡 **The test desktop now runs KognogOS's own tier list** (125 Tier 1 and 44 Tier 2 pins) instead of nog's small default, so we test what we ship
 - 🧰 **Decided:** yay as the AUR helper, Flatpak and Flathub ready out of the box, GitHub as the one place for feedback for now
 
