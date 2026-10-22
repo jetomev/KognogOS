@@ -1,8 +1,8 @@
 # KognogOS 1.0 — the cut and the road
 
-*Written from the board's snapshot of 2026-10-22 14:23 by `scripts/board-release-doc.py` — do not edit by hand. The live board: [KognogOS 1.0 Cut](https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G). Javier judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
+*Written from the board's snapshot of 2026-10-22 14:46 by `scripts/board-release-doc.py` — do not edit by hand. The live board: [KognogOS 1.0 Cut](https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G). Javier judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
-**128 ship in v1.0 · 75 come during the first year (1.x) · 5 dropped · 2 still open. The road: 1 of 128 steps done.**
+**130 ship in v1.0 · 75 come during the first year (1.x) · 5 dropped · 0 still open. The road: 2 of 128 steps done.**
 
 v1.0 ships the **Basic** and **Work** editions with the **Rice, Windows 11, KDE and Classic** styles and a smaller set of colour themes. The Mac styles, COSMIC, and the Full, Gaming and Development editions come during the year.
 
@@ -10,19 +10,18 @@ v1.0 ships the **Basic** and **Work** editions with the **Rice, Windows 11, KDE 
 
 ## The road to launch
 
-### 00 · Settle what shapes everything — late Oct 2026 (1/9 done)
+### 00 · Settle what shapes everything — late Oct 2026 (2/8 done)
 
 *Decisions that change what we build next. Cheap now, expensive later — a name change or an edition dropped after the disc exists costs weeks.*
 
 1. ✅ Which editions ship in 1.0: Basic, Work and Full? Is Work the old Office? Does Full leave out gaming and developer apps? (your note, 10-21) — *Your note says no developer, no gaming in 1.0; the Gaming and Development lists are marked v1.0.* **Javier:** Answered 10-22: Basic + Work only. Work = the old Office. Full, Gaming and Development come during the year.
-2. One and two screens work in 1.0 (the one-to-six setup stays 1.x) (the cut, 10-21) — *Most people have one screen, a VM has one; today's settings assume this desk's three.*
-3. Laptops: 1.0 runs on them (Wi-Fi, touchpad, brightness); 1.x makes them nice (battery, lid, sleep) (the cut, 10-21) — *Laptop polish went to 1.x, the laptop test and its basics to v1.0.*
-4. This desktop runs nog's stock tier list, not KognogOS's. On purpose? (hypeForge open question) — *Open question since 09-28.*
-5. Which AUR helper the disc ships (yay or paru) (new) — *Not decided anywhere.*
-6. Flatpak and Flathub ready out of the box (new) — *nog manages Flatpak since 2.0.*
-7. Is bitlaForge on the disc at all? (new) — *A mining app is an odd default.*
-8. Is 'KognogOS' free to use as a name? (new) — *A trademark search before the public launch.*
-9. A place for people to talk (Discord, Matrix, forum) (new) — *Or GitHub only.* **Javier:** GitHub only... for now
+2. ✅ One and two screens work in 1.0 (the one-to-six setup stays 1.x) (the cut, 10-21) — *Most people have one screen, a VM has one; today's settings assume this desk's three.* **Javier:** Javier, 10-22: it works. Checked the same day on a hidden one-screen Sway with the shipped settings (they name this desk's DP-3/DP-2/DP-1): switching workspaces worked, the applet stayed up.
+3. This desktop runs nog's stock tier list, not KognogOS's. On purpose? (hypeForge open question) — *Open question since 09-28.*
+4. Which AUR helper the disc ships (yay or paru) (new) — *Not decided anywhere.*
+5. Flatpak and Flathub ready out of the box (new) — *nog manages Flatpak since 2.0.*
+6. Is bitlaForge on the disc at all? (new) — *A mining app is an odd default.*
+7. Is 'KognogOS' free to use as a name? (new) — *A trademark search before the public launch.*
+8. A place for people to talk (Discord, Matrix, forum) (new) — *Or GitHub only.* **Javier:** GitHub only... for now
 
 ### 01 · Clean house — Oct – Nov 2026 (0/8 done)
 
@@ -173,7 +172,7 @@ v1.0 ships the **Basic** and **Work** editions with the **Rice, Windows 11, KDE 
 10. System Lock: only nog may drive package changes (managed mode) (KognogOS #10)
 11. Rebuild the disc around Sway + hypeForge (KognogOS #13) — *The ISO still stages the Plasma desktop. The 1.0 disc is Sway only.*
 
-### 11 · Testing — Mar 2027 (0/8 done)
+### 11 · Testing — Mar 2027 (0/9 done)
 
 *A VM until zero problems, then the real thing: the NVMe in this PC, then a laptop.*
 
@@ -185,6 +184,7 @@ v1.0 ships the **Basic** and **Work** editions with the **Rice, Windows 11, KDE 
 6. A test pass per edition (new)
 7. Wipe a real machine and install from the disc alone, until zero problems (KognogOS Phase 4)
 8. Test on a laptop (Intel or AMD graphics, battery, Wi-Fi) (new) — *Everything so far ran on this NVIDIA desktop.*
+9. Laptops: install the first full beta ISO on a laptop and try it — what's missing decides 1.0 or 1.x (the cut, 10-21) — *Wi-Fi, touchpad, brightness, battery, lid, sleep: judged on real hardware, not on paper.* **Javier:** Javier, 10-22: move it to when we have the first ISO beta, with everything, for me to install on a laptop and try.
 
 ### 12 · The release kit — late Mar – early Apr 2027 (0/9 done)
 

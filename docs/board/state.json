@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-22 14:23",
+ "taken": "2026-10-22 14:46",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -8,7 +8,6 @@
     "items": [
      "dec-01",
      "dec-02",
-     "dec-03",
      "disc-035",
      "pkg-152",
      "pkg-153",
@@ -209,7 +208,8 @@
      "sec-131",
      "test-195",
      "test-193",
-     "test-194"
+     "test-194",
+     "dec-03"
     ],
     "key": "s11",
     "name": "Testing",
@@ -533,19 +533,21 @@
    "detail": "Most people have one screen, a VM has one; today's settings assume this desk's three.",
    "source": "the cut, 10-21",
    "suggest": "1.0",
-   "pick": null,
-   "note": "",
+   "pick": "1.0",
+   "note": "Javier, 10-22: it works. Checked the same day on a hidden one-screen Sway with the shipped settings (they name this desk's DP-3/DP-2/DP-1): switching workspaces worked, the applet stayed up.",
    "new": true,
+   "done": true,
+   "doneAt": "2026-10-22T18:44:05.890Z",
    "order": 0.6
   },
   "dec-03": {
    "area": "desk",
-   "title": "Laptops: 1.0 runs on them (Wi-Fi, touchpad, brightness); 1.x makes them nice (battery, lid, sleep)",
-   "detail": "Laptop polish went to 1.x, the laptop test and its basics to v1.0.",
+   "title": "Laptops: install the first full beta ISO on a laptop and try it — what's missing decides 1.0 or 1.x",
+   "detail": "Wi-Fi, touchpad, brightness, battery, lid, sleep: judged on real hardware, not on paper.",
    "source": "the cut, 10-21",
    "suggest": "1.0",
-   "pick": null,
-   "note": "",
+   "pick": "1.0",
+   "note": "Javier, 10-22: move it to when we have the first ISO beta, with everything, for me to install on a laptop and try.",
    "new": true,
    "order": 0.7
   },
