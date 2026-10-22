@@ -39,6 +39,7 @@ h1 { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.01em; }
 .tally i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 5px; vertical-align: 0; }
 .meter { display: flex; height: 8px; border-radius: 5px; overflow: hidden; background: var(--none); }
 .meter span { display: block; height: 100%; transition: width .25s ease; }
+[hidden] { display: none !important; }   /* the view switch hides rows whose own rule says flex */
 .tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .tools input[type=search] { flex: 1 1 220px; min-width: 0; font: inherit; font-size: 0.92rem; padding: 7px 10px; border-radius: 8px;
   border: 1px solid var(--line); background: var(--panel); color: var(--fg); }
@@ -132,6 +133,7 @@ ol.road { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 22
 .stage .prog .bar { flex: 0 1 180px; height: 6px; border-radius: 4px; background: var(--panel-2); overflow: hidden; }
 .stage .prog .bar span { display: block; height: 100%; background: var(--v10); }
 .stage.complete .stage-no { color: var(--v10); }
+.road-head .rf { display: flex; gap: 6px; margin-left: auto; font-family: var(--sans); }
 .road-head { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; margin-top: 14px; font: 0.82rem var(--mono); color: var(--muted); }
 .road-head b { color: var(--fg); }
 .road-open { margin-top: 26px; padding: 12px 14px; border-radius: var(--r); background: var(--panel-2); }
@@ -198,6 +200,11 @@ const FILTERS = [["all", "All"], ["todo", "Not judged"], ["1.0", "v1.0"], ["1.x"
                  ["differs", "Differs from mine"], ["new", "New only"]];
 
 let db = null, canWrite = true, items = new Map(), rows = new Map(), filter = "all", query = "";
+// The road's own filter — Pending, Finished, All — the same three buttons as every project board.
+let roadFilter = "pending";
+const roadKept = new Set();                     // steps ticked in this view stay on screen until the filter changes
+try { const f = localStorage.getItem("board-filter"); if (["pending", "finished", "all"].includes(f)) roadFilter = f; } catch {}
+const roadShows = (id, it) => roadFilter === "all" || roadKept.has(id) || (roadFilter === "pending" ? !it.done : !!it.done);
 const $ = (id) => document.getElementById(id);
 
 // ---- the skeleton: sections, filters, area links
@@ -422,6 +429,14 @@ function renderRoad() {
   const hb = head.querySelectorAll("b");
   hb[0].textContent = doneAll; hb[1].textContent = all.length;
   hb[2].textContent = next < 0 ? "launched" : `stage ${String(next).padStart(2, "0")} · ${road.stages[next].name}`;
+  const rf = document.createElement("div"); rf.className = "rf"; rf.setAttribute("role", "group"); rf.setAttribute("aria-label", "Show");
+  for (const [key, name] of [["pending", "Pending"], ["finished", "Finished"], ["all", "All"]]) {
+    const b = document.createElement("button"); b.type = "button"; b.className = "chip"; b.textContent = name;
+    b.setAttribute("aria-pressed", key === roadFilter ? "true" : "false");
+    b.onclick = () => { roadFilter = key; roadKept.clear(); try { localStorage.setItem("board-filter", key); } catch {} renderRoad(); };
+    rf.appendChild(b);
+  }
+  head.appendChild(rf);
   box.appendChild(head);
   const ol = document.createElement("ol"); ol.className = "road";
   road.stages.forEach((s, i) => {
@@ -434,13 +449,17 @@ function renderRoad() {
     li.querySelector(".why").textContent = s.why || "";
     const mine = (s.items || []).map(id => items.get(id)).filter(Boolean);
     const d = mine.filter(it => it.done).length;
+    if (roadFilter !== "all" && !(s.items || []).some(id => items.get(id) && roadShows(id, items.get(id)))) return;  // nothing here matches
     li.querySelector(".prog .bar span").style.width = (mine.length ? 100 * d / mine.length : 0) + "%";
     li.querySelector(".prog .n").textContent = `${d} of ${mine.length} done`;
     if (mine.length && d === mine.length) li.classList.add("complete");
     const steps = li.querySelector("ol");
+    let pos = 0;
     for (const id of s.items || []) {
       const it = items.get(id); if (!it) continue;
-      const st = document.createElement("li");
+      pos++;
+      if (!roadShows(id, it)) continue;
+      const st = document.createElement("li"); st.value = pos;   // keeps its place number when others are hidden
       if (it.done) st.classList.add("done");
       st.innerHTML = `<span class="t"></span><span class="a"></span>`;
       if (canWrite && db) {
@@ -448,7 +467,7 @@ function renderRoad() {
         tick.type = "button"; tick.className = "tick"; tick.textContent = "✓";
         tick.setAttribute("aria-pressed", it.done ? "true" : "false");
         tick.setAttribute("aria-label", (it.done ? "Not done: " : "Done: ") + it.title);
-        tick.onclick = () => setDone(id, !it.done);
+        tick.onclick = () => { roadKept.add(id); setDone(id, !it.done); };
         st.prepend(tick);
       }
       st.querySelector(".t").textContent = it.title;
@@ -458,7 +477,9 @@ function renderRoad() {
     }
     ol.appendChild(li);
   });
-  box.appendChild(ol);
+  if (!ol.children.length) { const e = document.createElement("p"); e.className = "empty";
+    e.textContent = roadFilter === "pending" ? "Nothing pending — the road is done." : "Nothing finished yet."; box.appendChild(e); }
+  else box.appendChild(ol);
   const open = (road.open || []).map(id => items.get(id)).filter(Boolean);
   if (open.length) {
     const d = document.createElement("div"); d.className = "road-open";
