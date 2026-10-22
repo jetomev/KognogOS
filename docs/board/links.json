@@ -318,7 +318,7 @@
   ]
  },
  "apps-162": {
-  "unclear": "no line in alacrittyForge's TODO says which newer forgekit pieces; ask Javier"
+  "own": "dropped by Javier 2026-10-22 (no line said which forgekit pieces; 1.1.0 is already on 0.10.0)"
  },
  "apps-163": {
   "steps": [

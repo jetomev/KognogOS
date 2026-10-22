@@ -344,8 +344,8 @@
    "detail": "",
    "source": "alacrittyForge TODO",
    "suggest": "1.x",
-   "pick": "1.x",
-   "note": "",
+   "pick": "drop",
+   "note": "Dropped (Javier, 2026-10-22): no line said which forgekit pieces; 1.1.0 is already on forgekit 0.10.0.",
    "new": false,
    "order": 162
   },

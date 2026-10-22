@@ -2,7 +2,7 @@
 
 *Written from the board's snapshot of 2026-10-22 19:25 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
-**137 ship in v1.0 · 77 come during the first year (1.x) · 5 dropped · 0 still open. The road: 18 of 135 steps done.**
+**137 ship in v1.0 · 76 come during the first year (1.x) · 6 dropped · 0 still open. The road: 18 of 135 steps done.**
 
 v1.0 ships the **Basic** and **Work** editions with four desktop looks — the floating-island bar (the default), the taskbar with Start, the floating panel with a pager, and the plain classic look — and a smaller set of colour themes. The two menu-bar looks, the top panel with a dock, and the Full, Gaming and Development editions come during the year.
 
@@ -215,7 +215,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 2. Announcements (KognogOS Phase 6) — *Where, and in what words.*
 3. DistroWatch submission (KognogOS Phase 6) — *Their queue takes months.*
 
-## 1.x — during the first year (77)
+## 1.x — during the first year (76)
 
 ### The disc and the installer
 
@@ -303,7 +303,6 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 - grubForge: other distros (#24, #25, #34, #35) (grubForge issues) — *Debian, Ubuntu, Fedora, openSUSE.*
 - grubForge: screenshots still show old labels (grubForge TODO)
 - alacrittyForge: edit the hints, mouse shortcuts (alacrittyforge #16 #17)
-- alacrittyForge: onto the newer forgekit pieces (alacrittyForge TODO)
 - bitlaForge: bug fixes (Esc in a field, the console key) (bitlaforge #3)
 - bitlaForge: new features (charts, saved setups, restart the miner…) (bitlaforge #9 #10 #11)
 - The 'where it runs' AUR descriptions, app by app (app TODOs) — *At each app's next release.*
@@ -333,7 +332,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 - A 'report a problem' button that opens a pre-filled issue (new)
 - Hibernate (new) — *Sleep yes; hibernate is fragile on NVIDIA.* **Javier:** Later (Javier, 10-22).
 
-## Dropped (5)
+## Dropped (6)
 
 ### The disc and the installer
 
@@ -346,6 +345,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 
 ### The other Forge apps
 
+- alacrittyForge: onto the newer forgekit pieces (alacrittyForge TODO) **Javier:** Dropped (Javier, 2026-10-22): no line said which forgekit pieces; 1.1.0 is already on forgekit 0.10.0.
 - mcForge (Midnight Commander settings or fork) (forge-suite ideas)
 
 ### Release kit and public face
