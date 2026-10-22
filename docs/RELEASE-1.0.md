@@ -1,10 +1,10 @@
 # KognogOS 1.0 — the cut and the road
 
-*Written from the board's snapshot of 2026-10-22 15:46 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
+*Written from the board's snapshot of 2026-10-22 16:23 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
 **131 ship in v1.0 · 77 come during the first year (1.x) · 5 dropped · 0 still open. The road: 8 of 129 steps done.**
 
-v1.0 ships the **Basic** and **Work** editions with the **Rice, Windows 11, KDE and Classic** styles and a smaller set of colour themes. The Mac styles, COSMIC, and the Full, Gaming and Development editions come during the year.
+v1.0 ships the **Basic** and **Work** editions with four desktop looks — the floating-island bar (the default), the taskbar with Start, the floating panel with a pager, and the plain classic look — and a smaller set of colour themes. The two menu-bar looks, the top panel with a dock, and the Full, Gaming and Development editions come during the year.
 
 **Beyond the year — v2.0 (Javier, 2026-10-21):** *KognogOS + AI (Claude) full integration. Claude alive while the OS is on, with a tray chat bubble available for one to request directly there anything. We will create Claude commands to manipulate and control the OS, and even develop new functionalities, or make changes to it.*
 
@@ -83,9 +83,9 @@ v1.0 ships the **Basic** and **Work** editions with the **Rice, Windows 11, KDE 
 
 *Rice, Windows 11, KDE and Classic, each reviewed piece by piece; then the colour themes that make the cut; then themeForge 1.0.*
 
-1. The Rice ships in 1.0 (KognogOS's default look) (hypeForge D-78)
-2. Windows 11 style ships in 1.0 (hypeForge D-71) — *Your daily driver right now.*
-3. KDE style ships in 1.0 (hypeForge D-76)
+1. The floating-island bar (the Rice) ships in 1.0 — KognogOS's default look (hypeForge D-78)
+2. The taskbar-with-Start look ships in 1.0 (hypeForge D-71) — *Your daily driver right now.*
+3. The floating-panel-with-a-pager look ships in 1.0 (hypeForge D-76)
 4. Classic style ships in 1.0 (hypeForge) — *The plain first look.*
 5. Full review of each style that ships: bar, launcher, tray, every pop-up (hypeForge Phase 12) — *Step by step, your look on each piece.* **Javier:** Only what we will be shipping!
 6. Ship fewer colour themes in 1.0 and add the rest during the year (new) — *25 × every style is a lot to prove.*
@@ -240,13 +240,13 @@ v1.0 ships the **Basic** and **Work** editions with the **Rice, Windows 11, KDE 
 
 ### Styles and colour themes
 
-- COSMIC style ships in 1.0 (hypeForge D-77) — *Your score: 0/100.*
-- Mac OS 9 style ships in 1.0 (hypeForge D-72) — *Your call: held for the year.*
-- macOS style ships in 1.0 (hypeForge D-74) — *Your call: held for the year.*
-- COSMIC's launcher: full page, like GNOME's (hypeForge D-116) — *Goes with the COSMIC style.*
+- The top-panel-with-a-dock look ships in 1.0 (hypeForge D-77) — *Your score: 0/100.*
+- The classic menu-bar look ships in 1.0 (hypeForge D-72) — *Your call: held for the year.*
+- The modern menu-bar-with-a-dock look ships in 1.0 (hypeForge D-74) — *Your call: held for the year.*
+- The top-panel look's launcher: a full page of apps (hypeForge D-116) — *Goes with the COSMIC style.*
 - All 25 colour themes reviewed on each style that ships (hypeForge Phase 12) — *Light and dark, readable everywhere.*
-- The menu card for the Mac styles' Window, Special and Help (hypeForge D-116) — *Goes with the Mac styles.*
-- The app name's odd 'gimp' box on the Mac bars (hypeForge review) — *Goes with the Mac styles.*
+- The menu card for the two menu-bar looks' Window, Special and Help (hypeForge D-116) — *Goes with the Mac styles.*
+- The app name's odd 'gimp' box on the menu-bar looks (hypeForge review) — *Goes with the Mac styles.*
 - The lock screen's box follows the corners switch (hypeForge D-81)
 - Separate corners for the bar and for windows (themeForge) — *An idea from 10-10.*
 - themeForge: a Corners page (themeForge Phase 2)

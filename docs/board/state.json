@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-22 15:46",
+ "taken": "2026-10-22 16:23",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -1275,7 +1275,7 @@
   },
   "look-063": {
    "area": "look",
-   "title": "The Rice ships in 1.0 (KognogOS's default look)",
+   "title": "The floating-island bar (the Rice) ships in 1.0 — KognogOS's default look",
    "detail": "",
    "source": "hypeForge D-78",
    "suggest": "1.0",
@@ -1286,7 +1286,7 @@
   },
   "look-064": {
    "area": "look",
-   "title": "Windows 11 style ships in 1.0",
+   "title": "The taskbar-with-Start look ships in 1.0",
    "detail": "Your daily driver right now.",
    "source": "hypeForge D-71",
    "suggest": "1.0",
@@ -1297,7 +1297,7 @@
   },
   "look-065": {
    "area": "look",
-   "title": "KDE style ships in 1.0",
+   "title": "The floating-panel-with-a-pager look ships in 1.0",
    "detail": "",
    "source": "hypeForge D-76",
    "suggest": "?",
@@ -1319,7 +1319,7 @@
   },
   "look-067": {
    "area": "look",
-   "title": "COSMIC style ships in 1.0",
+   "title": "The top-panel-with-a-dock look ships in 1.0",
    "detail": "Your score: 0/100.",
    "source": "hypeForge D-77",
    "suggest": "1.x",
@@ -1330,7 +1330,7 @@
   },
   "look-068": {
    "area": "look",
-   "title": "Mac OS 9 style ships in 1.0",
+   "title": "The classic menu-bar look ships in 1.0",
    "detail": "Your call: held for the year.",
    "source": "hypeForge D-72",
    "suggest": "1.x",
@@ -1341,7 +1341,7 @@
   },
   "look-069": {
    "area": "look",
-   "title": "macOS style ships in 1.0",
+   "title": "The modern menu-bar-with-a-dock look ships in 1.0",
    "detail": "Your call: held for the year.",
    "source": "hypeForge D-74",
    "suggest": "1.x",
@@ -1352,7 +1352,7 @@
   },
   "look-070": {
    "area": "look",
-   "title": "COSMIC's launcher: full page, like GNOME's",
+   "title": "The top-panel look's launcher: a full page of apps",
    "detail": "Goes with the COSMIC style.",
    "source": "hypeForge D-116",
    "suggest": "1.x",
@@ -1396,7 +1396,7 @@
   },
   "look-074": {
    "area": "look",
-   "title": "The menu card for the Mac styles' Window, Special and Help",
+   "title": "The menu card for the two menu-bar looks' Window, Special and Help",
    "detail": "Goes with the Mac styles.",
    "source": "hypeForge D-116",
    "suggest": "1.x",
@@ -1407,7 +1407,7 @@
   },
   "look-075": {
    "area": "look",
-   "title": "The app name's odd 'gimp' box on the Mac bars",
+   "title": "The app name's odd 'gimp' box on the menu-bar looks",
    "detail": "Goes with the Mac styles.",
    "source": "hypeForge review",
    "suggest": "1.x",

@@ -41,8 +41,9 @@ def main() -> int:
            "and ordered the road (2026-10-21/22).*", "",
            f"**{count['1.0']} ship in v1.0 · {count['1.x']} come during the first year (1.x) · {count['drop']} dropped · "
            f"{count['?'] + undecided} still open. The road: {done} of {len(on_road)} steps done.**", "",
-           "v1.0 ships the **Basic** and **Work** editions with the **Rice, Windows 11, KDE and Classic** styles and a smaller set "
-           "of colour themes. The Mac styles, COSMIC, and the Full, Gaming and Development editions come during the year.", "",
+           "v1.0 ships the **Basic** and **Work** editions with four desktop looks — the floating-island bar (the default), the "
+           "taskbar with Start, the floating panel with a pager, and the plain classic look — and a smaller set of colour themes. "
+           "The two menu-bar looks, the top panel with a dock, and the Full, Gaming and Development editions come during the year.", "",
            "**Beyond the year — v2.0 (Javier, 2026-10-21):** " + VISION, "",
            "## The road to launch", ""]
     for n, s in enumerate(road["stages"]):
