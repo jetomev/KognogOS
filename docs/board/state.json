@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-22 16:23",
+ "taken": "2026-10-22 16:29",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -29,7 +29,11 @@
      "apps-165",
      "apps-157",
      "apps-155",
-     "apps-166"
+     "apps-166",
+     "fnd-01",
+     "fnd-02",
+     "fnd-03",
+     "fnd-04"
     ],
     "key": "s01",
     "name": "Clean house",
@@ -156,6 +160,7 @@
    },
    {
     "items": [
+     "fnd-05",
      "disc-002",
      "disc-003",
      "disc-004",
@@ -183,6 +188,7 @@
    {
     "items": [
      "disc-022",
+     "fnd-06",
      "disc-027",
      "disc-029",
      "disc-024",
@@ -1151,6 +1157,72 @@
    "note": "What is pending for Kognog for v2.0 is KognogOS + AI (Claude) full integration. Claude alive while the OS is on, with a tray chat bubble available for one to request directly there anything. We will create Claude commands to manipulate and control the OS, and even develop new functionalities, or make changes to it.",
    "new": false,
    "order": 38
+  },
+  "fnd-01": {
+   "area": "rel",
+   "title": "README: the tech-stack table still says \"Chrome + Brave (both shipped)\"",
+   "detail": "Brave is no longer a default (10-07).",
+   "source": "the CLAUDE.md review, 10-22",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "",
+   "new": true,
+   "order": 301
+  },
+  "fnd-02": {
+   "area": "rel",
+   "title": "README: the deferred list still says nogForge \"now v1.4.0\"",
+   "detail": "It is 1.5.0.",
+   "source": "the CLAUDE.md review, 10-22",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "",
+   "new": true,
+   "order": 302
+  },
+  "fnd-03": {
+   "area": "rel",
+   "title": "One spelling: \"Kognog OS\" is still in the wallpaper names and labels",
+   "detail": "build-iso.sh lines 21 and 63, install-look.sh lines 22 and 32. Goes with the trademark work.",
+   "source": "the CLAUDE.md review, 10-22",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "",
+   "new": true,
+   "order": 303
+  },
+  "fnd-04": {
+   "area": "disc",
+   "title": "TODO.md: a stale line about build-iso.sh's hypeForge path",
+   "detail": "That path only existed on the deleted hypeforge-edition branch.",
+   "source": "the CLAUDE.md review, 10-22",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "",
+   "new": true,
+   "order": 304
+  },
+  "fnd-05": {
+   "area": "disc",
+   "title": "Decide the machine that builds the ISO (a VM?)",
+   "detail": "build-iso.sh doesn't check where it runs; the 09-30 accident happened on this desktop.",
+   "source": "the CLAUDE.md review, 10-22",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "",
+   "new": true,
+   "order": 305
+  },
+  "fnd-06": {
+   "area": "disc",
+   "title": "installForge installs online",
+   "detail": "Today's draft (kognog-install.sh) copies the live disc, so it installs offline.",
+   "source": "the CLAUDE.md review, 10-22",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "",
+   "new": true,
+   "order": 306
   },
   "gaps-200": {
    "area": "gaps",

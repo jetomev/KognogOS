@@ -1,8 +1,8 @@
 # KognogOS 1.0 — the cut and the road
 
-*Written from the board's snapshot of 2026-10-22 16:23 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
+*Written from the board's snapshot of 2026-10-22 16:29 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
-**131 ship in v1.0 · 77 come during the first year (1.x) · 5 dropped · 0 still open. The road: 8 of 129 steps done.**
+**137 ship in v1.0 · 77 come during the first year (1.x) · 5 dropped · 0 still open. The road: 8 of 135 steps done.**
 
 v1.0 ships the **Basic** and **Work** editions with four desktop looks — the floating-island bar (the default), the taskbar with Start, the floating panel with a pager, and the plain classic look — and a smaller set of colour themes. The two menu-bar looks, the top panel with a dock, and the Full, Gaming and Development editions come during the year.
 
@@ -23,7 +23,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 7. Is 'KognogOS' free to use as a name? (new) — *A trademark search before the public launch.* **Javier:** Plan agreed 10-22, to do Friday 23 Oct afternoon: (1) your $25 Florida Bar consult on KOGNOGOS vs IBM COGNOS (ask: owner Kognog Labs LLC? does a free download count as use in commerce?); (2) KognogOS™ and one spelling everywhere; (3) a USPTO search for HYPEFORGE; (4) file KOGNOGOS, Class 9, word mark, after the consult.
 8. ✅ A place for people to talk (Discord, Matrix, forum) (new) — *Or GitHub only.* **Javier:** Javier, 10-22: (1) now, GitHub only; (2) then a forum in GitHub with Q&A, topics and rooms; (3) a Discord much later, if people ask.
 
-### 01 · Clean house — Oct – Nov 2026 (1/8 done)
+### 01 · Clean house — Oct – Nov 2026 (1/12 done)
 
 *Everything already built gets pushed, tested and released, so the rest builds on solid ground.*
 
@@ -35,6 +35,10 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 6. grubForge: fixes that touch Arch (#17, #19, #20, #22) (grubForge issues) — *Frozen entries, duplicates, --version.*
 7. Desktop entries in every Forge app's package (grubforge #37 · alacrittyforge #18 · bitlaforge #12 · nogforge #16) — *So they show in any launcher.*
 8. Move alacrittyForge, bitlaForge, nogForge, grubForge into forge-suite (forge-suite D-60)
+9. README: the tech-stack table still says "Chrome + Brave (both shipped)" (the CLAUDE.md review, 10-22) — *Brave is no longer a default (10-07).*
+10. README: the deferred list still says nogForge "now v1.4.0" (the CLAUDE.md review, 10-22) — *It is 1.5.0.*
+11. One spelling: "Kognog OS" is still in the wallpaper names and labels (the CLAUDE.md review, 10-22) — *build-iso.sh lines 21 and 63, install-look.sh lines 22 and 32. Goes with the trademark work.*
+12. TODO.md: a stale line about build-iso.sh's hypeForge path (the CLAUDE.md review, 10-22) — *That path only existed on the deleted hypeforge-edition branch.*
 
 ### 02 · nog and nogForge, finished — Nov 2026 (0/14 done)
 
@@ -133,45 +137,47 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 7. welcomeForge: where to give feedback (KognogOS roadmap) — *Points to GitHub Issues.*
 8. Help & Keys pages current for 1.0 (new) — *Every guide page checked against what ships.*
 
-### 09 · The disc's foundations — Feb 2027 (0/18 done)
+### 09 · The disc's foundations — Feb 2027 (0/19 done)
 
 *The ISO recipe rebuilt for Sway: what goes on it, the known install bugs, the editions, the login screen, a live session that starts on any graphics card.*
 
-1. build-iso.sh: stop staging Plasma, point at forge-suite/hypeforge (KognogOS TODO) — *Line 42 still looks for ~/Programs/hypeforge.*
-2. The disc's package list = what hypeForge and the Forge apps need (forge-suite #91) — *Measured in each app's docs/PACKAGING.md (the dependency audit).*
-3. Prove every font hypeForge needs is on the disc (KognogOS TODO) — *docs/FONTS.md lists them; the Nerd Font symbols were added 10-05, never proven by a build.*
-4. Remove the repeated nano and tmux lines (KognogOS TODO) — *Harmless, but sloppy.*
-5. sudoForge on the disc, set up at first boot (KognogOS TODO) — *Without it there is no admin password window on Sway.*
-6. Brightness keys: brightnessctl on the disc, or bind them to displayForge (forge-suite #94) — *A laptop's brightness keys do nothing today.*
-7. The login's pam_kwallet_init is missing on the disc (forge-suite #95) — *Either kwallet-pam ships, or walletForge replaces it.*
-8. nogForge on the disc (nogForge TODO) — *It isn't in the package list yet.*
-9. Boot identity required in the installed system, not just the live disc (KognogOS #2) — *Installer recipe.*
-10. Fresh install lacks fakeroot and nog's signing key (KognogOS #9) — *Found by nog's VM test.*
-11. AUR builds work on an installed system (base-devel) (KognogOS #11) — *Fixed on main; close after the next disc build proves it.*
-12. The os-release hook errors inside every clean chroot (KognogOS #16) — *Seen when building packages on a KognogOS box.*
-13. Basic edition: the app list redone without KDE apps (KognogOS README) — *Today's lists date from the Plasma build.*
-14. Work edition (the old Office): the app list redone (KognogOS README) — *OnlyOffice, Obsidian, Thunderbird… minus the KDE pieces.* **Javier:** Renamed Work (Javier, 10-22).
-15. Chrome, Claude Desktop and Claude Terminal pre-selected; Brave no longer the default (KognogOS #14) — *Your decision of 10-07.*
-16. Proprietary apps marked in the installer, with a free swap (KognogOS README) — *Defined in config/profiles.toml.*
-17. Pick and theme the login screen for Sway (KognogOS roadmap) — *The roadmap says it's part of the hypeForge disc; nothing is chosen yet.*
-18. The live disc starts Sway on any graphics card (VM, NVIDIA, AMD, Intel) (new) — *Today it's only proven on this desktop.*
+1. Decide the machine that builds the ISO (a VM?) (the CLAUDE.md review, 10-22) — *build-iso.sh doesn't check where it runs; the 09-30 accident happened on this desktop.*
+2. build-iso.sh: stop staging Plasma, point at forge-suite/hypeforge (KognogOS TODO) — *Line 42 still looks for ~/Programs/hypeforge.*
+3. The disc's package list = what hypeForge and the Forge apps need (forge-suite #91) — *Measured in each app's docs/PACKAGING.md (the dependency audit).*
+4. Prove every font hypeForge needs is on the disc (KognogOS TODO) — *docs/FONTS.md lists them; the Nerd Font symbols were added 10-05, never proven by a build.*
+5. Remove the repeated nano and tmux lines (KognogOS TODO) — *Harmless, but sloppy.*
+6. sudoForge on the disc, set up at first boot (KognogOS TODO) — *Without it there is no admin password window on Sway.*
+7. Brightness keys: brightnessctl on the disc, or bind them to displayForge (forge-suite #94) — *A laptop's brightness keys do nothing today.*
+8. The login's pam_kwallet_init is missing on the disc (forge-suite #95) — *Either kwallet-pam ships, or walletForge replaces it.*
+9. nogForge on the disc (nogForge TODO) — *It isn't in the package list yet.*
+10. Boot identity required in the installed system, not just the live disc (KognogOS #2) — *Installer recipe.*
+11. Fresh install lacks fakeroot and nog's signing key (KognogOS #9) — *Found by nog's VM test.*
+12. AUR builds work on an installed system (base-devel) (KognogOS #11) — *Fixed on main; close after the next disc build proves it.*
+13. The os-release hook errors inside every clean chroot (KognogOS #16) — *Seen when building packages on a KognogOS box.*
+14. Basic edition: the app list redone without KDE apps (KognogOS README) — *Today's lists date from the Plasma build.*
+15. Work edition (the old Office): the app list redone (KognogOS README) — *OnlyOffice, Obsidian, Thunderbird… minus the KDE pieces.* **Javier:** Renamed Work (Javier, 10-22).
+16. Chrome, Claude Desktop and Claude Terminal pre-selected; Brave no longer the default (KognogOS #14) — *Your decision of 10-07.*
+17. Proprietary apps marked in the installer, with a free swap (KognogOS README) — *Defined in config/profiles.toml.*
+18. Pick and theme the login screen for Sway (KognogOS roadmap) — *The roadmap says it's part of the hypeForge disc; nothing is chosen yet.*
+19. The live disc starts Sway on any graphics card (VM, NVIDIA, AMD, Intel) (new) — *Today it's only proven on this desktop.*
 
-### 10 · installForge — Feb – Mar 2027 (0/12 done)
+### 10 · installForge — Feb – Mar 2027 (0/13 done)
 
 *The installer, step by step in the order a person meets them, then the advanced parts.*
 
 1. installForge: the terminal installer as a Forge Suite section (KognogOS Phase 3) — *Today it's a first-draft shell script.*
-2. installForge: keyboard layout, language and time zone steps (new) — *Not written down anywhere yet.*
-3. installForge: Wi-Fi setup inside the installer (new) — *The install is online-only, so a laptop needs Wi-Fi before anything else.*
-4. installForge: guided disk setup (whole disk, or free space next to Windows) (KognogOS Phase 3) — *Dual boot is the common case.*
-5. installForge: user creation (KognogOS Phase 3) — *Name, password, the admin rights.*
-6. installForge: the edition picker (KognogOS Phase 3) — *Reads config/profiles.toml.*
-7. installForge: a Forge Suite section of optional apps (bitlaForge offered, not pre-selected) (your answer, 10-22) — *People who want to try an app tick it.*
-8. installForge: pick the graphics driver (NVIDIA, AMD, Intel) by itself (new) — *Sway on NVIDIA needs its own flags; the installer must know.*
-9. installForge: bootable snapshots from the boot menu (KognogOS Phase 3) — *btrfs snapshots you can boot into after a bad update.*
-10. installForge: 'prepare for a new owner' mode (KognogOS Phase 3) — *The personal questions wait for the new owner's first boot.*
-11. System Lock: only nog may drive package changes (managed mode) (KognogOS #10)
-12. Rebuild the disc around Sway + hypeForge (KognogOS #13) — *The ISO still stages the Plasma desktop. The 1.0 disc is Sway only.*
+2. installForge installs online (the CLAUDE.md review, 10-22) — *Today's draft (kognog-install.sh) copies the live disc, so it installs offline.*
+3. installForge: keyboard layout, language and time zone steps (new) — *Not written down anywhere yet.*
+4. installForge: Wi-Fi setup inside the installer (new) — *The install is online-only, so a laptop needs Wi-Fi before anything else.*
+5. installForge: guided disk setup (whole disk, or free space next to Windows) (KognogOS Phase 3) — *Dual boot is the common case.*
+6. installForge: user creation (KognogOS Phase 3) — *Name, password, the admin rights.*
+7. installForge: the edition picker (KognogOS Phase 3) — *Reads config/profiles.toml.*
+8. installForge: a Forge Suite section of optional apps (bitlaForge offered, not pre-selected) (your answer, 10-22) — *People who want to try an app tick it.*
+9. installForge: pick the graphics driver (NVIDIA, AMD, Intel) by itself (new) — *Sway on NVIDIA needs its own flags; the installer must know.*
+10. installForge: bootable snapshots from the boot menu (KognogOS Phase 3) — *btrfs snapshots you can boot into after a bad update.*
+11. installForge: 'prepare for a new owner' mode (KognogOS Phase 3) — *The personal questions wait for the new owner's first boot.*
+12. System Lock: only nog may drive package changes (managed mode) (KognogOS #10)
+13. Rebuild the disc around Sway + hypeForge (KognogOS #13) — *The ISO still stages the Plasma desktop. The 1.0 disc is Sway only.*
 
 ### 11 · Testing — Mar 2027 (0/9 done)
 
