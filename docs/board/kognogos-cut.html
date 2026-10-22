@@ -75,6 +75,10 @@ li.item[data-pick="?"] { border-left-color: var(--maybe); }
 .ttl { font-weight: 600; }
 .det { color: var(--muted); font-size: 0.88rem; margin-top: 2px; }
 .meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; align-items: center; }
+.proj { font: 600 0.72rem var(--mono); color: var(--accent); background: var(--accent-soft); padding: 1px 6px; border-radius: 4px;
+        text-decoration: none; white-space: nowrap; }
+.proj:hover { text-decoration: underline; }
+.stage li .proj { margin-left: 6px; font-size: 0.68rem; padding: 0 5px; }
 .src { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); background: var(--panel-2); padding: 1px 6px; border-radius: 4px; }
 .new { font: 700 0.66rem var(--sans); letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent);
        padding: 0 5px; border-radius: 4px; }
@@ -200,6 +204,18 @@ const FILTERS = [["all", "All"], ["todo", "Not judged"], ["1.0", "v1.0"], ["1.x"
                  ["differs", "Differs from mine"], ["new", "New only"]];
 
 let db = null, canWrite = true, items = new Map(), rows = new Map(), filter = "all", query = "";
+// Which project each item comes from, and that project's board (links/all, written by scripts/board-links.py, 2026-10-22):
+// the item is ticked here when its twin is done there.
+let links = {};
+function projTag(id, a) {
+  const l = links[id];
+  if (!l || !l.board) { if (a) a.hidden = true; return null; }
+  a = a || document.createElement("a");
+  a.className = "proj"; a.hidden = false; a.href = l.board; a.target = "_blank"; a.rel = "noopener";
+  a.textContent = l.name + " ↗";
+  a.title = `Part of ${l.name}: ticked here when it's done there (${l.how}). Opens ${l.name}'s board.`;
+  return a;
+}
 // The road's own filter — Pending, Finished, All — the same three buttons as every project board.
 let roadFilter = "pending";
 const roadKept = new Set();                     // steps ticked in this view stay on screen until the filter changes
@@ -232,7 +248,7 @@ function makeRow(id) {
   const li = document.createElement("li");
   li.className = "item"; li.dataset.id = id;
   li.innerHTML = `<div class="txt"><div class="ttl"></div><div class="det"></div>
-      <div class="meta"><span class="src"></span><span class="new" hidden>New</span><span class="sug"></span>
+      <div class="meta"><a class="proj" hidden></a><span class="src"></span><span class="new" hidden>New</span><span class="sug"></span>
         <span class="differs" hidden>differs from Claude's</span><button class="notebtn" type="button">Add a note</button></div></div>
     <div class="pick" role="group" aria-label="Pick"></div>
     <div class="notetext" hidden></div>
@@ -257,6 +273,7 @@ function updateRow(li, it) {
   li.querySelector(".ttl").textContent = it.title || "";
   const det = li.querySelector(".det"); det.textContent = it.detail || ""; det.hidden = !it.detail;
   li.querySelector(".src").textContent = it.source || "";
+  projTag(li.dataset.id, li.querySelector(".proj"));
   li.querySelector(".new").hidden = !it.new;
   const sug = li.querySelector(".sug");
   if (it.suggest) { sug.dataset.v = it.suggest; sug.innerHTML = "Claude: <b></b>"; sug.querySelector("b").textContent = LABEL[it.suggest] || it.suggest; }
@@ -472,6 +489,7 @@ function renderRoad() {
       }
       st.querySelector(".t").textContent = it.title;
       st.querySelector(".a").textContent = AREA_NAME[it.area] || it.area;
+      const tag = projTag(id); if (tag) st.querySelector(".a").after(tag);
       if (!it.pick) { const p = document.createElement("span"); p.className = "p"; p.dataset.v = "none"; p.textContent = "Answer this"; st.appendChild(p); }
       steps.appendChild(st);
     }
@@ -503,6 +521,10 @@ function renderRoad() {
     items = new Map(snap.docs.map(d => [d.id, { id: d.id, ...d.data() }]));
     render(); renderRoad();
   }, () => { show("The live list stopped updating. Reload the page."); });
+  db.doc("links/all").onSnapshot((snap) => {
+    links = (snap.exists && snap.data().items) || {};
+    render(); renderRoad();
+  }, () => {});
   db.doc("road/plan").onSnapshot((snap) => {
     road = snap.exists ? snap.data() : null;
     renderRoad();

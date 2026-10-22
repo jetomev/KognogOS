@@ -1,8 +1,8 @@
 # KognogOS 1.0 — the cut and the road
 
-*Written from the board's snapshot of 2026-10-22 16:29 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
+*Written from the board's snapshot of 2026-10-22 19:25 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
-**137 ship in v1.0 · 77 come during the first year (1.x) · 5 dropped · 0 still open. The road: 8 of 135 steps done.**
+**137 ship in v1.0 · 77 come during the first year (1.x) · 5 dropped · 0 still open. The road: 18 of 135 steps done.**
 
 v1.0 ships the **Basic** and **Work** editions with four desktop looks — the floating-island bar (the default), the taskbar with Start, the floating panel with a pager, and the plain classic look — and a smaller set of colour themes. The two menu-bar looks, the top panel with a dock, and the Full, Gaming and Development editions come during the year.
 
@@ -23,7 +23,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 7. Is 'KognogOS' free to use as a name? (new) — *A trademark search before the public launch.* **Javier:** Plan agreed 10-22, to do Friday 23 Oct afternoon: (1) your $25 Florida Bar consult on KOGNOGOS vs IBM COGNOS (ask: owner Kognog Labs LLC? does a free download count as use in commerce?); (2) KognogOS™ and one spelling everywhere; (3) a USPTO search for HYPEFORGE; (4) file KOGNOGOS, Class 9, word mark, after the consult.
 8. ✅ A place for people to talk (Discord, Matrix, forum) (new) — *Or GitHub only.* **Javier:** Javier, 10-22: (1) now, GitHub only; (2) then a forum in GitHub with Q&A, topics and rooms; (3) a Discord much later, if people ask.
 
-### 01 · Clean house — Oct – Nov 2026 (1/12 done)
+### 01 · Clean house — Oct – Nov 2026 (2/12 done)
 
 *Everything already built gets pushed, tested and released, so the rest builds on solid ground.*
 
@@ -32,7 +32,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 3. Write the per-app release recipe down (forge-suite TODO) — *Proven, not documented.*
 4. nogForge: the old commit with the book persona's name (nogForge TODO) — *History rewrite: your call.* **Javier:** fix
 5. Your pending test runs: grubForge 2.2, alacrittyForge 1.1, bitlaForge 1.1, nogForge 1.4 (app TODOs) — *Matrices written, not run.*
-6. grubForge: fixes that touch Arch (#17, #19, #20, #22) (grubForge issues) — *Frozen entries, duplicates, --version.*
+6. ✅ grubForge: fixes that touch Arch (#17, #19, #20, #22) (grubForge issues) — *Frozen entries, duplicates, --version.*
 7. Desktop entries in every Forge app's package (grubforge #37 · alacrittyforge #18 · bitlaforge #12 · nogforge #16) — *So they show in any launcher.*
 8. Move alacrittyForge, bitlaForge, nogForge, grubForge into forge-suite (forge-suite D-60)
 9. README: the tech-stack table still says "Chrome + Brave (both shipped)" (the CLAUDE.md review, 10-22) — *Brave is no longer a default (10-07).*
@@ -40,24 +40,24 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 11. One spelling: "Kognog OS" is still in the wallpaper names and labels (the CLAUDE.md review, 10-22) — *build-iso.sh lines 21 and 63, install-look.sh lines 22 and 32. Goes with the trademark work.*
 12. TODO.md: a stale line about build-iso.sh's hypeForge path (the CLAUDE.md review, 10-22) — *That path only existed on the deleted hypeforge-edition branch.*
 
-### 02 · nog and nogForge, finished — Nov 2026 (0/14 done)
+### 02 · nog and nogForge, finished — Nov 2026 (7/14 done)
 
 *The installer and the welcome app drive nog without a person; nog has to be done first.*
 
 1. nog update --yes (unattended updates) (nog #56) — *The installer and welcome need it.*
-2. nog install --yes for repository packages through the AUR helper (nog #32)
-3. nog remove warns before taking an optional dependency; nog keep (nog F-13 #49) — *Elisa almost took VLC's formats with it.*
+2. ✅ nog install --yes for repository packages through the AUR helper (nog #32)
+3. ✅ nog remove warns before taking an optional dependency; nog keep (nog F-13 #49) — *Elisa almost took VLC's formats with it.*
 4. nog: confirm the missing 'continue?' prompt of 1 Oct is gone (nog TODO)
 5. nog: the AUR helper's questions racing its table (nog TODO)
 6. nog: the 'last update' record per user or per system (nog TODO)
-7. nog: the rare library mismatch (priority 4) (nog #5)
+7. ✅ nog: the rare library mismatch (priority 4) (nog #5)
 8. nog: small follow-ups (search shows 30, info on Flatpak, reinstall, lock by version) (nog 2.0 notes)
 9. nog: the AUR description wording (nog TODO) — *At the next package bump.*
 10. nog: watch the first real update that installs something (nog 2.0 matrix) — *Matrix 7.3 / 7.4, never seen on real data.*
-11. nogForge: unticking with the mouse jumps the list to the top (nogForge #17)
-12. nogForge: Tick all / Untick all (nogForge #18)
-13. nogForge: update one package by itself (nogForge #20) — *'Too hard to get one package updated.'*
-14. nogForge: Update and Uninstall buttons on each installed app (nogForge #19)
+11. ✅ nogForge: unticking with the mouse jumps the list to the top (nogForge #17)
+12. ✅ nogForge: Tick all / Untick all (nogForge #18)
+13. ✅ nogForge: update one package by itself (nogForge #20) — *'Too hard to get one package updated.'*
+14. ✅ nogForge: Update and Uninstall buttons on each installed app (nogForge #19)
 
 ### 03 · Our Sway, packaged — Nov 2026 (0/3 done)
 
@@ -67,16 +67,16 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 2. Hold Sway updates until our patches fit the new version (new) — *So an Arch update never ships a desktop without its buttons.*
 3. Offer our patches to Sway upstream (new) — *The title bar buttons and the pointer position.*
 
-### 04 · The desktop, finished — Nov – Dec 2026 (0/11 done)
+### 04 · The desktop, finished — Nov – Dec 2026 (2/11 done)
 
 *The base every style and app sits on: the bar never vanishes, one or two screens work, pop-ups follow the standard.*
 
-1. The bar guard: the bar comes back by itself if it ever disappears (hypeForge Phase 12) — *D-115. The 10-17 silent exit is still unexplained.*
+1. ✅ The bar guard: the bar comes back by itself if it ever disappears (hypeForge Phase 12) — *D-115. Built 2026-10-22 after the empty-screen login (F-82, forge-suite bc9cc2b). Why Waybar crashes is still open.*
 2. One title row on every pop-up (hypeForge D-116) — *Quick Settings has none today.*
 3. Three widths only: narrow, medium, wide (hypeForge D-116)
 4. The hover tip stops covering an open pop-up (hypeForge D-116)
 5. The notification cards on the pop-up standard (hypeForge D-116)
-6. Night light hides its own tray icon where the bar already shows the moon (forge-suite #82) — *nightForge 1.1.*
+6. ✅ Night light hides its own tray icon where the bar already shows the moon (forge-suite #82) — *nightForge 1.1.*
 7. displayForge: tested with one and two screens (displayForge 1.1.x)
 8. displayForge: 80 / 90 % sizes on real apps (displayForge 1.1.x) — *X11 apps blur at non-whole sizes.*
 9. displayForge: tested on a plain text console (displayForge 1.1.x)

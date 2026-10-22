@@ -11,6 +11,9 @@ An Arch-based Linux distribution where updates wait by risk: every package sits 
 - **Then snapshot it:** export the board (`list` + `get` with `out_dir`), run `python3 scripts/board-snapshot.py <export-dir>`. It writes `docs/board/state.json` **and** regenerates `docs/RELEASE-1.0.md`. Commit both together.
 - **`docs/RELEASE-1.0.md` is generated** by `scripts/board-release-doc.py`. Never edit it by hand: change the board, or the script's fixed text.
 - `TODO.md` keeps only this repo's own housekeeping; the road lives on the board. How the board works: `docs/board/README.md`.
+- **The board is linked to the projects KognogOS is made of** (Javier, 2026-10-22: *"KognogOS exists thanks to all other projects"*): nog, nogForge, grubForge, alacrittyForge, bitlaForge and the Forge Suite sections. Not AzerothCore, HomeLab, anything Rullynastre, mindForge, AI Collab, the portal, dropkit or DecadeDrop. `docs/board/links.json` ties each item to its twin: the project's TODO step(s) or GitHub issue(s); a few items are KognogOS's own (the disc, tests, decisions).
+- **Ticks flow from the project to the board, never back:** the project's TODO is the record. `scripts/status.sh` runs `scripts/board-links.py check` every time; a ⚠ means bring the board in step (`check <export> --plan F`, then send F with ArtifactData). A new item that comes from a project gets its twin in links.json the same day, and a split item gets split lines in the project's TODO, never one line ticking several items.
+- Each project board shows a "KognogOS 1.0 · stage NN" badge on the steps the road waits on: `scripts/board-links.py badges <dir>`, then mindForge's `board.py build … --badges <dir>/<project>.json`.
 
 ## v1.0, as decided
 - **The week of 19 April 2027**: the project's second birthday. Now v0.9.0-beta (a Plasma-era disc).

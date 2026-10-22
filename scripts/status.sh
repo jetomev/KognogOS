@@ -41,3 +41,12 @@ open_q = [items[i]["title"] for i in road.get("open", []) if i in items]
 if open_q:
     print(f"\n  STILL OPEN (off the road until decided): {len(open_q)}")
 PY
+# The board's links to the projects it is made of (2026-10-22): an item done in its project but open on the
+# board, or the other way round, shows here every time KognogOS is called — drift is seen, not discovered.
+links=$(timeout 30 python3 scripts/board-links.py check 2>&1); rc=$?
+if [ "$rc" -eq 0 ]; then
+  printf '\n  LINKS ✓ %s\n' "$(head -1 <<<"$links" | sed 's/^KognogOS board ↔ its projects: //')"
+else
+  printf '\n  LINKS ⚠ the board and its projects disagree — bring the board in step (scripts/board-links.py check <export> --plan F):\n'
+  tail -n +2 <<<"$links" | sed 's/^/  /'
+fi

@@ -1,0 +1,605 @@
+{
+ "desk-047": {
+  "steps": [
+   "hypeforge:5dc755dab8"
+  ]
+ },
+ "desk-048": {
+  "steps": [
+   "hypeforge:4322b5ad59"
+  ]
+ },
+ "desk-053": {
+  "steps": [
+   "hypeforge:4ebe8baccf"
+  ]
+ },
+ "desk-054": {
+  "steps": [
+   "hypeforge:15a9bca6f4"
+  ]
+ },
+ "desk-055": {
+  "steps": [
+   "hypeforge:3508ca05a2"
+  ]
+ },
+ "desk-056": {
+  "steps": [
+   "hypeforge:7df0e0e9f4"
+  ]
+ },
+ "disc-035": {
+  "steps": [
+   "hypeforge:c2906b966d"
+  ]
+ },
+ "kde-175": {
+  "steps": [
+   "hypeforge:54610c736c"
+  ]
+ },
+ "look-063": {
+  "steps": [
+   "hypeforge:12971d909f"
+  ]
+ },
+ "look-064": {
+  "steps": [
+   "hypeforge:fe13e28781"
+  ]
+ },
+ "look-065": {
+  "steps": [
+   "hypeforge:95e7b6f5c2"
+  ]
+ },
+ "look-066": {
+  "steps": [
+   "hypeforge:3b7065b0a3"
+  ]
+ },
+ "look-067": {
+  "steps": [
+   "hypeforge:e58e0755ad"
+  ]
+ },
+ "look-068": {
+  "steps": [
+   "hypeforge:c46a806aa8"
+  ]
+ },
+ "look-069": {
+  "steps": [
+   "hypeforge:0e018aa459"
+  ]
+ },
+ "look-070": {
+  "steps": [
+   "hypeforge:0647b48512"
+  ]
+ },
+ "look-071": {
+  "steps": [
+   "hypeforge:2c180e2f39"
+  ]
+ },
+ "look-072": {
+  "steps": [
+   "hypeforge:1827ff0618"
+  ]
+ },
+ "look-074": {
+  "steps": [
+   "hypeforge:19c8648b89"
+  ]
+ },
+ "look-075": {
+  "steps": [
+   "hypeforge:f2480bc4a5"
+  ]
+ },
+ "look-076": {
+  "steps": [
+   "hypeforge:6d2733472d"
+  ]
+ },
+ "pop-083": {
+  "steps": [
+   "hypeforge:ba67d8f037"
+  ]
+ },
+ "pop-084": {
+  "steps": [
+   "hypeforge:e483d158bf"
+  ]
+ },
+ "pop-085": {
+  "steps": [
+   "hypeforge:74861c3525"
+  ]
+ },
+ "pop-086": {
+  "steps": [
+   "hypeforge:198807b4f8"
+  ]
+ },
+ "pop-087": {
+  "steps": [
+   "hypeforge:b059a01b33"
+  ]
+ },
+ "pop-088": {
+  "steps": [
+   "hypeforge:0225f306d5"
+  ]
+ },
+ "set-089": {
+  "steps": [
+   "hypeforge:832135fe30"
+  ]
+ },
+ "set-090": {
+  "steps": [
+   "hypeforge:72ef53bd52"
+  ]
+ },
+ "set-091": {
+  "steps": [
+   "hypeforge:0c68bebb4f"
+  ]
+ },
+ "set-093": {
+  "steps": [
+   "hypeforge:4630b39fbf"
+  ]
+ },
+ "set-094": {
+  "steps": [
+   "hypeforge:e11a474fe5"
+  ]
+ },
+ "set-095": {
+  "steps": [
+   "hypeforge:1a087b543f"
+  ]
+ },
+ "set-096": {
+  "steps": [
+   "hypeforge:f7e76867a4"
+  ]
+ },
+ "set-097": {
+  "steps": [
+   "hypeforge:08f7a98947"
+  ]
+ },
+ "set-098": {
+  "steps": [
+   "hypeforge:ad1512cc65"
+  ]
+ },
+ "set-099": {
+  "steps": [
+   "hypeforge:cd221a7a97"
+  ]
+ },
+ "set-100": {
+  "steps": [
+   "hypeforge:6f003ddb35"
+  ]
+ },
+ "set-101": {
+  "steps": [
+   "hypeforge:f8b935476b"
+  ]
+ },
+ "set-102": {
+  "steps": [
+   "hypeforge:e46847a2af"
+  ]
+ },
+ "set-103": {
+  "steps": [
+   "hypeforge:1c3ded5eac"
+  ]
+ },
+ "set-104": {
+  "steps": [
+   "hypeforge:8a9ad0809e"
+  ]
+ },
+ "set-105": {
+  "steps": [
+   "hypeforge:456e0cdeb4"
+  ]
+ },
+ "set-106": {
+  "steps": [
+   "hypeforge:92c6963491"
+  ]
+ },
+ "set-107": {
+  "steps": [
+   "hypeforge:573e164154"
+  ]
+ },
+ "set-108": {
+  "steps": [
+   "hypeforge:9823ac801e"
+  ]
+ },
+ "set-109": {
+  "steps": [
+   "hypeforge:935b4c3a3c"
+  ]
+ },
+ "set-110": {
+  "steps": [
+   "hypeforge:3aba616e26"
+  ]
+ },
+ "set-111": {
+  "steps": [
+   "hypeforge:42379bf224"
+  ]
+ },
+ "set-112": {
+  "steps": [
+   "hypeforge:08e12f0fc0"
+  ]
+ },
+ "set-113": {
+  "steps": [
+   "hypeforge:e338917f00"
+  ]
+ },
+ "set-114": {
+  "steps": [
+   "hypeforge:dd129fb5cc"
+  ]
+ },
+ "set-115": {
+  "steps": [
+   "hypeforge:5f08cb9504"
+  ]
+ },
+ "set-122": {
+  "steps": [
+   "hypeforge:ff9b5fe2e2"
+  ]
+ },
+ "sway-171": {
+  "steps": [
+   "hypeforge:515eca1479"
+  ]
+ },
+ "test-196": {
+  "own": "a test of the disc: our Sway's login fallback on a fresh install"
+ },
+ "apps-155": {
+  "issues": [
+   "jetomev/grubforge#37",
+   "jetomev/alacrittyforge#18",
+   "jetomev/bitlaforge#12",
+   "jetomev/nogforge#16"
+  ]
+ },
+ "apps-157": {
+  "issues": [
+   "jetomev/grubforge#17",
+   "jetomev/grubforge#19",
+   "jetomev/grubforge#20",
+   "jetomev/grubforge#22"
+  ]
+ },
+ "apps-158": {
+  "issues": [
+   "jetomev/grubforge#24",
+   "jetomev/grubforge#25",
+   "jetomev/grubforge#34",
+   "jetomev/grubforge#35"
+  ]
+ },
+ "apps-159": {
+  "steps": [
+   "grubforge:717568e5d5"
+  ]
+ },
+ "apps-160": {
+  "steps": [
+   "grubforge:5b88f8ced0"
+  ]
+ },
+ "apps-161": {
+  "issues": [
+   "jetomev/alacrittyforge#16",
+   "jetomev/alacrittyforge#17"
+  ]
+ },
+ "apps-162": {
+  "unclear": "no line in alacrittyForge's TODO says which newer forgekit pieces; ask Javier"
+ },
+ "apps-163": {
+  "steps": [
+   "bitlaforge:636f568dca",
+   "bitlaforge:e6103dc21d"
+  ]
+ },
+ "apps-164": {
+  "issues": [
+   "jetomev/bitlaforge#9",
+   "jetomev/bitlaforge#10",
+   "jetomev/bitlaforge#11"
+  ]
+ },
+ "apps-165": {
+  "steps": [
+   "grubforge:ca670a0307",
+   "alacrittyforge:18522b6938",
+   "bitlaforge:8d964b94df",
+   "nogforge:6b4abbb80e"
+  ]
+ },
+ "apps-166": {
+  "steps": [
+   "forge-suite:ec7f2a2917",
+   "forge-suite:04098fbb12"
+  ]
+ },
+ "apps-167": {
+  "steps": [
+   "forge-suite:30d3f32925"
+  ]
+ },
+ "apps-168": {
+  "own": "each app's AUR description, at its next release"
+ },
+ "apps-170": {
+  "steps": [
+   "forge-suite:9c7c7fc5e7"
+  ]
+ },
+ "desk-051": {
+  "issues": [
+   "jetomev/forge-suite#82"
+  ]
+ },
+ "desk-057": {
+  "steps": [
+   "workspaceforge:5931514c14"
+  ]
+ },
+ "desk-058": {
+  "steps": [
+   "workspaceforge:d6b2535877"
+  ]
+ },
+ "desk-059": {
+  "steps": [
+   "workspaceforge:11d67fb8ea"
+  ]
+ },
+ "desk-060": {
+  "issues": [
+   "jetomev/forge-suite#83"
+  ]
+ },
+ "desk-061": {
+  "issues": [
+   "jetomev/forge-suite#64"
+  ]
+ },
+ "disc-003": {
+  "own": "putting the measured list on the disc; the audit itself is forge-suite #91 (closed)"
+ },
+ "disc-007": {
+  "own": "the disc's part; hypeForge's fix was forge-suite #94 (closed)"
+ },
+ "disc-008": {
+  "own": "the disc's part; hypeForge's fix was forge-suite #95 (closed)"
+ },
+ "look-077": {
+  "steps": [
+   "themeforge:29afb60edb"
+  ]
+ },
+ "look-078": {
+  "steps": [
+   "themeforge:a45d394d79"
+  ]
+ },
+ "look-079": {
+  "steps": [
+   "themeforge:5f3e66469c"
+  ]
+ },
+ "look-080": {
+  "steps": [
+   "themeforge:c08c7f10d5"
+  ]
+ },
+ "look-081": {
+  "steps": [
+   "themeforge:d30bed41fb"
+  ]
+ },
+ "look-082": {
+  "steps": [
+   "themeforge:f3570274ed"
+  ]
+ },
+ "pkg-134": {
+  "issues": [
+   "jetomev/nog#56"
+  ]
+ },
+ "pkg-135": {
+  "issues": [
+   "jetomev/nog#49"
+  ]
+ },
+ "pkg-136": {
+  "steps": [
+   "nog:9230067375"
+  ]
+ },
+ "pkg-137": {
+  "steps": [
+   "nog:37bcb0433b"
+  ]
+ },
+ "pkg-138": {
+  "issues": [
+   "jetomev/nog#32"
+  ]
+ },
+ "pkg-139": {
+  "steps": [
+   "nog:7a1b68a57b"
+  ]
+ },
+ "pkg-140": {
+  "steps": [
+   "nog:db5da7ae34"
+  ]
+ },
+ "pkg-141": {
+  "issues": [
+   "jetomev/nog#5"
+  ]
+ },
+ "pkg-142": {
+  "steps": [
+   "nog:0a9d429fc3"
+  ]
+ },
+ "pkg-143": {
+  "steps": [
+   "nog:9783716f88"
+  ]
+ },
+ "pkg-144": {
+  "own": "getting nogForge onto the disc's package list (the decision is made: v1.0)"
+ },
+ "pkg-145": {
+  "issues": [
+   "jetomev/nogforge#17"
+  ]
+ },
+ "pkg-146": {
+  "issues": [
+   "jetomev/nogforge#18"
+  ]
+ },
+ "pkg-147": {
+  "issues": [
+   "jetomev/nogforge#20"
+  ]
+ },
+ "pkg-148": {
+  "issues": [
+   "jetomev/nogforge#19"
+  ]
+ },
+ "pkg-149": {
+  "steps": [
+   "nogforge:0baf5d0c1d"
+  ]
+ },
+ "pkg-150": {
+  "steps": [
+   "nogforge:4a4e124c16"
+  ]
+ },
+ "pkg-151": {
+  "steps": [
+   "nogforge:df4f12c5ad"
+  ]
+ },
+ "pkg-154": {
+  "steps": [
+   "nogforge:bd0f330803"
+  ]
+ },
+ "rel-190": {
+  "steps": [
+   "forge-suite:a23f2d7c33"
+  ]
+ },
+ "sec-123": {
+  "steps": [
+   "walletforge:ccbd064372"
+  ]
+ },
+ "sec-124": {
+  "steps": [
+   "walletforge:b736274657"
+  ]
+ },
+ "sec-125": {
+  "steps": [
+   "walletforge:66ba6f7c64"
+  ]
+ },
+ "sec-126": {
+  "steps": [
+   "walletforge:27621dbc59"
+  ]
+ },
+ "sec-127": {
+  "steps": [
+   "walletforge:7c31a860fe"
+  ]
+ },
+ "sec-128": {
+  "issues": [
+   "jetomev/forge-suite#62"
+  ]
+ },
+ "sec-129": {
+  "steps": [
+   "sudoforge:76781c912f"
+  ]
+ },
+ "sec-130": {
+  "steps": [
+   "sudoforge:5817c97a52"
+  ]
+ },
+ "set-092": {
+  "steps": [
+   "defaultappsforge:b377c263b9"
+  ]
+ },
+ "set-116": {
+  "steps": [
+   "displayforge:d2592f98d6"
+  ]
+ },
+ "set-117": {
+  "steps": [
+   "displayforge:74e77af0f9"
+  ]
+ },
+ "set-118": {
+  "steps": [
+   "displayforge:ab0b2bd5b4"
+  ]
+ },
+ "set-119": {
+  "steps": [
+   "displayforge:63be548f8d"
+  ]
+ },
+ "set-120": {
+  "steps": [
+   "displayforge:b34207e53d"
+  ]
+ },
+ "set-121": {
+  "steps": [
+   "workspaceforge:c222b1a87c"
+  ]
+ }
+}

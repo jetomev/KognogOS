@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-22 16:29",
+ "taken": "2026-10-22 19:25",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -288,6 +288,8 @@
    "pick": "1.0",
    "note": "",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-22T23:19:33.000Z",
    "order": 157
   },
   "apps-158": {
@@ -563,12 +565,14 @@
   "desk-047": {
    "area": "desk",
    "title": "The bar guard: the bar comes back by itself if it ever disappears",
-   "detail": "D-115. The 10-17 silent exit is still unexplained.",
+   "detail": "D-115. Built 2026-10-22 after the empty-screen login (F-82, forge-suite bc9cc2b). Why Waybar crashes is still open.",
    "source": "hypeForge Phase 12",
    "suggest": "1.0",
    "pick": "1.0",
    "note": "",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-22T21:59:57.000Z",
    "order": 47
   },
   "desk-048": {
@@ -613,6 +617,8 @@
    "pick": "1.0",
    "note": "",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-22T23:19:33.000Z",
    "order": 51
   },
   "desk-052": {
@@ -1585,6 +1591,8 @@
    "pick": "1.0",
    "note": "",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-22T23:19:33.000Z",
    "order": 135
   },
   "pkg-136": {
@@ -1618,6 +1626,8 @@
    "pick": "1.0",
    "note": "",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-22T23:19:33.000Z",
    "order": 138
   },
   "pkg-139": {
@@ -1651,6 +1661,8 @@
    "pick": "1.0",
    "note": "",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-22T23:19:33.000Z",
    "order": 141
   },
   "pkg-142": {
@@ -1695,6 +1707,8 @@
    "pick": "1.0",
    "note": "",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-22T23:19:33.000Z",
    "order": 145
   },
   "pkg-146": {
@@ -1706,6 +1720,8 @@
    "pick": "1.0",
    "note": "",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-22T23:19:33.000Z",
    "order": 146
   },
   "pkg-147": {
@@ -1717,6 +1733,8 @@
    "pick": "1.0",
    "note": "",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-22T23:19:33.000Z",
    "order": 147
   },
   "pkg-148": {
@@ -1728,6 +1746,8 @@
    "pick": "1.0",
    "note": "",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-22T23:19:33.000Z",
    "order": 148
   },
   "pkg-149": {

@@ -17,3 +17,12 @@ stuff, and adding whatever we need like issues, missing things, new, changes. It
 (`list` + `get` with `out_dir`) and runs `scripts/board-snapshot.py <export>`; the snapshot is committed.
 `mindforge active ~/Programs/kognog` (and the brief) prints `scripts/status.sh`, whose first line says to
 open the board beside the chat.
+
+## Linked to its projects (2026-10-22)
+
+The cut copied pending lines from nog, the Forge Suite and the other apps; the copies drifted (nogForge #17–#20 shipped on 10-07 and were still on the cut). Now:
+
+- `links.json` — each item's twin: `steps` (`<project>:<step id>`, mindForge board.py ids), `issues` (`owner/repo#n`), or `own` / `unclear`.
+- `scripts/board-links.py check [<export>] [--plan F]` — what is done in its project but open here, ticked here but open there, broken links (a TODO line reworded), unclear ones. Runs in `scripts/status.sh`.
+- `scripts/board-links.py badges <dir>` — the badge each project board shows on its linked steps.
+- The page reads `links/all` (project name + board address per item) and shows a clickable project tag.
