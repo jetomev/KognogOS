@@ -1,0 +1,257 @@
+{
+ "stages": [
+  {
+   "key": "s00",
+   "name": "Settle what shapes everything",
+   "when": "late Oct 2026",
+   "why": "Decisions that change what we build next. Cheap now, expensive later — a name change or an edition dropped after the disc exists costs weeks.",
+   "items": [
+    "dec-01",
+    "dec-02",
+    "dec-03",
+    "disc-035",
+    "pkg-152",
+    "pkg-153",
+    "apps-156",
+    "rel-185",
+    "rel-186"
+   ]
+  },
+  {
+   "key": "s01",
+   "name": "Clean house",
+   "when": "Oct – Nov 2026",
+   "why": "Everything already built gets pushed, tested and released, so the rest builds on solid ground.",
+   "items": [
+    "rel-190",
+    "disc-038",
+    "apps-167",
+    "pkg-154",
+    "apps-165",
+    "apps-157",
+    "apps-155",
+    "apps-166"
+   ]
+  },
+  {
+   "key": "s02",
+   "name": "nog and nogForge, finished",
+   "when": "Nov 2026",
+   "why": "The installer and the welcome app drive nog without a person; nog has to be done first.",
+   "items": [
+    "pkg-134",
+    "pkg-138",
+    "pkg-135",
+    "pkg-136",
+    "pkg-139",
+    "pkg-140",
+    "pkg-141",
+    "pkg-142",
+    "pkg-143",
+    "pkg-137",
+    "pkg-145",
+    "pkg-146",
+    "pkg-147",
+    "pkg-148"
+   ]
+  },
+  {
+   "key": "s03",
+   "name": "Our Sway, packaged",
+   "when": "Nov 2026",
+   "why": "The disc can't build Sway in a home folder. A package, held back until our patches fit each new Sway.",
+   "items": [
+    "sway-171",
+    "sway-172",
+    "sway-173"
+   ]
+  },
+  {
+   "key": "s04",
+   "name": "The desktop, finished",
+   "when": "Nov – Dec 2026",
+   "why": "The base every style and app sits on: the bar never vanishes, one or two screens work, pop-ups follow the standard.",
+   "items": [
+    "desk-047",
+    "pop-085",
+    "pop-086",
+    "pop-084",
+    "pop-087",
+    "desk-051",
+    "set-116",
+    "set-117",
+    "set-118",
+    "set-119",
+    "set-121"
+   ]
+  },
+  {
+   "key": "s05",
+   "name": "The four styles and their colours",
+   "when": "Dec 2026",
+   "why": "Rice, Windows 11, KDE and Classic, each reviewed piece by piece; then the colour themes that make the cut; then themeForge 1.0.",
+   "items": [
+    "look-063",
+    "look-064",
+    "look-065",
+    "look-066",
+    "look-071",
+    "look-073",
+    "look-078"
+   ]
+  },
+  {
+   "key": "s06",
+   "name": "Passwords",
+   "when": "Dec 2026 – Jan 2027",
+   "why": "walletForge has to replace KDE's wallet before the disc ships without KDE; sudoForge gets its compact box and its GPG prompt.",
+   "items": [
+    "sec-123",
+    "sec-124",
+    "sec-125",
+    "sec-126",
+    "sec-127",
+    "sec-128",
+    "sec-129",
+    "sec-130"
+   ]
+  },
+  {
+   "key": "s07",
+   "name": "The Settings apps",
+   "when": "Jan 2027",
+   "why": "The Mint-sized set, in the order you set on 10-07: sound, network, Bluetooth first.",
+   "items": [
+    "set-089",
+    "set-090",
+    "set-091",
+    "set-092",
+    "set-093",
+    "set-094",
+    "set-095",
+    "set-096",
+    "set-102",
+    "set-097"
+   ]
+  },
+  {
+   "key": "s08",
+   "name": "First boot",
+   "when": "Jan – Feb 2027",
+   "why": "What someone sees the first time: the greeting, the prompt, the Welcome Center, the tier guide, the help pages, now that the desktop has settled.",
+   "items": [
+    "boot-043",
+    "boot-045",
+    "boot-046",
+    "boot-042",
+    "boot-039",
+    "boot-040",
+    "boot-041",
+    "desk-052"
+   ]
+  },
+  {
+   "key": "s09",
+   "name": "The disc's foundations",
+   "when": "Feb 2027",
+   "why": "The ISO recipe rebuilt for Sway: what goes on it, the known install bugs, the editions, the login screen, a live session that starts on any graphics card.",
+   "items": [
+    "disc-002",
+    "disc-003",
+    "disc-004",
+    "disc-005",
+    "disc-006",
+    "disc-007",
+    "disc-008",
+    "pkg-144",
+    "disc-009",
+    "disc-010",
+    "disc-011",
+    "disc-012",
+    "disc-013",
+    "disc-014",
+    "disc-015",
+    "disc-016",
+    "disc-017",
+    "disc-019",
+    "disc-020",
+    "disc-021",
+    "disc-033"
+   ]
+  },
+  {
+   "key": "s10",
+   "name": "installForge",
+   "when": "Feb – Mar 2027",
+   "why": "The installer, step by step in the order a person meets them, then the advanced parts.",
+   "items": [
+    "disc-022",
+    "disc-027",
+    "disc-029",
+    "disc-024",
+    "disc-026",
+    "disc-023",
+    "disc-028",
+    "disc-031",
+    "disc-030",
+    "disc-034",
+    "disc-001"
+   ]
+  },
+  {
+   "key": "s11",
+   "name": "Testing",
+   "when": "Mar 2027",
+   "why": "A VM until zero problems, then the real thing: the NVMe in this PC, then a laptop.",
+   "items": [
+    "test-197",
+    "test-192",
+    "test-196",
+    "test-198",
+    "sec-131",
+    "test-195",
+    "test-193",
+    "test-194"
+   ]
+  },
+  {
+   "key": "s12",
+   "name": "The release kit",
+   "when": "late Mar – early Apr 2027",
+   "why": "Everything a stranger needs before they download: the legal and privacy lines, the site, the guide, the ISO's home and signature.",
+   "items": [
+    "rel-184",
+    "rel-182",
+    "rel-183",
+    "rel-179",
+    "rel-180",
+    "rel-181",
+    "rel-176",
+    "rel-177",
+    "rel-178"
+   ]
+  },
+  {
+   "key": "s13",
+   "name": "Launch",
+   "when": "the week of 19 April 2027",
+   "why": "Two years after the wish that started it.",
+   "items": [
+    "rel-187",
+    "rel-188",
+    "rel-189"
+   ]
+  }
+ ],
+ "open": [
+  "disc-018",
+  "apps-160",
+  "gaps-200",
+  "gaps-201",
+  "gaps-202",
+  "gaps-203",
+  "gaps-204",
+  "gaps-207"
+ ],
+ "updated": "2026-10-21"
+}

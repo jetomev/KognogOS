@@ -1,0 +1,490 @@
+<title>KognogOS 1.0 Cut</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a working triage board — a sticky summary + filters, then one section per area, one row per item
+   with four pick buttons on the right (stacking under the text at phone width). Mocha-leaning, KognogOS's own. */
+:root {
+  --bg: #f4f3f8; --panel: #ffffff; --panel-2: #ecebf3; --line: #d9d7e4; --fg: #26243a; --muted: #6a6782;
+  --accent: #7a3fe0; --accent-soft: #ebe1fb;
+  --v10: #2e8b57; --v10-soft: #dcf2e4; --v1x: #2f6fd0; --v1x-soft: #dde8fa;
+  --drop: #b4434f; --drop-soft: #f6dfe2; --maybe: #b07a10; --maybe-soft: #f7ecd2; --none: #b8b5c8;
+  --sans: "IBM Plex Sans", "Noto Sans", system-ui, sans-serif; --mono: "JetBrains Mono", ui-monospace, monospace;
+  --r: 10px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #1b1a26; --panel: #24232f; --panel-2: #2c2b39; --line: #3a3849; --fg: #e6e3f2; --muted: #a29fb8;
+  --accent: #c7a6f7; --accent-soft: #3a2f55;
+  --v10: #8ed7a6; --v10-soft: #23402f; --v1x: #8db6f5; --v1x-soft: #23344f;
+  --drop: #f0909a; --drop-soft: #4a2a30; --maybe: #f0c46a; --maybe-soft: #4a3d1e; --none: #5d5a70; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #1b1a26; --panel: #24232f; --panel-2: #2c2b39; --line: #3a3849; --fg: #e6e3f2; --muted: #a29fb8;
+  --accent: #c7a6f7; --accent-soft: #3a2f55;
+  --v10: #8ed7a6; --v10-soft: #23402f; --v1x: #8db6f5; --v1x-soft: #23344f;
+  --drop: #f0909a; --drop-soft: #4a2a30; --maybe: #f0c46a; --maybe-soft: #4a3d1e; --none: #5d5a70; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 15px; line-height: 1.45; }
+.wrap { max-width: 1060px; margin: 0 auto; padding-inline: 16px; padding-block: 20px 60px; }
+h1, h2 { text-wrap: balance; margin: 0; }
+h1 { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.01em; }
+.lede { color: var(--muted); max-width: 68ch; margin: 6px 0 0; }
+.lede b { color: var(--fg); font-weight: 600; }
+
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); padding-block: 12px 10px;
+       border-bottom: 1px solid var(--line); display: grid; gap: 10px; }
+.tally { display: flex; flex-wrap: wrap; gap: 6px 14px; font-family: var(--mono); font-size: 0.82rem; color: var(--muted);
+         font-variant-numeric: tabular-nums; }
+.tally b { color: var(--fg); font-weight: 600; }
+.tally i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 5px; vertical-align: 0; }
+.meter { display: flex; height: 8px; border-radius: 5px; overflow: hidden; background: var(--none); }
+.meter span { display: block; height: 100%; transition: width .25s ease; }
+.tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.tools input[type=search] { flex: 1 1 220px; min-width: 0; font: inherit; font-size: 0.92rem; padding: 7px 10px; border-radius: 8px;
+  border: 1px solid var(--line); background: var(--panel); color: var(--fg); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: 500 0.8rem var(--sans); padding: 5px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel);
+        color: var(--fg); cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--fg); }
+.chip:focus-visible, .pick button:focus-visible, .btn:focus-visible, textarea:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 2px; }
+.areas { display: flex; flex-wrap: wrap; gap: 6px; }
+.areas a { font: 500 0.78rem var(--sans); color: var(--muted); text-decoration: none; padding: 3px 8px; border-radius: 6px; background: var(--panel-2); }
+.areas a:hover { color: var(--fg); }
+.areas a em { font-style: normal; font-family: var(--mono); color: var(--fg); margin-left: 4px; }
+
+.notice { margin-top: 16px; padding: 12px 14px; border-radius: var(--r); background: var(--maybe-soft); color: var(--fg); }
+section.area { margin-top: 26px; }
+.area-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; padding-bottom: 8px; border-bottom: 2px solid var(--fg); }
+.area-head h2 { font-size: 1.15rem; font-weight: 700; }
+.area-head .count { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+.area-head .btn { margin-left: auto; }
+.btn { font: 500 0.8rem var(--sans); padding: 5px 10px; border-radius: 7px; border: 1px solid var(--line); background: var(--panel); color: var(--fg); cursor: pointer; }
+.btn:hover { border-color: var(--accent); }
+.btn[disabled] { opacity: .5; cursor: default; }
+
+ul.items { list-style: none; margin: 0; padding: 0; }
+li.item { display: grid; grid-template-columns: 1fr auto; gap: 8px 16px; padding: 12px 4px 12px 12px; border-bottom: 1px solid var(--line);
+          border-left: 4px solid var(--none); }
+li.item[data-pick="1.0"] { border-left-color: var(--v10); }
+li.item[data-pick="1.x"] { border-left-color: var(--v1x); }
+li.item[data-pick="drop"] { border-left-color: var(--drop); }
+li.item[data-pick="?"] { border-left-color: var(--maybe); }
+.txt { min-width: 0; }
+.ttl { font-weight: 600; }
+.det { color: var(--muted); font-size: 0.88rem; margin-top: 2px; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; align-items: center; }
+.src { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); background: var(--panel-2); padding: 1px 6px; border-radius: 4px; }
+.new { font: 700 0.66rem var(--sans); letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent);
+       padding: 0 5px; border-radius: 4px; }
+.sug { font-size: 0.75rem; color: var(--muted); }
+.sug b { font-weight: 600; }
+.sug[data-v="1.0"] b { color: var(--v10); } .sug[data-v="1.x"] b { color: var(--v1x); } .sug[data-v="drop"] b { color: var(--drop); } .sug[data-v="?"] b { color: var(--maybe); }
+.differs { font-size: 0.72rem; color: var(--accent); }
+.notebtn { font: 500 0.75rem var(--sans); color: var(--muted); background: none; border: none; padding: 0; cursor: pointer; text-decoration: underline dotted; }
+.note { grid-column: 1 / -1; }
+.note textarea { width: 100%; min-height: 54px; font: 0.88rem var(--sans); padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line);
+                 background: var(--panel); color: var(--fg); resize: vertical; }
+.notetext { grid-column: 1 / -1; font-size: 0.85rem; color: var(--fg); background: var(--accent-soft); padding: 6px 10px; border-radius: 8px; white-space: pre-wrap; }
+
+.pick { display: inline-grid; grid-template-columns: repeat(4, auto); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; align-self: start; background: var(--panel); }
+.pick button { font: 600 0.78rem var(--sans); padding: 6px 10px; border: none; border-right: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; min-width: 52px; }
+.pick button:last-child { border-right: none; }
+.pick button:hover { color: var(--fg); background: var(--panel-2); }
+.pick button[aria-pressed="true"][data-v="1.0"] { background: var(--v10-soft); color: var(--v10); }
+.pick button[aria-pressed="true"][data-v="1.x"] { background: var(--v1x-soft); color: var(--v1x); }
+.pick button[aria-pressed="true"][data-v="drop"] { background: var(--drop-soft); color: var(--drop); }
+.pick button[aria-pressed="true"][data-v="?"] { background: var(--maybe-soft); color: var(--maybe); }
+.pick[aria-disabled="true"] button { cursor: default; }
+
+.add { margin-top: 34px; padding: 16px; border-radius: var(--r); background: var(--panel); border: 1px dashed var(--line); display: grid; gap: 10px; }
+.add h2 { font-size: 1.05rem; }
+.add .row { display: flex; flex-wrap: wrap; gap: 8px; }
+.add input, .add select { font: inherit; font-size: 0.92rem; padding: 7px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); min-width: 0; }
+.add input { flex: 1 1 260px; }
+.empty { padding: 40px 0; color: var(--muted); text-align: center; }
+.saving { font-size: 0.75rem; color: var(--muted); min-height: 1em; }
+
+.views { display: flex; gap: 0; border: 1px solid var(--line); border-radius: 9px; overflow: hidden; width: fit-content; }
+.views button { font: 600 0.85rem var(--sans); padding: 7px 14px; border: none; background: var(--panel); color: var(--muted); cursor: pointer; }
+.views button[aria-pressed="true"] { background: var(--accent-soft); color: var(--fg); }
+.views button + button { border-left: 1px solid var(--line); }
+ol.road { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 22px; }
+.stage { display: grid; grid-template-columns: 3.2rem 1fr; gap: 0 14px; }
+.stage-no { font: 700 1.5rem var(--mono); color: var(--accent); line-height: 1.1; padding-top: 2px; font-variant-numeric: tabular-nums; }
+.stage-body { min-width: 0; border-left: 2px solid var(--line); padding-left: 14px; }
+.stage h2 { font-size: 1.12rem; }
+.stage .when { font: 600 0.75rem var(--mono); color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; }
+.stage .why { color: var(--muted); font-size: 0.9rem; margin: 4px 0 8px; max-width: 70ch; }
+.stage ol { margin: 0; padding-left: 1.4rem; display: grid; gap: 5px; }
+.stage li { padding-left: 2px; }
+.stage li::marker { font: 600 0.75rem var(--mono); color: var(--muted); }
+.stage li .t { font-weight: 500; }
+.stage li .a { font: 0.7rem var(--mono); color: var(--muted); background: var(--panel-2); padding: 0 5px; border-radius: 4px; margin-left: 6px; white-space: nowrap; }
+.stage li .p { font: 700 0.66rem var(--sans); padding: 0 5px; border-radius: 4px; margin-left: 6px; }
+.stage li .p[data-v="none"] { color: var(--accent); border: 1px solid var(--accent); }
+.stage li { display: list-item; }
+.stage li .tick { width: 1.15rem; height: 1.15rem; margin: 0 6px 0 0; vertical-align: -3px; border-radius: 4px; border: 1.5px solid var(--line);
+                  background: var(--panel); cursor: pointer; padding: 0; font: 700 0.75rem var(--sans); color: var(--panel); line-height: 1; }
+.stage li .tick[aria-pressed="true"] { background: var(--v10); border-color: var(--v10); color: var(--bg); }
+.stage li.done .t { text-decoration: line-through; color: var(--muted); }
+.stage .prog { display: flex; align-items: center; gap: 10px; margin: 2px 0 8px; font: 0.75rem var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.stage .prog .bar { flex: 0 1 180px; height: 6px; border-radius: 4px; background: var(--panel-2); overflow: hidden; }
+.stage .prog .bar span { display: block; height: 100%; background: var(--v10); }
+.stage.complete .stage-no { color: var(--v10); }
+.road-head { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; margin-top: 14px; font: 0.82rem var(--mono); color: var(--muted); }
+.road-head b { color: var(--fg); }
+.road-open { margin-top: 26px; padding: 12px 14px; border-radius: var(--r); background: var(--panel-2); }
+.road-open h2 { font-size: 1rem; margin-bottom: 6px; }
+.road-open ul { margin: 0; padding-left: 1.2rem; }
+
+@media (max-width: 640px) {
+  .stage { grid-template-columns: 2.2rem 1fr; }
+  li.item { grid-template-columns: 1fr; }
+  .pick { width: 100%; grid-template-columns: repeat(4, 1fr); }
+  .area-head .btn { margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .meter span { transition: none; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>KognogOS 1.0 Cut</h1>
+    <p class="lede">Everything we know is pending for the first release, one item at a time. Pick <b>v1.0</b> (it ships in April 2027),
+      <b>1.x</b> (it comes during the first year), <b>Drop</b>, or <b>Not sure</b>. My suggestion sits under each item; your pick is what counts.
+      Click a pick again to clear it. Items marked <span class="new">New</span> were never written down before today.</p>
+  </header>
+
+  <div class="top" id="top">
+    <div class="views" role="group" aria-label="View">
+      <button type="button" id="v-road" aria-pressed="true">Road to launch</button>
+      <button type="button" id="v-area" aria-pressed="false">Every item, by area</button>
+    </div>
+    <div class="tally" id="tally"></div>
+    <div class="meter" id="meter" aria-hidden="true"></div>
+    <div class="tools">
+      <input type="search" id="q" placeholder="Find an item…" aria-label="Find an item">
+      <div class="chips" id="filters" role="group" aria-label="Show"></div>
+    </div>
+    <nav class="areas" id="areas" aria-label="Areas"></nav>
+  </div>
+
+  <div id="notice" class="notice" hidden></div>
+  <div id="road"><p class="empty" id="road-empty">The road is loading…</p></div>
+  <div id="list" hidden><p class="empty" id="empty">The list is loading…</p></div>
+
+  <form class="add" id="add" hidden>
+    <h2>Add something we missed</h2>
+    <div class="row">
+      <select id="add-area" aria-label="Area"></select>
+      <input id="add-title" placeholder="What's missing, in a few words" aria-label="What's missing" required>
+      <button class="btn" type="submit">Add it</button>
+    </div>
+    <div class="saving" id="add-msg"></div>
+  </form>
+</div>
+
+<script>
+const AREAS = [
+  ["disc", "The disc and the installer"], ["boot", "First boot and welcome"], ["desk", "The desktop"],
+  ["look", "Styles and colour themes"], ["pop", "Pop-ups"], ["set", "Settings apps"], ["sec", "Passwords and security"],
+  ["pkg", "Packages: nog and nogForge"], ["apps", "The other Forge apps"], ["sway", "Our Sway build"], ["kde", "Leaving KDE"],
+  ["rel", "Release kit and public face"], ["test", "Testing before release"], ["gaps", "Gaps nobody has written down"],
+];
+const PICKS = [["1.0", "v1.0"], ["1.x", "1.x"], ["drop", "Drop"], ["?", "Not sure"]];
+const LABEL = { "1.0": "v1.0", "1.x": "1.x", "drop": "Drop", "?": "Not sure" };
+const COLOR = { "1.0": "var(--v10)", "1.x": "var(--v1x)", "drop": "var(--drop)", "?": "var(--maybe)" };
+const FILTERS = [["all", "All"], ["todo", "Not judged"], ["1.0", "v1.0"], ["1.x", "1.x"], ["drop", "Drop"], ["?", "Not sure"],
+                 ["differs", "Differs from mine"], ["new", "New only"]];
+
+let db = null, canWrite = true, items = new Map(), rows = new Map(), filter = "all", query = "";
+const $ = (id) => document.getElementById(id);
+
+// ---- the skeleton: sections, filters, area links
+const list = $("list");
+for (const [key, name] of AREAS) {
+  const sec = document.createElement("section");
+  sec.className = "area"; sec.id = "a-" + key; sec.hidden = true;
+  sec.innerHTML = `<div class="area-head"><h2></h2><span class="count"></span>
+    <button class="btn" type="button" data-take="${key}">Use Claude's picks for the unjudged here</button></div><ul class="items"></ul>`;
+  sec.querySelector("h2").textContent = name;
+  list.appendChild(sec);
+  const o = document.createElement("option"); o.value = key; o.textContent = name; $("add-area").appendChild(o);
+}
+for (const [key, name] of FILTERS) {
+  const b = document.createElement("button");
+  b.type = "button"; b.className = "chip"; b.dataset.f = key; b.textContent = name;
+  b.setAttribute("aria-pressed", key === filter ? "true" : "false");
+  b.onclick = () => { filter = key; document.querySelectorAll("#filters .chip").forEach(c => c.setAttribute("aria-pressed", c.dataset.f === key)); applyFilter(); };
+  $("filters").appendChild(b);
+}
+$("q").addEventListener("input", (e) => { query = e.target.value.trim().toLowerCase(); applyFilter(); });
+
+// ---- one row per item, made once and updated in place (a note being typed is never wiped)
+function makeRow(id) {
+  const li = document.createElement("li");
+  li.className = "item"; li.dataset.id = id;
+  li.innerHTML = `<div class="txt"><div class="ttl"></div><div class="det"></div>
+      <div class="meta"><span class="src"></span><span class="new" hidden>New</span><span class="sug"></span>
+        <span class="differs" hidden>differs from Claude's</span><button class="notebtn" type="button">Add a note</button></div></div>
+    <div class="pick" role="group" aria-label="Pick"></div>
+    <div class="notetext" hidden></div>
+    <div class="note" hidden><textarea aria-label="Note"></textarea></div>`;
+  const pick = li.querySelector(".pick");
+  for (const [v, name] of PICKS) {
+    const b = document.createElement("button");
+    b.type = "button"; b.dataset.v = v; b.textContent = name; b.setAttribute("aria-pressed", "false");
+    b.onclick = () => setPick(id, v);
+    pick.appendChild(b);
+  }
+  const ta = li.querySelector("textarea"), noteBox = li.querySelector(".note"), noteText = li.querySelector(".notetext");
+  li.querySelector(".notebtn").onclick = () => {
+    noteBox.hidden = false; noteText.hidden = true; ta.value = (items.get(id) || {}).note || ""; ta.focus();
+  };
+  ta.addEventListener("blur", () => saveNote(id, ta.value));
+  return li;
+}
+
+function updateRow(li, it) {
+  li.dataset.pick = it.pick || "";
+  li.querySelector(".ttl").textContent = it.title || "";
+  const det = li.querySelector(".det"); det.textContent = it.detail || ""; det.hidden = !it.detail;
+  li.querySelector(".src").textContent = it.source || "";
+  li.querySelector(".new").hidden = !it.new;
+  const sug = li.querySelector(".sug");
+  if (it.suggest) { sug.dataset.v = it.suggest; sug.innerHTML = "Claude: <b></b>"; sug.querySelector("b").textContent = LABEL[it.suggest] || it.suggest; }
+  else { sug.textContent = it.addedBy === "javier" ? "Added by you" : ""; }
+  li.querySelector(".differs").hidden = !(it.pick && it.suggest && it.pick !== it.suggest);
+  li.querySelectorAll(".pick button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === it.pick ? "true" : "false"));
+  li.querySelector(".pick").setAttribute("aria-disabled", canWrite ? "false" : "true");
+  const noteBox = li.querySelector(".note"), noteText = li.querySelector(".notetext");
+  if (noteBox.hidden || document.activeElement !== li.querySelector("textarea")) {
+    noteBox.hidden = true;
+    noteText.textContent = it.note || ""; noteText.hidden = !it.note;
+  }
+  li.querySelector(".notebtn").textContent = it.note ? "Edit the note" : "Add a note";
+  li.querySelector(".notebtn").hidden = !canWrite;
+}
+
+function render() {
+  const ordered = [...items.values()].sort((a, b) => (a.order ?? 1e12) - (b.order ?? 1e12));
+  const seen = new Set();
+  for (const it of ordered) {
+    const sec = $("a-" + it.area) || $("a-gaps");
+    let li = rows.get(it.id);
+    if (!li) { li = makeRow(it.id); rows.set(it.id, li); }
+    const ul = sec.querySelector("ul");
+    if (li.parentNode !== ul) ul.appendChild(li);
+    updateRow(li, it); seen.add(it.id);
+  }
+  for (const [id, li] of rows) if (!seen.has(id)) { li.remove(); rows.delete(id); }
+  // keep each list in order
+  for (const [key] of AREAS) {
+    const ul = $("a-" + key).querySelector("ul");
+    const want = ordered.filter(it => (($("a-" + it.area) ? it.area : "gaps") === key)).map(it => rows.get(it.id));
+    want.forEach((li, i) => { if (ul.children[i] !== li) ul.insertBefore(li, ul.children[i] || null); });
+  }
+  $("empty").hidden = items.size > 0;
+  if (!items.size) $("empty").textContent = db ? "No items yet. Claude adds the list right after the page is published." : "The list lives in this page's database, which this view can't open.";
+  tally(); applyFilter();
+}
+
+function tally() {
+  const all = [...items.values()];
+  const n = { "1.0": 0, "1.x": 0, "drop": 0, "?": 0, none: 0 };
+  for (const it of all) n[it.pick && n[it.pick] !== undefined ? it.pick : "none"]++;
+  const total = all.length || 1;
+  $("tally").innerHTML = "";
+  const parts = [["1.0", "v1.0"], ["1.x", "1.x"], ["drop", "Drop"], ["?", "Not sure"], ["none", "Not judged"]];
+  for (const [k, name] of parts) {
+    const s = document.createElement("span");
+    s.innerHTML = `<i></i>${name} <b></b>`;
+    s.querySelector("i").style.background = COLOR[k] || "var(--none)";
+    s.querySelector("b").textContent = n[k];
+    $("tally").appendChild(s);
+  }
+  const t = document.createElement("span"); t.innerHTML = "of <b></b>"; t.querySelector("b").textContent = all.length; $("tally").appendChild(t);
+  $("meter").innerHTML = "";
+  for (const k of ["1.0", "1.x", "drop", "?"]) {
+    const s = document.createElement("span"); s.style.width = (100 * n[k] / total) + "%"; s.style.background = COLOR[k]; $("meter").appendChild(s);
+  }
+  $("areas").innerHTML = "";
+  for (const [key, name] of AREAS) {
+    const inArea = all.filter(it => it.area === key);
+    if (!inArea.length) continue;
+    const left = inArea.filter(it => !it.pick).length;
+    const a = document.createElement("a"); a.href = "#a-" + key; a.textContent = name;
+    const em = document.createElement("em"); em.textContent = left ? left + " left" : "done"; a.appendChild(em);
+    $("areas").appendChild(a);
+    const sec = $("a-" + key);
+    sec.querySelector(".count").textContent = `${inArea.length} items · ${left} not judged`;
+    sec.querySelector("[data-take]").disabled = !canWrite || !inArea.some(it => !it.pick && it.suggest);
+  }
+}
+
+function matches(it) {
+  if (query && !(`${it.title} ${it.detail} ${it.source} ${it.note || ""}`.toLowerCase().includes(query))) return false;
+  switch (filter) {
+    case "all": return true;
+    case "todo": return !it.pick;
+    case "differs": return !!(it.pick && it.suggest && it.pick !== it.suggest);
+    case "new": return !!it.new;
+    default: return it.pick === filter;
+  }
+}
+
+function applyFilter() {
+  for (const [id, li] of rows) li.hidden = !matches(items.get(id));
+  for (const [key] of AREAS) {
+    const sec = $("a-" + key);
+    sec.hidden = ![...sec.querySelectorAll("li.item")].some(li => !li.hidden);
+  }
+}
+
+// ---- writes: one at a time per item, only on a real change
+const busy = new Set();
+async function setPick(id, v) {
+  if (!db || !canWrite || busy.has(id)) return;
+  const it = items.get(id); if (!it) return;
+  const next = it.pick === v ? null : v;
+  busy.add(id);
+  try { await db.collection("items").doc(id).update({ pick: next, pickedAt: new Date().toISOString() }); }
+  catch (e) { failed(e); }
+  finally { busy.delete(id); }
+}
+async function setDone(id, done) {
+  if (!db || !canWrite || busy.has(id)) return;
+  busy.add(id);
+  try { await db.collection("items").doc(id).update({ done, doneAt: done ? new Date().toISOString() : null }); }
+  catch (e) { failed(e); }
+  finally { busy.delete(id); }
+}
+async function saveNote(id, text) {
+  const it = items.get(id); if (!db || !canWrite || !it) return;
+  const note = text.trim();
+  const li = rows.get(id); li.querySelector(".note").hidden = true;
+  if (note === (it.note || "")) { updateRow(li, it); return; }
+  try { await db.collection("items").doc(id).update({ note }); } catch (e) { failed(e); }
+}
+list.addEventListener("click", async (e) => {
+  const b = e.target.closest("[data-take]"); if (!b || !db || !canWrite) return;
+  b.disabled = true;
+  const area = b.dataset.take;
+  for (const it of [...items.values()].filter(x => x.area === area && !x.pick && x.suggest)) {
+    try { await db.collection("items").doc(it.id).update({ pick: it.suggest, pickedAt: new Date().toISOString(), fromClaude: true }); }
+    catch (err) { failed(err); break; }
+  }
+});
+$("add").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const title = $("add-title").value.trim(); if (!title || !db) return;
+  const area = $("add-area").value;
+  $("add-msg").textContent = "Adding…";
+  try {
+    await db.collection("items").doc("you-" + Date.now()).set({ area, title, detail: "", source: "added by you", suggest: null, new: true,
+      addedBy: "javier", pick: null, note: "", order: 100000 + Date.now() / 1000 });
+    $("add-title").value = ""; $("add-msg").textContent = "Added. It sits at the end of its area.";
+  } catch (err) { failed(err); $("add-msg").textContent = ""; }
+});
+function failed(e) {
+  const code = e && e.code;
+  if (code === "invalid_argument" || code === "revoked") { canWrite = false; render(); show("This view can read the list but can't save picks."); }
+  else if (code === "quota_exceeded") show("The list is full. Nothing more can be added here.");
+  else show("A pick didn't save. Try that one again in a moment.");
+}
+function show(words) { const n = $("notice"); n.textContent = words; n.hidden = false; }
+
+// ---- the road to launch: the stages in order, each item numbered (the order is the plan)
+let road = null, view = "road";
+const AREA_NAME = Object.fromEntries(AREAS);
+function setView(v) {
+  view = v;
+  $("v-road").setAttribute("aria-pressed", v === "road"); $("v-area").setAttribute("aria-pressed", v === "area");
+  $("road").hidden = v !== "road"; $("list").hidden = v !== "area";
+  for (const id of ["tools", "areas"]) { const el = id === "tools" ? document.querySelector(".tools") : $("areas"); el.hidden = v !== "area"; }
+  $("add").hidden = v !== "area" || !canWrite || !db;
+}
+$("v-road").onclick = () => setView("road");
+$("v-area").onclick = () => setView("area");
+try { if (localStorage.getItem("cut-view") === "area") view = "area"; } catch {}
+for (const b of [$("v-road"), $("v-area")]) b.addEventListener("click", () => { try { localStorage.setItem("cut-view", view); } catch {} });
+setView(view);
+
+function renderRoad() {
+  const box = $("road");
+  if (!road || !road.stages) { box.innerHTML = `<p class="empty">${db ? "The road isn't written yet." : "The road lives in this page's database, which this view can't open."}</p>`; return; }
+  box.innerHTML = "";
+  const all = road.stages.flatMap(s => (s.items || []).map(id => items.get(id)).filter(Boolean));
+  const doneAll = all.filter(it => it.done).length;
+  const next = road.stages.findIndex(s => (s.items || []).some(id => items.get(id) && !items.get(id).done));
+  const head = document.createElement("div"); head.className = "road-head";
+  head.innerHTML = `<span>Done <b></b> of <b></b></span><span>Now: <b></b></span>`;
+  const hb = head.querySelectorAll("b");
+  hb[0].textContent = doneAll; hb[1].textContent = all.length;
+  hb[2].textContent = next < 0 ? "launched" : `stage ${String(next).padStart(2, "0")} · ${road.stages[next].name}`;
+  box.appendChild(head);
+  const ol = document.createElement("ol"); ol.className = "road";
+  road.stages.forEach((s, i) => {
+    const li = document.createElement("li"); li.className = "stage"; li.id = "s-" + (s.key || i);
+    li.innerHTML = `<div class="stage-no"></div><div class="stage-body"><div class="when"></div><h2></h2><p class="why"></p>
+      <div class="prog"><div class="bar"><span></span></div><span class="n"></span></div><ol></ol></div>`;
+    li.querySelector(".stage-no").textContent = String(i).padStart(2, "0");
+    li.querySelector(".when").textContent = s.when || "";
+    li.querySelector("h2").textContent = s.name || "";
+    li.querySelector(".why").textContent = s.why || "";
+    const mine = (s.items || []).map(id => items.get(id)).filter(Boolean);
+    const d = mine.filter(it => it.done).length;
+    li.querySelector(".prog .bar span").style.width = (mine.length ? 100 * d / mine.length : 0) + "%";
+    li.querySelector(".prog .n").textContent = `${d} of ${mine.length} done`;
+    if (mine.length && d === mine.length) li.classList.add("complete");
+    const steps = li.querySelector("ol");
+    for (const id of s.items || []) {
+      const it = items.get(id); if (!it) continue;
+      const st = document.createElement("li");
+      if (it.done) st.classList.add("done");
+      st.innerHTML = `<span class="t"></span><span class="a"></span>`;
+      if (canWrite && db) {
+        const tick = document.createElement("button");
+        tick.type = "button"; tick.className = "tick"; tick.textContent = "✓";
+        tick.setAttribute("aria-pressed", it.done ? "true" : "false");
+        tick.setAttribute("aria-label", (it.done ? "Not done: " : "Done: ") + it.title);
+        tick.onclick = () => setDone(id, !it.done);
+        st.prepend(tick);
+      }
+      st.querySelector(".t").textContent = it.title;
+      st.querySelector(".a").textContent = AREA_NAME[it.area] || it.area;
+      if (!it.pick) { const p = document.createElement("span"); p.className = "p"; p.dataset.v = "none"; p.textContent = "Answer this"; st.appendChild(p); }
+      steps.appendChild(st);
+    }
+    ol.appendChild(li);
+  });
+  box.appendChild(ol);
+  const open = (road.open || []).map(id => items.get(id)).filter(Boolean);
+  if (open.length) {
+    const d = document.createElement("div"); d.className = "road-open";
+    d.innerHTML = "<h2>Still open, off the road until you decide</h2><ul></ul>";
+    for (const it of open) { const li = document.createElement("li"); li.textContent = it.title; d.querySelector("ul").appendChild(li); }
+    box.appendChild(d);
+  }
+}
+
+// ---- connect
+(async () => {
+  try { db = window.claude ? await window.claude.use("db") : null; } catch { db = null; }
+  if (!db) { render(); renderRoad(); show("This view can't open the page's database, so the list can't load. Open it on claude.ai while signed in."); return; }
+  try {
+    const user = await window.claude.use("user");
+    const w = user ? await user.can("data.write") : null;
+    if (w === false) { canWrite = false; show("You can read this list. Only its owner picks."); }
+  } catch {}
+  setView(view);
+  db.collection("items").onSnapshot((snap) => {
+    items = new Map(snap.docs.map(d => [d.id, { id: d.id, ...d.data() }]));
+    render(); renderRoad();
+  }, () => { show("The live list stopped updating. Reload the page."); });
+  db.doc("road/plan").onSnapshot((snap) => {
+    road = snap.exists ? snap.data() : null;
+    renderRoad();
+  }, () => {});
+})();
+</script>
