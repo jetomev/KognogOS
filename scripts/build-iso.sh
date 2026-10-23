@@ -18,7 +18,7 @@ set -euo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 ISO="$REPO/iso"
 AIR="$ISO/airootfs"
-DEFAULT_WP="Kognog OS Semi - Logo Catpuccin Mocha.png"
+DEFAULT_WP="KognogOS Semi - Logo Catpuccin Mocha.png"
 
 [[ -f "$ISO/local-repo/kognog-local.db.tar.gz" ]] || {
     echo "!! local repo missing — run scripts/build-local-repo.sh first" >&2
@@ -60,7 +60,7 @@ cat > "$PKG/metadata.json" <<'EOF'
 {
     "KPlugin": {
         "Id": "KognogSemi",
-        "Name": "Kognog OS Semi",
+        "Name": "KognogOS Semi",
         "License": "GPL-3.0-or-later",
         "Authors": [{ "Name": "Javier (jetomev)" }]
     }

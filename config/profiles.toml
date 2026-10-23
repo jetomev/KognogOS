@@ -105,8 +105,14 @@ kognog_suite = [
 # AUR helper
 aur_helper = "yay"
 
-# Browsers — both shipped; user picks at first run
-browsers = ["google-chrome", "brave-bin"]
+# Browser — Google Chrome (#14, Javier 2026-10-07: Chrome replaces Brave). Chrome may not be carried inside
+# the disc image, so the installer fetches it during the install; the [proprietary] switch offers the others.
+browsers = ["google-chrome"]
+
+# Ticked by default on every edition, fetched during the install from their own sources (#14): Chrome from
+# Google's repository, Claude Desktop through its AUR recipe, Claude Terminal (Claude Code) through `claude-code`.
+# The person installing can untick any of them.
+preinstalled_proprietary = ["google-chrome", "claude-desktop", "claude-code"]
 
 # Default editor (recommended throughout KognogOS docs)
 editor = "fresh-editor-bin"

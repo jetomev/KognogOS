@@ -56,7 +56,7 @@ The rules are enforced by [**nog**](https://github.com/jetomev/nog), our package
 
 Every edition shares the same core — the hypeForge desktop, nog, the Forge Suite, drivers, and the terminal stack. They differ only in the apps layered on top. The definitions live in [`config/profiles.toml`](config/profiles.toml), which the installer reads directly.
 
-**Basic** — the shared core. Boots into hypeForge on Sway with the KognogOS terminal greeting. **†** *The app lists below date from the Plasma build; KDE apps are being replaced by terminal-first ones (galculator for KCalc, the hypeForge screenshot tool for Spectacle…) and each list will be redone.* **Nemo** is the default file manager (Dolphin stays installed), **Fresh Editor** the default text editor, and both **Chrome** and **Brave** are ready. Includes nog, grubForge, and alacrittyForge, plus the everyday floor: Gwenview, Ark, KCalc, Spectacle, full fonts, printing and scanning, and the firewall on by default.
+**Basic** — the shared core. Boots into hypeForge on Sway with the KognogOS terminal greeting. **†** *The app lists below date from the Plasma build; KDE apps are being replaced by terminal-first ones (galculator for KCalc, the hypeForge screenshot tool for Spectacle…) and each list will be redone.* **Nemo** is the default file manager (Dolphin stays installed), **Fresh Editor** the default text editor, and **Google Chrome** is the browser (the installer can swap it for Brave or Firefox). Includes nog, grubForge, and alacrittyForge, plus the everyday floor: Gwenview, Ark, KCalc, Spectacle, full fonts, printing and scanning, and the firewall on by default.
 
 **Work** *(the former Office)* — adds OnlyOffice, Obsidian, Thunderbird, Xournalpp, Elisa, Spotify, GIMP, Pinta, Kdenlive, Discord, Telegram.
 
@@ -124,7 +124,8 @@ Instead of editing config files by hand and hoping, the Forge tools give you a g
 | Terminal | **Alacritty**, configured by alacrittyForge |
 | Shell | **Fish** + Tide v6 prompt |
 | Default Editor | **Fresh Editor** |
-| Browsers | Chrome + Brave (both shipped) |
+| Browser | Google Chrome (swap it for Brave or Firefox while installing) |
+| Ticked by default | Google Chrome, Claude Desktop and Claude Terminal — fetched during the install from their own sources; untick any of them |
 | Font | JetBrains Mono Nerd Font |
 | Theme | Catppuccin Mocha |
 | Extra Repos | chaotic-aur |
@@ -135,7 +136,7 @@ The installer marks every proprietary app. Uncheck one and it offers a free repl
 
 | Proprietary | Offered instead |
 |---|---|
-| Google Chrome | Brave (already shipped) · Firefox |
+| Google Chrome | Brave · Firefox |
 | Spotify | Elisa (already in Office) · Strawberry |
 | Discord | Vesktop (open client, same service) · Element (Matrix) |
 | Steam | No equivalent exists; Lutris and Heroic stay |
@@ -237,7 +238,7 @@ The road to v1.0, targeting **the week of 19 April 2027**. **The plan, every ste
 - A graphical installer — after installForge proves the flow
 - Our own package repository — not needed while the official repos and the AUR carry everything
 - The "Arch" brand variant — a future year
-- ~~nogForge~~ — shipped (now v1.4.0)
+- ~~nogForge~~ — shipped (now v1.5.0)
 
 ---
 

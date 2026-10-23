@@ -19,7 +19,7 @@
 set -euo pipefail
 
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
-DEFAULT="Kognog OS Semi - Logo Catpuccin Mocha.png"   # canonical default
+DEFAULT="KognogOS Semi - Logo Catpuccin Mocha.png"   # canonical default
 
 # Wallpaper package (metadata + sized image, Plasma package layout)
 PKG=/usr/share/wallpapers/KognogSemi
@@ -29,7 +29,7 @@ cat > "$PKG/metadata.json" <<'EOF'
 {
     "KPlugin": {
         "Id": "KognogSemi",
-        "Name": "Kognog OS Semi",
+        "Name": "KognogOS Semi",
         "License": "GPL-3.0-or-later",
         "Authors": [{ "Name": "Javier (jetomev)" }]
     }

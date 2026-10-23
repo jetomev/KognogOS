@@ -1,7 +1,7 @@
 {
     "KPlugin": {
         "Id": "KognogSemi",
-        "Name": "Kognog OS Semi",
+        "Name": "KognogOS Semi",
         "License": "GPL-3.0-or-later",
         "Authors": [{ "Name": "Javier (jetomev)" }]
     }

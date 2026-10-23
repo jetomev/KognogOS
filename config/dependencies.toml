@@ -22,7 +22,7 @@ packages = [
 [browser]
 description = "Default web browser"
 packages = [
-    "brave-bin",        # default browser (AUR)
+    "google-chrome",    # default browser (#14, 2026-10-07: replaces Brave; fetched during the install)
 ]
 
 # ── Communication ─────────────────────────────────────────────────────────────
@@ -74,19 +74,19 @@ packages = [
 description = "KognogOS default wallpapers — used in SDDM, Calamares, and KDE"
 files = [
     # Arch-emphasis variants (heritage)
-    "assets/wallpapers/Kognog OS Arch - Logo Black.png",
-    "assets/wallpapers/Kognog OS Arch - Logo Catpuccin Mocha.png",
-    "assets/wallpapers/Kognog OS Arch - Logo Gray.png",
-    "assets/wallpapers/Kognog OS Arch - Logo Green.png",
-    "assets/wallpapers/Kognog OS Arch - Logo White.png",
+    "assets/wallpapers/KognogOS Arch - Logo Black.png",
+    "assets/wallpapers/KognogOS Arch - Logo Catpuccin Mocha.png",
+    "assets/wallpapers/KognogOS Arch - Logo Gray.png",
+    "assets/wallpapers/KognogOS Arch - Logo Green.png",
+    "assets/wallpapers/KognogOS Arch - Logo White.png",
     # Semi-rolling-emphasis variants (identity)
-    "assets/wallpapers/Kognog OS Semi - Logo Black.png",
-    "assets/wallpapers/Kognog OS Semi - Logo Catpuccin Mocha.png",
-    "assets/wallpapers/Kognog OS Semi - Logo Gray.png",
-    "assets/wallpapers/Kognog OS Semi - Logo Green.png",
-    "assets/wallpapers/Kognog OS Semi - Logo White.png",
+    "assets/wallpapers/KognogOS Semi - Logo Black.png",
+    "assets/wallpapers/KognogOS Semi - Logo Catpuccin Mocha.png",
+    "assets/wallpapers/KognogOS Semi - Logo Gray.png",
+    "assets/wallpapers/KognogOS Semi - Logo Green.png",
+    "assets/wallpapers/KognogOS Semi - Logo White.png",
 ]
-default = "Kognog OS Semi - Logo Catpuccin Mocha.png"
+default = "KognogOS Semi - Logo Catpuccin Mocha.png"
 
 # ── Web shortcuts ─────────────────────────────────────────────────────────────
 [web_shortcuts]
