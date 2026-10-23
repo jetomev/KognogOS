@@ -163,6 +163,8 @@ nog
 grubforge
 alacrittyforge
 fresh-editor-bin
+# the LIVE session's browser only (Javier, 2026-10-22): Chrome may not ride the disc; the installer
+# pre-ticks Chrome for the installed system and fetches it during the install (#14)
 brave-bin
 git
 nano

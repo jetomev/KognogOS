@@ -19,7 +19,7 @@
 set -euo pipefail
 
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
-DEFAULT="KognogOS Semi - Logo Catpuccin Mocha.png"   # canonical default
+DEFAULT="KognogOS Semi - Logo Catppuccin Mocha.png"   # canonical default
 
 # Wallpaper package (metadata + sized image, Plasma package layout)
 PKG=/usr/share/wallpapers/KognogSemi

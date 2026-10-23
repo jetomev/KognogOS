@@ -75,18 +75,18 @@ description = "KognogOS default wallpapers — used in SDDM, Calamares, and KDE"
 files = [
     # Arch-emphasis variants (heritage)
     "assets/wallpapers/KognogOS Arch - Logo Black.png",
-    "assets/wallpapers/KognogOS Arch - Logo Catpuccin Mocha.png",
+    "assets/wallpapers/KognogOS Arch - Logo Catppuccin Mocha.png",
     "assets/wallpapers/KognogOS Arch - Logo Gray.png",
     "assets/wallpapers/KognogOS Arch - Logo Green.png",
     "assets/wallpapers/KognogOS Arch - Logo White.png",
     # Semi-rolling-emphasis variants (identity)
     "assets/wallpapers/KognogOS Semi - Logo Black.png",
-    "assets/wallpapers/KognogOS Semi - Logo Catpuccin Mocha.png",
+    "assets/wallpapers/KognogOS Semi - Logo Catppuccin Mocha.png",
     "assets/wallpapers/KognogOS Semi - Logo Gray.png",
     "assets/wallpapers/KognogOS Semi - Logo Green.png",
     "assets/wallpapers/KognogOS Semi - Logo White.png",
 ]
-default = "KognogOS Semi - Logo Catpuccin Mocha.png"
+default = "KognogOS Semi - Logo Catppuccin Mocha.png"
 
 # ── Web shortcuts ─────────────────────────────────────────────────────────────
 [web_shortcuts]

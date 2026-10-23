@@ -2,6 +2,12 @@
 
 *The README carries the two most recent entries; the complete history lives here, newest-first.*
 
+### Unreleased — 2026-10-22
+**One spelling: KognogOS**
+- The name is written **KognogOS**, one word, everywhere it is used from today: the wallpapers (`KognogOS Arch - …`, `KognogOS Semi - …`, and *Catppuccin* spelled right), the disc's wallpaper package name, the scripts, the README.
+- **Entries below keep "Kognog OS"** where that was the name at the time — a changelog records what was, so its history is not rewritten.
+- The browser decision of 2026-10-07 is on paper: installed systems get Google Chrome, with Claude Desktop and Claude Terminal, all pre-ticked and fetched during the install (#14); the live disc's own session uses Brave.
+
 ### v0.8.1-alpha — 2026-04-20
 **nog spun out; KognogOS repositioned around external nog + in-house Forge suite**
 

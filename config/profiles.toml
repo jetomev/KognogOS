@@ -107,6 +107,7 @@ aur_helper = "yay"
 
 # Browser — Google Chrome (#14, Javier 2026-10-07: Chrome replaces Brave). Chrome may not be carried inside
 # the disc image, so the installer fetches it during the install; the [proprietary] switch offers the others.
+# The live disc's own session uses Brave (Javier, 2026-10-22); build-iso.sh swaps it in for the live user only.
 browsers = ["google-chrome"]
 
 # Ticked by default on every edition, fetched during the install from their own sources (#14): Chrome from
