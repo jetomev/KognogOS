@@ -374,13 +374,16 @@
   "apps-165": {
    "area": "apps",
    "title": "Your pending test runs: grubForge 2.2, alacrittyForge 1.1, bitlaForge 1.1, nogForge 1.4",
-   "detail": "Matrices written, not run.",
+   "detail": "They had been run: 2026-10-08 inside hypeForge Settings, all passed (each app's Test Results file); nogForge 1.5.0 passed every step 2026-10-17. The TODO lines were stale. The next runs are the new versions' matrices (alacrittyForge 1.1.1, bitlaForge 1.1.1, grubForge 2.2.2).",
    "source": "app TODOs",
    "suggest": "?",
    "pick": "1.0",
    "note": "",
    "new": false,
-   "order": 165
+   "order": 165,
+   "done": true,
+   "doneAt": "2026-10-23T02:45:00.000Z",
+   "doneFrom": "grubForge, alacrittyForge, bitlaForge, nogForge"
   },
   "apps-166": {
    "area": "apps",

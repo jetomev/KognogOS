@@ -2,7 +2,7 @@
 
 *Written from the board's snapshot of 2026-10-22 21:43 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
-**137 ship in v1.0 · 76 come during the first year (1.x) · 6 dropped · 0 still open. The road: 24 of 135 steps done.**
+**137 ship in v1.0 · 76 come during the first year (1.x) · 6 dropped · 0 still open. The road: 25 of 135 steps done.**
 
 v1.0 ships the **Basic** and **Work** editions with four desktop looks — the floating-island bar (the default), the taskbar with Start, the floating panel with a pager, and the plain classic look — and a smaller set of colour themes. The two menu-bar looks, the top panel with a dock, and the Full, Gaming and Development editions come during the year.
 
@@ -23,7 +23,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 7. Is 'KognogOS' free to use as a name? (new) — *A trademark search before the public launch.* **Javier:** Plan agreed 10-22, to do Friday 23 Oct afternoon: (1) your $25 Florida Bar consult on KOGNOGOS vs IBM COGNOS (ask: owner Kognog Labs LLC? does a free download count as use in commerce?); (2) KognogOS™ and one spelling everywhere; (3) a USPTO search for HYPEFORGE; (4) file KOGNOGOS, Class 9, word mark, after the consult.
 8. ✅ A place for people to talk (Discord, Matrix, forum) (new) — *Or GitHub only.* **Javier:** Javier, 10-22: (1) now, GitHub only; (2) then a forum in GitHub with Q&A, topics and rooms; (3) a Discord much later, if people ask.
 
-### 01 · Clean house — Oct – Nov 2026 (8/12 done)
+### 01 · Clean house — Oct – Nov 2026 (9/12 done)
 
 *Everything already built gets pushed, tested and released, so the rest builds on solid ground.*
 
@@ -31,7 +31,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 2. ✅ The KognogOS project kit: CLAUDE.md for how it's built, tested, shipped (KognogOS TODO) — *Written 2026-10-22 (KognogOS CLAUDE.md: what it is, the board first, v1.0 as decided, the factory tier list, where scripts may run, tests, words and names); the board-links rule added the same night.* **Javier:** What is pending for Kognog for v2.0 is KognogOS + AI (Claude) full integration. Claude alive while the OS is on, with a tray chat bubble available for one to request directly there anything. We will create Claude commands to manipulate and control the OS, and even develop new functionalities, or make changes to it.
 3. ✅ Write the per-app release recipe down (forge-suite TODO) — *Done 2026-10-22 (forge-suite 3bf99ef): docs/RELEASE-RECIPE.md + scripts/release-app.sh (build, --no-sign, --verify). Found on the way: release files weren't reproducible; now pinned to the tag's commit time.*
 4. nogForge: the old commit with the book persona's name (nogForge TODO) — *READY FOR YOUR RUN (10-22): nogforge/scripts/rewrite-old-commit-message.sh. --dry-run passed (78 commits identical, 8 tags re-created holding the same content; its safety check seen stopping a sneaky change). Then run it plain (local, re-signs everything, pushes nothing), then PUSH=yes ... --push. The AUR is unaffected.* **Javier:** fix
-5. Your pending test runs: grubForge 2.2, alacrittyForge 1.1, bitlaForge 1.1, nogForge 1.4 (app TODOs) — *Matrices written, not run.*
+5. ✅ Your pending test runs: grubForge 2.2, alacrittyForge 1.1, bitlaForge 1.1, nogForge 1.4 (app TODOs) — *They had been run: 2026-10-08 inside hypeForge Settings, all passed (each app's Test Results file); nogForge 1.5.0 passed every step 2026-10-17. The TODO lines were stale. The next runs are the new versions' matrices (alacrittyForge 1.1.1, bitlaForge 1.1.1, grubForge 2.2.2).*
 6. ✅ grubForge: fixes that touch Arch (#17, #19, #20, #22) (grubForge issues) — *Frozen entries, duplicates, --version.*
 7. Desktop entries in every Forge app's package (grubforge #37 · alacrittyforge #18 · bitlaforge #12 · nogforge #16) — *In the repos 10-22 (grubForge #37, alacrittyForge #18, bitlaForge #12): the entry + a test (validator clean). They reach people with each app's next version; nogForge's #16 already shipped.*
 8. Move alacrittyForge, bitlaForge, nogForge, grubForge into forge-suite (forge-suite D-60) — *Rehearsed 10-22 with alacrittyForge on a throwaway copy: all 73 files and 55 commits came in, its 111 tests pass inside forge-suite. The real move needs your go: push, signed tags, the old repo archived, your folder becomes a shortcut.*
