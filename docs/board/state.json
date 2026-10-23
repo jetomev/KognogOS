@@ -391,13 +391,16 @@
   "apps-166": {
    "area": "apps",
    "title": "Move alacrittyForge, bitlaForge, nogForge, grubForge into forge-suite",
-   "detail": "Rehearsed 10-22 with alacrittyForge on a throwaway copy: all 73 files and 55 commits came in, its 111 tests pass inside forge-suite. The real move needs your go: push, signed tags, the old repo archived, your folder becomes a shortcut.",
+   "detail": "Done 2026-10-22: alacrittyForge, bitlaForge, nogForge and grubForge all live in forge-suite with their full history, tags re-created signed as <app>-vX.Y.Z, open issues moved (#112-#120), old repositories archived with a pointer, ~/Programs/<app> are shortcuts. Every shipped Forge app lives in one repository now.",
    "source": "forge-suite D-60",
    "suggest": "1.x",
    "pick": "1.0",
    "note": "",
    "new": false,
-   "order": 166
+   "order": 166,
+   "done": true,
+   "doneAt": "2026-10-23T03:30:00.000Z",
+   "doneFrom": "Forge Suite"
   },
   "apps-167": {
    "area": "apps",

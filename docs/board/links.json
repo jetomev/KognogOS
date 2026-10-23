@@ -297,8 +297,8 @@
   "issues": [
    "jetomev/grubforge#24",
    "jetomev/grubforge#25",
-   "jetomev/grubforge#34",
-   "jetomev/grubforge#35"
+   "jetomev/forge-suite#119",
+   "jetomev/forge-suite#120"
   ]
  },
  "apps-159": {
@@ -345,7 +345,7 @@
   "steps": [
    "forge-suite:c563968e37",
    "forge-suite:7844f3661d",
-   "forge-suite:04098fbb12"
+   "forge-suite:f087417e3d"
   ]
  },
  "apps-167": {
