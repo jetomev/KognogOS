@@ -1,8 +1,8 @@
 # KognogOS 1.0 — the cut and the road
 
-*Written from the board's snapshot of 2026-10-22 19:25 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
+*Written from the board's snapshot of 2026-10-22 21:43 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
-**137 ship in v1.0 · 76 come during the first year (1.x) · 6 dropped · 0 still open. The road: 18 of 135 steps done.**
+**137 ship in v1.0 · 76 come during the first year (1.x) · 6 dropped · 0 still open. The road: 24 of 135 steps done.**
 
 v1.0 ships the **Basic** and **Work** editions with four desktop looks — the floating-island bar (the default), the taskbar with Start, the floating panel with a pager, and the plain classic look — and a smaller set of colour themes. The two menu-bar looks, the top panel with a dock, and the Full, Gaming and Development editions come during the year.
 
@@ -23,22 +23,22 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 7. Is 'KognogOS' free to use as a name? (new) — *A trademark search before the public launch.* **Javier:** Plan agreed 10-22, to do Friday 23 Oct afternoon: (1) your $25 Florida Bar consult on KOGNOGOS vs IBM COGNOS (ask: owner Kognog Labs LLC? does a free download count as use in commerce?); (2) KognogOS™ and one spelling everywhere; (3) a USPTO search for HYPEFORGE; (4) file KOGNOGOS, Class 9, word mark, after the consult.
 8. ✅ A place for people to talk (Discord, Matrix, forum) (new) — *Or GitHub only.* **Javier:** Javier, 10-22: (1) now, GitHub only; (2) then a forum in GitHub with Q&A, topics and rooms; (3) a Discord much later, if people ask.
 
-### 01 · Clean house — Oct – Nov 2026 (2/12 done)
+### 01 · Clean house — Oct – Nov 2026 (8/12 done)
 
 *Everything already built gets pushed, tested and released, so the rest builds on solid ground.*
 
 1. ✅ Push the 9 waiting commits, issues F-79 to F-81, the Vault entry (forge-suite TODO) — *With the next phase.* **Javier:** Done 10-22 (Javier: "Push, Update, Document, make publish"): forge-suite and KognogOS pushed; issues #108–#110 opened and closed; READMEs current; Vault: hypeForge (85), Kognog OS Day 10, Forge Suite (9), the nog note; kognogos.org updated with a server backup.
-2. The KognogOS project kit: CLAUDE.md for how it's built, tested, shipped (KognogOS TODO) — *The only project still missing it.* **Javier:** What is pending for Kognog for v2.0 is KognogOS + AI (Claude) full integration. Claude alive while the OS is on, with a tray chat bubble available for one to request directly there anything. We will create Claude commands to manipulate and control the OS, and even develop new functionalities, or make changes to it.
-3. Write the per-app release recipe down (forge-suite TODO) — *Proven, not documented.*
-4. nogForge: the old commit with the book persona's name (nogForge TODO) — *History rewrite: your call.* **Javier:** fix
+2. ✅ The KognogOS project kit: CLAUDE.md for how it's built, tested, shipped (KognogOS TODO) — *Written 2026-10-22 (KognogOS CLAUDE.md: what it is, the board first, v1.0 as decided, the factory tier list, where scripts may run, tests, words and names); the board-links rule added the same night.* **Javier:** What is pending for Kognog for v2.0 is KognogOS + AI (Claude) full integration. Claude alive while the OS is on, with a tray chat bubble available for one to request directly there anything. We will create Claude commands to manipulate and control the OS, and even develop new functionalities, or make changes to it.
+3. ✅ Write the per-app release recipe down (forge-suite TODO) — *Done 2026-10-22 (forge-suite 3bf99ef): docs/RELEASE-RECIPE.md + scripts/release-app.sh (build, --no-sign, --verify). Found on the way: release files weren't reproducible; now pinned to the tag's commit time.*
+4. nogForge: the old commit with the book persona's name (nogForge TODO) — *READY FOR YOUR RUN (10-22): nogforge/scripts/rewrite-old-commit-message.sh. --dry-run passed (78 commits identical, 8 tags re-created holding the same content; its safety check seen stopping a sneaky change). Then run it plain (local, re-signs everything, pushes nothing), then PUSH=yes ... --push. The AUR is unaffected.* **Javier:** fix
 5. Your pending test runs: grubForge 2.2, alacrittyForge 1.1, bitlaForge 1.1, nogForge 1.4 (app TODOs) — *Matrices written, not run.*
 6. ✅ grubForge: fixes that touch Arch (#17, #19, #20, #22) (grubForge issues) — *Frozen entries, duplicates, --version.*
-7. Desktop entries in every Forge app's package (grubforge #37 · alacrittyforge #18 · bitlaforge #12 · nogforge #16) — *So they show in any launcher.*
-8. Move alacrittyForge, bitlaForge, nogForge, grubForge into forge-suite (forge-suite D-60)
-9. README: the tech-stack table still says "Chrome + Brave (both shipped)" (the CLAUDE.md review, 10-22) — *Brave is no longer a default (10-07).*
-10. README: the deferred list still says nogForge "now v1.4.0" (the CLAUDE.md review, 10-22) — *It is 1.5.0.*
-11. One spelling: "Kognog OS" is still in the wallpaper names and labels (the CLAUDE.md review, 10-22) — *build-iso.sh lines 21 and 63, install-look.sh lines 22 and 32. Goes with the trademark work.*
-12. TODO.md: a stale line about build-iso.sh's hypeForge path (the CLAUDE.md review, 10-22) — *That path only existed on the deleted hypeforge-edition branch.*
+7. Desktop entries in every Forge app's package (grubforge #37 · alacrittyforge #18 · bitlaforge #12 · nogforge #16) — *In the repos 10-22 (grubForge #37, alacrittyForge #18, bitlaForge #12): the entry + a test (validator clean). They reach people with each app's next version; nogForge's #16 already shipped.*
+8. Move alacrittyForge, bitlaForge, nogForge, grubForge into forge-suite (forge-suite D-60) — *Rehearsed 10-22 with alacrittyForge on a throwaway copy: all 73 files and 55 commits came in, its 111 tests pass inside forge-suite. The real move needs your go: push, signed tags, the old repo archived, your folder becomes a shortcut.*
+9. ✅ README: the tech-stack table still says "Chrome + Brave (both shipped)" (the CLAUDE.md review, 10-22) — *Done (49284f3): the README, config/profiles.toml and the old dependency list now follow #14 — Chrome is the browser; Chrome, Claude Desktop and Claude Terminal ticked by default; Brave and Firefox offered instead. #14 stays open until the Sway disc proves it.*
+10. ✅ README: the deferred list still says nogForge "now v1.4.0" (the CLAUDE.md review, 10-22) — *Done (49284f3): the README says nogForge v1.5.0.*
+11. ✅ One spelling: "Kognog OS" is still in the wallpaper names and labels (the CLAUDE.md review, 10-22) — *Done (49284f3): the ten wallpapers (repo + disc copies), the disc's wallpaper package name and both scripts say KognogOS. The CHANGELOG keeps the old names as history. This desktop's Plasma configs repointed with backups. The ™ goes with Friday's trademark session.*
+12. ✅ TODO.md: a stale line about build-iso.sh's hypeForge path (the CLAUDE.md review, 10-22) — *Done (49284f3): removed; build-iso.sh on main never used that path.*
 
 ### 02 · nog and nogForge, finished — Nov 2026 (7/14 done)
 

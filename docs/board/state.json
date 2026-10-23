@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-22 19:25",
+ "taken": "2026-10-22 21:43",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -258,7 +258,7 @@
   "apps-155": {
    "area": "apps",
    "title": "Desktop entries in every Forge app's package",
-   "detail": "So they show in any launcher.",
+   "detail": "In the repos 10-22 (grubForge #37, alacrittyForge #18, bitlaForge #12): the entry + a test (validator clean). They reach people with each app's next version; nogForge's #16 already shipped.",
    "source": "grubforge #37 · alacrittyforge #18 · bitlaforge #12 · nogforge #16",
    "suggest": "1.0",
    "pick": "1.0",
@@ -385,7 +385,7 @@
   "apps-166": {
    "area": "apps",
    "title": "Move alacrittyForge, bitlaForge, nogForge, grubForge into forge-suite",
-   "detail": "",
+   "detail": "Rehearsed 10-22 with alacrittyForge on a throwaway copy: all 73 files and 55 commits came in, its 111 tests pass inside forge-suite. The real move needs your go: push, signed tags, the old repo archived, your folder becomes a shortcut.",
    "source": "forge-suite D-60",
    "suggest": "1.x",
    "pick": "1.0",
@@ -396,12 +396,14 @@
   "apps-167": {
    "area": "apps",
    "title": "Write the per-app release recipe down",
-   "detail": "Proven, not documented.",
+   "detail": "Done 2026-10-22 (forge-suite 3bf99ef): docs/RELEASE-RECIPE.md + scripts/release-app.sh (build, --no-sign, --verify). Found on the way: release files weren't reproducible; now pinned to the tag's commit time.",
    "source": "forge-suite TODO",
    "suggest": "1.0",
    "pick": "1.0",
    "note": "",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-23T01:30:00.000Z",
    "order": 167
   },
   "apps-168": {
@@ -1156,56 +1158,66 @@
   "disc-038": {
    "area": "disc",
    "title": "The KognogOS project kit: CLAUDE.md for how it's built, tested, shipped",
-   "detail": "The only project still missing it.",
+   "detail": "Written 2026-10-22 (KognogOS CLAUDE.md: what it is, the board first, v1.0 as decided, the factory tier list, where scripts may run, tests, words and names); the board-links rule added the same night.",
    "source": "KognogOS TODO",
    "suggest": "1.0",
    "pick": "1.0",
    "note": "What is pending for Kognog for v2.0 is KognogOS + AI (Claude) full integration. Claude alive while the OS is on, with a tray chat bubble available for one to request directly there anything. We will create Claude commands to manipulate and control the OS, and even develop new functionalities, or make changes to it.",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-22T19:00:00.000Z",
    "order": 38
   },
   "fnd-01": {
    "area": "rel",
    "title": "README: the tech-stack table still says \"Chrome + Brave (both shipped)\"",
-   "detail": "Brave is no longer a default (10-07).",
+   "detail": "Done (49284f3): the README, config/profiles.toml and the old dependency list now follow #14 — Chrome is the browser; Chrome, Claude Desktop and Claude Terminal ticked by default; Brave and Firefox offered instead. #14 stays open until the Sway disc proves it.",
    "source": "the CLAUDE.md review, 10-22",
    "suggest": "1.0",
    "pick": "1.0",
    "note": "",
    "new": true,
+   "done": true,
+   "doneAt": "2026-10-23T00:10:00.000Z",
    "order": 301
   },
   "fnd-02": {
    "area": "rel",
    "title": "README: the deferred list still says nogForge \"now v1.4.0\"",
-   "detail": "It is 1.5.0.",
+   "detail": "Done (49284f3): the README says nogForge v1.5.0.",
    "source": "the CLAUDE.md review, 10-22",
    "suggest": "1.0",
    "pick": "1.0",
    "note": "",
    "new": true,
+   "done": true,
+   "doneAt": "2026-10-23T00:10:00.000Z",
    "order": 302
   },
   "fnd-03": {
    "area": "rel",
    "title": "One spelling: \"Kognog OS\" is still in the wallpaper names and labels",
-   "detail": "build-iso.sh lines 21 and 63, install-look.sh lines 22 and 32. Goes with the trademark work.",
+   "detail": "Done (49284f3): the ten wallpapers (repo + disc copies), the disc's wallpaper package name and both scripts say KognogOS. The CHANGELOG keeps the old names as history. This desktop's Plasma configs repointed with backups. The ™ goes with Friday's trademark session.",
    "source": "the CLAUDE.md review, 10-22",
    "suggest": "1.0",
    "pick": "1.0",
    "note": "",
    "new": true,
+   "done": true,
+   "doneAt": "2026-10-23T00:10:00.000Z",
    "order": 303
   },
   "fnd-04": {
    "area": "disc",
    "title": "TODO.md: a stale line about build-iso.sh's hypeForge path",
-   "detail": "That path only existed on the deleted hypeforge-edition branch.",
+   "detail": "Done (49284f3): removed; build-iso.sh on main never used that path.",
    "source": "the CLAUDE.md review, 10-22",
    "suggest": "1.0",
    "pick": "1.0",
    "note": "",
    "new": true,
+   "done": true,
+   "doneAt": "2026-10-23T00:10:00.000Z",
    "order": 304
   },
   "fnd-05": {
@@ -1812,7 +1824,7 @@
   "pkg-154": {
    "area": "pkg",
    "title": "nogForge: the old commit with the book persona's name",
-   "detail": "History rewrite: your call.",
+   "detail": "READY FOR YOUR RUN (10-22): nogforge/scripts/rewrite-old-commit-message.sh. --dry-run passed (78 commits identical, 8 tags re-created holding the same content; its safety check seen stopping a sneaky change). Then run it plain (local, re-signs everything, pushes nothing), then PUSH=yes ... --push. The AUR is unaffected.",
    "source": "nogForge TODO",
    "suggest": "?",
    "pick": "1.0",
