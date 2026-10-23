@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-22 21:43",
+ "taken": "2026-10-23 00:23",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -43,6 +43,7 @@
    {
     "items": [
      "pkg-134",
+     "pkg-155",
      "pkg-138",
      "pkg-135",
      "pkg-136",
@@ -252,7 +253,7 @@
     "why": "Two years after the wish that started it."
    }
   ],
-  "updated": "2026-10-22"
+  "updated": "2026-10-23T04:25:00.000Z"
  },
  "items": {
   "apps-155": {
@@ -264,10 +265,9 @@
    "pick": "1.0",
    "note": "",
    "new": false,
-   "order": 155,
    "done": true,
    "doneAt": "2026-10-23T03:05:00.000Z",
-   "doneFrom": "grubForge, alacrittyForge, bitlaForge, nogForge"
+   "order": 155
   },
   "apps-156": {
    "area": "apps",
@@ -383,10 +383,9 @@
    "pick": "1.0",
    "note": "",
    "new": false,
-   "order": 165,
    "done": true,
    "doneAt": "2026-10-23T02:45:00.000Z",
-   "doneFrom": "grubForge, alacrittyForge, bitlaForge, nogForge"
+   "order": 165
   },
   "apps-166": {
    "area": "apps",
@@ -397,10 +396,9 @@
    "pick": "1.0",
    "note": "",
    "new": false,
-   "order": 166,
    "done": true,
    "doneAt": "2026-10-23T03:30:00.000Z",
-   "doneFrom": "Forge Suite"
+   "order": 166
   },
   "apps-167": {
    "area": "apps",
@@ -1599,7 +1597,7 @@
    "source": "nog #56",
    "suggest": "1.0",
    "pick": "1.0",
-   "note": "",
+   "note": "Built in nog 2.1.0 (10-23): the VM 4/4, 294 tests. Closes when 2.1.0 is released, after Javier's run (testing/20261023 - Test Matrix for nog v2-1-0.md).",
    "new": false,
    "order": 134
   },
@@ -1625,6 +1623,8 @@
    "pick": "1.0",
    "note": "",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-23T04:22:10.000Z",
    "order": 136
   },
   "pkg-137": {
@@ -1636,6 +1636,8 @@
    "pick": "1.0",
    "note": "",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-23T04:22:10.000Z",
    "order": 137
   },
   "pkg-138": {
@@ -1660,6 +1662,8 @@
    "pick": "1.0",
    "note": "",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-23T04:22:10.000Z",
    "order": 139
   },
   "pkg-140": {
@@ -1839,10 +1843,20 @@
    "pick": "1.0",
    "note": "fix",
    "new": false,
-   "order": 154,
    "done": true,
    "doneAt": "2026-10-23T02:42:52.000Z",
-   "doneFrom": "nogForge"
+   "order": 154
+  },
+  "pkg-155": {
+   "area": "pkg",
+   "title": "nog: an unattended update that ends honestly (F-21–F-24)",
+   "detail": "Found on the way to --yes, from the real update of 10-22: long AUR builds keep sudo awake (#57), an unfinished update exits 3 and says incomplete (#58), --yes checks sudo first (#59), error messages say the exit status once (#60). Built in 2.1.0; close at its release.",
+   "source": "nog 2.1.0, 10-23",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "",
+   "new": true,
+   "order": 134.5
   },
   "pop-083": {
    "area": "pop",

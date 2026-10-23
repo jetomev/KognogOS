@@ -602,5 +602,13 @@
   "steps": [
    "workspaceforge:c222b1a87c"
   ]
+ },
+ "pkg-155": {
+  "issues": [
+   "jetomev/nog#57",
+   "jetomev/nog#58",
+   "jetomev/nog#59",
+   "jetomev/nog#60"
+  ]
  }
 }
