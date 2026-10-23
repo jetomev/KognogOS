@@ -280,8 +280,8 @@
  "apps-155": {
   "issues": [
    "jetomev/grubforge#37",
-   "jetomev/alacrittyforge#18",
-   "jetomev/bitlaforge#12",
+   "jetomev/forge-suite#114",
+   "jetomev/forge-suite#118",
    "jetomev/nogforge#16"
   ]
  },
@@ -313,8 +313,8 @@
  },
  "apps-161": {
   "issues": [
-   "jetomev/alacrittyforge#16",
-   "jetomev/alacrittyforge#17"
+   "jetomev/forge-suite#112",
+   "jetomev/forge-suite#113"
   ]
  },
  "apps-162": {
@@ -328,22 +328,23 @@
  },
  "apps-164": {
   "issues": [
-   "jetomev/bitlaforge#9",
-   "jetomev/bitlaforge#10",
-   "jetomev/bitlaforge#11"
+   "jetomev/forge-suite#115",
+   "jetomev/forge-suite#116",
+   "jetomev/forge-suite#117"
   ]
  },
  "apps-165": {
   "steps": [
-   "grubforge:ca670a0307",
-   "alacrittyforge:18522b6938",
-   "bitlaforge:8d964b94df",
+   "grubforge:a372ad0df0",
+   "alacrittyforge:fbb14501ef",
+   "bitlaforge:a28c6a0488",
    "nogforge:6b4abbb80e"
   ]
  },
  "apps-166": {
   "steps": [
-   "forge-suite:ec7f2a2917",
+   "forge-suite:c563968e37",
+   "forge-suite:1c275b3534",
    "forge-suite:04098fbb12"
   ]
  },

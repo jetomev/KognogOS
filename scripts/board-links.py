@@ -33,8 +33,9 @@ HERE = Path(__file__).resolve().parent.parent
 LINKS = HERE / "docs/board/links.json"
 STATE = HERE / "docs/board/state.json"
 PROGRAMS = Path.home() / "Programs"
-DIRS = {"nog": "nog", "nogforge": "nogforge", "grubforge": "grubforge", "alacrittyforge": "alacrittyforge",
-        "bitlaforge": "bitlaforge", "forge-suite": "forge-suite", "hypeforge": "forge-suite/hypeforge",
+# alacrittyForge and bitlaForge moved into forge-suite on 2026-10-22 (~/Programs/<app> are shortcuts to there)
+DIRS = {"nog": "nog", "nogforge": "nogforge", "grubforge": "grubforge", "alacrittyforge": "forge-suite/alacrittyforge",
+        "bitlaforge": "forge-suite/bitlaforge", "forge-suite": "forge-suite", "hypeforge": "forge-suite/hypeforge",
         "displayforge": "forge-suite/displayforge", "forgekit": "forge-suite/forgekit", "sudoforge": "forge-suite/sudoforge",
         "workspaceforge": "forge-suite/workspaceforge", "defaultappsforge": "forge-suite/defaultappsforge",
         "themeforge": "forge-suite/themeforge", "walletforge": "forge-suite/walletforge", "nightforge": "forge-suite/nightforge"}
