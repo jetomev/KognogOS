@@ -1827,13 +1827,16 @@
   "pkg-154": {
    "area": "pkg",
    "title": "nogForge: the old commit with the book persona's name",
-   "detail": "READY FOR YOUR RUN (10-22): nogforge/scripts/rewrite-old-commit-message.sh. --dry-run passed (78 commits identical, 8 tags re-created holding the same content; its safety check seen stopping a sneaky change). Then run it plain (local, re-signs everything, pushes nothing), then PUSH=yes ... --push. The AUR is unaffected.",
+   "detail": "Done 2026-10-22 (you ran the script: dry-run, local, push). main c60eb99 and the 8 tags re-signed and pushed; every commit holds the same files; the AUR's release file is unchanged. GitHub still serves the old commit by its exact address only; a GitHub Support request would remove it (optional).",
    "source": "nogForge TODO",
    "suggest": "?",
    "pick": "1.0",
    "note": "fix",
    "new": false,
-   "order": 154
+   "order": 154,
+   "done": true,
+   "doneAt": "2026-10-23T02:42:52.000Z",
+   "doneFrom": "nogForge"
   },
   "pop-083": {
    "area": "pop",
