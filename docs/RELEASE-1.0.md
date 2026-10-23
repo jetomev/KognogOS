@@ -2,7 +2,7 @@
 
 *Written from the board's snapshot of 2026-10-22 21:43 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
-**137 ship in v1.0 · 76 come during the first year (1.x) · 6 dropped · 0 still open. The road: 26 of 135 steps done.**
+**137 ship in v1.0 · 76 come during the first year (1.x) · 6 dropped · 0 still open. The road: 27 of 135 steps done.**
 
 v1.0 ships the **Basic** and **Work** editions with four desktop looks — the floating-island bar (the default), the taskbar with Start, the floating panel with a pager, and the plain classic look — and a smaller set of colour themes. The two menu-bar looks, the top panel with a dock, and the Full, Gaming and Development editions come during the year.
 
@@ -23,7 +23,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 7. Is 'KognogOS' free to use as a name? (new) — *A trademark search before the public launch.* **Javier:** Plan agreed 10-22, to do Friday 23 Oct afternoon: (1) your $25 Florida Bar consult on KOGNOGOS vs IBM COGNOS (ask: owner Kognog Labs LLC? does a free download count as use in commerce?); (2) KognogOS™ and one spelling everywhere; (3) a USPTO search for HYPEFORGE; (4) file KOGNOGOS, Class 9, word mark, after the consult.
 8. ✅ A place for people to talk (Discord, Matrix, forum) (new) — *Or GitHub only.* **Javier:** Javier, 10-22: (1) now, GitHub only; (2) then a forum in GitHub with Q&A, topics and rooms; (3) a Discord much later, if people ask.
 
-### 01 · Clean house — Oct – Nov 2026 (10/12 done)
+### 01 · Clean house — Oct – Nov 2026 (11/12 done)
 
 *Everything already built gets pushed, tested and released, so the rest builds on solid ground.*
 
@@ -33,7 +33,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 4. ✅ nogForge: the old commit with the book persona's name (nogForge TODO) — *Done 2026-10-22 (you ran the script: dry-run, local, push). main c60eb99 and the 8 tags re-signed and pushed; every commit holds the same files; the AUR's release file is unchanged. GitHub still serves the old commit by its exact address only; a GitHub Support request would remove it (optional).* **Javier:** fix
 5. ✅ Your pending test runs: grubForge 2.2, alacrittyForge 1.1, bitlaForge 1.1, nogForge 1.4 (app TODOs) — *They had been run: 2026-10-08 inside hypeForge Settings, all passed (each app's Test Results file); nogForge 1.5.0 passed every step 2026-10-17. The TODO lines were stale. The next runs are the new versions' matrices (alacrittyForge 1.1.1, bitlaForge 1.1.1, grubForge 2.2.2).*
 6. ✅ grubForge: fixes that touch Arch (#17, #19, #20, #22) (grubForge issues) — *Frozen entries, duplicates, --version.*
-7. Desktop entries in every Forge app's package (grubforge #37 · alacrittyforge #18 · bitlaforge #12 · nogforge #16) — *In the repos 10-22 (grubForge #37, alacrittyForge #18, bitlaForge #12): the entry + a test (validator clean). They reach people with each app's next version; nogForge's #16 already shipped.*
+7. ✅ Desktop entries in every Forge app's package (grubforge #37 · alacrittyforge #18 · bitlaforge #12 · nogforge #16) — *Done 2026-10-22: alacrittyForge 1.1.1, bitlaForge 1.1.1 and grubForge 2.2.2 ship their launcher entry (nogForge's since 1.5.0); your local test all pass; all three on the AUR; #114, #118, grubForge #37 closed.*
 8. Move alacrittyForge, bitlaForge, nogForge, grubForge into forge-suite (forge-suite D-60) — *Rehearsed 10-22 with alacrittyForge on a throwaway copy: all 73 files and 55 commits came in, its 111 tests pass inside forge-suite. The real move needs your go: push, signed tags, the old repo archived, your folder becomes a shortcut.*
 9. ✅ README: the tech-stack table still says "Chrome + Brave (both shipped)" (the CLAUDE.md review, 10-22) — *Done (49284f3): the README, config/profiles.toml and the old dependency list now follow #14 — Chrome is the browser; Chrome, Claude Desktop and Claude Terminal ticked by default; Brave and Firefox offered instead. #14 stays open until the Sway disc proves it.*
 10. ✅ README: the deferred list still says nogForge "now v1.4.0" (the CLAUDE.md review, 10-22) — *Done (49284f3): the README says nogForge v1.5.0.*

@@ -258,13 +258,16 @@
   "apps-155": {
    "area": "apps",
    "title": "Desktop entries in every Forge app's package",
-   "detail": "In the repos 10-22 (grubForge #37, alacrittyForge #18, bitlaForge #12): the entry + a test (validator clean). They reach people with each app's next version; nogForge's #16 already shipped.",
+   "detail": "Done 2026-10-22: alacrittyForge 1.1.1, bitlaForge 1.1.1 and grubForge 2.2.2 ship their launcher entry (nogForge's since 1.5.0); your local test all pass; all three on the AUR; #114, #118, grubForge #37 closed.",
    "source": "grubforge #37 · alacrittyforge #18 · bitlaforge #12 · nogforge #16",
    "suggest": "1.0",
    "pick": "1.0",
    "note": "",
    "new": false,
-   "order": 155
+   "order": 155,
+   "done": true,
+   "doneAt": "2026-10-23T03:05:00.000Z",
+   "doneFrom": "grubForge, alacrittyForge, bitlaForge, nogForge"
   },
   "apps-156": {
    "area": "apps",
