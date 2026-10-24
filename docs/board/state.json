@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-23 00:23",
+ "taken": "2026-10-23 20:09",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -1673,8 +1673,10 @@
    "source": "nog TODO",
    "suggest": "1.x",
    "pick": "1.0",
-   "note": "",
+   "note": "Your call 10-23: whole computer. Built in nog 2.1.0 rc2 (/var/lib/nog/last-update), proven in your §5.4.",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-24T00:08:55.000Z",
    "order": 140
   },
   "pkg-141": {
@@ -1697,8 +1699,10 @@
    "source": "nog 2.0 notes",
    "suggest": "1.x",
    "pick": "1.0",
-   "note": "",
+   "note": "Your call 10-23: works as designed; lock by version moved to 1.x (pkg-156).",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-24T00:08:55.000Z",
    "order": 142
   },
   "pkg-143": {
@@ -1857,6 +1861,17 @@
    "note": "",
    "new": true,
    "order": 134.5
+  },
+  "pkg-156": {
+   "area": "pkg",
+   "title": "nog: lock a package by version",
+   "detail": "Lock a package at the version it has, so a new one waits; today nog lock is by name only. From the 2.0.0 follow-ups (pkg-142).",
+   "source": "your answer, 10-23",
+   "suggest": "1.x",
+   "pick": "1.x",
+   "note": "",
+   "new": true,
+   "order": 156
   },
   "pop-083": {
    "area": "pop",

@@ -1,8 +1,8 @@
 # KognogOS 1.0 — the cut and the road
 
-*Written from the board's snapshot of 2026-10-23 00:23 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
+*Written from the board's snapshot of 2026-10-23 20:09 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
-**138 ship in v1.0 · 76 come during the first year (1.x) · 6 dropped · 0 still open. The road: 31 of 136 steps done.**
+**138 ship in v1.0 · 77 come during the first year (1.x) · 6 dropped · 0 still open. The road: 33 of 136 steps done.**
 
 v1.0 ships the **Basic** and **Work** editions with four desktop looks — the floating-island bar (the default), the taskbar with Start, the floating panel with a pager, and the plain classic look — and a smaller set of colour themes. The two menu-bar looks, the top panel with a dock, and the Full, Gaming and Development editions come during the year.
 
@@ -40,7 +40,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 11. ✅ One spelling: "Kognog OS" is still in the wallpaper names and labels (the CLAUDE.md review, 10-22) — *Done (49284f3): the ten wallpapers (repo + disc copies), the disc's wallpaper package name and both scripts say KognogOS. The CHANGELOG keeps the old names as history. This desktop's Plasma configs repointed with backups. The ™ goes with Friday's trademark session.*
 12. ✅ TODO.md: a stale line about build-iso.sh's hypeForge path (the CLAUDE.md review, 10-22) — *Done (49284f3): removed; build-iso.sh on main never used that path.*
 
-### 02 · nog and nogForge, finished — Nov 2026 (10/15 done)
+### 02 · nog and nogForge, finished — Nov 2026 (12/15 done)
 
 *The installer and the welcome app drive nog without a person; nog has to be done first.*
 
@@ -50,9 +50,9 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 4. ✅ nog remove warns before taking an optional dependency; nog keep (nog F-13 #49) — *Elisa almost took VLC's formats with it.*
 5. ✅ nog: confirm the missing 'continue?' prompt of 1 Oct is gone (nog TODO)
 6. ✅ nog: the AUR helper's questions racing its table (nog TODO)
-7. nog: the 'last update' record per user or per system (nog TODO)
+7. ✅ nog: the 'last update' record per user or per system (nog TODO) **Javier:** Your call 10-23: whole computer. Built in nog 2.1.0 rc2 (/var/lib/nog/last-update), proven in your §5.4.
 8. ✅ nog: the rare library mismatch (priority 4) (nog #5)
-9. nog: small follow-ups (search shows 30, info on Flatpak, reinstall, lock by version) (nog 2.0 notes)
+9. ✅ nog: small follow-ups (search shows 30, info on Flatpak, reinstall, lock by version) (nog 2.0 notes) **Javier:** Your call 10-23: works as designed; lock by version moved to 1.x (pkg-156).
 10. nog: the AUR description wording (nog TODO) — *At the next package bump.*
 11. ✅ nog: watch the first real update that installs something (nog 2.0 matrix) — *Matrix 7.3 / 7.4, never seen on real data.*
 12. ✅ nogForge: unticking with the mouse jumps the list to the top (nogForge #17)
@@ -216,7 +216,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 2. Announcements (KognogOS Phase 6) — *Where, and in what words.*
 3. DistroWatch submission (KognogOS Phase 6) — *Their queue takes months.*
 
-## 1.x — during the first year (76)
+## 1.x — during the first year (77)
 
 ### The disc and the installer
 
@@ -298,6 +298,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 - nogForge: Downgrade button (nogForge #19) — *Needs a design pass and nog's say.*
 - nogForge: the Settings page (holds, sources, repositories) (nogForge TODO) — *Security-sensitive.*
 - nogForge: nog's run inside the window, redesigned (nogForge TODO) — *'It is not beautiful, it is disrupting.'*
+- nog: lock a package by version (your answer, 10-23) — *Lock a package at the version it has, so a new one waits; today nog lock is by name only. From the 2.0.0 follow-ups (pkg-142).*
 
 ### The other Forge apps
 
