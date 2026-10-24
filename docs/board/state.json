@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-24 11:34",
+ "taken": "2026-10-24 11:38",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -13,6 +13,7 @@
      "pkg-153",
      "apps-156",
      "rel-185",
+     "rel-309",
      "rel-303",
      "rel-304",
      "rel-305",
@@ -259,7 +260,7 @@
     "why": "Two years after the wish that started it."
    }
   ],
-  "updated": "2026-10-24T14:10:00.000Z"
+  "updated": "2026-10-24T15:00:00.000Z"
  },
  "items": {
   "apps-155": {
@@ -2057,7 +2058,7 @@
    "source": "new",
    "suggest": "?",
    "pick": "1.0",
-   "note": "Split 10-24 into its four steps, rel-303 to rel-306 (right below on the road); this card is done when they are. Plan agreed 10-22.",
+   "note": "PARKED until the LLC's bank account is open (rel-309). Split 10-24 into its steps (rel-303 to rel-308); everything found is in the brief (the Brief tag). Plan agreed 10-22.",
    "new": true,
    "order": 185
   },
@@ -2160,7 +2161,7 @@
    "source": "the 10-22 plan, split 10-24",
    "suggest": "1.0",
    "pick": "1.0",
-   "note": "The brief is ready: https://claude.ai/artifact/GWfMttukhTwVJJn7YQc6gt (7 questions, the search, today's fees). Book: 1-800-342-8011, Mon-Fri 8:00-5:30, or floridabar.org/public/lrs; 30 minutes for at most $25.",
+   "note": "PARKED until the LLC's bank account is open. The brief is ready (Brief tag): 7 questions, the search, today's fees. Book: 1-800-342-8011, Mon-Fri 8:00-5:30, or floridabar.org/public/lrs; 30 minutes for at most $25.",
    "new": true,
    "order": 185.1
   },
@@ -2171,7 +2172,7 @@
    "source": "the 10-22 plan, split 10-24",
    "suggest": "1.0",
    "pick": "1.0",
-   "note": "Sweep 10-24: every public page, README and the site already say KognogOS. Left: (1) the LOGO ARTWORK itself reads 'Kognog OS' with a space (kognog/logo/*.png and its copies on the boot, login and splash screens and the wallpapers): your call; (2) the private Vault folders 'Kognog OS' and 'Kognogos Portal' (a rename rewrites a few hundred note links); (3) this desktop's installed wallpapers keep their old file names until the wallpaper package is reinstalled. History and quotes stay as written. The ™ waits for the consult (question 5) and is claimed for Kognog Labs LLC.",
+   "note": "Sweep 10-24: every public page, README and the site already say KognogOS. Left: the LOGO ARTWORK reads 'Kognog OS' with a space (your call: close the gap and regenerate everywhere?); the private Vault folders 'Kognog OS' and 'Kognogos Portal' (rename or leave?); this desktop's installed wallpapers keep old file names until the package is reinstalled. The ™ waits for the consult (question 5), claimed for Kognog Labs LLC. Details in the brief, Part 3.",
    "new": true,
    "order": 185.2
   },
@@ -2195,7 +2196,7 @@
    "source": "the 10-22 plan, split 10-24",
    "suggest": "1.0",
    "pick": "1.0",
-   "note": "Filed by Kognog Labs LLC, not personally (your decision 10-24). USPTO fees read 24 Oct: $350 per class online; +$100 if information is missing; +$200 if the goods are not from the ID Manual; +$150 later only for an intent-to-use filing.",
+   "note": "PARKED until the LLC's bank account is open. Filed by Kognog Labs LLC, not personally (your decision 10-24). USPTO fees read 24 Oct: $350 per class online; +$100 if information is missing; +$200 if the goods are not from the ID Manual; +$150 later only for an intent-to-use filing.",
    "new": true,
    "order": 185.4
   },
@@ -2206,7 +2207,7 @@
    "source": "your idea, 10-24",
    "suggest": "1.0",
    "pick": "1.0",
-   "note": "Your idea, 10-24. Options checked: GitHub Sponsors takes no fee from people (up to 6% from companies; GitHub's docs); Open Collective's main host is said to take about 10% (unconfirmed); Ko-fi and Liberapay, no platform fee on one-time gifts (secondhand).",
+   "note": "PARKED until the LLC's bank account is open. Your idea, 10-24. Options in the brief, Part 2: GitHub Sponsors takes no fee from people (up to 6% from companies; GitHub's docs) — Claude's suggestion, as a Kognog Labs organization; Open Collective's host said to take about 10% (unconfirmed); Ko-fi and Liberapay, no platform fee (secondhand). Wording after the consult.",
    "new": true,
    "order": 185.5
   },
@@ -2217,9 +2218,20 @@
    "source": "your decision, 10-24",
    "suggest": "1.0",
    "pick": "1.0",
-   "note": "Your decision, 10-24. Question 2 of the lawyer brief.",
+   "note": "Your decision, 10-24: nothing new in your personal name. What already is moves in the order the lawyer gives (question 2 of the brief). Waits on the bank account.",
    "new": true,
    "order": 185.6
+  },
+  "rel-309": {
+   "area": "rel",
+   "title": "Open Kognog Labs LLC's bank account",
+   "detail": "Everything in the name work is paid, filed and held by the LLC, so it all waits on this.",
+   "source": "your call, 10-24",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "Your step (10-24: \"I need to open the bank account first\"). The brief has everything ready for after.",
+   "new": true,
+   "order": 185.05
   },
   "sec-123": {
    "area": "sec",

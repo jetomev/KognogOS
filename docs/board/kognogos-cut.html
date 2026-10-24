@@ -213,7 +213,8 @@ function projTag(id, a) {
   a = a || document.createElement("a");
   a.className = "proj"; a.hidden = false; a.href = l.board; a.target = "_blank"; a.rel = "noopener";
   a.textContent = l.name + " ↗";
-  a.title = `Part of ${l.name}: ticked here when it's done there (${l.how}). Opens ${l.name}'s board.`;
+  // A link may carry its own words (2026-10-24: the KOGNOGOS brief hangs off the name cards); a project's board says the usual.
+  a.title = l.title || `Part of ${l.name}: ticked here when it's done there (${l.how}). Opens ${l.name}'s board.`;
   return a;
 }
 // The road's own filter — Pending, Finished, All — the same three buttons as every project board.
