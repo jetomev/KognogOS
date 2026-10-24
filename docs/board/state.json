@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-24 11:48",
+ "taken": "2026-10-24 11:54",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -2691,8 +2691,10 @@
    "source": "displayForge 1.1.x",
    "suggest": "1.0",
    "pick": "1.0",
-   "note": "",
+   "note": "Fixed 10-24 (F-8, forge-suite #121, 52b9a24): during the countdown the bar says 'Trying N changes on your screens'. Ships with displayForge's next release and its test run.",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-24T16:05:00.000Z",
    "order": 119
   },
   "set-120": {
