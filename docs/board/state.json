@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-24 11:38",
+ "taken": "2026-10-24 11:48",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -69,17 +69,6 @@
     "name": "nog and nogForge, finished",
     "when": "Nov 2026",
     "why": "The installer and the welcome app drive nog without a person; nog has to be done first."
-   },
-   {
-    "items": [
-     "sway-171",
-     "sway-172",
-     "sway-173"
-    ],
-    "key": "s03",
-    "name": "Our Sway, packaged",
-    "when": "Nov 2026",
-    "why": "The disc can't build Sway in a home folder. A package, held back until our patches fit each new Sway."
    },
    {
     "items": [
@@ -165,6 +154,17 @@
     "name": "First boot",
     "when": "Jan – Feb 2027",
     "why": "What someone sees the first time: the greeting, the prompt, the Welcome Center, the tier guide, the help pages, now that the desktop has settled."
+   },
+   {
+    "items": [
+     "sway-171",
+     "sway-172",
+     "sway-173"
+    ],
+    "key": "s03",
+    "name": "Our Sway, packaged",
+    "when": "Feb 2027",
+    "why": "The disc can't build Sway in a home folder. A package, held back until our patches fit each new Sway. Moved here on 10-24 (Javier): the desktop and the styles decide the final set of patches, and until the disc nobody else runs it; this desktop is already safe (our build falls back to Arch's Sway when it doesn't fit)."
    },
    {
     "items": [
@@ -260,7 +260,7 @@
     "why": "Two years after the wish that started it."
    }
   ],
-  "updated": "2026-10-24T15:00:00.000Z"
+  "updated": "2026-10-24T15:40:00.000Z"
  },
  "items": {
   "apps-155": {

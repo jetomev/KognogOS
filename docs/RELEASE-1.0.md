@@ -1,6 +1,6 @@
 # KognogOS 1.0 — the cut and the road
 
-*Written from the board's snapshot of 2026-10-24 11:38 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
+*Written from the board's snapshot of 2026-10-24 11:48 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
 **145 ship in v1.0 · 77 come during the first year (1.x) · 6 dropped · 0 still open. The road: 37 of 143 steps done.**
 
@@ -67,15 +67,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 14. ✅ nogForge: update one package by itself (nogForge #20) — *'Too hard to get one package updated.'*
 15. ✅ nogForge: Update and Uninstall buttons on each installed app (nogForge #19)
 
-### 03 · Our Sway, packaged — Nov 2026 (0/3 done)
-
-*The disc can't build Sway in a home folder. A package, held back until our patches fit each new Sway.*
-
-1. Our Sway build as a KognogOS package (hypeForge D-111) — *Today it's built in your home folder; the disc needs a package.*
-2. Hold Sway updates until our patches fit the new version (new) — *So an Arch update never ships a desktop without its buttons.*
-3. Offer our patches to Sway upstream (new) — *The title bar buttons and the pointer position.*
-
-### 04 · The desktop, finished — Nov – Dec 2026 (2/11 done)
+### 03 · The desktop, finished — Nov – Dec 2026 (2/11 done)
 
 *The base every style and app sits on: the bar never vanishes, one or two screens work, pop-ups follow the standard.*
 
@@ -91,7 +83,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 10. displayForge: the 'not tried yet' text during the countdown (displayForge 1.1.x) — *A small bug seen in screenshots.*
 11. workspaceForge: tested with one or two screens, and on a text console (workspaceForge Phase 2)
 
-### 05 · The four styles and their colours — Dec 2026 (0/7 done)
+### 04 · The four styles and their colours — Dec 2026 (0/7 done)
 
 *Rice, Windows 11, KDE and Classic, each reviewed piece by piece; then the colour themes that make the cut; then themeForge 1.0.*
 
@@ -103,7 +95,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 6. Ship fewer colour themes in 1.0 and add the rest during the year (new) — *25 × every style is a lot to prove.*
 7. themeForge 1.0 released (GitHub + AUR) (themeForge Phase 3) — *The Look settings app.*
 
-### 06 · Passwords — Dec 2026 – Jan 2027 (0/8 done)
+### 05 · Passwords — Dec 2026 – Jan 2027 (0/8 done)
 
 *walletForge has to replace KDE's wallet before the disc ships without KDE; sudoForge gets its compact box and its GPG prompt.*
 
@@ -116,7 +108,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 7. sudoForge: our own GPG passphrase prompt (sudoForge later) — *Drops a GNOME piece.*
 8. sudoForge: fold the session agent back into forgekit (sudoForge later)
 
-### 07 · The Settings apps — Jan 2027 (0/11 done)
+### 06 · The Settings apps — Jan 2027 (0/11 done)
 
 *The Mint-sized set, in the order you set on 10-07: sound, network, Bluetooth first.*
 
@@ -132,7 +124,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 10. Users (hypeForge track 21)
 11. About this computer (hypeForge track 22) — *The greeting window does it today.*
 
-### 08 · First boot — Jan – Feb 2027 (0/8 done)
+### 07 · First boot — Jan – Feb 2027 (0/8 done)
 
 *What someone sees the first time: the greeting, the prompt, the Welcome Center, the tier guide, the help pages, now that the desktop has settled.*
 
@@ -144,6 +136,14 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 6. welcomeForge: a guided nog tour (KognogOS roadmap)
 7. welcomeForge: where to give feedback (KognogOS roadmap) — *Points to GitHub Issues.*
 8. Help & Keys pages current for 1.0 (new) — *Every guide page checked against what ships.*
+
+### 08 · Our Sway, packaged — Feb 2027 (0/3 done)
+
+*The disc can't build Sway in a home folder. A package, held back until our patches fit each new Sway. Moved here on 10-24 (Javier): the desktop and the styles decide the final set of patches, and until the disc nobody else runs it; this desktop is already safe (our build falls back to Arch's Sway when it doesn't fit).*
+
+1. Our Sway build as a KognogOS package (hypeForge D-111) — *Today it's built in your home folder; the disc needs a package.*
+2. Hold Sway updates until our patches fit the new version (new) — *So an Arch update never ships a desktop without its buttons.*
+3. Offer our patches to Sway upstream (new) — *The title bar buttons and the pointer position.*
 
 ### 09 · The disc's foundations — Feb 2027 (0/19 done)
 
