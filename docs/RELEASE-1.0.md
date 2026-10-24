@@ -1,8 +1,8 @@
 # KognogOS 1.0 — the cut and the road
 
-*Written from the board's snapshot of 2026-10-24 11:54 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
+*Written from the board's snapshot of 2026-10-24 12:25 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
-**145 ship in v1.0 · 77 come during the first year (1.x) · 6 dropped · 0 still open. The road: 38 of 143 steps done.**
+**145 ship in v1.0 · 77 come during the first year (1.x) · 6 dropped · 0 still open. The road: 39 of 143 steps done.**
 
 v1.0 ships the **Basic** and **Work** editions with four desktop looks — the floating-island bar (the default), the taskbar with Start, the floating panel with a pager, and the plain classic look — and a smaller set of colour themes. The two menu-bar looks, the top panel with a dock, and the Full, Gaming and Development editions come during the year.
 
@@ -67,12 +67,12 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 14. ✅ nogForge: update one package by itself (nogForge #20) — *'Too hard to get one package updated.'*
 15. ✅ nogForge: Update and Uninstall buttons on each installed app (nogForge #19)
 
-### 03 · The desktop, finished — Nov – Dec 2026 (3/11 done)
+### 03 · The desktop, finished — Nov – Dec 2026 (4/11 done)
 
 *The base every style and app sits on: the bar never vanishes, one or two screens work, pop-ups follow the standard.*
 
 1. ✅ The bar guard: the bar comes back by itself if it ever disappears (hypeForge Phase 12) — *D-115. Built 2026-10-22 after the empty-screen login (F-82, forge-suite bc9cc2b). Why Waybar crashes is still open.*
-2. One title row on every pop-up (hypeForge D-116) — *Quick Settings has none today.*
+2. ✅ One title row on every pop-up (hypeForge D-116) — *Quick Settings has none today.* **Javier:** Done 10-24, your OK: "looks good!". Every pop-up's title row drawn by the panel kit (forge-suite f3d802a, 570caf4): Quick Settings got one, seven made the same, then Power, Workspaces and the switcher ("give all popups their title"). The launchers stay each style's own.
 3. Three widths only: narrow, medium, wide (hypeForge D-116)
 4. The hover tip stops covering an open pop-up (hypeForge D-116)
 5. The notification cards on the pop-up standard (hypeForge D-116)

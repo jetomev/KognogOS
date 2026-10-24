@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-24 11:54",
+ "taken": "2026-10-24 12:25",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -1915,8 +1915,10 @@
    "source": "hypeForge D-116",
    "suggest": "1.0",
    "pick": "1.0",
-   "note": "",
+   "note": "Done 10-24, your OK: \"looks good!\". Every pop-up's title row drawn by the panel kit (forge-suite f3d802a, 570caf4): Quick Settings got one, seven made the same, then Power, Workspaces and the switcher (\"give all popups their title\"). The launchers stay each style's own.",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-24T18:00:00.000Z",
    "order": 85
   },
   "pop-086": {
