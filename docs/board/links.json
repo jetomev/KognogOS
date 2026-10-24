@@ -615,5 +615,26 @@
   "steps": [
    "nog:5714b7c7df"
   ]
+ },
+ "rel-185": {
+  "own": "the name question; done when its four steps (rel-303 to rel-306) are"
+ },
+ "rel-303": {
+  "own": "Javier's step: the Florida Bar consult"
+ },
+ "rel-304": {
+  "own": "KognogOS's own: the name and its ™ across the repos and the site"
+ },
+ "rel-305": {
+  "own": "a search in the USPTO's database"
+ },
+ "rel-306": {
+  "own": "Javier's step: the USPTO filing, after the consult"
+ },
+ "rel-307": {
+  "own": "Kognog Labs LLC's support button: a decision and a setup, no project TODO line"
+ },
+ "rel-308": {
+  "own": "Kognog Labs LLC as the name on everything: Javier's decision 10-24; the lawyer's answer sets the order"
  }
 }

@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-23 20:37",
+ "taken": "2026-10-24 11:34",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -13,6 +13,12 @@
      "pkg-153",
      "apps-156",
      "rel-185",
+     "rel-303",
+     "rel-304",
+     "rel-305",
+     "rel-306",
+     "rel-307",
+     "rel-308",
      "rel-186"
     ],
     "key": "s00",
@@ -253,7 +259,7 @@
     "why": "Two years after the wish that started it."
    }
   ],
-  "updated": "2026-10-23T04:25:00.000Z"
+  "updated": "2026-10-24T14:10:00.000Z"
  },
  "items": {
   "apps-155": {
@@ -2051,7 +2057,7 @@
    "source": "new",
    "suggest": "?",
    "pick": "1.0",
-   "note": "Plan agreed 10-22, to do Friday 23 Oct afternoon: (1) your $25 Florida Bar consult on KOGNOGOS vs IBM COGNOS (ask: owner Kognog Labs LLC? does a free download count as use in commerce?); (2) KognogOS™ and one spelling everywhere; (3) a USPTO search for HYPEFORGE; (4) file KOGNOGOS, Class 9, word mark, after the consult.",
+   "note": "Split 10-24 into its four steps, rel-303 to rel-306 (right below on the road); this card is done when they are. Plan agreed 10-22.",
    "new": true,
    "order": 185
   },
@@ -2146,6 +2152,74 @@
    "note": "",
    "new": true,
    "order": 186.2
+  },
+  "rel-303": {
+   "area": "rel",
+   "title": "Name 1/4: your $25 Florida Bar consult",
+   "detail": "A lawyer's half hour on KOGNOGOS vs IBM's COGNOS, who should own the name (Kognog Labs LLC?), and whether a free download counts as use in commerce. Claude prepares a one-page brief to bring.",
+   "source": "the 10-22 plan, split 10-24",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "The brief is ready: https://claude.ai/artifact/GWfMttukhTwVJJn7YQc6gt (7 questions, the search, today's fees). Book: 1-800-342-8011, Mon-Fri 8:00-5:30, or floridabar.org/public/lrs; 30 minutes for at most $25.",
+   "new": true,
+   "order": 185.1
+  },
+  "rel-304": {
+   "area": "rel",
+   "title": "Name 2/4: KognogOS™ and one spelling everywhere",
+   "detail": "The ™ on first mention in the READMEs and on kognogos.org; no 'Kognog OS' or other spellings left.",
+   "source": "the 10-22 plan, split 10-24",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "Sweep 10-24: every public page, README and the site already say KognogOS. Left: (1) the LOGO ARTWORK itself reads 'Kognog OS' with a space (kognog/logo/*.png and its copies on the boot, login and splash screens and the wallpapers): your call; (2) the private Vault folders 'Kognog OS' and 'Kognogos Portal' (a rename rewrites a few hundred note links); (3) this desktop's installed wallpapers keep their old file names until the wallpaper package is reinstalled. History and quotes stay as written. The ™ waits for the consult (question 5) and is claimed for Kognog Labs LLC.",
+   "new": true,
+   "order": 185.2
+  },
+  "rel-305": {
+   "area": "rel",
+   "title": "Name 3/4: a USPTO search for HYPEFORGE (and KOGNOGOS)",
+   "detail": "The official trademark database: is any live software mark close? Rename only if one is.",
+   "source": "the 10-22 plan, split 10-24",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "USPTO Trademark Search, 24 Oct: HYPEFORGE, HYPE FORGE, NOGFORGE, KOGNOGOS, KOGNOG, COGNOG, KOGNOS: no marks, live or dead (the search checked against COGNOS first: it works). hypeForge keeps its name. IBM's COGNOS is live and registered in Class 9 (serial 74214762): question 1 for the lawyer.",
+   "new": true,
+   "done": true,
+   "doneAt": "2026-10-24T13:45:00.000Z",
+   "order": 185.3
+  },
+  "rel-306": {
+   "area": "rel",
+   "title": "Name 4/4: file KOGNOGOS, Class 9 word mark (~$350)",
+   "detail": "After the consult, on the USPTO's site; Claude has the form's answers ready.",
+   "source": "the 10-22 plan, split 10-24",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "Filed by Kognog Labs LLC, not personally (your decision 10-24). USPTO fees read 24 Oct: $350 per class online; +$100 if information is missing; +$200 if the goods are not from the ID Manual; +$150 later only for an intent-to-use filing.",
+   "new": true,
+   "order": 185.4
+  },
+  "rel-307": {
+   "area": "rel",
+   "title": "A 'support the project' button, for Kognog Labs LLC",
+   "detail": "Covers costs only: the trademark, domains, the server. Development stays voluntary. The LLC's own sponsor profile, never a personal one; on the repos and kognogos.org. Wording after the consult (an LLC isn't a charity).",
+   "source": "your idea, 10-24",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "Your idea, 10-24. Options checked: GitHub Sponsors takes no fee from people (up to 6% from companies; GitHub's docs); Open Collective's main host is said to take about 10% (unconfirmed); Ko-fi and Liberapay, no platform fee on one-time gifts (secondhand).",
+   "new": true,
+   "order": 185.5
+  },
+  "rel-308": {
+   "area": "rel",
+   "title": "Everything in Kognog Labs LLC's name",
+   "detail": "From now on every registration, account, fee and payment is the LLC's; nothing in your personal name. What already is (the GitHub account and repos, kognogos.org and the other domains, the AUR packages) moves over in the order the lawyer gives.",
+   "source": "your decision, 10-24",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "Your decision, 10-24. Question 2 of the lawyer brief.",
+   "new": true,
+   "order": 185.6
   },
   "sec-123": {
    "area": "sec",

@@ -1,8 +1,8 @@
 # KognogOS 1.0 — the cut and the road
 
-*Written from the board's snapshot of 2026-10-23 20:37 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
+*Written from the board's snapshot of 2026-10-24 11:34 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
-**138 ship in v1.0 · 77 come during the first year (1.x) · 6 dropped · 0 still open. The road: 36 of 136 steps done.**
+**144 ship in v1.0 · 77 come during the first year (1.x) · 6 dropped · 0 still open. The road: 37 of 142 steps done.**
 
 v1.0 ships the **Basic** and **Work** editions with four desktop looks — the floating-island bar (the default), the taskbar with Start, the floating panel with a pager, and the plain classic look — and a smaller set of colour themes. The two menu-bar looks, the top panel with a dock, and the Full, Gaming and Development editions come during the year.
 
@@ -10,7 +10,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 
 ## The road to launch
 
-### 00 · Settle what shapes everything — late Oct 2026 (7/8 done)
+### 00 · Settle what shapes everything — late Oct 2026 (8/14 done)
 
 *Decisions that change what we build next. Cheap now, expensive later — a name change or an edition dropped after the disc exists costs weeks.*
 
@@ -20,8 +20,14 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 4. ✅ Which AUR helper the disc ships (yay or paru) (new) — *Not decided anywhere.* **Javier:** yay (Javier, 10-22).
 5. ✅ Flatpak and Flathub ready out of the box (new) — *nog manages Flatpak since 2.0.* **Javier:** Yes: Flatpak and Flathub ready out of the box (Javier, 10-22).
 6. ✅ Is bitlaForge on the disc at all? (new) — *A mining app is an odd default.* **Javier:** Yes, in the installer's Forge Suite section, not pre-selected: there for anyone who wants to try it (Javier, 10-22).
-7. Is 'KognogOS' free to use as a name? (new) — *A trademark search before the public launch.* **Javier:** Plan agreed 10-22, to do Friday 23 Oct afternoon: (1) your $25 Florida Bar consult on KOGNOGOS vs IBM COGNOS (ask: owner Kognog Labs LLC? does a free download count as use in commerce?); (2) KognogOS™ and one spelling everywhere; (3) a USPTO search for HYPEFORGE; (4) file KOGNOGOS, Class 9, word mark, after the consult.
-8. ✅ A place for people to talk (Discord, Matrix, forum) (new) — *Or GitHub only.* **Javier:** Javier, 10-22: (1) now, GitHub only; (2) then a forum in GitHub with Q&A, topics and rooms; (3) a Discord much later, if people ask.
+7. Is 'KognogOS' free to use as a name? (new) — *A trademark search before the public launch.* **Javier:** Split 10-24 into its four steps, rel-303 to rel-306 (right below on the road); this card is done when they are. Plan agreed 10-22.
+8. Name 1/4: your $25 Florida Bar consult (the 10-22 plan, split 10-24) — *A lawyer's half hour on KOGNOGOS vs IBM's COGNOS, who should own the name (Kognog Labs LLC?), and whether a free download counts as use in commerce. Claude prepares a one-page brief to bring.* **Javier:** The brief is ready: https://claude.ai/artifact/GWfMttukhTwVJJn7YQc6gt (7 questions, the search, today's fees). Book: 1-800-342-8011, Mon-Fri 8:00-5:30, or floridabar.org/public/lrs; 30 minutes for at most $25.
+9. Name 2/4: KognogOS™ and one spelling everywhere (the 10-22 plan, split 10-24) — *The ™ on first mention in the READMEs and on kognogos.org; no 'Kognog OS' or other spellings left.* **Javier:** Sweep 10-24: every public page, README and the site already say KognogOS. Left: (1) the LOGO ARTWORK itself reads 'Kognog OS' with a space (kognog/logo/*.png and its copies on the boot, login and splash screens and the wallpapers): your call; (2) the private Vault folders 'Kognog OS' and 'Kognogos Portal' (a rename rewrites a few hundred note links); (3) this desktop's installed wallpapers keep their old file names until the wallpaper package is reinstalled. History and quotes stay as written. The ™ waits for the consult (question 5) and is claimed for Kognog Labs LLC.
+10. ✅ Name 3/4: a USPTO search for HYPEFORGE (and KOGNOGOS) (the 10-22 plan, split 10-24) — *The official trademark database: is any live software mark close? Rename only if one is.* **Javier:** USPTO Trademark Search, 24 Oct: HYPEFORGE, HYPE FORGE, NOGFORGE, KOGNOGOS, KOGNOG, COGNOG, KOGNOS: no marks, live or dead (the search checked against COGNOS first: it works). hypeForge keeps its name. IBM's COGNOS is live and registered in Class 9 (serial 74214762): question 1 for the lawyer.
+11. Name 4/4: file KOGNOGOS, Class 9 word mark (~$350) (the 10-22 plan, split 10-24) — *After the consult, on the USPTO's site; Claude has the form's answers ready.* **Javier:** Filed by Kognog Labs LLC, not personally (your decision 10-24). USPTO fees read 24 Oct: $350 per class online; +$100 if information is missing; +$200 if the goods are not from the ID Manual; +$150 later only for an intent-to-use filing.
+12. A 'support the project' button, for Kognog Labs LLC (your idea, 10-24) — *Covers costs only: the trademark, domains, the server. Development stays voluntary. The LLC's own sponsor profile, never a personal one; on the repos and kognogos.org. Wording after the consult (an LLC isn't a charity).* **Javier:** Your idea, 10-24. Options checked: GitHub Sponsors takes no fee from people (up to 6% from companies; GitHub's docs); Open Collective's main host is said to take about 10% (unconfirmed); Ko-fi and Liberapay, no platform fee on one-time gifts (secondhand).
+13. Everything in Kognog Labs LLC's name (your decision, 10-24) — *From now on every registration, account, fee and payment is the LLC's; nothing in your personal name. What already is (the GitHub account and repos, kognogos.org and the other domains, the AUR packages) moves over in the order the lawyer gives.* **Javier:** Your decision, 10-24. Question 2 of the lawyer brief.
+14. ✅ A place for people to talk (Discord, Matrix, forum) (new) — *Or GitHub only.* **Javier:** Javier, 10-22: (1) now, GitHub only; (2) then a forum in GitHub with Q&A, topics and rooms; (3) a Discord much later, if people ask.
 
 ### 01 · Clean house — Oct – Nov 2026 (12/12 done)
 
