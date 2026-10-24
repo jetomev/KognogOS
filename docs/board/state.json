@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-23 20:09",
+ "taken": "2026-10-23 20:37",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -1597,8 +1597,10 @@
    "source": "nog #56",
    "suggest": "1.0",
    "pick": "1.0",
-   "note": "Built in nog 2.1.0 (10-23): the VM 4/4, 294 tests. Closes when 2.1.0 is released, after Javier's run (testing/20261023 - Test Matrix for nog v2-1-0.md).",
+   "note": "Released in nog 2.1.0 (10-23): GitHub + AUR 2.1.0-1 after your local install; #56 closed.",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-24T00:45:00.000Z",
    "order": 134
   },
   "pkg-135": {
@@ -1712,8 +1714,10 @@
    "source": "nog TODO",
    "suggest": "1.x",
    "pick": "1.0",
-   "note": "",
+   "note": "AUR 2.1.0-1 carries the About wording with where it runs (249 bytes: the AUR refused the first, 290-byte try).",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-24T00:45:00.000Z",
    "order": 143
   },
   "pkg-144": {
@@ -1858,8 +1862,10 @@
    "source": "nog 2.1.0, 10-23",
    "suggest": "1.0",
    "pick": "1.0",
-   "note": "",
+   "note": "Released in nog 2.1.0 with F-25 to F-27 from your run and the VM; #57 to #63 closed.",
    "new": true,
+   "done": true,
+   "doneAt": "2026-10-24T00:45:00.000Z",
    "order": 134.5
   },
   "pkg-156": {

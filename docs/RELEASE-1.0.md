@@ -1,8 +1,8 @@
 # KognogOS 1.0 — the cut and the road
 
-*Written from the board's snapshot of 2026-10-23 20:09 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
+*Written from the board's snapshot of 2026-10-23 20:37 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
-**138 ship in v1.0 · 77 come during the first year (1.x) · 6 dropped · 0 still open. The road: 33 of 136 steps done.**
+**138 ship in v1.0 · 77 come during the first year (1.x) · 6 dropped · 0 still open. The road: 36 of 136 steps done.**
 
 v1.0 ships the **Basic** and **Work** editions with four desktop looks — the floating-island bar (the default), the taskbar with Start, the floating panel with a pager, and the plain classic look — and a smaller set of colour themes. The two menu-bar looks, the top panel with a dock, and the Full, Gaming and Development editions come during the year.
 
@@ -40,12 +40,12 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 11. ✅ One spelling: "Kognog OS" is still in the wallpaper names and labels (the CLAUDE.md review, 10-22) — *Done (49284f3): the ten wallpapers (repo + disc copies), the disc's wallpaper package name and both scripts say KognogOS. The CHANGELOG keeps the old names as history. This desktop's Plasma configs repointed with backups. The ™ goes with Friday's trademark session.*
 12. ✅ TODO.md: a stale line about build-iso.sh's hypeForge path (the CLAUDE.md review, 10-22) — *Done (49284f3): removed; build-iso.sh on main never used that path.*
 
-### 02 · nog and nogForge, finished — Nov 2026 (12/15 done)
+### 02 · nog and nogForge, finished — Nov 2026 (15/15 done)
 
 *The installer and the welcome app drive nog without a person; nog has to be done first.*
 
-1. nog update --yes (unattended updates) (nog #56) — *The installer and welcome need it.* **Javier:** Built in nog 2.1.0 (10-23): the VM 4/4, 294 tests. Closes when 2.1.0 is released, after Javier's run (testing/20261023 - Test Matrix for nog v2-1-0.md).
-2. nog: an unattended update that ends honestly (F-21–F-24) (nog 2.1.0, 10-23) — *Found on the way to --yes, from the real update of 10-22: long AUR builds keep sudo awake (#57), an unfinished update exits 3 and says incomplete (#58), --yes checks sudo first (#59), error messages say the exit status once (#60). Built in 2.1.0; close at its release.*
+1. ✅ nog update --yes (unattended updates) (nog #56) — *The installer and welcome need it.* **Javier:** Released in nog 2.1.0 (10-23): GitHub + AUR 2.1.0-1 after your local install; #56 closed.
+2. ✅ nog: an unattended update that ends honestly (F-21–F-24) (nog 2.1.0, 10-23) — *Found on the way to --yes, from the real update of 10-22: long AUR builds keep sudo awake (#57), an unfinished update exits 3 and says incomplete (#58), --yes checks sudo first (#59), error messages say the exit status once (#60). Built in 2.1.0; close at its release.* **Javier:** Released in nog 2.1.0 with F-25 to F-27 from your run and the VM; #57 to #63 closed.
 3. ✅ nog install --yes for repository packages through the AUR helper (nog #32)
 4. ✅ nog remove warns before taking an optional dependency; nog keep (nog F-13 #49) — *Elisa almost took VLC's formats with it.*
 5. ✅ nog: confirm the missing 'continue?' prompt of 1 Oct is gone (nog TODO)
@@ -53,7 +53,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 7. ✅ nog: the 'last update' record per user or per system (nog TODO) **Javier:** Your call 10-23: whole computer. Built in nog 2.1.0 rc2 (/var/lib/nog/last-update), proven in your §5.4.
 8. ✅ nog: the rare library mismatch (priority 4) (nog #5)
 9. ✅ nog: small follow-ups (search shows 30, info on Flatpak, reinstall, lock by version) (nog 2.0 notes) **Javier:** Your call 10-23: works as designed; lock by version moved to 1.x (pkg-156).
-10. nog: the AUR description wording (nog TODO) — *At the next package bump.*
+10. ✅ nog: the AUR description wording (nog TODO) — *At the next package bump.* **Javier:** AUR 2.1.0-1 carries the About wording with where it runs (249 bytes: the AUR refused the first, 290-byte try).
 11. ✅ nog: watch the first real update that installs something (nog 2.0 matrix) — *Matrix 7.3 / 7.4, never seen on real data.*
 12. ✅ nogForge: unticking with the mouse jumps the list to the top (nogForge #17)
 13. ✅ nogForge: Tick all / Untick all (nogForge #18)
