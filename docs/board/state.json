@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-24 18:50",
+ "taken": "2026-10-25 12:09",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -77,6 +77,9 @@
      "pop-086",
      "pop-084",
      "pop-087",
+     "pop-089",
+     "pop-090",
+     "pop-091",
      "desk-051",
      "set-116",
      "set-117",
@@ -260,7 +263,7 @@
     "why": "Two years after the wish that started it."
    }
   ],
-  "updated": "2026-10-24T15:40:00.000Z"
+  "updated": "2026-10-25T16:00:00.000Z"
  },
  "items": {
   "apps-155": {
@@ -1906,6 +1909,8 @@
    "pick": "1.0",
    "note": "",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-25T15:45:00.000Z",
    "order": 84
   },
   "pop-085": {
@@ -1930,6 +1935,8 @@
    "pick": "1.0",
    "note": "",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-25T15:45:00.000Z",
    "order": 86
   },
   "pop-087": {
@@ -1953,6 +1960,39 @@
    "note": "",
    "new": false,
    "order": 88
+  },
+  "pop-089": {
+   "area": "pop",
+   "title": "Quick Settings: the Wi-Fi page — pick a network, connect, disconnect, the cable",
+   "detail": "D-117 (Javier, 2026-10-25): inside the Quick Settings card (‹ Quick Settings to go back), or alone from a bar icon. Networks nearby, strongest first; a password box when needed. Mock first.",
+   "source": "hypeForge D-117",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "",
+   "new": true,
+   "order": 89
+  },
+  "pop-090": {
+   "area": "pop",
+   "title": "Quick Settings: the Bluetooth page — on/off, your devices, connect, disconnect",
+   "detail": "D-117: 'Pair a new device…' opens bluetoothForge (bluetui until it exists). Mock first.",
+   "source": "hypeForge D-117",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "",
+   "new": true,
+   "order": 90
+  },
+  "pop-091": {
+   "area": "pop",
+   "title": "Quick Settings holds night light and sound too; their bar icons become optional",
+   "detail": "D-117: fewer icons when wanted; one setting, each style's defaults.",
+   "source": "hypeForge D-117",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "",
+   "new": true,
+   "order": 91
   },
   "rel-176": {
    "area": "rel",
@@ -2369,8 +2409,8 @@
   },
   "set-090": {
    "area": "set",
-   "title": "Network & Wi-Fi app",
-   "detail": "Today: the network menu + nmtui.",
+   "title": "networkForge: the Network & Wi-Fi app",
+   "detail": "Named 2026-10-25 (D-117): saved networks, forget, hidden networks, details; VPN, hotspot, fixed IP in 1.x. Today: the network menu + nmtui.",
    "source": "hypeForge track 8",
    "suggest": "1.0",
    "pick": "1.0",
@@ -2380,8 +2420,8 @@
   },
   "set-091": {
    "area": "set",
-   "title": "Bluetooth app",
-   "detail": "Today: bluetui.",
+   "title": "bluetoothForge: the Bluetooth app",
+   "detail": "Named 2026-10-25 (D-117): pair a new device (search, pair, trust), forget. Today: bluetui.",
    "source": "hypeForge track 9",
    "suggest": "1.0",
    "pick": "1.0",

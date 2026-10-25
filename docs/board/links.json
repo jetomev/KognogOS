@@ -141,12 +141,12 @@
  },
  "set-090": {
   "steps": [
-   "hypeforge:72ef53bd52"
+   "hypeforge:11d58c60a2"
   ]
  },
  "set-091": {
   "steps": [
-   "hypeforge:0c68bebb4f"
+   "hypeforge:5bc076610e"
   ]
  },
  "set-093": {
@@ -639,5 +639,22 @@
  },
  "rel-309": {
   "own": "Javier's step: Kognog Labs LLC's bank account; the name work waits on it"
+ },
+ "pop-089": {
+  "steps": [
+   "hypeforge:a1d6036d05",
+   "hypeforge:5500d28c31"
+  ]
+ },
+ "pop-090": {
+  "steps": [
+   "hypeforge:3c26ed8698"
+  ]
+ },
+ "pop-091": {
+  "steps": [
+   "hypeforge:24db83817a",
+   "hypeforge:95baae38d0"
+  ]
  }
 }
