@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-25 13:48",
+ "taken": "2026-10-25 18:05",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -1989,14 +1989,27 @@
   },
   "pop-091": {
    "area": "pop",
-   "title": "Quick Settings holds night light and sound too; their bar icons become optional",
-   "detail": "D-117: fewer icons when wanted; one setting, each style's defaults.",
+   "title": "Quick Settings holds night light and sound too; the moon leaves every bar",
+   "detail": "D-117 (Javier, 2026-10-25): the Night light and Sound pages inside Quick Settings; the moon off every style's bar, nightForge's own icon steps aside (1.1.1). The optional bar icons moved to 1.x (pop-092).",
    "source": "hypeForge D-117",
    "suggest": "1.0",
    "pick": "1.0",
    "note": "",
    "new": true,
+   "done": true,
+   "doneAt": "2026-10-25T20:30:00.000Z",
    "order": 91
+  },
+  "pop-092": {
+   "area": "pop",
+   "title": "Bar icons optional: the combined status piece, or separate icons per style",
+   "detail": "D-117, moved to 1.x by Javier on 2026-10-25 ('yes, move it to 1.x'): Wi-Fi, Bluetooth, sound, night light, printer each with its own bar icon, chosen in themeForge's element pages.",
+   "source": "hypeForge D-117",
+   "suggest": "1.x",
+   "pick": "1.x",
+   "note": "",
+   "new": true,
+   "order": 92
   },
   "rel-176": {
    "area": "rel",

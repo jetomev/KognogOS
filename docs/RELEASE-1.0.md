@@ -1,8 +1,8 @@
 # KognogOS 1.0 — the cut and the road
 
-*Written from the board's snapshot of 2026-10-25 13:48 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
+*Written from the board's snapshot of 2026-10-25 18:05 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
-**148 ship in v1.0 · 77 come during the first year (1.x) · 6 dropped · 0 still open. The road: 47 of 146 steps done.**
+**148 ship in v1.0 · 78 come during the first year (1.x) · 6 dropped · 0 still open. The road: 48 of 146 steps done.**
 
 v1.0 ships the **Basic** and **Work** editions with four desktop looks — the floating-island bar (the default), the taskbar with Start, the floating panel with a pager, and the plain classic look — and a smaller set of colour themes. The two menu-bar looks, the top panel with a dock, and the Full, Gaming and Development editions come during the year.
 
@@ -67,7 +67,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 14. ✅ nogForge: update one package by itself (nogForge #20) — *'Too hard to get one package updated.'*
 15. ✅ nogForge: Update and Uninstall buttons on each installed app (nogForge #19)
 
-### 03 · The desktop, finished — Nov – Dec 2026 (12/14 done)
+### 03 · The desktop, finished — Nov – Dec 2026 (13/14 done)
 
 *The base every style and app sits on: the bar never vanishes, one or two screens work, pop-ups follow the standard.*
 
@@ -78,7 +78,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 5. The notification cards on the pop-up standard (hypeForge D-116)
 6. ✅ Quick Settings: the Wi-Fi page — pick a network, connect, disconnect, the cable (hypeForge D-117) — *D-117 (Javier, 2026-10-25): inside the Quick Settings card (‹ Quick Settings to go back), or alone from a bar icon. Networks nearby, strongest first; a password box when needed. Mock first.*
 7. ✅ Quick Settings: the Bluetooth page — on/off, your devices, connect, disconnect (hypeForge D-117) — *D-117: 'Pair a new device…' opens bluetoothForge (bluetui until it exists). Mock first.*
-8. Quick Settings holds night light and sound too; their bar icons become optional (hypeForge D-117) — *D-117: fewer icons when wanted; one setting, each style's defaults.*
+8. ✅ Quick Settings holds night light and sound too; the moon leaves every bar (hypeForge D-117) — *D-117 (Javier, 2026-10-25): the Night light and Sound pages inside Quick Settings; the moon off every style's bar, nightForge's own icon steps aside (1.1.1). The optional bar icons moved to 1.x (pop-092).*
 9. ✅ Night light hides its own tray icon where the bar already shows the moon (forge-suite #82) — *nightForge 1.1.*
 10. ✅ displayForge: tested with one and two screens (displayForge 1.1.x)
 11. ✅ displayForge: 80 / 90 % sizes on real apps (displayForge 1.1.x) — *X11 apps blur at non-whole sizes.*
@@ -226,7 +226,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 2. Announcements (KognogOS Phase 6) — *Where, and in what words.*
 3. DistroWatch submission (KognogOS Phase 6) — *Their queue takes months.*
 
-## 1.x — during the first year (77)
+## 1.x — during the first year (78)
 
 ### The disc and the installer
 
@@ -275,6 +275,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 
 - Pop-ups open right under what you clicked (hypeForge D-116) — *Our Sway's patch 3 makes it possible; plain Sway keeps today's spots.* **Javier:** this has been a MAC OSes issue. We will work later.
 - A setting for where each pop-up opens (hypeForge settings catalogue) — *Centre, under the button, a corner.*
+- Bar icons optional: the combined status piece, or separate icons per style (hypeForge D-117) — *D-117, moved to 1.x by Javier on 2026-10-25 ('yes, move it to 1.x'): Wi-Fi, Bluetooth, sound, night light, printer each with its own bar icon, chosen in themeForge's element pages.*
 
 ### Settings apps
 
