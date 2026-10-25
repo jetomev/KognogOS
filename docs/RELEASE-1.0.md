@@ -1,8 +1,8 @@
 # KognogOS 1.0 — the cut and the road
 
-*Written from the board's snapshot of 2026-10-24 18:50 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
+*Written from the board's snapshot of 2026-10-25 13:48 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
-**145 ship in v1.0 · 77 come during the first year (1.x) · 6 dropped · 0 still open. The road: 43 of 143 steps done.**
+**148 ship in v1.0 · 77 come during the first year (1.x) · 6 dropped · 0 still open. The road: 47 of 146 steps done.**
 
 v1.0 ships the **Basic** and **Work** editions with four desktop looks — the floating-island bar (the default), the taskbar with Start, the floating panel with a pager, and the plain classic look — and a smaller set of colour themes. The two menu-bar looks, the top panel with a dock, and the Full, Gaming and Development editions come during the year.
 
@@ -67,21 +67,24 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 14. ✅ nogForge: update one package by itself (nogForge #20) — *'Too hard to get one package updated.'*
 15. ✅ nogForge: Update and Uninstall buttons on each installed app (nogForge #19)
 
-### 03 · The desktop, finished — Nov – Dec 2026 (8/11 done)
+### 03 · The desktop, finished — Nov – Dec 2026 (12/14 done)
 
 *The base every style and app sits on: the bar never vanishes, one or two screens work, pop-ups follow the standard.*
 
 1. ✅ The bar guard: the bar comes back by itself if it ever disappears (hypeForge Phase 12) — *D-115. Built 2026-10-22 after the empty-screen login (F-82, forge-suite bc9cc2b). Why Waybar crashes is still open.*
 2. ✅ One title row on every pop-up (hypeForge D-116) — *Quick Settings has none today.* **Javier:** Done 10-24, your OK: "looks good!". Every pop-up's title row drawn by the panel kit (forge-suite f3d802a, 570caf4): Quick Settings got one, seven made the same, then Power, Workspaces and the switcher ("give all popups their title"). The launchers stay each style's own.
-3. Three widths only: narrow, medium, wide (hypeForge D-116)
-4. The hover tip stops covering an open pop-up (hypeForge D-116)
+3. ✅ Three widths only: narrow, medium, wide (hypeForge D-116)
+4. ✅ The hover tip stops covering an open pop-up (hypeForge D-116)
 5. The notification cards on the pop-up standard (hypeForge D-116)
-6. ✅ Night light hides its own tray icon where the bar already shows the moon (forge-suite #82) — *nightForge 1.1.*
-7. ✅ displayForge: tested with one and two screens (displayForge 1.1.x)
-8. ✅ displayForge: 80 / 90 % sizes on real apps (displayForge 1.1.x) — *X11 apps blur at non-whole sizes.*
-9. ✅ displayForge: tested on a plain text console (displayForge 1.1.x)
-10. ✅ displayForge: the 'not tried yet' text during the countdown (displayForge 1.1.x) — *A small bug seen in screenshots.* **Javier:** Fixed 10-24 (F-8, forge-suite #121, 52b9a24): during the countdown the bar says 'Trying N changes on your screens'. Ships with displayForge's next release and its test run.
-11. ✅ workspaceForge: tested with one or two screens, and on a text console (workspaceForge Phase 2)
+6. ✅ Quick Settings: the Wi-Fi page — pick a network, connect, disconnect, the cable (hypeForge D-117) — *D-117 (Javier, 2026-10-25): inside the Quick Settings card (‹ Quick Settings to go back), or alone from a bar icon. Networks nearby, strongest first; a password box when needed. Mock first.*
+7. ✅ Quick Settings: the Bluetooth page — on/off, your devices, connect, disconnect (hypeForge D-117) — *D-117: 'Pair a new device…' opens bluetoothForge (bluetui until it exists). Mock first.*
+8. Quick Settings holds night light and sound too; their bar icons become optional (hypeForge D-117) — *D-117: fewer icons when wanted; one setting, each style's defaults.*
+9. ✅ Night light hides its own tray icon where the bar already shows the moon (forge-suite #82) — *nightForge 1.1.*
+10. ✅ displayForge: tested with one and two screens (displayForge 1.1.x)
+11. ✅ displayForge: 80 / 90 % sizes on real apps (displayForge 1.1.x) — *X11 apps blur at non-whole sizes.*
+12. ✅ displayForge: tested on a plain text console (displayForge 1.1.x)
+13. ✅ displayForge: the 'not tried yet' text during the countdown (displayForge 1.1.x) — *A small bug seen in screenshots.* **Javier:** Fixed 10-24 (F-8, forge-suite #121, 52b9a24): during the countdown the bar says 'Trying N changes on your screens'. Ships with displayForge's next release and its test run.
+14. ✅ workspaceForge: tested with one or two screens, and on a text console (workspaceForge Phase 2)
 
 ### 04 · The four styles and their colours — Dec 2026 (0/7 done)
 
@@ -113,8 +116,8 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 *The Mint-sized set, in the order you set on 10-07: sound, network, Bluetooth first.*
 
 1. Sound app (outputs, inputs, each app's volume) (hypeForge track 7) — *Today: wiremix, themed.*
-2. Network & Wi-Fi app (hypeForge track 8) — *Today: the network menu + nmtui.*
-3. Bluetooth app (hypeForge track 9) — *Today: bluetui.*
+2. networkForge: the Network & Wi-Fi app (hypeForge track 8) — *Named 2026-10-25 (D-117): saved networks, forget, hidden networks, details; VPN, hotspot, fixed IP in 1.x. Today: the network menu + nmtui.*
+3. bluetoothForge: the Bluetooth app (hypeForge track 9) — *Named 2026-10-25 (D-117): pair a new device (search, pair, trust), forget. Today: bluetui.*
 4. Default apps: defaultappsForge 1.0 after your run (defaultappsForge) — *Built 10-09, waiting on your run.*
 5. Power & Lock (idle, sleep, lock screen) (hypeForge track 13)
 6. Keyboard (layout, repeat, the key chart) (hypeForge track 16)

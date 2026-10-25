@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-25 12:09",
+ "taken": "2026-10-25 13:48",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -1970,6 +1970,8 @@
    "pick": "1.0",
    "note": "",
    "new": true,
+   "done": true,
+   "doneAt": "2026-10-25T19:30:00.000Z",
    "order": 89
   },
   "pop-090": {
@@ -1981,6 +1983,8 @@
    "pick": "1.0",
    "note": "",
    "new": true,
+   "done": true,
+   "doneAt": "2026-10-25T19:30:00.000Z",
    "order": 90
   },
   "pop-091": {
