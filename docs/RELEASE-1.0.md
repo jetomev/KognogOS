@@ -1,8 +1,8 @@
 # KognogOS 1.0 — the cut and the road
 
-*Written from the board's snapshot of 2026-10-25 18:08 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
+*Written from the board's snapshot of 2026-10-26 22:25 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
-**148 ship in v1.0 · 78 come during the first year (1.x) · 6 dropped · 0 still open. The road: 49 of 146 steps done.**
+**150 ship in v1.0 · 78 come during the first year (1.x) · 6 dropped · 0 still open. The road: 49 of 148 steps done.**
 
 v1.0 ships the **Basic** and **Work** editions with four desktop looks — the floating-island bar (the default), the taskbar with Start, the floating panel with a pager, and the plain classic look — and a smaller set of colour themes. The two menu-bar looks, the top panel with a dock, and the Full, Gaming and Development editions come during the year.
 
@@ -148,7 +148,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 2. Hold Sway updates until our patches fit the new version (new) — *So an Arch update never ships a desktop without its buttons.*
 3. Offer our patches to Sway upstream (new) — *The title bar buttons and the pointer position.*
 
-### 09 · The disc's foundations — Feb 2027 (0/19 done)
+### 09 · The disc's foundations — Feb 2027 (0/20 done)
 
 *The ISO recipe rebuilt for Sway: what goes on it, the known install bugs, the editions, the login screen, a live session that starts on any graphics card.*
 
@@ -167,10 +167,11 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 13. The os-release hook errors inside every clean chroot (KognogOS #16) — *Seen when building packages on a KognogOS box.*
 14. Basic edition: the app list redone without KDE apps (KognogOS README) — *Today's lists date from the Plasma build.*
 15. Work edition (the old Office): the app list redone (KognogOS README) — *OnlyOffice, Obsidian, Thunderbird… minus the KDE pieces.* **Javier:** Renamed Work (Javier, 10-22).
-16. Chrome, Claude Desktop and Claude Terminal pre-selected; Brave no longer the default (KognogOS #14) — *Your decision of 10-07.*
-17. Proprietary apps marked in the installer, with a free swap (KognogOS README) — *Defined in config/profiles.toml.*
-18. Pick and theme the login screen for Sway (KognogOS roadmap) — *The roadmap says it's part of the hypeForge disc; nothing is chosen yet.*
-19. The live disc starts Sway on any graphics card (VM, NVIDIA, AMD, Intel) (new) — *Today it's only proven on this desktop.*
+16. The Craft apps (storytold / ArtCraft): try them, then decide which join the recommended apps (Javier, 10-26) — *Javier, 2026-10-26: consider the Craft Suite for our recommended apps, after he tries them. About 15 apps, all open source (Apache-2.0), written in Rust: WordCraft, GridCraft, DeckCraft and PdfCraft (Word, Excel, PowerPoint and PDF style: the Work edition), plus PhotoCraft, LightCraft, VectorCraft, FilmCraft, EffectCraft, SoundCraft, DesignCraft, CADCraft and FigCraft (a creative set). Linux builds for each; the Craft Launcher installs and updates them all and is on the AUR (artcraft-launcher 0.8.1). Very young and moving daily (launcher 0.7 → 0.8.1 in two days), so: his try on this desktop (via nog), then a pick per edition: Work, the optional apps in installForge, or later (Full).*
+17. Chrome, Claude Desktop and Claude Terminal pre-selected; Brave no longer the default (KognogOS #14) — *Your decision of 10-07.*
+18. Proprietary apps marked in the installer, with a free swap (KognogOS README) — *Defined in config/profiles.toml.*
+19. Pick and theme the login screen for Sway (KognogOS roadmap) — *The roadmap says it's part of the hypeForge disc; nothing is chosen yet.*
+20. The live disc starts Sway on any graphics card (VM, NVIDIA, AMD, Intel) (new) — *Today it's only proven on this desktop.*
 
 ### 10 · installForge — Feb – Mar 2027 (0/13 done)
 
@@ -204,7 +205,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 8. Test on a laptop (Intel or AMD graphics, battery, Wi-Fi) (new) — *Everything so far ran on this NVIDIA desktop.*
 9. Laptops: install the first full beta ISO on a laptop and try it — what's missing decides 1.0 or 1.x (the cut, 10-21) — *Wi-Fi, touchpad, brightness, battery, lid, sleep: judged on real hardware, not on paper.* **Javier:** Javier, 10-22: move it to when we have the first ISO beta, with everything, for me to install on a laptop and try.
 
-### 12 · The release kit — late Mar – early Apr 2027 (0/9 done)
+### 12 · The release kit — late Mar – early Apr 2027 (0/10 done)
 
 *Everything a stranger needs before they download: the legal and privacy lines, the site, the guide, the ISO's home and signature.*
 
@@ -214,9 +215,10 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 4. Check what kognogos.org shows people who aren't signed in (new) — *The portal guards our sites; the public page must stay public.*
 5. Screenshots and a banner of 1.0 for the site and the README (new)
 6. A getting-started guide on the site (new) — *Install, first boot, nog, where help lives.*
-7. Where the ISO is downloaded from (hosting) (KognogOS Phase 5)
-8. Checksums and a signature for the ISO (KognogOS Phase 5)
-9. kognogos.org: a download page and the release notes (KognogOS Phase 5)
+7. The KognogOS manual: one source, two places — the built-in Help and a Docs section on kognogos.org (Javier, 2026-10-25) — *Javier, 2026-10-25: the artifacts 'can become part of our KognogOS manual, and online (or in system offline) documentation' → 'two places for the manual'. One source: the repos' text files (hypeForge's Help guide, each app's manual). Offline: the Help app and each app's M key. Online: a Docs section on kognogos.org built from the same files. A full manual pass once the apps stop changing.*
+8. Where the ISO is downloaded from (hosting) (KognogOS Phase 5)
+9. Checksums and a signature for the ISO (KognogOS Phase 5)
+10. kognogos.org: a download page and the release notes (KognogOS Phase 5)
 
 ### 13 · Launch — the week of 19 April 2027 (0/3 done)
 

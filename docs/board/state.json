@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-25 18:08",
+ "taken": "2026-10-26 22:25",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -186,6 +186,7 @@
      "disc-012",
      "disc-013",
      "disc-014",
+     "app-01",
      "disc-019",
      "disc-020",
      "disc-021",
@@ -242,6 +243,7 @@
      "rel-179",
      "rel-180",
      "rel-181",
+     "rel-310",
      "rel-176",
      "rel-177",
      "rel-178"
@@ -263,9 +265,20 @@
     "why": "Two years after the wish that started it."
    }
   ],
-  "updated": "2026-10-25T16:00:00.000Z"
+  "updated": "2026-10-25T22:00:00.000Z"
  },
  "items": {
+  "app-01": {
+   "area": "disc",
+   "title": "The Craft apps (storytold / ArtCraft): try them, then decide which join the recommended apps",
+   "detail": "Javier, 2026-10-26: consider the Craft Suite for our recommended apps, after he tries them. About 15 apps, all open source (Apache-2.0), written in Rust: WordCraft, GridCraft, DeckCraft and PdfCraft (Word, Excel, PowerPoint and PDF style: the Work edition), plus PhotoCraft, LightCraft, VectorCraft, FilmCraft, EffectCraft, SoundCraft, DesignCraft, CADCraft and FigCraft (a creative set). Linux builds for each; the Craft Launcher installs and updates them all and is on the AUR (artcraft-launcher 0.8.1). Very young and moving daily (launcher 0.7 → 0.8.1 in two days), so: his try on this desktop (via nog), then a pick per edition: Work, the optional apps in installForge, or later (Full).",
+   "source": "Javier, 10-26",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "",
+   "new": true,
+   "order": 14.5
+  },
   "apps-155": {
    "area": "apps",
    "title": "Desktop entries in every Forge app's package",
@@ -2293,6 +2306,17 @@
    "note": "Your step (10-24: \"I need to open the bank account first\"). The brief has everything ready for after.",
    "new": true,
    "order": 185.05
+  },
+  "rel-310": {
+   "area": "rel",
+   "title": "The KognogOS manual: one source, two places — the built-in Help and a Docs section on kognogos.org",
+   "detail": "Javier, 2026-10-25: the artifacts 'can become part of our KognogOS manual, and online (or in system offline) documentation' → 'two places for the manual'. One source: the repos' text files (hypeForge's Help guide, each app's manual). Offline: the Help app and each app's M key. Online: a Docs section on kognogos.org built from the same files. A full manual pass once the apps stop changing.",
+   "source": "Javier, 2026-10-25",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "",
+   "new": true,
+   "order": 310
   },
   "sec-123": {
    "area": "sec",
