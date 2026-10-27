@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-26 22:25",
+ "taken": "2026-10-27 18:43",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -1396,7 +1396,7 @@
   "look-063": {
    "area": "look",
    "title": "The floating-island bar (the Rice) ships in 1.0 — KognogOS's default look",
-   "detail": "",
+   "detail": "In review since 2026-10-27 (look-071): the bar approved; the launcher is now COSMIC's App Library (D-118); its icons wear the text colour in every theme (D-119).",
    "source": "hypeForge D-78",
    "suggest": "1.0",
    "pick": "1.0",
@@ -1484,7 +1484,7 @@
   "look-071": {
    "area": "look",
    "title": "Full review of each style that ships: bar, launcher, tray, every pop-up",
-   "detail": "Step by step, your look on each piece.",
+   "detail": "Step by step, your look on each piece. The Rice first (started 10-27, checklist in hypeForge testing/): ✅ the bar · ✅ its icons wear the text colour in all 25 themes (D-119) · ✅ the launcher = COSMIC's App Library, the list saved as a theme option (D-118) · ⏳ Quick Settings · then calendar, system pop-ups, clipboard, power, lists, Alt + Tab, notifications, windows · the tray + the whole look on your real desktop at the end. Then Windows 11, KDE, Classic.",
    "source": "hypeForge Phase 12",
    "suggest": "1.0",
    "pick": "1.0",

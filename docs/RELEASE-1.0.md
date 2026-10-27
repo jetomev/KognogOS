@@ -1,6 +1,6 @@
 # KognogOS 1.0 — the cut and the road
 
-*Written from the board's snapshot of 2026-10-26 22:25 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
+*Written from the board's snapshot of 2026-10-27 18:43 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
 **150 ship in v1.0 · 78 come during the first year (1.x) · 6 dropped · 0 still open. The road: 49 of 148 steps done.**
 
@@ -90,11 +90,11 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 
 *Rice, Windows 11, KDE and Classic, each reviewed piece by piece; then the colour themes that make the cut; then themeForge 1.0.*
 
-1. The floating-island bar (the Rice) ships in 1.0 — KognogOS's default look (hypeForge D-78)
+1. The floating-island bar (the Rice) ships in 1.0 — KognogOS's default look (hypeForge D-78) — *In review since 2026-10-27 (look-071): the bar approved; the launcher is now COSMIC's App Library (D-118); its icons wear the text colour in every theme (D-119).*
 2. The taskbar-with-Start look ships in 1.0 (hypeForge D-71) — *Your daily driver right now.*
 3. The floating-panel-with-a-pager look ships in 1.0 (hypeForge D-76)
 4. Classic style ships in 1.0 (hypeForge) — *The plain first look.*
-5. Full review of each style that ships: bar, launcher, tray, every pop-up (hypeForge Phase 12) — *Step by step, your look on each piece.* **Javier:** Only what we will be shipping!
+5. Full review of each style that ships: bar, launcher, tray, every pop-up (hypeForge Phase 12) — *Step by step, your look on each piece. The Rice first (started 10-27, checklist in hypeForge testing/): ✅ the bar · ✅ its icons wear the text colour in all 25 themes (D-119) · ✅ the launcher = COSMIC's App Library, the list saved as a theme option (D-118) · ⏳ Quick Settings · then calendar, system pop-ups, clipboard, power, lists, Alt + Tab, notifications, windows · the tray + the whole look on your real desktop at the end. Then Windows 11, KDE, Classic.* **Javier:** Only what we will be shipping!
 6. Ship fewer colour themes in 1.0 and add the rest during the year (new) — *25 × every style is a lot to prove.*
 7. themeForge 1.0 released (GitHub + AUR) (themeForge Phase 3) — *The Look settings app.*
 
