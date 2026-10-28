@@ -1,8 +1,8 @@
 # KognogOS 1.0 — the cut and the road
 
-*Written from the board's snapshot of 2026-10-27 21:46 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
+*Written from the board's snapshot of 2026-10-27 22:35 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
-**153 ship in v1.0 · 78 come during the first year (1.x) · 6 dropped · 0 still open. The road: 51 of 151 steps done.**
+**154 ship in v1.0 · 78 come during the first year (1.x) · 6 dropped · 0 still open. The road: 52 of 152 steps done.**
 
 v1.0 ships the **Basic** and **Work** editions with four desktop looks — the floating-island bar (the default), the taskbar with Start, the floating panel with a pager, and the plain classic look — and a smaller set of colour themes. The two menu-bar looks, the top panel with a dock, and the Full, Gaming and Development editions come during the year.
 
@@ -86,7 +86,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 13. ✅ displayForge: the 'not tried yet' text during the countdown (displayForge 1.1.x) — *A small bug seen in screenshots.* **Javier:** Fixed 10-24 (F-8, forge-suite #121, 52b9a24): during the countdown the bar says 'Trying N changes on your screens'. Ships with displayForge's next release and its test run.
 14. ✅ workspaceForge: tested with one or two screens, and on a text console (workspaceForge Phase 2)
 
-### 04 · The four styles and their colours — Dec 2026 (2/10 done)
+### 04 · The four styles and their colours — Dec 2026 (3/10 done)
 
 *Rice, Windows 11, KDE and Classic, each reviewed piece by piece; then the colour themes that make the cut; then themeForge 1.0.*
 
@@ -95,8 +95,8 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 3. The floating-panel-with-a-pager look ships in 1.0 (hypeForge D-76)
 4. Classic style ships in 1.0 (hypeForge) — *The plain first look.*
 5. Full review of each style that ships: bar, launcher, tray, every pop-up (hypeForge Phase 12) — *Step by step, your look on each piece. The Rice first (started 10-27, checklist in hypeForge testing/): ✅ the bar · ✅ its icons wear the text colour in all 25 themes (D-119) · ✅ the launcher = COSMIC's App Library, the list saved as a theme option (D-118) · ✅ Quick Settings: one-colour icons + short sound names, every style (D-120) · found on the way: a switch brings the theme's own wallpaper (D-121), the volume chimes on letting go (D-122), the see-through strip under floating windows' title bars (F-87, live at next login) · ⏳ the calendar · then system pop-ups, clipboard, power, lists, Alt + Tab, notifications, windows · the tray + the whole look on your real desktop at the end. Then Windows 11, KDE, Classic.* **Javier:** Only what we will be shipping!
-6. ✅ Win alone opens the launcher; Win + anything else never does (Javier, 10-27) — *D-123 (Javier, 2026-10-27: "Can we try again using Win (solo) to open the launcher"). Measured on a hidden Sway: Win + a key was already fine, Win + a click or drag wasn't; our Sway's patch 5 fixes that (bench 8/8). Live at the next login.*
-7. No see-through strip under floating windows' title bars (Javier, 10-27) — *F-87 #131: our Sway's buttons cut the title bar's background into more pieces than Sway drew; patch 4. Bench: 1348 see-through pixels before, 0 after. Closes after the next login.*
+6. ✅ Win alone opens the launcher; Win + anything else never does (Javier, 10-27) — *D-123 (Javier, 2026-10-27: "Can we try again using Win (solo) to open the launcher"). Measured on a hidden Sway: Win + a key was already fine, Win + a click or drag wasn't; our Sway's patch 5 fixes that (bench 8/8). Live at the next login.* **Javier:** Javier, 10-27 after his login: "Win key works, and when combined is not opening the launcher!!!"
+7. ✅ No see-through strip under floating windows' title bars (Javier, 10-27) — *F-87 #131: our Sway's buttons cut the title bar's background into more pieces than Sway drew; patch 4. Bench: 1348 see-through pixels before, 0 after. Closes after the next login.* **Javier:** Javier, 10-27 after his login: "windows top bar looking perfect now".
 8. ✅ The Quick Search on Win + Space: search anything (apps, files, history…) (Javier, 10-27) — *D-123/D-124 (Javier, 2026-10-27). Built: opens empty; as you type, Best match · Apps & Settings · Files (fd) · Browser history (Chrome, read-only) · Clipboard · Do (web search, = sums, > commands). Live on Win + Space since 10-27 evening; his try next.*
 9. Ship fewer colour themes in 1.0 and add the rest during the year (new) — *25 × every style is a lot to prove.*
 10. themeForge 1.0 released (GitHub + AUR) (themeForge Phase 3) — *The Look settings app.*
@@ -114,7 +114,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 7. sudoForge: our own GPG passphrase prompt (sudoForge later) — *Drops a GNOME piece.*
 8. sudoForge: fold the session agent back into forgekit (sudoForge later)
 
-### 06 · The Settings apps — Jan 2027 (0/11 done)
+### 06 · The Settings apps — Jan 2027 (0/12 done)
 
 *The Mint-sized set, in the order you set on 10-07: sound, network, Bluetooth first.*
 
@@ -122,13 +122,14 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 2. networkForge: the Network & Wi-Fi app (hypeForge track 8) — *Named 2026-10-25 (D-117): saved networks, forget, hidden networks, details; VPN, hotspot, fixed IP in 1.x. Today: the network menu + nmtui.*
 3. bluetoothForge: the Bluetooth app (hypeForge track 9) — *Named 2026-10-25 (D-117): pair a new device (search, pair, trust), forget. Today: bluetui.*
 4. Default apps: defaultappsForge 1.0 after your run (defaultappsForge) — *Built 10-09, waiting on your run.*
-5. Power & Lock (idle, sleep, lock screen) (hypeForge track 13)
-6. Keyboard (layout, repeat, the key chart) (hypeForge track 16)
-7. Typing Chinese, Japanese or Korean (input methods) (new) **Javier:** Yes, typing in 1.0; the OS in other languages comes later (Javier, 10-22).
-8. Mouse & Touchpad (hypeForge track 17) — *Touchpad matters on laptops.*
-9. Time & Language (hypeForge track 18)
-10. Users (hypeForge track 21)
-11. About this computer (hypeForge track 22) — *The greeting window does it today.*
+5. Default apps: web apps (Gmail, Google Calendar…), Any app…, Find more… (Javier, 10-27) — *defaultappsForge D-5 (Javier, 2026-10-27: "I cannot select among the apps, for email or calendar, chrome (gmail.com apps)"). Web apps as real choices where they handle links; any installed app for any job; nogForge searching for more. YouTube Music and Google Docs go to the App Library, not file defaults (they can't open your files).*
+6. Power & Lock (idle, sleep, lock screen) (hypeForge track 13)
+7. Keyboard (layout, repeat, the key chart) (hypeForge track 16)
+8. Typing Chinese, Japanese or Korean (input methods) (new) **Javier:** Yes, typing in 1.0; the OS in other languages comes later (Javier, 10-22).
+9. Mouse & Touchpad (hypeForge track 17) — *Touchpad matters on laptops.*
+10. Time & Language (hypeForge track 18)
+11. Users (hypeForge track 21)
+12. About this computer (hypeForge track 22) — *The greeting window does it today.*
 
 ### 07 · First boot — Jan – Feb 2027 (0/8 done)
 
@@ -168,7 +169,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 11. Fresh install lacks fakeroot and nog's signing key (KognogOS #9) — *Found by nog's VM test.*
 12. AUR builds work on an installed system (base-devel) (KognogOS #11) — *Fixed on main; close after the next disc build proves it.*
 13. The os-release hook errors inside every clean chroot (KognogOS #16) — *Seen when building packages on a KognogOS box.*
-14. Basic edition: the app list redone without KDE apps (KognogOS README) — *Today's lists date from the Plasma build.*
+14. Basic edition: the app list redone without KDE apps (KognogOS README) — *Picked 2026-10-27 (Javier: "all look good"): Chrome · Thunderbird (email + calendar) · imv (pictures) · mpv (music + video) · Mousepad (text) · Zathura (PDF) · Thunar (files) · Alacritty (terminal) · Xarchiver (archives) · the browser for maps · no phone app; OnlyOffice in Work. Alternatives offered in defaultappsForge. No KDE or GNOME pieces (D-56), smallest install (D-57).*
 15. Work edition (the old Office): the app list redone (KognogOS README) — *OnlyOffice, Obsidian, Thunderbird… minus the KDE pieces.* **Javier:** Renamed Work (Javier, 10-22).
 16. The Craft apps (storytold / ArtCraft): try them, then decide which join the recommended apps (Javier, 10-26) — *Javier, 2026-10-26: consider the Craft Suite for our recommended apps, after he tries them. About 15 apps, all open source (Apache-2.0), written in Rust: WordCraft, GridCraft, DeckCraft and PdfCraft (Word, Excel, PowerPoint and PDF style: the Work edition), plus PhotoCraft, LightCraft, VectorCraft, FilmCraft, EffectCraft, SoundCraft, DesignCraft, CADCraft and FigCraft (a creative set). Linux builds for each; the Craft Launcher installs and updates them all and is on the AUR (artcraft-launcher 0.8.1). Very young and moving daily (launcher 0.7 → 0.8.1 in two days), so: his try on this desktop (via nog), then a pick per edition: Work, the optional apps in installForge, or later (Full).*
 17. Chrome, Claude Desktop and Claude Terminal pre-selected; Brave no longer the default (KognogOS #14) — *Your decision of 10-07.*

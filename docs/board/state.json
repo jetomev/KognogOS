@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-27 21:46",
+ "taken": "2026-10-27 22:35",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -132,6 +132,7 @@
      "set-090",
      "set-091",
      "set-092",
+     "set-301",
      "set-093",
      "set-094",
      "gaps-201",
@@ -784,7 +785,7 @@
    "source": "Javier, 10-27",
    "suggest": "1.0",
    "pick": "1.0",
-   "note": "",
+   "note": "Javier, 10-27 after his login: \"Win key works, and when combined is not opening the launcher!!!\"",
    "new": true,
    "done": true,
    "doneAt": "2026-10-27T20:50:00Z",
@@ -810,8 +811,10 @@
    "source": "Javier, 10-27",
    "suggest": "1.0",
    "pick": "1.0",
-   "note": "",
+   "note": "Javier, 10-27 after his login: \"windows top bar looking perfect now\".",
    "new": true,
+   "done": true,
+   "doneAt": "2026-10-27T22:05:00Z",
    "order": 303
   },
   "disc-001": {
@@ -949,7 +952,7 @@
   "disc-013": {
    "area": "disc",
    "title": "Basic edition: the app list redone without KDE apps",
-   "detail": "Today's lists date from the Plasma build.",
+   "detail": "Picked 2026-10-27 (Javier: \"all look good\"): Chrome · Thunderbird (email + calendar) · imv (pictures) · mpv (music + video) · Mousepad (text) · Zathura (PDF) · Thunar (files) · Alacritty (terminal) · Xarchiver (archives) · the browser for maps · no phone app; OnlyOffice in Work. Alternatives offered in defaultappsForge. No KDE or GNOME pieces (D-56), smallest install (D-57).",
    "source": "KognogOS README",
    "suggest": "1.0",
    "pick": "1.0",
@@ -2862,6 +2865,17 @@
    "note": "",
    "new": false,
    "order": 122
+  },
+  "set-301": {
+   "area": "set",
+   "title": "Default apps: web apps (Gmail, Google Calendar…), Any app…, Find more…",
+   "detail": "defaultappsForge D-5 (Javier, 2026-10-27: \"I cannot select among the apps, for email or calendar, chrome (gmail.com apps)\"). Web apps as real choices where they handle links; any installed app for any job; nogForge searching for more. YouTube Music and Google Docs go to the App Library, not file defaults (they can't open your files).",
+   "source": "Javier, 10-27",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "",
+   "new": true,
+   "order": 301
   },
   "sway-171": {
    "area": "sway",
