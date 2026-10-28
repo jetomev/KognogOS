@@ -2,7 +2,7 @@
 
 *Written from the board's snapshot of 2026-10-27 20:44 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
-**153 ship in v1.0 · 78 come during the first year (1.x) · 6 dropped · 0 still open. The road: 49 of 148 steps done.**
+**153 ship in v1.0 · 78 come during the first year (1.x) · 6 dropped · 0 still open. The road: 50 of 151 steps done.**
 
 v1.0 ships the **Basic** and **Work** editions with four desktop looks — the floating-island bar (the default), the taskbar with Start, the floating panel with a pager, and the plain classic look — and a smaller set of colour themes. The two menu-bar looks, the top panel with a dock, and the Full, Gaming and Development editions come during the year.
 
@@ -86,7 +86,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 13. ✅ displayForge: the 'not tried yet' text during the countdown (displayForge 1.1.x) — *A small bug seen in screenshots.* **Javier:** Fixed 10-24 (F-8, forge-suite #121, 52b9a24): during the countdown the bar says 'Trying N changes on your screens'. Ships with displayForge's next release and its test run.
 14. ✅ workspaceForge: tested with one or two screens, and on a text console (workspaceForge Phase 2)
 
-### 04 · The four styles and their colours — Dec 2026 (0/7 done)
+### 04 · The four styles and their colours — Dec 2026 (1/10 done)
 
 *Rice, Windows 11, KDE and Classic, each reviewed piece by piece; then the colour themes that make the cut; then themeForge 1.0.*
 
@@ -95,8 +95,11 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 3. The floating-panel-with-a-pager look ships in 1.0 (hypeForge D-76)
 4. Classic style ships in 1.0 (hypeForge) — *The plain first look.*
 5. Full review of each style that ships: bar, launcher, tray, every pop-up (hypeForge Phase 12) — *Step by step, your look on each piece. The Rice first (started 10-27, checklist in hypeForge testing/): ✅ the bar · ✅ its icons wear the text colour in all 25 themes (D-119) · ✅ the launcher = COSMIC's App Library, the list saved as a theme option (D-118) · ✅ Quick Settings: one-colour icons + short sound names, every style (D-120) · found on the way: a switch brings the theme's own wallpaper (D-121), the volume chimes on letting go (D-122), the see-through strip under floating windows' title bars (F-87, live at next login) · ⏳ the calendar · then system pop-ups, clipboard, power, lists, Alt + Tab, notifications, windows · the tray + the whole look on your real desktop at the end. Then Windows 11, KDE, Classic.* **Javier:** Only what we will be shipping!
-6. Ship fewer colour themes in 1.0 and add the rest during the year (new) — *25 × every style is a lot to prove.*
-7. themeForge 1.0 released (GitHub + AUR) (themeForge Phase 3) — *The Look settings app.*
+6. ✅ Win alone opens the launcher; Win + anything else never does (Javier, 10-27) — *D-123 (Javier, 2026-10-27: "Can we try again using Win (solo) to open the launcher"). Measured on a hidden Sway: Win + a key was already fine, Win + a click or drag wasn't; our Sway's patch 5 fixes that (bench 8/8). Live at the next login.*
+7. No see-through strip under floating windows' title bars (Javier, 10-27) — *F-87 #131: our Sway's buttons cut the title bar's background into more pieces than Sway drew; patch 4. Bench: 1348 see-through pixels before, 0 after. Closes after the next login.*
+8. The Quick Search on Win + Space: search anything (apps, files, history…) (Javier, 10-27) — *D-123 (Javier, 2026-10-27: "a Quick Search in the top/middle of the screen, to search of anything (apps, files, history, whatnot, whatever)"). Mock first.*
+9. Ship fewer colour themes in 1.0 and add the rest during the year (new) — *25 × every style is a lot to prove.*
+10. themeForge 1.0 released (GitHub + AUR) (themeForge Phase 3) — *The Look settings app.*
 
 ### 05 · Passwords — Dec 2026 – Jan 2027 (0/8 done)
 
