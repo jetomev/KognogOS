@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-27 18:43",
+ "taken": "2026-10-27 20:44",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -774,6 +774,41 @@
    "new": true,
    "order": 62
   },
+  "desk-301": {
+   "area": "desk",
+   "title": "Win alone opens the launcher; Win + anything else never does",
+   "detail": "D-123 (Javier, 2026-10-27: \"Can we try again using Win (solo) to open the launcher\"). Measured on a hidden Sway: Win + a key was already fine, Win + a click or drag wasn't; our Sway's patch 5 fixes that (bench 8/8). Live at the next login.",
+   "source": "Javier, 10-27",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "",
+   "new": true,
+   "done": true,
+   "doneAt": "2026-10-27T20:50:00Z",
+   "order": 301
+  },
+  "desk-302": {
+   "area": "desk",
+   "title": "The Quick Search on Win + Space: search anything (apps, files, history…)",
+   "detail": "D-123 (Javier, 2026-10-27: \"a Quick Search in the top/middle of the screen, to search of anything (apps, files, history, whatnot, whatever)\"). Mock first.",
+   "source": "Javier, 10-27",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "",
+   "new": true,
+   "order": 302
+  },
+  "desk-303": {
+   "area": "desk",
+   "title": "No see-through strip under floating windows' title bars",
+   "detail": "F-87 #131: our Sway's buttons cut the title bar's background into more pieces than Sway drew; patch 4. Bench: 1348 see-through pixels before, 0 after. Closes after the next login.",
+   "source": "Javier, 10-27",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "",
+   "new": true,
+   "order": 303
+  },
   "disc-001": {
    "area": "disc",
    "title": "Rebuild the disc around Sway + hypeForge",
@@ -1484,7 +1519,7 @@
   "look-071": {
    "area": "look",
    "title": "Full review of each style that ships: bar, launcher, tray, every pop-up",
-   "detail": "Step by step, your look on each piece. The Rice first (started 10-27, checklist in hypeForge testing/): ✅ the bar · ✅ its icons wear the text colour in all 25 themes (D-119) · ✅ the launcher = COSMIC's App Library, the list saved as a theme option (D-118) · ⏳ Quick Settings · then calendar, system pop-ups, clipboard, power, lists, Alt + Tab, notifications, windows · the tray + the whole look on your real desktop at the end. Then Windows 11, KDE, Classic.",
+   "detail": "Step by step, your look on each piece. The Rice first (started 10-27, checklist in hypeForge testing/): ✅ the bar · ✅ its icons wear the text colour in all 25 themes (D-119) · ✅ the launcher = COSMIC's App Library, the list saved as a theme option (D-118) · ✅ Quick Settings: one-colour icons + short sound names, every style (D-120) · found on the way: a switch brings the theme's own wallpaper (D-121), the volume chimes on letting go (D-122), the see-through strip under floating windows' title bars (F-87, live at next login) · ⏳ the calendar · then system pop-ups, clipboard, power, lists, Alt + Tab, notifications, windows · the tray + the whole look on your real desktop at the end. Then Windows 11, KDE, Classic.",
    "source": "hypeForge Phase 12",
    "suggest": "1.0",
    "pick": "1.0",

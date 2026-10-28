@@ -668,5 +668,20 @@
  },
  "app-01": {
   "own": "the Craft apps (storytold), Javier 2026-10-26: his try first, then a pick per edition; KognogOS's own app-list decision"
+ },
+ "desk-301": {
+  "steps": [
+   "hypeforge:bced3234b0"
+  ]
+ },
+ "desk-302": {
+  "steps": [
+   "hypeforge:8a4c071bbf"
+  ]
+ },
+ "desk-303": {
+  "steps": [
+   "hypeforge:a4adf71ad7"
+  ]
  }
 }
