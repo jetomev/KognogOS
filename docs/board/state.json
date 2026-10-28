@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-27 20:44",
+ "taken": "2026-10-27 21:46",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -793,12 +793,14 @@
   "desk-302": {
    "area": "desk",
    "title": "The Quick Search on Win + Space: search anything (apps, files, history…)",
-   "detail": "D-123 (Javier, 2026-10-27: \"a Quick Search in the top/middle of the screen, to search of anything (apps, files, history, whatnot, whatever)\"). Mock first.",
+   "detail": "D-123/D-124 (Javier, 2026-10-27). Built: opens empty; as you type, Best match · Apps & Settings · Files (fd) · Browser history (Chrome, read-only) · Clipboard · Do (web search, = sums, > commands). Live on Win + Space since 10-27 evening; his try next.",
    "source": "Javier, 10-27",
    "suggest": "1.0",
    "pick": "1.0",
    "note": "",
    "new": true,
+   "done": true,
+   "doneAt": "2026-10-27T22:30:00Z",
    "order": 302
   },
   "desk-303": {
