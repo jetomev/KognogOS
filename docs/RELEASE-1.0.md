@@ -1,8 +1,8 @@
 # KognogOS 1.0 — the cut and the road
 
-*Written from the board's snapshot of 2026-10-27 22:35 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
+*Written from the board's snapshot of 2026-10-27 23:05 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
-**154 ship in v1.0 · 78 come during the first year (1.x) · 6 dropped · 0 still open. The road: 52 of 152 steps done.**
+**154 ship in v1.0 · 78 come during the first year (1.x) · 6 dropped · 0 still open. The road: 53 of 152 steps done.**
 
 v1.0 ships the **Basic** and **Work** editions with four desktop looks — the floating-island bar (the default), the taskbar with Start, the floating panel with a pager, and the plain classic look — and a smaller set of colour themes. The two menu-bar looks, the top panel with a dock, and the Full, Gaming and Development editions come during the year.
 
@@ -94,7 +94,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 2. The taskbar-with-Start look ships in 1.0 (hypeForge D-71) — *Your daily driver right now.*
 3. The floating-panel-with-a-pager look ships in 1.0 (hypeForge D-76)
 4. Classic style ships in 1.0 (hypeForge) — *The plain first look.*
-5. Full review of each style that ships: bar, launcher, tray, every pop-up (hypeForge Phase 12) — *Step by step, your look on each piece. The Rice first (started 10-27, checklist in hypeForge testing/): ✅ the bar · ✅ its icons wear the text colour in all 25 themes (D-119) · ✅ the launcher = COSMIC's App Library, the list saved as a theme option (D-118) · ✅ Quick Settings: one-colour icons + short sound names, every style (D-120) · found on the way: a switch brings the theme's own wallpaper (D-121), the volume chimes on letting go (D-122), the see-through strip under floating windows' title bars (F-87, live at next login) · ⏳ the calendar · then system pop-ups, clipboard, power, lists, Alt + Tab, notifications, windows · the tray + the whole look on your real desktop at the end. Then Windows 11, KDE, Classic.* **Javier:** Only what we will be shipping!
+5. Full review of each style that ships: bar, launcher, tray, every pop-up (hypeForge Phase 12) — *Step by step, your look on each piece. The Rice first (started 10-27, checklist in hypeForge testing/): ✅ the bar · ✅ its icons wear the text colour in all 25 themes (D-119) · ✅ the launcher = COSMIC's App Library (D-118) · ✅ Quick Settings: one-colour icons + short sound names (D-120) · ✅ the calendar: our own month, a click on a day opens your calendar (D-125) · ⏳ pieces 6–11 shot 10-27 night, no standard breaks, waiting for your look (sheet-6-11.png; Power's colourful icons a taste question) · then 12 windows, 3 the tray, 13 your real desktop. Found on the way: D-121, D-122, D-123 Win alone, D-124 Quick Search, F-87, F-88. Then Windows 11, KDE, Classic.* **Javier:** Only what we will be shipping!
 6. ✅ Win alone opens the launcher; Win + anything else never does (Javier, 10-27) — *D-123 (Javier, 2026-10-27: "Can we try again using Win (solo) to open the launcher"). Measured on a hidden Sway: Win + a key was already fine, Win + a click or drag wasn't; our Sway's patch 5 fixes that (bench 8/8). Live at the next login.* **Javier:** Javier, 10-27 after his login: "Win key works, and when combined is not opening the launcher!!!"
 7. ✅ No see-through strip under floating windows' title bars (Javier, 10-27) — *F-87 #131: our Sway's buttons cut the title bar's background into more pieces than Sway drew; patch 4. Bench: 1348 see-through pixels before, 0 after. Closes after the next login.* **Javier:** Javier, 10-27 after his login: "windows top bar looking perfect now".
 8. ✅ The Quick Search on Win + Space: search anything (apps, files, history…) (Javier, 10-27) — *D-123/D-124 (Javier, 2026-10-27). Built: opens empty; as you type, Best match · Apps & Settings · Files (fd) · Browser history (Chrome, read-only) · Clipboard · Do (web search, = sums, > commands). Live on Win + Space since 10-27 evening; his try next.*
@@ -114,7 +114,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 7. sudoForge: our own GPG passphrase prompt (sudoForge later) — *Drops a GNOME piece.*
 8. sudoForge: fold the session agent back into forgekit (sudoForge later)
 
-### 06 · The Settings apps — Jan 2027 (0/12 done)
+### 06 · The Settings apps — Jan 2027 (1/12 done)
 
 *The Mint-sized set, in the order you set on 10-07: sound, network, Bluetooth first.*
 
@@ -122,7 +122,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 2. networkForge: the Network & Wi-Fi app (hypeForge track 8) — *Named 2026-10-25 (D-117): saved networks, forget, hidden networks, details; VPN, hotspot, fixed IP in 1.x. Today: the network menu + nmtui.*
 3. bluetoothForge: the Bluetooth app (hypeForge track 9) — *Named 2026-10-25 (D-117): pair a new device (search, pair, trust), forget. Today: bluetui.*
 4. Default apps: defaultappsForge 1.0 after your run (defaultappsForge) — *Built 10-09, waiting on your run.*
-5. Default apps: web apps (Gmail, Google Calendar…), Any app…, Find more… (Javier, 10-27) — *defaultappsForge D-5 (Javier, 2026-10-27: "I cannot select among the apps, for email or calendar, chrome (gmail.com apps)"). Web apps as real choices where they handle links; any installed app for any job; nogForge searching for more. YouTube Music and Google Docs go to the App Library, not file defaults (they can't open your files).*
+5. ✅ Default apps: web apps (Gmail, Google Calendar…), Any app…, Find more… (Javier, 10-27) — *defaultappsForge D-5 (Javier, 2026-10-27: "I cannot select among the apps, for email or calendar, chrome (gmail.com apps)"). Web apps as real choices where they handle links; any installed app for any job; nogForge searching for more. YouTube Music and Google Docs go to the App Library, not file defaults (they can't open your files).* **Javier:** Built 10-27 night, all four pieces (defaultappsForge tests 44, nogForge --search): web apps for email, calendar, map and phone; Any app… and Find more… at the end of every list; YouTube Music and Google Docs into the App Library with one command. Waiting for your try in Settings → Default apps, then the 1.0 release.
 6. Power & Lock (idle, sleep, lock screen) (hypeForge track 13)
 7. Keyboard (layout, repeat, the key chart) (hypeForge track 16)
 8. Typing Chinese, Japanese or Korean (input methods) (new) **Javier:** Yes, typing in 1.0; the OS in other languages comes later (Javier, 10-22).
@@ -148,7 +148,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 
 *The disc can't build Sway in a home folder. A package, held back until our patches fit each new Sway. Moved here on 10-24 (Javier): the desktop and the styles decide the final set of patches, and until the disc nobody else runs it; this desktop is already safe (our build falls back to Arch's Sway when it doesn't fit).*
 
-1. Our Sway build as a KognogOS package (hypeForge D-111) — *Today it's built in your home folder; the disc needs a package.*
+1. Our Sway build as a KognogOS package (hypeForge D-111) — *Today it's built in your home folder; the disc needs a package.* **Javier:** 10-27 night: a draft package built (sits beside the normal Sway, shares no file with it; title bar bench 2/2, Win key bench 8/8). Nothing installed. Four choices for you: where it's published, how it follows Sway updates, the login starter finding it, who owns the login entries (hypeForge docs/research/2026-10-27-sway-package.md).
 2. Hold Sway updates until our patches fit the new version (new) — *So an Arch update never ships a desktop without its buttons.*
 3. Offer our patches to Sway upstream (new) — *The title bar buttons and the pointer position.*
 

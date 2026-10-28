@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-27 23:04",
+ "taken": "2026-10-27 23:05",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -2875,6 +2875,8 @@
    "pick": "1.0",
    "note": "Built 10-27 night, all four pieces (defaultappsForge tests 44, nogForge --search): web apps for email, calendar, map and phone; Any app… and Find more… at the end of every list; YouTube Music and Google Docs into the App Library with one command. Waiting for your try in Settings → Default apps, then the 1.0 release.",
    "new": true,
+   "done": true,
+   "doneAt": "2026-10-28T03:20:00Z",
    "order": 301
   },
   "sway-171": {
