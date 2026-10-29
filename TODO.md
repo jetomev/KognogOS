@@ -13,6 +13,7 @@
 ---
 
 ## Now
+- [x] **2026-10-28 evening: defaultappsForge 1.0.0 and nogForge 1.6.0 released** (GitHub + AUR after his installs; kognogos.org card) — board set-092 done, snapshot `25887db` (54/152)
 - [x] **Stage 04, 2026-10-28: Javier's tries all passed** — the Rice's pieces 6–11 approved (hypeForge D-126); Quick Search, the calendar day, the chime, defaultappsForge's run and nogForge's search all passed; next: his decisions one at a time, then two releases; board snapshot `11cd61f` (53/152)
 - [x] **Stage 04 "The four styles" started 2026-10-27** — the Rice first, piece by piece (look-071); the board brought current overnight: set-301 done, sway-171 drafted, links in step, snapshot `2068c96` (53 / 152)
 - [ ] **The manual: one source, two places** (Javier, 2026-10-25: *"two places for the manual"*; board rel-310, stage 12): the repos' text files (hypeForge's Help guide, each app's manual) shown offline in the system (the Help app, each app's M key) and online as a Docs section on kognogos.org; a full pass when the apps stop changing. **Done 2026-10-25:** the 19 old design/look artifacts checked against the repos, 11 archived (forge-suite `8fd12d9`), all 19 deleted on his OK (*"yes, delete all 19"*), every link repointed to the GitHub copies; the boards and the trademark brief stay
