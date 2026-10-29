@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-28 18:55",
+ "taken": "2026-10-28 20:05",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -2518,12 +2518,14 @@
   "set-092": {
    "area": "set",
    "title": "Default apps: defaultappsForge 1.0 after your run",
-   "detail": "Built 10-09, waiting on your run.",
+   "detail": "Released 10-28: defaultappsForge 1.0.0 on GitHub and the AUR (a new package), after your run and your install test. Web apps (Gmail, Google Calendar), Any app…, Find more… (nogForge 1.6.0, released the same hour). Its card is on kognogos.org.",
    "source": "defaultappsForge",
    "suggest": "1.0",
    "pick": "1.0",
    "note": "",
    "new": false,
+   "done": true,
+   "doneAt": "2026-10-29T00:05:00Z",
    "order": 92
   },
   "set-093": {

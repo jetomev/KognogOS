@@ -1,8 +1,8 @@
 # KognogOS 1.0 — the cut and the road
 
-*Written from the board's snapshot of 2026-10-28 18:55 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
+*Written from the board's snapshot of 2026-10-28 20:05 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
-**154 ship in v1.0 · 78 come during the first year (1.x) · 6 dropped · 0 still open. The road: 53 of 152 steps done.**
+**154 ship in v1.0 · 78 come during the first year (1.x) · 6 dropped · 0 still open. The road: 54 of 152 steps done.**
 
 v1.0 ships the **Basic** and **Work** editions with four desktop looks — the floating-island bar (the default), the taskbar with Start, the floating panel with a pager, and the plain classic look — and a smaller set of colour themes. The two menu-bar looks, the top panel with a dock, and the Full, Gaming and Development editions come during the year.
 
@@ -114,14 +114,14 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 7. sudoForge: our own GPG passphrase prompt (sudoForge later) — *Drops a GNOME piece.*
 8. sudoForge: fold the session agent back into forgekit (sudoForge later)
 
-### 06 · The Settings apps — Jan 2027 (1/12 done)
+### 06 · The Settings apps — Jan 2027 (2/12 done)
 
 *The Mint-sized set, in the order you set on 10-07: sound, network, Bluetooth first.*
 
 1. Sound app (outputs, inputs, each app's volume) (hypeForge track 7) — *Today: wiremix, themed.*
 2. networkForge: the Network & Wi-Fi app (hypeForge track 8) — *Named 2026-10-25 (D-117): saved networks, forget, hidden networks, details; VPN, hotspot, fixed IP in 1.x. Today: the network menu + nmtui.*
 3. bluetoothForge: the Bluetooth app (hypeForge track 9) — *Named 2026-10-25 (D-117): pair a new device (search, pair, trust), forget. Today: bluetui.*
-4. Default apps: defaultappsForge 1.0 after your run (defaultappsForge) — *Built 10-09, waiting on your run.*
+4. ✅ Default apps: defaultappsForge 1.0 after your run (defaultappsForge) — *Released 10-28: defaultappsForge 1.0.0 on GitHub and the AUR (a new package), after your run and your install test. Web apps (Gmail, Google Calendar), Any app…, Find more… (nogForge 1.6.0, released the same hour). Its card is on kognogos.org.*
 5. ✅ Default apps: web apps (Gmail, Google Calendar…), Any app…, Find more… (Javier, 10-27) — *defaultappsForge D-5 (Javier, 2026-10-27: "I cannot select among the apps, for email or calendar, chrome (gmail.com apps)"). Web apps as real choices where they handle links; any installed app for any job; nogForge searching for more. YouTube Music and Google Docs go to the App Library, not file defaults (they can't open your files).* **Javier:** Built 10-27 night, all four pieces (defaultappsForge tests 44, nogForge --search): web apps for email, calendar, map and phone; Any app… and Find more… at the end of every list; YouTube Music and Google Docs into the App Library with one command. Waiting for your try in Settings → Default apps, then the 1.0 release.
 6. Power & Lock (idle, sleep, lock screen) (hypeForge track 13)
 7. Keyboard (layout, repeat, the key chart) (hypeForge track 16)
