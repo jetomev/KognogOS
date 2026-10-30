@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-29 17:41",
+ "taken": "2026-10-30 16:39",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -279,7 +279,7 @@
    "source": "Javier, 10-26",
    "suggest": "1.0",
    "pick": "1.0",
-   "note": "10-29: all 13 installed through nog for his try (newest versions after a nog update) and set as his defaults for office files, PDFs, PSD, SVG, layout and CAD files; players and viewers kept. Credit: ArtCraft (github.com/storytold). Waiting on his verdict.",
+   "note": "10-29: all 13 installed through nog for his try (newest versions after a nog update) and set as his defaults for office files, PDFs, PSD, SVG, layout and CAD files; players and viewers kept. Credit: ArtCraft (github.com/storytold). 10-30, Javier: too early to decide; the verdict comes when we review the list of apps for KognogOS's first release. He keeps using them until then.",
    "new": true,
    "order": 14.5
   },
