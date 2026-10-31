@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-30 16:39",
+ "taken": "2026-10-30 20:10",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -1527,7 +1527,7 @@
   "look-071": {
    "area": "look",
    "title": "Full review of each style that ships: bar, launcher, tray, every pop-up",
-   "detail": "Step by step, your look on each piece. The Rice first (started 10-27, checklist in hypeForge testing/): ✅ the bar · ✅ its icons wear the text colour in all 25 themes (D-119) · ✅ the launcher = COSMIC's App Library (D-118) · ✅ Quick Settings: one-colour icons + short sound names (D-120) · ✅ the calendar: our own month, a click on a day opens your calendar (D-125) · ✅ pieces 6–11 approved 10-28: system, clipboard, power, lists, Alt + Tab, notifications; Power keeps its colourful icons, the tray stays one colour (D-126) · then 12 windows, 3 the tray, 13 your real desktop. Found on the way: D-121, D-122, D-123 Win alone, D-124 Quick Search, F-87, F-88. Then Windows 11, KDE, Classic.",
+   "detail": "Step by step, your look on each piece. The Rice first (started 10-27, checklist in hypeForge testing/): ✅ the bar · ✅ its icons wear the text colour in all 25 themes (D-119) · ✅ the launcher = COSMIC's App Library (D-118) · ✅ Quick Settings: one-colour icons + short sound names (D-120) · ✅ the calendar: our own month, a click on a day opens your calendar (D-125) · ✅ pieces 6–11 approved 10-28: system, clipboard, power, lists, Alt + Tab, notifications; Power keeps its colourful icons, the tray stays one colour (D-126) · ✅ 12 windows approved 10-30 after two fixes: the floating title bar's edge as thick as the frame, its title in bold (D-129) · then 3 the tray (in review 10-30), 13 your real desktop. Found on the way: D-121, D-122, D-123 Win alone, D-124 Quick Search, F-87, F-88. Then Windows 11, KDE, Classic.",
    "source": "hypeForge Phase 12",
    "suggest": "1.0",
    "pick": "1.0",
