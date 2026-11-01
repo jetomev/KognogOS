@@ -13,6 +13,7 @@
 ---
 
 ## Now
+- [ ] **Ship KognogOS's tier list in a package, not only through the installer** ([#17](https://github.com/jetomev/KognogOS/issues/17), found 2026-10-31): nog 2.1.0 slimmed its own default, so both machines got `tier-pins.toml.pacnew` beside our list; merging it would drop the nvidia set out of Tier 1. Keep ours; a `kognogos-tier-pins` (or `kognogos-config`) package, plus a rule with nog for which file wins (nog side: [nog#66](https://github.com/jetomev/nog/issues/66))
 - [x] **2026-10-28 evening: defaultappsForge 1.0.0 and nogForge 1.6.0 released** (GitHub + AUR after his installs; kognogos.org card) — board set-092 done, snapshot `25887db` (54/152)
 - [x] **Stage 04, 2026-10-28: Javier's tries all passed** — the Rice's pieces 6–11 approved (hypeForge D-126); Quick Search, the calendar day, the chime, defaultappsForge's run and nogForge's search all passed; next: his decisions one at a time, then two releases; board snapshot `11cd61f` (53/152)
 - [x] **Stage 04 "The four styles" started 2026-10-27** — the Rice first, piece by piece (look-071); the board brought current overnight: set-301 done, sway-171 drafted, links in step, snapshot `2068c96` (53 / 152)
