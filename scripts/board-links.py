@@ -38,14 +38,16 @@ DIRS = {"nog": "nog", "nogforge": "forge-suite/nogforge", "grubforge": "forge-su
         "bitlaforge": "forge-suite/bitlaforge", "forge-suite": "forge-suite", "hypeforge": "forge-suite/hypeforge",
         "displayforge": "forge-suite/displayforge", "forgekit": "forge-suite/forgekit", "sudoforge": "forge-suite/sudoforge",
         "workspaceforge": "forge-suite/workspaceforge", "defaultappsforge": "forge-suite/defaultappsforge",
-        "themeforge": "forge-suite/themeforge", "walletforge": "forge-suite/walletforge", "nightforge": "forge-suite/nightforge"}
+        "themeforge": "forge-suite/themeforge", "walletforge": "forge-suite/walletforge", "nightforge": "forge-suite/nightforge",
+        "cyberbrawling": "cyberbrawling-my-way-to-my-love"}  # the game that ships with v1.0 (Javier, 2026-11-01)
 NAMES = {"nog": "nog", "nogforge": "nogForge", "grubforge": "grubForge", "alacrittyforge": "alacrittyForge",
          "bitlaforge": "bitlaForge", "forge-suite": "Forge Suite", "hypeforge": "hypeForge", "displayforge": "displayForge",
          "forgekit": "forgekit", "sudoforge": "sudoForge", "workspaceforge": "workspaceForge",
          "defaultappsforge": "defaultappsForge", "themeforge": "themeForge", "walletforge": "walletForge",
-         "nightforge": "nightForge"}
+         "nightforge": "nightForge", "cyberbrawling": "Cyberbrawling"}
 REPOS = {"jetomev/nog": "nog", "jetomev/nogforge": "nogforge", "jetomev/grubforge": "grubforge",
-         "jetomev/alacrittyforge": "alacrittyforge", "jetomev/bitlaforge": "bitlaforge", "jetomev/forge-suite": "forge-suite"}
+         "jetomev/alacrittyforge": "alacrittyforge", "jetomev/bitlaforge": "bitlaforge", "jetomev/forge-suite": "forge-suite",
+         "jetomev/cyberbrawling-my-way-to-my-love": "cyberbrawling"}
 
 
 def board_tool():

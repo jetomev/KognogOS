@@ -252,6 +252,7 @@ Every pending item across KognogOS, nog and the Forge Suite — 207 of them from
 - 🎨 **Four desktop looks in v1.0** — the floating-island bar (the KognogOS default), the taskbar with Start, the floating panel with a pager, and the plain classic look; the two menu-bar looks and the top panel with a dock come during the year
 - 🛡 **The test desktop now runs KognogOS's own tier list** (125 Tier 1 and 44 Tier 2 pins) instead of nog's small default, so we test what we ship
 - 🧰 **Decided:** yay as the AUR helper, Flatpak and Flathub ready out of the box, GitHub as the one place for feedback for now
+- 🎮 **A game in v1.0** — [Cyberbrawling my way to my love!](https://github.com/jetomev/cyberbrawling-my-way-to-my-love), our own open-source side-scrolling brawler (Godot 4, no blood but real pain), finished by 21 March 2027 and on the disc and in the Games menu at launch; which editions carry it is decided with the rest of the 1.0 app list
 
 ### Unreleased — Boot-to-prompt identity
 

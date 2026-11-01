@@ -1,5 +1,5 @@
 {
- "taken": "2026-10-30 20:10",
+ "taken": "2026-11-01 18:11",
  "board": "https://claude.ai/artifact/6UswcvpQ4EnWek5iVtBy5G",
  "road": {
   "open": [],
@@ -250,7 +250,9 @@
      "rel-310",
      "rel-176",
      "rel-177",
-     "rel-178"
+     "rel-178",
+     "disc-039",
+     "disc-040"
     ],
     "key": "s12",
     "name": "The release kit",
@@ -269,7 +271,7 @@
     "why": "Two years after the wish that started it."
    }
   ],
-  "updated": "2026-10-25T22:00:00.000Z"
+  "updated": "2026-11-01T23:10:00.000Z"
  },
  "items": {
   "app-01": {
@@ -1240,6 +1242,28 @@
    "done": true,
    "doneAt": "2026-10-22T19:00:00.000Z",
    "order": 38
+  },
+  "disc-039": {
+   "area": "disc",
+   "title": "Cyberbrawling my way to my love!: our own game, finished and on the AUR in time for v1.0",
+   "detail": "Javier, 2026-11-01: his own side-scrolling street brawler ships with KognogOS 1.0. Public and open source (GPL-3.0 code, CC BY-SA 4.0 art), Godot 4, ten levels from neon to grit, no blood but real pain, keyboard and gamepad. Its own dates: level 1 playable Sun 13 Dec 2026, finished by Sun 21 Mar 2027 at the latest; then v1.0.0, the AUR package after Javier's local test, and a launcher entry. Built in its own project (github.com/jetomev/cyberbrawling-my-way-to-my-love); this item ticks when its last two steps do.",
+   "source": "Javier, 2026-11-01",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "",
+   "new": true,
+   "order": 39
+  },
+  "disc-040": {
+   "area": "disc",
+   "title": "The game on the disc: in the packages list and the Games menu; which editions get it, decided at the 1.0 app-list review",
+   "detail": "Javier, 2026-11-01: 'Yes, add it' to KognogOS's own road. Once the game is on the AUR (disc-039): add it to the disc's package list (built into the local repo like our other AUR-only packages), give it a Games entry in hypeForge's launcher, and decide Basic, Work or both at the same app-list review as the Craft apps (app-01).",
+   "source": "Javier, 2026-11-01",
+   "suggest": "1.0",
+   "pick": "1.0",
+   "note": "",
+   "new": true,
+   "order": 40
   },
   "fnd-01": {
    "area": "rel",

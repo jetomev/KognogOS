@@ -691,5 +691,14 @@
    "defaultappsforge:a1d769ae90",
    "defaultappsforge:966d5ae5f5"
   ]
+ },
+ "disc-039": {
+  "steps": [
+   "cyberbrawling:6b950fa322",
+   "cyberbrawling:7d838e8c55"
+  ]
+ },
+ "disc-040": {
+  "own": "the game on the disc and in the Games menu (Javier, 2026-11-01); which editions is KognogOS's own app-list decision, with app-01"
  }
 }

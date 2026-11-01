@@ -1,8 +1,8 @@
 # KognogOS 1.0 — the cut and the road
 
-*Written from the board's snapshot of 2026-10-30 20:10 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
+*Written from the board's snapshot of 2026-11-01 18:11 by `scripts/board-release-doc.py` — do not edit by hand. The live record is Javier's planning board (private). He judged every pending item there (2026-10-21) and ordered the road (2026-10-21/22).*
 
-**154 ship in v1.0 · 78 come during the first year (1.x) · 6 dropped · 0 still open. The road: 54 of 152 steps done.**
+**156 ship in v1.0 · 78 come during the first year (1.x) · 6 dropped · 0 still open. The road: 54 of 154 steps done.**
 
 v1.0 ships the **Basic** and **Work** editions with four desktop looks — the floating-island bar (the default), the taskbar with Start, the floating panel with a pager, and the plain classic look — and a smaller set of colour themes. The two menu-bar looks, the top panel with a dock, and the Full, Gaming and Development editions come during the year.
 
@@ -209,7 +209,7 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 8. Test on a laptop (Intel or AMD graphics, battery, Wi-Fi) (new) — *Everything so far ran on this NVIDIA desktop.*
 9. Laptops: install the first full beta ISO on a laptop and try it — what's missing decides 1.0 or 1.x (the cut, 10-21) — *Wi-Fi, touchpad, brightness, battery, lid, sleep: judged on real hardware, not on paper.* **Javier:** Javier, 10-22: move it to when we have the first ISO beta, with everything, for me to install on a laptop and try.
 
-### 12 · The release kit — late Mar – early Apr 2027 (0/10 done)
+### 12 · The release kit — late Mar – early Apr 2027 (0/12 done)
 
 *Everything a stranger needs before they download: the legal and privacy lines, the site, the guide, the ISO's home and signature.*
 
@@ -223,6 +223,8 @@ v1.0 ships the **Basic** and **Work** editions with four desktop looks — the f
 8. Where the ISO is downloaded from (hosting) (KognogOS Phase 5)
 9. Checksums and a signature for the ISO (KognogOS Phase 5)
 10. kognogos.org: a download page and the release notes (KognogOS Phase 5)
+11. Cyberbrawling my way to my love!: our own game, finished and on the AUR in time for v1.0 (Javier, 2026-11-01) — *Javier, 2026-11-01: his own side-scrolling street brawler ships with KognogOS 1.0. Public and open source (GPL-3.0 code, CC BY-SA 4.0 art), Godot 4, ten levels from neon to grit, no blood but real pain, keyboard and gamepad. Its own dates: level 1 playable Sun 13 Dec 2026, finished by Sun 21 Mar 2027 at the latest; then v1.0.0, the AUR package after Javier's local test, and a launcher entry. Built in its own project (github.com/jetomev/cyberbrawling-my-way-to-my-love); this item ticks when its last two steps do.*
+12. The game on the disc: in the packages list and the Games menu; which editions get it, decided at the 1.0 app-list review (Javier, 2026-11-01) — *Javier, 2026-11-01: 'Yes, add it' to KognogOS's own road. Once the game is on the AUR (disc-039): add it to the disc's package list (built into the local repo like our other AUR-only packages), give it a Games entry in hypeForge's launcher, and decide Basic, Work or both at the same app-list review as the Craft apps (app-01).*
 
 ### 13 · Launch — the week of 19 April 2027 (0/3 done)
 
