@@ -51,3 +51,6 @@ An Arch-based Linux distribution where updates wait by risk: every package sits 
 - The README stays accurate top to bottom at every commit; parts that still describe the Plasma build are marked **†** until reworked. Roadmap and changelog newest first; `docs/CHANGELOG.md` holds the full history.
 - `config/os-release` carries the version: bump it together with the tag.
 - `docs/where-we-stand.md` is the public security page: re-check every claim in it against the AUR and GitHub before saying it is current.
+
+## Rules with their words (moved from memory, 2026-11-09)
+- **Config export ships only what's in use** (Javier, 2026-04-20; **original message not seen**, quoted from the memory note written then): "Only use what's in use (selected), the rest is noise."
