@@ -3,3 +3,6 @@ nog/target/
 __pycache__/
 logs/
 iso/chroot/
+
+# Old install discs set aside before a new build (11-11): 5.7 GB each, kept on this computer, never in git
+iso/keep-*/
